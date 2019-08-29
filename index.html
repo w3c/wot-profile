@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="tablestyle.css">
+<title>Web of Things (WoT): WoT Profiles</title>
+<script class="remove"
+    src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
+<script class="remove">
+	var respecConfig = {
+		lint : {
+			"no-headingless-sections" : false,
+		},
+		specStatus : "base",
+		noRecTrack : "true",
+		maxTocLevel : 6,
+		processVersion : 2017,
+		shortName : "wot--profile",
+		copyrightStart : 2018,
+		wg : "Web of Things Working Group",
+		wgURI : "https://www.w3.org/WoT/WG/",
+		wgPublicList : "public-wot-wg",
+		edDraftURI : "https://w3c.github.io/wot-profile/",
+		githubAPI : "https://api.github.com/repos/w3c/wot-profile",
+		issueBase : "https://www.github.com/w3c/wot-profile/issues",
+		editors : [ {
+			name : "Michael Lagally",
+			w3cid : "47166",
+			company : "Oracle Corp.",
+			companyURL : "https://www.oracle.com/"
+		} ],
+
+		otherLinks : [
+				{
+					key : "Contributors",
+					data : [ {
+						value : "In the GitHub repository",
+						href : "https://github.com/w3c/wot-security/graphs/contributors"
+					} ]
+				}, {
+					key : "Repository",
+					data : [ {
+						value : "We are on GitHub",
+						href : "https://github.com/w3c/wot-profile/"
+					}, {
+						value : "File a bug",
+						href : "https://github.com/w3c/wot-profile/issues"
+					}, {
+						value : "Contribute",
+						href : "https://github.com/w3c/wot-profile/pulls"
+					} ]
+				} ],
+		localBiblio : {
+			"JSON-SCHEMA" : {
+				title : "JSON Schema Validation: A Vocabulary for Structural Validation of JSON",
+				href : "https://tools.ietf.org/html/draft-handrews-json-schema-validation-01",
+				authors : [ "Austin Wright", "Henry Andrews", "Geraint Luff" ],
+				status : "Internet-Draft",
+				date : "19 March 2018",
+				publisher : "IETF"
+			},
+			"ISO-6709" : {
+				title : "ISO-6709:2008 : Standard representation of geographic point location by coordinates",
+				href : "https://www.iso.org/standard/39242.html",
+				status : "Published",
+				date : "2008-07",
+				publisher : "ISO"
+			},
+
+		}
+	};
+</script>
+</head>
+<body>
+    <section id="abstract">
+        <p>The W3C WoT Thing Architecture [[wot-architecture]] and
+            WoT Thing Description [[wot-thing-description]] define a
+            powerful description mechanism and a format to describe
+            myriads of very different devices, which may be connected
+            over various protocols. The format is very flexible and open
+            and puts very few normative requirements on devices that
+            implement it.</p>
+
+        <p>
+            However, this flexibility de-facto prevents
+            interoperability, since, without additional <strong>rules</strong>,
+            it allows implementers to make many choices that do not
+            provide <strong>guarantees</strong> of common behavior
+            between implementations.
+        </p>
+        <p>
+            These rules have to be prescriptive, to ensure that
+            compliant implementations satisfy the semantic guarantees,
+            that are implied by them. We call this set of rules a <a>Profile</a>.
+        
+        <p>
+            The <strong>WoT Profile Specification</strong> as defined in
+            the present document serves two purposes:
+        </p>
+        <ul>
+            <li>It defines a generic <strong>Profiling
+                    Mechanism</strong> which provides a mechanism to describe a
+                profile in an unambiguous way. This mechanism can be
+                used to define additional profiles.
+            </li>
+            <li>In addition it defines a <strong><a>Core
+                        Profile</a></strong> of the Thing Description for use with
+                the HTTP(S) and selected notification protocols. The <a>Core
+                    Profile</a> formalizes the results of several plug-fests
+                that were conducted by the WoT Interest Group and of
+                tests that were conducted as part of the development. It
+                is expected that additional profiles for thing templates
+                and other protocols will be defined in the near future.
+            </li>
+        </ul>
+        <p>
+            Devices that constrain their use of the Thing Description to
+            the <a>WoT Core Profile</a> can interoperate with each other
+            out-of-the-box.
+        </p>
+        <p>A later version of this document will define additional
+            profiles:</p>
+        <ul>
+            <li><strong>Thing Template Profile</strong>
+                <p>
+                    The <a>Thing Template Profile</a> enables to apply
+                    the vocabulary of the <a>Thing Description</a>
+                    Specification for defining a common interface, that
+                    can be implemented by different things. It selects
+                    an appropriate subset to describe <strong>classes</strong>
+                    of things that share the same data model.
+                </p></li>
+
+            <li><strong>Digital Twin Profile</strong>
+                <p>
+                    The <a>Digital Twin Profile</a> allows defining a
+                    virtual model of a thing or a group of things.
+                </p></li>
+        </ul>
+        <p>Profiles are is not exclusive, they can overlap or
+            include others.
+    </section>
+
+    <section id='sotd'></section>
+
+    <section id="intro">
+        <!--  h1 id="w3c-web-of-things-a-wot--profile-for-http-rest">W3C Web of Things: A WoT <a>Core Profile</a> for HTTP/REST</h1-->
+
+        <h1 id="introduction">Introduction</h1>
+        <p>
+            The W3C WoT Architecture [[wot-architecture]] and the WoT
+            Thing Description [[wot-thing-description]] (<a
+                href="https://w3c.github.io/wot-thing-description">https://w3c.github.io/wot-thing-description</a>)
+            has been developed as a versatile format, that allows
+            describing the interactions between multiple devices and
+            protocols.
+
+        </p>
+        <p>
+            This flexibility permits an easy integration of new device
+            types and protocols, however it risks interoperability,
+            since there are <em>no guarantees</em> that two devices
+            which are formally spec-compliant, will be able to
+            communicate.
+        </p>
+        <p>To increase adoption of the WoT specifications,
+            interoperability between on premise devices, edge devices
+            and the cloud is essential. Even if every manufacturer is
+            implementing the current Thing Description specification in
+            full flexibility, there is no interoperability guarantee;
+            many choices are still left to the implementations and there
+            are very few normative requirements that a device has to
+            fulfill.</p>
+
+        <section>
+            <h3>Deployment Scenarios</h3>
+
+            <p>A Thing Description can be used in two fundamentally
+                different deployment scenarios:</p>
+            <ul>
+                <li>a "brown-field" scenario, where it is created
+                    to describe the interactions with existing systems.</li>
+
+                <li>a "green-field" scenario, where a device model
+                    and a thing description are developed together.</li>
+            </ul>
+
+            <p>
+                For green field deployments, where the implementations
+                are being carried out and corresponding thing
+                descriptions are being created, it is easier to achieve
+                full interoperability by using a small, extensible <a>Core
+                    Profile</a>.
+            </p>
+
+            <p>In the brown field area, due to the nature of
+                existing deployments and protocols, a broad spectrum of
+                variations and potentially high complexity of thing
+                descriptions inhibits interoperability and will most
+                likely lead to additional profiles of the TD and
+                domain-specific thing consumer implementations.</p>
+
+            <p>
+                The WoT <a>Core Profile</a> can be used by green field
+                deployments and gives guidance to new implementers of
+                the WoT specifications. It has already proved in
+                brown-field scenarios in the plug-fests, where existing
+                devices, that already existed as products, prototypes or
+                demonstrators, were described with Thing Descriptions
+                that are constrained to the <a>Core Profile</a>.
+            </p>
+
+        </section>
+        <section id="why-profile">
+            <h2 id="why-define-a-core-profile">
+                Why a <a>Core Profile</a>?
+            </h2>
+
+            <p>
+                During the recent WoT plug-fests there were many
+                de-facto agreements on the use of a small constrained
+                subset of interaction patterns and protocol choices.
+                These de-facto agreements select a common subset of the
+                WoT <a>Thing Description specification</a>, based on
+                proven interoperability among manufacturers.
+            </p>
+            <p>
+                The aim of this specification is to formalize these
+                agreements by defining a <strong>WoT <a>Core
+                        Profile</a></strong> based on the choices that were made by
+                the implementers of plug fest devices.
+            </p>
+            <p>
+                The <a>WoT Core Profile</a> contains additional
+                normative requirements that MUST be satisfied by devices
+                to be compliant to the profile.
+            </p>
+            <figure id="WoT Core Profile">
+                <img src="images/WoT Core Profile.png"
+                    class="wot-profiles" alt="WoT Core Profile" />
+                <figcaption>WoT Core Profile</figcaption>
+            </figure>
+            <p>
+                Adoption of the <a>WoT Core Profile</a> will
+                significantly limit the implementation burden of device
+                and cloud implementors.
+            </p>
+            <p>
+                The <a>WoT Core Profile</a> was defined with the
+                following main goals:
+            </p>
+            <ul>
+                <li>guarantee interoperability among all
+                    implementations of the profile.</li>
+                <li>limit the implementation complexity for
+                    resource constrained devices.</li>
+                <li>ensure that a thing description is also useful
+                    for a human reader.</li>
+            </ul>
+
+            <p>It makes choices on the required metadata fields as
+                well as the supported interactions and protocol
+                endpoints. It introduces some constraints on data
+                schemas for properties and actions which are required
+                for resource constrained devices in real-world
+                deployments. The format does not forbid the use of
+                additional elements of the TD for vendor specific
+                extensions, however this will impact interoperability.</p>
+        </section>
+        <section>
+            <h2 id="out-of-the-box-interoperability">Out-of-the-box
+                interoperability</h2>
+            <p>
+                Devices, which implement the <a>Core Profile</a>, are <strong>out-of-the-box
+                    interoperable</strong> with other <a>Core Profile</a>em>
+                compliant devices. Furthermore, the <a>Core Profile</a>
+                simplifies device validation and compliance testing
+                since a corresponding conformance test suite can be
+                defined.
+            </p>
+            <section class="note">
+                It is also a goal of the <a>WoT Core Profile</a> to
+                ensure that compliant files can be understood by humans
+                - therefore descriptions, dates, and author fields are
+                either mandatory or highly recommended.
+            </section>
+        </section>
+        <section>
+            <h2>Structure of this document</h2>
+            <section class="ednote">to be added.</section>
+        </section>
+    </section>
+    <section id="terminology">
+        <h2 id="terminology">Terminology</h2>
+        <p>This specification uses the same terminology as the WoT
+            Architecture and Thing Description specifications.</p>
+        <p>
+            For convenience of the reader, we use the terms <em>keyword</em>
+            and <em>field</em> for the linguistic notion <em>vocabulary term</em>
+            as defined in the <a>Thing Description Specification</a>.
+        </p>
+        <p>
+            We use the terms <em>device</em> and <em>thing</em> in an
+            interchangeable manner.
+        </p>
+        <p>
+            The keywords &quot;MUST&quot;, &quot;MUST NOT&quot;,
+            &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL
+            NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;,
+            &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and
+            &quot;OPTIONAL&quot; in this document are to be interpreted
+            as described in RFC 2119. (<a
+                href="https://www.ietf.org/rfc/rfc2119.txt">https://www.ietf.org/rfc/rfc2119.txt</a>)
+        </p>
+        <h4 id="additional-definitions-">Additional Definitions:</h4>
+        <dl>
+            <dt>
+                <dfn>Digital Twin Profile</dfn>
+            </dt>
+            <dd>A profile for defining a virtual representation of
+                a thing or a group of things.</dd>
+            <dt>
+                <dfn>Thing Template Profile</dfn>
+            </dt>
+            <dd>A profile for defining a class of things that share
+                the same Data Model.</dd>
+            <dt>
+                <dfn>TD Specification</dfn>
+            </dt>
+            <dd>
+                Synonym for The WoT <a>Thing Description
+                    Specification</a>.
+            </dd>
+            <dt>
+                <dfn>Thing Description Specification</dfn>
+            </dt>
+            <dd>The WoT Thing Description Specification
+                [[wot-thing-description]].</dd>
+            <dt>
+                <dfn>Thing Description</dfn>
+            </dt>
+            <dd>A Data Model that conforms to the Thing Description
+                specification [[wot-thing-description]].</dd>
+            <dt>
+            <dt>
+                <dfn>Core Data Model</dfn>
+            </dt>
+            <dd>
+                A Data Model that conforms to the subset of the Thing
+                Description specification [[wot-thing-description]] as
+                defined in section <a href="wot-core-datamodel"></a>.
+            </dd>
+            <dt>
+
+                <dfn> Core Profile </dfn>
+            </dt>
+            <dd>
+                Synonym for <a>WoT Core Profile</a>.
+            </dd>
+            <dt>
+                <dfn>Core TD</dfn>
+            </dt>
+            <dd>
+                Synonym for <a>Core Thing Description</a>.
+            </dd>
+            <dt>
+                <dfn>Core Thing Description</dfn>
+            </dt>
+            <dd>
+                A Thing Description that conforms to the <a>Core
+                    Profile</a>.
+            </dd>
+            <dt>
+                <dfn>Profile</dfn>
+            </dt>
+            <dd>A set of prescriptive rules, to ensure that
+                compliant implementations satisfy the semantic
+                guarantees that are implied by them.
+            <dt>
+                <dfn>WoT Core Profile</dfn>
+            </dt>
+            <dd>The subset of the Thing Description specification
+                defined by the present document.</dd>
+        </dl>
+    </section>
+
+    <!-- Profiling mechanism -->
+
+    <section id="profiling mechanism">
+        <h2 id="the-profiling-profile">Profiling Mechanism</h2>
+        <p>
+            This section describes a generic mechanism to define a
+            profile of the <a>TD specification</a> in a unambiguous way.
+        </p>
+        <p>
+            The W3C WoT <a>Thing Description</a> specification defines a
+            formal language, i.e. a set of vocabulary terms (keywords),
+            a set of classes that are built from these keywords, and a
+            set of additional rules, that define constraints on
+            permitted values and keyword presence (mandatory / optional)
+            dependent on the context where the keyword is used. In
+            addition the TD specification defines relationships and
+            corresponding cardinalities between these classes.
+        </p>
+        <p>
+            The <a>TD specification</a> already has some constraints,
+            but there is a wide variety of variations that are left to
+            the interpretation or the discretion of an implementer. The
+            rationale for the <a>Core Profile</a> is not to forbid
+            complex things, rather to enable statements like:
+        </p>
+
+        <ul>
+            <li><cite>If you constrain your TD to the <a>Core
+                        Profile</a>, all other devices that conform the <a>Core
+                        Profile</a> can interoperate with it out of the box.
+            </cite></li>
+            <li><cite>If you have additional needs your
+                    device is free to implement other profiles or
+                    add-ons at your own choice, but other devices that
+                    only implement the <a>Core Profile</a> will most
+                    likely not be able to use these additions.”
+            </cite></li>
+        </ul>
+
+        <section>
+            <h3 id="profile-description-methodology">Methodology</h3>
+
+            <p>
+                A profile is a set of constraints and rules, which
+                provide additional semantic guarantees that are applied
+                to the TD specification. These constraints define a
+                subset of valid <a>Thing Descriptions</a> by defining
+                additional rules on various aspects of the <a>Thing
+                    Description</a> specification.
+            </p>
+
+            <table class="def">
+                <tr>
+                    <th>Constraints on</th>
+                    <th>Rationale</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>vocabulary of TD classes</td>
+                    <td>guaranteed set of metadata fields</td>
+                    <td>Make specific vocabulary terms mandatory,
+                        remove others</td>
+                </tr>
+                <tr>
+                    <td>class relationships</td>
+                    <td>unambiguous structure</td>
+                    <td>limited cardinality, e.g. only one form per
+                        operation per interaction affordance.</td>
+                </tr>
+                <tr>
+                    <td>values of vocabulary terms</td>
+                    <td>simplified processing</td>
+                    <td>Limit the length of characters per string,
+                        Always use arrays, where the spec permits a
+                        string or an array of strings.</td>
+                </tr>
+                <tr>
+                    <td>data schemas</td>
+                    <td>simplified processing</td>
+                    <td>No arbitrary nested objects or arrays of
+                        arrays</td>
+                </tr>
+                <tr>
+                    <td>security</td>
+                    <td>reduced implementation effort</td>
+                    <td>Only a restricted set of security
+                        mechanisms</td>
+                </tr>
+                <tr>
+                    <td>protocol binding</td>
+                    <td>guaranteed protocol semantics</td>
+                    <td>limited protocol(s) and protocol features,
+                        predefined mapping of http verbs (GET/PUT) to
+                        operation verbs</td>
+                </tr>
+            </table>
+
+
+            <p>These constraints and rules fall into two categories:</p>
+            <ul>
+                <li>constraints for the data model.</li>
+                <li>constraints for the protocol binding.</li>
+            </ul>
+
+            <p>These two categories are orthogonal to each other,
+                i.e. a data model that conforms to a profile can be
+                mapped to different protocols. The protocol binding for
+                each protocol may contain additional (protocol-specific)
+                constraints.</p>
+
+            <p>A profile is not exclusive, i.e. a thing may conform
+                to multiple profiles. Profiles can build on top of each
+                other or overlap, extended profiles can be built on top
+                of the core profile.</p>
+
+            <figure id="WoT Profiles">
+                <img src="images/WoT Profiles.png" class="wot-profiles"
+                    alt="WoT Profiles" />
+                <figcaption>WoT Core Profile</figcaption>
+            </figure>
+
+            <p>
+                In the present document, we define a <a>Core Profile</a>
+                by defining a <a>Core Data Model</a> and a set of <a
+                    href="#protocol-binding">Protocol Binding</a> Rules
+                for selected protocols.
+                <!--
+				In the present version of this document we define a mapping to
+				HTTP(S). It is envisioned, that future versions of this document
+				contain additional mapping to Web Sockets and other protocols.
+                -->
+            </p>
+        </section>
+    </section>
+
+
+    <!-- <a>Core Profile</a> -->
+
+
+    <section id="core-profile">
+        <h2>
+            <a>WoT Core Profile</a>
+        </h2>
+        This section defines the <a>Core Profile</a> by defining a <a>Core
+            Data Model</a> and a set of <a href="#protocol-binding">Protocol
+            Binding</a> Rules.
+        <section id="core-data_model">
+            <h2>WoT Core Data Model</h2>
+
+            <section id="general">
+                <h3 id="general">General</h3>
+
+                <p>
+                    The following rules are applicable to multiple
+                    classes of the <a>TD Specification</a>, as they
+                    provide clearer semantics, improved readability and
+                    simplified processing on resource constrained
+                    devices.
+                </p>
+
+                <section>
+                    <h4>Mandatory fields</h4>
+                    <p>
+                        One of the primary benefits of the WoT <a>Thing
+                            Description</a> over a typical IoT format is the
+                        additional documentation for a human reader.
+                    </p>
+                    <p>
+                        Therefore the fields
+                        <code>title</code>
+                        and
+                        <code>description</code>
+                        are MANDATORY for Things, Property Affordances,
+                        Action Affordances, Event Affordances and Data
+                        Schemas.
+                    </p>
+                    <p>It is possible to have empty values for these
+                        fields, if, for specific purposes it is not
+                        desired to provide documentation, however this
+                        is NOT RECOMMENDED and the conscious decision is
+                        obvious from the TD.</p>
+                </section>
+
+                <section>
+                    <h4>Length and Value Limits</h4>
+                    <p>
+                        The length of
+                        <code>id</code>
+                        ,
+                        <code>description</code>
+                        and
+                        <code>descriptions</code>
+                        values is limited to 512 characters.
+                    </p>
+                    <p>
+                        The length of
+                        <code>title</code>
+                        and
+                        <code>titles</code>
+                        values is limited to 64 characters.
+                    </p>
+                    <p>
+                </section>
+
+                <p>
+                    Where a type permits using an
+                    <code>array of string</code>
+                    or a
+                    <code>string</code>
+                    , an
+                    <code>array of string</code>
+                    MUST be used.
+                </p>
+
+                <p>
+                    Where a type permits using an
+                    <code>array of DataSchema</code>
+                    or a
+                    <code>DataSchema</code>
+                    , an
+                    <code>array of DataSchema</code>
+                    MUST be used.
+                </p>
+                <p>
+                    All elements of an
+                    <code>enum</code>
+                    MUST be either
+                    <code>string</code>
+                    or
+                    <code>number</code>
+                    . Different types in a single
+                    <code>enum</code>
+                    are NOT PERMITTED.
+                </p>
+                <!--  table class="def">
+				<thead>
+					<tr>
+						<th>keyword</th>
+						<th>type</th>
+						<th>remarks</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>@context</td>
+						<td>array of string</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>@type</td>
+						<td>array of string</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table -->
+            </section>
+
+            <!-- Thing -->
+
+            <section>
+                <h2 id="thing">Thing</h2>
+                The <a>Core Data Model</a> applies the following
+                constraints and rules to the Thing class of section
+                5.3.1.1 of the <a>TD Specification</a>.
+                <section>
+                    <h3>Mandatory fields</h3>
+                    <p>
+                        To provide minimum interoperability, the
+                        following metadata fields of a <a>Thing</a> MUST
+                        be contained in an <a>Core TD</a>:
+                    </p>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>title</td>
+                                <td>string</td>
+                                <td>human readable documentation</td>
+                            </tr>
+                            <tr>
+                                <td>id</td>
+                                <td>urn_type</td>
+                                <td>a globally unique urn of the
+                                    thing</td>
+                            </tr>
+                            <tr>
+                                <td>description</td>
+                                <td>string</td>
+                                <td>human readable documentation</td>
+                            </tr>
+                            <tr>
+                                <td>created</td>
+                                <td>date</td>
+                                <td>human readable documentation</td>
+                            </tr>
+                            <tr>
+                                <td>modified</td>
+                                <td>date</td>
+                                <td>human readable documentation</td>
+                            </tr>
+                            <tr>
+                                <td>support</td>
+                                <td>urn_type</td>
+                                <td>human readable documentation</td>
+                            </tr>
+                            <tr>
+                                <td>security</td>
+                                <td>array of string</td>
+                                <td>simplified handling</td>
+                            </tr>
+                            <tr>
+                                <td>version</td>
+                                <td>VersionInfo</td>
+                                <td>clear versioning, easy to
+                                    compare different TDs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h5 id="recommended-practice-">Recommended
+                        practice</h5>
+                    <p>It is RECOMMENDED to use the value
+                        &quot;Undefined&quot; for strings, where the
+                        value cannot be determined.</p>
+
+                    <p>If a Thing Description is used solely within
+                        a company, the email address of the developer
+                        SHOULD be used in the support field, if the
+                        IF-TD is provided externally, a support email
+                        address SHOULD be used.</p>
+
+
+                    <p>It is RECOMMENDED to use the following field
+                        names for additional fields with specific
+                        semantics:</p>
+
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>serialNumber</td>
+                                <td>string</td>
+
+                            </tr>
+                            <tr>
+                                <td>hardwareRevision</td>
+                                <td>string</td>
+
+                            </tr>
+                            <tr>
+                                <td>softwareRevision</td>
+                                <td>string</td>
+
+                            </tr>
+                            <tr>
+                                <td>loc_latitude</td>
+                                <td>number</td>
+                                <td>Text string representation of
+                                    latitude as defined in annex H of
+                                    [[ISO-6709]]</td>
+                            </tr>
+                            <tr>
+                                <td>loc_longitude</td>
+                                <td>number</td>
+                                <td>Text string representation of
+                                    longitude as defined in annex H of
+                                    [[ISO-6709]]</td>
+                            </tr>
+                            <tr>
+                                <td>loc_altitude</td>
+                                <td>number</td>
+                                <td>Text string representation of
+                                    altitude as defined in annex H of
+                                    [[ISO-6709]]</td>
+                            </tr>
+                            <tr>
+                                <td>loc_height</td>
+                                <td>number</td>
+                                <td>Text string representation of
+                                    height as defined in annex H of
+                                    [[ISO-6709]]</td>
+                            </tr>
+                            <tr>
+                                <td>loc_depth</td>
+                                <td>number</td>
+                                <td>Text string representation of
+                                    depth as defined in annex H of
+                                    [[ISO-6709]]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        If a location is provided, loc_latitude and
+                        loc_longitude MUST be present. Only one of
+                        loc_altitude, loc_height and loc_depth MAY be
+                        present. The use of loc_altitude is NOT
+                        RECOMMENDED, since it refers to the <em>mean
+                            sea level</em>, which is not a globally unique
+                        reference point.
+                    </p>
+                    <section class="note">
+                        <p>
+                            See <a
+                                href="https://www.science20.com/news_articles/what_happens_bridge_when_one_side_uses_mediterranean_sea_level_and_another_north_sea-121600">https://www.science20.com/news_articles/what_happens_bridge_when_one_side_uses_mediterranean_sea_level_and_another_north_sea-121600</a>
+                            for a justification why loc_altitude is
+                            problematic.
+                        </p>
+                    </section>
+                </section>
+            </section>
+
+
+            <!-- Data Schemas-->
+
+
+            <section>
+                <h3 id="data schemas">Data Schemas</h3>
+                <p>
+                    Data Schemas are used for the values of Properties,
+                    Action input and output parameters and Event message
+                    payloads. The value of a <em>Data Schema</em> can be
+                    a simple type (boolean, integer, number, string) or
+                    an instance of a structured type (array and object).
+                </p>
+                The <a>Core Data Model</a> applies the following
+                constraints and rules to the
+                <code>DataSchema</code>
+                class of section 5.3.2.1 of the <a>TD Specification</a>.
+                <p>
+                    This section defines a subset of the class
+                    <code>DataSchema</code>
+                    that can be processed on resource-constrained
+                    devices.
+                <h4 id="constraints-against-the-td-specification">Data
+                    Schema Constraints</h4>
+                <p>
+                    The <a>Core Data Model</a> restricts the use of
+                    arrays and objects to the <strong>top level</strong>
+                    of Data Schemas, i.e. only a one-level hierarchy is
+                    permitted. The members of a top level
+                    <code>object</code>
+                    or
+                    <code>array</code>
+                    MUST NOT be array or object types.
+                </p>
+                <section class="note" title="RATIONALE">
+                    <p>This may appear as a severe limitation,
+                        however it is motivated by integrating with
+                        multiple cloud services. Many enterprise
+                        services and applications are based on
+                        (relational) databases, where individual
+                        property values are stored. Of course databases
+                        can also store objects (e.g. encoded as a JSON
+                        string), however this will prevent processing by
+                        other enterprise applications.</p>
+                    <p>
+                        If a property conceptually has a deeper
+                        structure, such as grid of lamps with RGB
+                        colors, the structure can be represented in the
+                        keyword of the property, i.e. lamp1_color_r,
+                        lamp1_color_g and lamp1_color_b. A similar
+                        mapping can be done for arrays and hierarchical
+                        objects. This constraint leads to simpler <a>Thing
+                            Descriptions</a> that can be handled by very
+                        limited devices.
+                    </p>
+                </section>
+                <p>The following fields MUST be contained in a
+                    DataSchema:</p>
+                <table class="def">
+                    <thead>
+                        <tr>
+                            <th>keyword</th>
+                            <th>type</th>
+                            <th>constraints</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>description</td>
+                            <td>human readable description</td>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td>string</td>
+                            <td>one of boolean, integer, number,
+                                string, object or string</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    The values
+                    <code> object </code>
+                    ,
+                    <code> array </code>
+                    , or
+                    <code> null </code>
+                    MUST NOT be used in the type field.
+                </p>
+            </section>
+
+
+            <!-- Properties -->
+
+            <section>
+                <h3 id="properties">Property Affordance</h3>
+                The <a>Core Data Model</a> applies the following
+                constraints and rules to the
+                <code>PropertyAffordance</code>
+                class of section 5.3.1.3 of the <a>TD Specification</a>.
+                <section>
+                    <h4>Mandatory fields</h4>
+                    <p>
+                        The following property fields MUST be contained
+                        in the
+                        <code>properties</code>
+                        element of a <em>Core TD</em>:
+                    </p>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>constraints</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>title</td>
+                                <td>string</td>
+                                <td>unique name among all
+                                    properties</td>
+                            </tr>
+                            <tr>
+                                <td>description</td>
+                                <td>string</td>
+                                <td>human readable description</td>
+                            </tr>
+                            <tr>
+                                <td>type</td>
+                                <td>string</td>
+                                <td>one of <code> boolean </code> ,
+                                    <code> string </code> , <code>
+                                        number </code> , <code> integer
+                                    </code> , <code> object </code> or <code>
+                                        array </code> . The type value <code>
+                                        null </code> MUST NOT be used.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h4>Additional Constraints</h4>
+                    <p>
+                        The <em>Thing Description</em> permits arbitrary
+                        object depths for properties. Parsing of a
+                        deeply nested structure is not possible on
+                        resource constrained devices. Therefore each
+                        property MAY contain
+                        <code>array</code>
+                        or
+                        <code>object</code>
+                        elements only at <em>top level</em>.
+                    </p>
+
+                    <p>
+                        The following additional constraints MUST be
+                        applied to the Property Affordances of a <a>Thing
+                            Description</a> conforming to the <a>Core
+                            Profile</a>:
+                    </p>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>constraint</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>const</td>
+                                <td>anyType</td>
+                                <td>MUST NOT be used</td>
+                            </tr>
+                            <tr>
+                                <td>enum</td>
+                                <td>array of simple type</td>
+                                <td><em>Values</em> of enums MAY
+                                    only be simple types. Handling of <em>any
+                                        type</em> is too complex to implement
+                                    on resource constrained devices</td>
+                            </tr>
+                            <tr>
+                                <td>forms</td>
+                                <td>array of Forms</td>
+                                <td>The <code>Array of Form</code>
+                                    of each property MUST contain only a
+                                    <em>single endpoint</em> for each
+                                    operation <code>readproperty</code>
+                                    , <code>writeproperty</code> , <code>observeproperty</code>
+                                    , <code>unobserveproperty</code>.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>format</td>
+                                <td>string</td>
+                                <td>If the field <code>format</code>
+                                    is used, only formats defined in
+                                    section 7.3.1-7.3.6 of
+                                    [[JSON-SCHEMA]] MAY be used.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>oneOf</td>
+                                <td>string</td>
+                                <td>The DataSchema field <code>oneOf</code>
+                                    does not make sense for properties
+                                    and MUST NOT be used.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>uriVariables</td>
+                                <td>Map of DataSchema</td>
+                                <td><code>uriVariables</code> MUST
+                                    NOT be used.</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h4>Recommended Practice</h4>
+                    <p>
+                        It is highly RECOMMENDED to always specify a
+                        <code>unit</code>
+                        , if a value has a metric. Authors of <em>Thing
+                            Descriptions</em> should be aware, that units
+                        that are common in their geographic region are
+                        not globally applicable and may lead to
+                        misinterpretation with drastic consequences.
+                    </p>
+                    <p>
+                        The field
+                        <code>unit</code>
+                        could be used for non-decimal numeric types as
+                        well, e.g. a string value with binary or hex
+                        data (
+                        <code>0xCAFEBABE</code>
+                        ,
+                        <code>0b01000010</code>
+                        ), where the unit is
+                        <code>hex</code>
+                        or
+                        <code>bin</code>
+                        , to indicate how the value should be
+                        interpreted. It is strongly RECOMMENDED to use
+                        the values
+                        <code>hex</code>
+                        ,
+                        <code>oct</code>
+                        or
+                        <code>bin</code>
+                        in this case to achieve interoperability.
+                    </p>
+                </section>
+            </section>
+
+
+            <!-- Actions -->
+
+            <section>
+                <h3 id="actions">Interaction Affordance</h3>
+                The <a>Core Data Model</a> applies the following
+                constraints and rules to the
+                <code>ActionAffordance</code>
+                class of section 5.3.1.4 of the <a>TD Specification</a>.
+
+                <section>
+                    <h4>Mandatory fields</h4>
+
+                    <p>
+                        The following fields MUST be contained in an
+                        action element of an <a>Core TD</a>:
+                    </p>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>constraints</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>title</td>
+                                <td>string</td>
+                                <td>unique name among all actions</td>
+                            </tr>
+                            <tr>
+                                <td>input</td>
+                                <td>array of DataSchema</td>
+                                <td>all elements of the subclasses
+                                    objectSchema and dataSchema MUST
+                                    only contain simple types.</td>
+                            </tr>
+                            <tr>
+                                <td>output</td>
+                                <td>array of DataSchema</td>
+                                <td>all elements of the subclasses
+                                    objectSchema and dataSchema MUST
+                                    only contain simple types.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h4>Additional Constraints</h4>
+                    <p>
+                        The elements of the DataSchema subclasses
+                        ArraySchema and ObjectSchema for the fields
+                        <code>input</code>
+                        and
+                        <code>output</code>
+                        are restricted to simple types in a <a>Thing
+                            Description</a> conforming to the <a>Core
+                            Data Model</a>. Without this limitation a higher
+                        implementation burden would be put on resource
+                        constrained devices (arbitrary cascaded arrays
+                        and multi-level objects) which cannot be
+                        satisfied by all consuming devices.
+                    </p>
+
+                    <p>
+                        The following additional constraints MUST be
+                        applied to the Interaction Affordances of a <a>Thing
+                            Description</a> conforming to the <a>Core
+                            Data Model</a>:
+                    </p>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>constraint</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>forms</td>
+                                <td>array of Forms</td>
+                                <td>The <code>Array of Form</code>
+                                    of each action MUST contain only a <em>single</em>
+                                    endpoint.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>format</td>
+                                <td>string</td>
+                                <td>If the field <code>format</code>
+                                    is used, only formats defined in
+                                    section 7.3.1-7.3.6 of
+                                    [[JSON-SCHEMA]] MAY be used.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>oneOf</td>
+                                <td>string</td>
+                                <td>The DataSchema field <code>oneOf</code>
+                                    does not make sense for properties
+                                    and MUST NOT be used.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>uriVariables</td>
+                                <td>Map of DataSchema</td>
+                                <td><code>uriVariables</code> MUST
+                                    NOT be used.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="ednote">
+                    <p>TODO:</p>
+                    <p>- no optional parameters</p>
+                    <p>- timeout</p>
+                </section>
+
+
+                <section>
+                    <h4>Recommended Practice</h4>
+                </section>
+            </section>
+
+
+            <!-- Events -->
+
+
+            <section>
+                <h3 id="events">Event Affordances</h3>
+                The <a>Core Data Model</a> applies the following
+                constraints and rules to the
+                <code>EventAffordance</code>
+                class of section 5.3.1.5 of the <a>TD Specification</a>.
+
+                <p>
+                    A <a>Thing</a> may provide more than one event
+                    mechanism to enable a variety of consumers.
+                </p>
+                <section>
+                    <h4>Mandatory fields</h4>
+                    <p>
+                        The following fields MUST be present in an event
+                        element of a <em>Core TD</em>:
+                    </p>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>constraints</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>title</td>
+                                <td>string</td>
+                                <td>unique name among all events</td>
+                            </tr>
+                            <tr>
+                                <td>description</td>
+                                <td>string</td>
+                                <td>human readable description</td>
+                            </tr>
+                            <tr>
+                                <td>data</td>
+                                <td>set of DataSchema instances in
+                                    a JSON object</td>
+                                <td>only the DataSchema subclasses
+                                    booleanSchema, IntegerSchema,
+                                    NumberSchema, StringSchema are
+                                    permitted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h4>Additional Constraints</h4>
+                    <p>
+                        The following additional constraints MUST be
+                        applied to the Event Affordances of a <a>Thing
+                            Description</a> conforming to the profile:
+                    </p>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>constraint</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>forms</td>
+                                <td>array of Forms</td>
+                                <td>The <code>Array of Form</code>
+                                    of each event MUST contain only a <em>single</em>
+                                    endpoint.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>uriVariables</td>
+                                <td>Map of DataSchema</td>
+                                <td><code>uriVariables</code> MUST
+                                    NOT be used.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+
+            <!-- Forms -->
+
+
+            <section>
+                <h3 id="forms">Forms</h3>
+                <p>
+                    A <a>Thing</a> may provide more than one event
+                    mechanism to enable a variety of consumers.
+                </p>
+                <section>
+                    <h4>Mandatory fields</h4>
+                    <p>
+                        The following fields MUST be present in a form
+                        element of a <em>Core TD</em>:
+                    </p>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>constraints</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>title</td>
+                                <td>string</td>
+                                <td>unique name among all events</td>
+                            </tr>
+                            <tr>
+                                <td>description</td>
+                                <td>string</td>
+                                <td>human readable description</td>
+                            </tr>
+                            <tr>
+                                <td>data</td>
+                                <td>set of DataSchema instances in
+                                    a JSON object</td>
+                                <td>only the DataSchema subclasses
+                                    booleanSchema, IntegerSchema,
+                                    NumberSchema, StringSchema are
+                                    permitted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h4>Additional Constraints</h4>
+                    <p>
+                        The following additional constraints MUST be
+                        applied to the Form elements of a <a>Thing
+                            Description</a> conforming to the <a>Core
+                            profile</a>:
+                    </p>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>keyword</th>
+                                <th>type</th>
+                                <th>constraint</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>security</td>
+                                <td>string or Array of string</td>
+                                <td><code>security</code> at form
+                                    level MUST NOT be used.</td>
+                            </tr>
+                            <tr>
+                                <td>scopes</td>
+                                <td>string or Array of string</td>
+                                <td><code>scopes</code> MUST NOT be
+                                    used.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+
+            <!-- Links -->
+
+            <section>
+                <h3 id="links">Links</h3>
+                <section class="ednote">TODO: Consider
+                    selecting a defined set from [[RFC6903]] chapter 6.</section>
+
+                <p>
+                    The "type" relationship as defined in chapter 6 of
+                    [[RFC6903]] is reserved for indicating an instance
+                    relationship between a thing and a thing template.
+                    The <a>Core Data Model</a> does not put additional
+                    constraints or requirements on links. The
+                    interpretation of a link is out of scope.
+                </p>
+            </section>
+
+            <!--  Security -->
+
+            <section>
+                <h3 id="security">Security</h3>
+                <p>
+                    The <a>Core Data Model</a> defines a subset of the
+                    security schemes that MAY be implemented on resource
+                    constrained devices. A security scheme MUST be
+                    defined at the thing level. The security scheme is
+                    applied to the thing as a whole, a thing may adopt
+                    multiple security schemes.
+                </p>
+                <p>
+                    The set of security schemes supported in the <a>Core
+                        Data Model</a> is based on the plug-fest results. To
+                    ensure interoperability, a TD consumer, which
+                    compliant with the <a>Core Data Model</a> MUST
+                    support <strong>all</strong> of the following
+                    security schemes:
+                </p>
+
+                <ul>
+                    <li>no security</li>
+                    <li>Basic Auth</li>
+                    <li>Digest</li>
+                    <li>Bearer Token</li>
+                    <li>Oauth2</li>
+                </ul>
+
+                <section>
+                    <h4>Recommended Practice</h4>
+                    <p>When using the "no security" or "Basic Auth"
+                        security schemes it is strongly recommended to
+                        use transport layer encryption.</p>
+                </section>
+            </section>
+        </section>
+
+
+        <!-- Protocol Binding -->
+
+        <section id="protocol-binding">
+            <h3>Protocol Binding</h3>
+
+            <section class="ednote">This section is work in
+                progress and not ready for review.</section>
+
+            This section describes how the <a>Core Data Model</a> can be
+            bound to different protocols. In addition to a set of
+            mapping rules, it defines additional behavior, e.g.
+            timeouts, error behavior, action semantics, ...
+
+            <section id="http-protocol-binding">
+                <h3>HTTP Protocol Binding</h3>
+                <p>All communication is using JSON payloads over
+                    HTTP(s). The content type header MUST be set to
+                    &quot;application/json&quot;.</p>
+
+                <section>
+                    <h3 id="properties">Properties</h3>
+                    <p>The HTTP verbs GET and PUT are mapped on
+                        reading and writing a property - all other
+                        protocol verbs return an error &quot;405 Method
+                        Not Allowed&quot;.</p>
+                    <blockquote>
+                        <p>Note: Since HTTP does not provide a
+                            pub/sub mechanism, the observe interaction
+                            is not supported directly. The event
+                            mechanism can be used instead to send
+                            notifications on property changes.</p>
+                    </blockquote>
+                    <p>Multiple properties can be set/get by
+                        accessing the Properties endpoint.</p>
+                </section>
+                <section>
+                    <h3 id="actions">Actions</h3>
+                    <p>Actions can be synchronous and asynchronous.
+                        The current TD specification does not
+                        distinguish these two cases and does not
+                        describe a detailed mechanism.</p>
+                    <p>The HTTP verb POST is mapped to invoking an
+                        action on the actions endpoint - all other
+                        protocol verbs return an error &quot;405 Method
+                        Not Allowed&quot;.</p>
+                </section>
+                <section>
+                    <h3 id="events">Events</h3>
+                    <p>The supported protocols for events are
+                        WebHooks, WebSockets, SSE and Long polling.</p>
+                </section>
+            </section>
+        </section>
+
+        <!-- External Representation -->
+
+        <section id="external-representation">
+            <h2 id="external-td-representations">External TD
+                representations</h2>
+            <p>The default representation is JSON. Semantic
+                annotations based on JSON-LD MAY be present but are not
+                required to perform all interactions with the thing
+                instance.</p>
+        </section>
+
+        <!--  Normative References 
+
+		<section>
+			<h2 id="normative-references">Normative references</h2>
+			<p>
+				urn_type = a valid URN as defined in <a
+					href=https://tools.ietf.org/rfc/rfc2141.txt>RFC2141</a>
+			</p>
+			<p>
+				uri_type = a valid URI as defined by <a
+					href=https://tools.ietf.org/rfc/rfc3986.txt>RFC3986</a>
+			</p>
+			<p>
+				identifier = a valid ECMAScript identifier name as defined in
+				chapter 11.6 of <a
+					href=http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>ECMAScript</a>
+			</p>
+			<p>
+				number = a valid ECMAScript number as defined in chapter 20.1 of <a
+					href=http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>ECMAScript</a>
+			</p>
+			<p>
+				string = a valid ECMAScript string literal as defined in chapter
+				11.8.4 of <a
+					href=http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>ECMAScript</a>
+			</p>
+			<p>
+				date = a valid ECMAScript date as defined in chapter '20.3.1.16 Date
+				Time String Format' of <a
+					href=http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>ECMAScript</a>
+			</p>
+			<p>(https://tools.ietf.org/html/rfc6068).</p>
+		</section -->
+    </section>
+    <section>
+        <h4 id="open-issues">Open Issues</h4>
+        <ul>
+            <li>define action semantics</li>
+            <li>define subscription mechanism</li>
+            <li>Examples</li>
+        </ul>
+    </section>
+</body>
+</html>
