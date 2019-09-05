@@ -14,9 +14,13 @@ This may be a topic for wider consideration in the WoT group.
 A profile can help to explain what to implement.
 
 ### Composable profiles (Intel)
-How doesa a composition model work?
+How does a composition model work?
 
 ### Multiple profiles (Intel)
 
 ### Identification of profiles (Intel)
 Need to add a mechanism to identify which profiles are described in a TD.
+
+### Profile should define a finite set of features and capabilities to implement by the consumer. (Intel, Oracle)
+
+### Limit resource consumption (Intel, Oracle)
