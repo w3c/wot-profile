@@ -10,45 +10,85 @@
 * As a developer, I want to be able to validate that a Thing will be compatible with a Consumer without having to test against every possible consumer.
 
 ## Requirements
+The group has reached consensus on the following requirements.
 
-Please put your requirements into the sections of the document and mark it with your company name to make sure
-we discuss with the appropriate contributors.  Requirements for which we have not reached consensus should be
-under "Possible".
+### Interoperability 
+Proposers: Oracle, Intel, Siemens, Fujitsu
 
-### Resolved
+## Proposed Requirements
+the following requirements are still under discussion and definition.
+Please put your requirements into a separate section and mark it with your company name to make sure
+we discuss with the appropriate contributors.  
 
-#### Interoperability (Oracle, Intel, Siemens, Fujitsu)
+### Limit complexity 
+Proposer: Oracle
 
-### Possible
+#### Discussion
+* Siemens: Need to define what *complexity* means!
 
-#### Limit Complexity (Oracle)
+### Human readability
+Proposer: Oracle
 
-Siemens: Need to define what *complexity* means!
+#### Discussion
+* Siemens: w.r.t. title/description?
 
-#### Human readability (Oracle)
+### Developer guidance 
+Proposers: Fujitsu, Siemens
 
-Siemens: w.r.t. title/description?
-
-#### Developer guidance (Fujitsu, Siemens)
 This may be a topic for wider consideration in the WoT group.
 A profile can help to explain what to implement.
 
-#### Composable profiles (Intel)
-How does a composition model work?
+#### Multiple profiles
+Proposer: Intel, Siemens
 
-#### Multiple profiles (Intel, Siemens)
+The mechanism used to indicate that a TD satisfies a profile should be
+general enough to indicate the TD satisfies the requirements for multiple profiles.
 
-#### Identification of profiles (Intel, Siemens, Fujitsu)
-Need to add a mechanism to identify which profiles are described in a TD.
+### Composable profiles
+Proposer: Intel
 
-#### Profile should define a finite set of features and capabilities to implement by the consumer. (Intel, Oracle, Fujitsu)
+It should be possible to combine multiple profiles both for production and
+consumption.
 
-Siemens: isn't it the rational of a profile?
+It should be possible to indicate that a consumer can ingest TDs that
+satisfy one or more profiles, even if each TDs individually only satisfies
+one profile.  For example, a Smart Building may need to use both "home"
+devices and "industrial" devices.  A gateway consuming TDs should be 
+able to ingest TDs designed for both the home and industrial contexts.
 
-#### Limit resource consumption (Intel, Oracle, Siemens, Fujitsu)
+Likewise a Thing that satisfies all the requirements for multiple TDs
+(for example, a device using protocols common to two different usage contexts)
+should be able to indicate that.
 
-#### Follow Security and Privacy Best Practices
+### Validatible
+Proposer: Intel
+
+Whether or not a TD satisfies the requirements of a given profile should
+be verifiable with automated tools.
+
+### Identification of profiles
+Proposers: Intel, Siemens, Fujitsu
+
+There should be a mechanism to identify which profiles a TD satisfies.
+This mechanism should be intrinsic to a TD, i.e. be in-band.
+
+### Profile should define a finite set of features and capabilities to implement by the consumer.
+Proposers: Intel, Oracle, Fujitsu
+
+#### Discussion
+* Siemens: isn't this the rationale of a profile?
+
+### Limit resource consumption
+Proposers: Intel, Oracle, Siemens, Fujitsu
+
+### Follow Security and Privacy Best Practices
+Proposers: Intel
+
 Profiles should not specify security and protocol combinations that do not satisfy security best practices
 as described in the WoT Security Best Practices document.
-There should be a mechanism to allow "nosec" but only in a Developer context (debatable - may still be useful
-in a closed network).
+
+### Use nosec only in Developer contexts
+There should be a mechanism to allow "nosec" but only in a Developer context.
+
+#### Discussion
+* Intel: debatable - nosec may still be useful in a closed network even for production.
