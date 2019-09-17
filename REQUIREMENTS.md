@@ -15,6 +15,14 @@ The group has reached consensus on the following requirements.
 ### Interoperability 
 Proposers: Oracle, Intel, Siemens, Fujitsu
 
+A TD Consumer satisfying the requirements of a profile should be able to process any TD also
+satisfying the profile and should be able to correctly interact with all affordances of the 
+Thing such a TD describes.
+
+Note: this implies that a profile has two parts:
+1. Restrictions on TDs related to implementation constraints on Things
+2. Implementation requirements for Consumers
+
 ## Proposed Requirements
 The following possible requirements are still under discussion and definition.
 Please put your proposed requirements into a separate section and mark it with your company name to make sure
