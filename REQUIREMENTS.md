@@ -16,8 +16,8 @@ The group has reached consensus on the following requirements.
 Proposers: Oracle, Intel, Siemens, Fujitsu
 
 ## Proposed Requirements
-the following requirements are still under discussion and definition.
-Please put your requirements into a separate section and mark it with your company name to make sure
+The following possible requirements are still under discussion and definition.
+Please put your proposed requirements into a separate section and mark it with your company name to make sure
 we discuss with the appropriate contributors.  
 
 ### Limit complexity 
@@ -29,14 +29,16 @@ Proposer: Oracle
 ### Human readability
 Proposer: Oracle
 
+Human-readable information such as title and description should be mandatory to
+encourage inclusion of this information for documentation purposes.
+
 #### Discussion
 * Siemens: w.r.t. title/description?
 
 ### Developer guidance 
 Proposers: Fujitsu, Siemens
 
-This may be a topic for wider consideration in the WoT group.
-A profile can help to explain what to implement.
+A profile should help define what needs to be implemented.
 
 #### Multiple profiles
 Proposer: Intel, Siemens
@@ -48,15 +50,13 @@ general enough to indicate the TD satisfies the requirements for multiple profil
 Proposer: Intel
 
 It should be possible to combine multiple profiles both for production and
-consumption.
-
-It should be possible to indicate that a consumer can ingest TDs that
+consumption:
+* It should be possible to indicate that a consumer can ingest TDs that
 satisfy one or more profiles, even if each TDs individually only satisfies
 one profile.  For example, a Smart Building may need to use both "home"
 devices and "industrial" devices.  A gateway consuming TDs should be 
 able to ingest TDs designed for both the home and industrial contexts.
-
-Likewise a Thing that satisfies all the requirements for multiple TDs
+* Thing that satisfies all the requirements for multiple TDs
 (for example, a device using protocols common to two different usage contexts)
 should be able to indicate that.
 
