@@ -12,6 +12,13 @@
 ## Requirements
 The group has reached consensus on the following requirements.
 
+*NONE YET!  Group should have resolutions to promote proposed Requirements to this section.*
+
+## Proposed Requirements
+The following possible requirements are still under discussion and definition.
+Please put your proposed requirements into a separate section and mark it with your company name to make sure
+we discuss with the appropriate contributors.  
+
 ### Interoperability 
 Proposers: Oracle, Intel, Siemens, Fujitsu
 
@@ -22,11 +29,6 @@ Thing such a TD describes.
 Note: this implies that a profile has two parts:
 1. Restrictions on TDs related to implementation constraints on Things
 2. Implementation requirements for Consumers
-
-## Proposed Requirements
-The following possible requirements are still under discussion and definition.
-Please put your proposed requirements into a separate section and mark it with your company name to make sure
-we discuss with the appropriate contributors.  
 
 ### Limit complexity 
 Proposer: Oracle
