@@ -2,10 +2,10 @@
 
 ## Use Cases
 * As an end user, I want to know whether a device will work with my system before I purchase it to avoid wasting money.
-** Installers of IoT devices want to be able to determine if a given device will be compatible with the rest of their installed systems and whether they will have access to its data and affordances.
+    - Installers of IoT devices want to be able to determine if a given device will be compatible with the rest of their installed systems and whether they will have access to its data and affordances.
 
 * As a developer, I want TDs to be as simple as possible so that I can efficiently develop them.
-** Here "simple" should relate to the end goal, "efficiently develop"; that is, TDs should be straightforward for the average developer to complete and validate.
+   - Here "simple" should relate to the end goal, "efficiently develop"; that is, TDs should be straightforward for the average developer to complete and validate.
 
 * As a developer, I want to be able to validate that a Thing will be compatible with a Consumer without having to test against every possible consumer.
 
