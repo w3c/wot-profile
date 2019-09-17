@@ -75,11 +75,16 @@ This mechanism should be intrinsic to a TD, i.e. be in-band.
 ### Profile should define a finite set of features and capabilities to implement by the consumer.
 Proposers: Intel, Oracle, Fujitsu
 
+A profile should limit the number of options, for example the set of possible protocols, to
+a finite set, so that a consumer can consume any TD in a given profile with a finite and static code base.
+
 #### Discussion
 * Siemens: isn't this the rationale of a profile?
 
 ### Limit resource consumption
 Proposers: Intel, Oracle, Siemens, Fujitsu
+
+Profiles should limit the amount of resources necessary to generate and consume a TD.
 
 ### Follow Security and Privacy Best Practices
 Proposers: Intel
@@ -88,7 +93,7 @@ Profiles should not specify security and protocol combinations that do not satis
 as described in the WoT Security Best Practices document.
 
 ### Use nosec only in Developer contexts
-There should be a mechanism to allow "nosec" but only in a Developer context.
+There should be a mechanism to allow the "nosec" security scheme but only in a Developer context.
 
 #### Discussion
 * Intel: debatable - nosec may still be useful in a closed network even for production.
