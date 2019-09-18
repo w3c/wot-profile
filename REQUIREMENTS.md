@@ -1,11 +1,12 @@
 # WoT Profiles
 
 ## User Types
-* End Users:
-* Developer:
-* System Integrator:
+* End Users: Purchaser of a device that wishes to install it in a system without doing low-level programming.
+* Developer: Developer of code or hardware (devices, gateways) in a product.
+* System Integrator: Purchaster of a set of devices who wishes to combine them into a working system to be sold to a third party.
 
 ## Use Cases
+TEMPLATE: {In the context of (context)}, As a (user type) I want (goal) so that (reason).
 * As an end user, I want to know whether a device will work with my system before I purchase it to avoid wasting money.
     - Installers of IoT devices want to be able to determine if a given device will be compatible with the rest of their installed systems and whether they will have access to its data and affordances.
 
