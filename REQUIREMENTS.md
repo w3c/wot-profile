@@ -1,5 +1,10 @@
 # WoT Profiles
 
+## User Types
+* End Users:
+* Developer:
+* System Integrator:
+
 ## Use Cases
 * As an end user, I want to know whether a device will work with my system before I purchase it to avoid wasting money.
     - Installers of IoT devices want to be able to determine if a given device will be compatible with the rest of their installed systems and whether they will have access to its data and affordances.
@@ -9,7 +14,7 @@
 
 * As a developer, I want to be able to validate that a Thing will be compatible with a Consumer without having to test against every possible consumer.
 
-## Requirements
+## Accepted Requirements
 The group has reached consensus on the following requirements.
 
 *NONE YET!  Group should have resolutions to promote proposed Requirements to this section.*
@@ -107,3 +112,11 @@ There should be a mechanism to allow the "nosec" security scheme but only in a D
 
 #### Discussion
 * Intel: debatable - nosec may still be useful in a closed network even for production.
+
+## Rejected Requirements
+
+### Must use English descriptions
+This is a dumb example!  Just put in here to show the template!
+
+#### Discussion
+Rejected as it does not satisfy internationalization requirements.
