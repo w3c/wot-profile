@@ -5,8 +5,16 @@
 * Developer: Developer of code or hardware (devices, gateways) in a product.
 * System Integrator: Purchaster of a set of devices who wishes to combine them into a working system to be sold to a third party.
 
+## Use Case Template
+TEMPLATE: 
+* {In the context of (context)}, 
+* As a (user type) 
+* {starting from (current situation)}
+* I want to (achieve goal) 
+* {by (means)}
+* so that (reason).
+
 ## Use Cases
-TEMPLATE: {In the context of (context)}, As a (user type) I want (goal) so that (reason).
 * As an end user, I want to know whether a device will work with my system before I purchase it to avoid wasting money.
     - Installers of IoT devices want to be able to determine if a given device will be compatible with the rest of their installed systems and whether they will have access to its data and affordances.
 
