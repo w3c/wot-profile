@@ -14,6 +14,8 @@ TEMPLATE:
 * {by (means)}
 * so that (reason).
 
+Example: In the context of my home, as an end user, starting from a condition of feeling nausea, I want to achieve better health, by means of nutrition monitoring and food improvement, so that I live longer.
+
 ## Use Cases
 * As an end user, I want to know whether a device will work with my system before I purchase it to avoid wasting money.
     - Installers of IoT devices want to be able to determine if a given device will be compatible with the rest of their installed systems and whether they will have access to its data and affordances.
