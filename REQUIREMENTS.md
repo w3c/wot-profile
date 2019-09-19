@@ -5,17 +5,6 @@
 * Developer: Developer of code or hardware (devices, gateways) in a product.
 * System Integrator: Purchaster of a set of devices who wishes to combine them into a working system to be sold to a third party.
 
-## Use Case Template
-TEMPLATE: 
-* {In the context of (context)}, 
-* As a (user type) 
-* {starting from (current situation)}
-* I want to (achieve goal) 
-* {by (means)}
-* so that (reason).
-
-Example: In the context of my home, as an end user, starting from a condition of feeling nausea, I want to achieve better health, by means of nutrition monitoring and food improvement, so that I live longer.
-
 ## Use Cases
 * As an end user, I want to know whether a device will work with my system before I purchase it to avoid wasting money.
     - Installers of IoT devices want to be able to determine if a given device will be compatible with the rest of their installed systems and whether they will have access to its data and affordances.
@@ -66,7 +55,7 @@ Proposers: Fujitsu, Siemens
 
 A profile should help define what needs to be implemented.
 
-#### Multiple profiles
+### Multiple profiles
 Proposer: Intel, Siemens
 
 The mechanism used to indicate that a TD satisfies a profile should be
@@ -123,11 +112,3 @@ There should be a mechanism to allow the "nosec" security scheme but only in a D
 
 #### Discussion
 * Intel: debatable - nosec may still be useful in a closed network even for production.
-
-## Rejected Requirements
-
-### Must use English descriptions
-This is a dumb example!  Just put in here to show the template!
-
-#### Discussion
-Rejected as it does not satisfy internationalization requirements.
