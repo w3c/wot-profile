@@ -25,41 +25,64 @@ Please put your proposed requirements into a separate section and mark it with y
 we discuss with the appropriate contributors.  
 
 ### Interoperability 
-Proposers: Oracle, Intel, Siemens, Fujitsu
+Supprters: Oracle, Intel, Siemens, Fujitsu
 
+This is the most important objective of the profile.
 A TD Consumer satisfying the requirements of a profile should be able to process any TD also
 satisfying the profile and should be able to correctly interact with all affordances of the 
 Thing such a TD describes.
 
-Note: this implies that a profile has two parts:
-1. Restrictions on TDs related to implementation constraints on Things
-2. Implementation requirements for Consumers
+Note: this implies that a profile has three parts:
+1. Restrictions on TDs
+2. Implementation requirements, constraints and behavioral assertions for Consumers
+3. Implementation requirements, constraints and behavioral assertions on Things
 
-### Limit complexity 
-Proposer: Oracle
+### Limit and reduce complexity 
+Supporters: Oracle, Siemens
 
-#### Discussion
-* Siemens: Need to define what *complexity* means!
+Complexity addresses at least the follwing two things to simplify the development and reduce
+the implementation effort:
+1. Implementation complexity on a thing and consumer, e.g. eliminating the need of RDF processing
+2. simplify thing description to have less variations
+
+Other aspects are:
+- Effort for JSON implementation
+- Limit storage and bandwidth requirements
+- Use finite (maximum) resources
+
+### Ambiguities
+Supporters: Oracle, Fujitsu, Intel(*) 
+Get rid of ambiguities, i.e. clarify specifications to define interpretation of a TD
+and behavior of the thing and consumer. 
+
+Examples are the choice of properties vs. actions, use of PUT or POST for HTTP,
+observe protocols.
+
+This will probably create new requirements for the TD spec.
 
 ### Human readability
-Proposer: Oracle
+Suppporters: Oracle
 
 Human-readable information such as title and description should be mandatory to
 encourage inclusion of this information for documentation purposes.
-
-#### Discussion
-* Siemens: w.r.t. title/description?
+Consider defining the value to use if these fields must be empty.
+Privacy may require removing human readable information.
 
 ### Developer guidance 
-Proposers: Fujitsu, Siemens
+Supporters: Fujitsu, Siemens, Intel
 
 A profile should help define what needs to be implemented.
+This requirement also includes behavioral goals and 
+recommendations about best practice for the implementation of Consumers and Things.
 
 ### Multiple profiles
-Proposer: Intel, Siemens
+Supporters: Intel, Siemens
 
 The mechanism used to indicate that a TD satisfies a profile should be
 general enough to indicate the TD satisfies the requirements for multiple profiles.
+
+Some people are concerned about fragmentation, if multiple profiles would be defined. 
+However this requirement is about the *mechanism* to identify the profile in use.
 
 ### Composable profiles
 Proposer: Intel
@@ -75,31 +98,32 @@ able to ingest TDs designed for both the home and industrial contexts.
 (for example, a device using protocols common to two different usage contexts)
 should be able to indicate that.
 
-### Validatible
-Proposer: Intel
+
+### Validatible TDs
+Supporters: Intel, Oracle
 
 Whether or not a TD satisfies the requirements of a given profile should
 be verifiable with automated tools.
 
+We can use the existing TD JSDON Schema as a basis and reuse the existing tooling
+(TD-playground)
+
 ### Identification of profiles
-Proposers: Intel, Siemens, Fujitsu
+Supporters: Intel, Siemens, Fujitsu
 
 There should be a mechanism to identify which profiles a TD satisfies.
 This mechanism should be intrinsic to a TD, i.e. be in-band.
 
 ### Profile should define a finite set of features and capabilities to implement by the consumer.
-Proposers: Intel, Oracle, Fujitsu
+Supporters: Intel, Oracle, Fujitsu
 
 A profile should limit the number of options, for example the set of possible protocols, to
 a finite set, so that a consumer can consume any TD in a given profile with a finite and static code base.
 
-#### Discussion
-* Siemens: isn't this the rationale of a profile?
-
 ### Limit resource consumption
-Proposers: Intel, Oracle, Siemens, Fujitsu
+Supporters: Intel, Oracle, Siemens, Fujitsu
 
-Profiles should limit the amount of resources necessary to generate and consume a TD.
+Profiles should limit the maximum amount of resources necessary to generate and consume a TD.
 
 ### Follow Security and Privacy Best Practices
 Proposers: Intel
@@ -107,8 +131,12 @@ Proposers: Intel
 Profiles should not specify security and protocol combinations that do not satisfy security best practices
 as described in the WoT Security Best Practices document.
 
-### Use nosec only in Developer contexts
-There should be a mechanism to allow the "nosec" security scheme but only in a Developer context.
+New security schemes may be added, others may be deprecated.
 
-#### Discussion
-* Intel: debatable - nosec may still be useful in a closed network even for production.
+### Developer Mode
+Proposers: Intel
+
+There should be a mechanism to allow the "nosec" security scheme but only in a Developer context.
+Nosec may still be useful in a closed network even for production.
+
+
