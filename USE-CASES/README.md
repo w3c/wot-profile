@@ -1,3 +1,5 @@
+# Use Cases for WoT Profiles
+
 This directory contains the use cases 
 for the WoT profile specification.
 
