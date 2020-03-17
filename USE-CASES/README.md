@@ -1,6 +1,6 @@
 # Use Cases for WoT Profiles
 
-This directory contains the use cases 
-for the WoT profile specification.
+The use cases for WoT profiles are handled in the WoT Architecture repository.
 
-Please put all your use cases into this directory adopting the format in <em>use-case-template.md</em>.
+https://github.com/w3c/wot-architecture/tree/master/USE-CASES
+
