@@ -32,4 +32,4 @@ templates and other protocols will be defined in the near future.
 
 Devices that constrain their use of the Thing Description to the **WoT Core Profile** can **interoperate other out-of-the-box**.
 
-A rendered version of the profile specification is available at: [WoT Profile](https://cdn.statically.io/gh/mlagally/wot-profile/master/index.html?env=dev)
+A rendered version of the profile specification is available at: [WoT Profile](http://w3c.github.io/wot-profile/)
