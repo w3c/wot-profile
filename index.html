@@ -301,12 +301,22 @@
                 - therefore descriptions, dates, and author fields are
                 either mandatory or highly recommended.
             </section>
-        </section>
+	</section>
         <section>
             <h2>Structure of this document</h2>
             <section class="ednote">to be added.</section>
         </section>
     </section>
+    <section id="conformance">
+	<p>
+	A device or consumer implementation complies with this specification if it follows 
+	the normative statements in the present document.
+	<p>
+	A JSON Schema [[?JSON-SCHEMA]] to validate the compliance of a Thing Description
+	with the core profile is provided in Appendix <a href="#core-profile-json-schema"></a>.
+	</p>
+    </section>
+
     <section id="terminology">
         <h2 id="terminology">Terminology</h2>
         <p>This specification uses the same terminology as the WoT
@@ -547,12 +557,20 @@
         This section defines the <a>Core Profile</a> by defining a <a>Core
             Data Model</a> and a set of <a href="#protocol-binding">Protocol
             Binding</a> Rules.
-        <section id="core-data_model">
+            <section id="core-data_model">
             <h2>WoT Core Data Model</h2>
-
+	    <p>
+		    The core data model incorporates the data model defined by chapter 5 of
+		    the Thing Description specification. 
+		    The normative rules defined by that data model 
+		    are the baseline for the definition of the core data model
+		    and are normative for the core datamodel.
+		    A core profile compliant implementation MUST additionally satisfy the
+		    requirements of this chapter.
+	    </p>
             <section id="general">
                 <h3 id="general">General</h3>
-
+		
                 <p>
                     The following rules are applicable to multiple
                     classes of the <a>TD Specification</a>, as they
@@ -1550,5 +1568,15 @@
             <li>Examples</li>
         </ul>
     </section>
+    
+	<section id="json-schema-core-profile" class="appendix informative">
+  	<h1>JSON Schema of the Core Profile</h1>
+    <p>
+        A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance with the core profile.
+    </p>
+    <p class="ednote">
+	    Todo: Define a JSON-SCHEMA.
+    </p>
+
 </body>
 </html>
