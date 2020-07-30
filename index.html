@@ -493,8 +493,8 @@
                     <td>protocol binding</td>
                     <td>guaranteed protocol semantics</td>
                     <td>limited protocol(s) and protocol features,
-                        predefined mapping of http verbs (GET/PUT) to
-                        operation verbs</td>
+                        Example: predefined mapping of http verbs (GET/PUT) to
+                        operation verbs, similar constraints for other protocols.</td>
                 </tr>
             </table>
 
@@ -1448,7 +1448,13 @@
             This section describes how the <a>Core Data Model</a> can be
             bound to different protocols. In addition to a set of
             mapping rules, it defines additional behavior, e.g.
-            timeouts, error behavior, action semantics, ...
+            timeouts, error behavior, action semantics, etc.
+	    The HTTP protocol binding is not meant to be exclusive, 
+	    the common core data model can be supported by other protocols as well.
+		
+	    <section class="ednote">
+	    Constraints for additional protocols can be defined in a future version of this specification,
+	    or, already included in the current version. </section>
 
             <section id="http-protocol-binding">
                 <h3>HTTP Protocol Binding</h3>
