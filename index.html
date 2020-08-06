@@ -741,89 +741,12 @@
                         IF-TD is provided externally, a support email
                         address SHOULD be used.</p>
 
-
-                    <p>It is RECOMMENDED to use the following field
-                        names for additional fields with specific
-                        semantics:</p>
-
-                    <table class="def">
-                        <thead>
-                            <tr>
-                                <th>keyword</th>
-                                <th>type</th>
-                                <th>remarks</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>serialNumber</td>
-                                <td>string</td>
-
-                            </tr>
-                            <tr>
-                                <td>hardwareRevision</td>
-                                <td>string</td>
-
-                            </tr>
-                            <tr>
-                                <td>softwareRevision</td>
-                                <td>string</td>
-
-                            </tr>
-                            <tr>
-                                <td>loc_latitude</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    latitude as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                            <tr>
-                                <td>loc_longitude</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    longitude as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                            <tr>
-                                <td>loc_altitude</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    altitude as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                            <tr>
-                                <td>loc_height</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    height as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                            <tr>
-                                <td>loc_depth</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    depth as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>
-                        If a location is provided, loc_latitude and
-                        loc_longitude MUST be present. Only one of
-                        loc_altitude, loc_height and loc_depth MAY be
-                        present. The use of loc_altitude is NOT
-                        RECOMMENDED, since it refers to the <em>mean
-                            sea level</em>, which is not a globally unique
-                        reference point.
-                    </p>
                     <section class="note">
                         <p>
-                            See <a
-                                href="https://www.science20.com/news_articles/what_happens_bridge_when_one_side_uses_mediterranean_sea_level_and_another_north_sea-121600">https://www.science20.com/news_articles/what_happens_bridge_when_one_side_uses_mediterranean_sea_level_and_another_north_sea-121600</a>
-                            for a justification why loc_altitude is
-                            problematic.
+                            It will be evaluated whether the profile also recommends some new TD terms that may be introduced in TD 1.1. Currently the following terms are discussed: serialNumber, hardwareRevision, softwareRevision, loc_latitude, loc_longitude
+                            loc_altitude, loc_height, and loc_depth. If these, or some of them, are defined in the TD 1.1 model, they may be recommended here in one of the next draft updates. 
                         </p>
-                    </section>
+                    </section>                  
                 </section>
             </section>
 
