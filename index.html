@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="tablestyle.css">
-<title>Web of Things (WoT): WoT Profile - Strawman Proposal</title>
+<title>Web of Things (WoT): WoT Profile</title>
 <script class="remove"
     src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
 <script class="remove">
@@ -11,12 +11,11 @@
 		lint : {
 			"no-headingless-sections" : false,
 		},
-		specStatus : "base",
-		noRecTrack : "true",
+		specStatus : "ED",
 		maxTocLevel : 6,
-		processVersion : 2017,
-		shortName : "wot--profile",
-		copyrightStart : 2018,
+		processVersion : 2019,
+		shortName : "wot-profile",
+		copyrightStart : 2020,
 		wg : "Web of Things Working Group",
 		wgURI : "https://www.w3.org/WoT/WG/",
 		wgPublicList : "public-wot-wg",
@@ -28,7 +27,31 @@
 			w3cid : "47166",
 			company : "Oracle Corp.",
 			companyURL : "https://www.oracle.com/"
-		} ],
+		},
+		{
+  	                name:       "Michael McCool",
+        	        w3cid:      "93137",
+                	company:    "Intel Corp.",
+                	companyURL: "https://www.intel.com/"
+		},
+		{
+	                name : 	    "Ryuichi Matsukura",
+            	   	w3cid :     "64284",
+            		company :   "Fujitsu Ltd.",
+            		companyURL :"https://www.fujitsu.com/"
+		},
+		{
+	                name:       "Sebastian Kaebisch",
+        	        w3cid:      "43064",
+                	company:    "Siemens AG",
+                	companyURL: "https://www.siemens.com/"
+		},
+		{
+			name : "Tomoaki Mizushima",
+			w3cid : "98915",
+			company : "Internet Research Institute, Inc.",
+			companyURL : "https://www.iri.co.jp/"
+		}],
 
 		otherLinks : [
 				{
@@ -118,27 +141,10 @@
             the <a>WoT Core Profile</a> can interoperate with each other
             out-of-the-box.
         </p>
-        <p>A later version of this document will define additional
-            profiles:</p>
-        <ul>
-            <li><strong>Thing Template Profile</strong>
-                <p>
-                    The <a>Thing Template Profile</a> enables to apply
-                    the vocabulary of the <a>Thing Description</a>
-                    Specification for defining a common interface, that
-                    can be implemented by different things. It selects
-                    an appropriate subset to describe <strong>classes</strong>
-                    of things that share the same data model.
-                </p></li>
-
-            <li><strong>Digital Twin Profile</strong>
-                <p>
-                    The <a>Digital Twin Profile</a> allows defining a
-                    virtual model of a thing or a group of things.
-                </p></li>
-        </ul>
-        <p>Profiles are is not exclusive, they can overlap or
-            include others.
+        <p>Note that the core profile is not exclusive. Device implementers are free to adopt 
+	    other features of the thing description that go beyond the constraints 
+	    of the core profile, however the interoperability guarantees of the core profile
+	    hold only for the <a>WoT Core Profile</a> subset.
     </section>
 
     <section id='sotd'></section>
@@ -272,7 +278,7 @@
                 interoperability</h2>
             <p>
                 Devices, which implement the <a>Core Profile</a>, are <strong>out-of-the-box
-                    interoperable</strong> with other <a>Core Profile</a>em>
+                    interoperable</strong> with other <a>Core Profile</a>
                 compliant devices. Furthermore, the <a>Core Profile</a>
                 simplifies device validation and compliance testing
                 since a corresponding conformance test suite can be
@@ -284,12 +290,22 @@
                 - therefore descriptions, dates, and author fields are
                 either mandatory or highly recommended.
             </section>
-        </section>
+	</section>
         <section>
             <h2>Structure of this document</h2>
             <section class="ednote">to be added.</section>
         </section>
     </section>
+    <section id="conformance">
+	<p>
+	A device or consumer implementation complies with this specification if it follows 
+	the normative statements in the present document.
+	<p>
+	A JSON Schema [[?JSON-SCHEMA]] to validate the compliance of a Thing Description
+	with the core profile is provided in Appendix <a href="#core-profile-json-schema"></a>.
+	</p>
+    </section>
+
     <section id="terminology">
         <h2 id="terminology">Terminology</h2>
         <p>This specification uses the same terminology as the WoT
@@ -476,8 +492,8 @@
                     <td>protocol binding</td>
                     <td>guaranteed protocol semantics</td>
                     <td>limited protocol(s) and protocol features,
-                        predefined mapping of http verbs (GET/PUT) to
-                        operation verbs</td>
+                        Example: predefined mapping of http verbs (GET/PUT) to
+                        operation verbs, similar constraints for other protocols.</td>
                 </tr>
             </table>
 
@@ -530,12 +546,20 @@
         This section defines the <a>Core Profile</a> by defining a <a>Core
             Data Model</a> and a set of <a href="#protocol-binding">Protocol
             Binding</a> Rules.
-        <section id="core-data_model">
+            <section id="core-data_model">
             <h2>WoT Core Data Model</h2>
-
+	    <p>
+		    The core data model incorporates the data model defined by chapter 5 of
+		    the Thing Description specification. 
+		    The normative rules defined by that data model 
+		    are the baseline for the definition of the core data model
+		    and are normative for the core datamodel.
+		    A core profile compliant implementation MUST additionally satisfy the
+		    requirements of this chapter.
+	    </p>
             <section id="general">
                 <h3 id="general">General</h3>
-
+		
                 <p>
                     The following rules are applicable to multiple
                     classes of the <a>TD Specification</a>, as they
@@ -723,89 +747,12 @@
                         IF-TD is provided externally, a support email
                         address SHOULD be used.</p>
 
-
-                    <p>It is RECOMMENDED to use the following field
-                        names for additional fields with specific
-                        semantics:</p>
-
-                    <table class="def">
-                        <thead>
-                            <tr>
-                                <th>keyword</th>
-                                <th>type</th>
-                                <th>remarks</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>serialNumber</td>
-                                <td>string</td>
-
-                            </tr>
-                            <tr>
-                                <td>hardwareRevision</td>
-                                <td>string</td>
-
-                            </tr>
-                            <tr>
-                                <td>softwareRevision</td>
-                                <td>string</td>
-
-                            </tr>
-                            <tr>
-                                <td>loc_latitude</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    latitude as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                            <tr>
-                                <td>loc_longitude</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    longitude as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                            <tr>
-                                <td>loc_altitude</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    altitude as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                            <tr>
-                                <td>loc_height</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    height as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                            <tr>
-                                <td>loc_depth</td>
-                                <td>number</td>
-                                <td>Text string representation of
-                                    depth as defined in annex H of
-                                    [[ISO-6709]]</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>
-                        If a location is provided, loc_latitude and
-                        loc_longitude MUST be present. Only one of
-                        loc_altitude, loc_height and loc_depth MAY be
-                        present. The use of loc_altitude is NOT
-                        RECOMMENDED, since it refers to the <em>mean
-                            sea level</em>, which is not a globally unique
-                        reference point.
-                    </p>
                     <section class="note">
                         <p>
-                            See <a
-                                href="https://www.science20.com/news_articles/what_happens_bridge_when_one_side_uses_mediterranean_sea_level_and_another_north_sea-121600">https://www.science20.com/news_articles/what_happens_bridge_when_one_side_uses_mediterranean_sea_level_and_another_north_sea-121600</a>
-                            for a justification why loc_altitude is
-                            problematic.
+                            It will be evaluated whether the profile also recommends some new TD terms that may be introduced in TD 1.1. Currently the following terms are discussed: serialNumber, hardwareRevision, softwareRevision, loc_latitude, loc_longitude
+                            loc_altitude, loc_height, and loc_depth. If these, or some of them, are defined in the TD 1.1 model, they may be recommended here in one of the next draft updates. 
                         </p>
-                    </section>
+                    </section>                  
                 </section>
             </section>
 
@@ -1369,7 +1316,7 @@
             <section>
                 <h3 id="links">Links</h3>
                 <section class="ednote">TODO: Consider
-                    selecting a defined set from [[RFC6903]] chapter 6.</section>
+                    selecting a defined set from [[RFC8288]].</section>
 
                 <p>
                     The "type" relationship as defined in chapter 6 of
@@ -1431,7 +1378,13 @@
             This section describes how the <a>Core Data Model</a> can be
             bound to different protocols. In addition to a set of
             mapping rules, it defines additional behavior, e.g.
-            timeouts, error behavior, action semantics, ...
+            timeouts, error behavior, action semantics, etc.
+	    The HTTP protocol binding is not meant to be exclusive, 
+	    the common core data model can be supported by other protocols as well.
+		
+	    <section class="ednote">
+	    Constraints for additional protocols can be defined in a future version of this specification,
+	    or, already included in the current version. </section>
 
             <section id="http-protocol-binding">
                 <h3>HTTP Protocol Binding</h3>
@@ -1527,5 +1480,15 @@
             <li>Examples</li>
         </ul>
     </section>
+    
+	<section id="core-profile-json-schema" class="appendix informative">
+  	<h1>JSON Schema of the Core Profile</h1>
+    <p>
+        A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance with the core profile.
+    </p>
+    <p class="ednote">
+	    Todo: Define a JSON-SCHEMA.
+    </p>
+
 </body>
 </html>
