@@ -11,7 +11,7 @@
             lint: {
                 "no-headingless-sections": false,
             },
-            specStatus: "ED",
+            specStatus: "FPWD",
             maxTocLevel: 6,
             processVersion: 2019,
             shortName: "wot-profile",
@@ -96,26 +96,16 @@
 
 <body>
     <section id="abstract">
-        <p>The W3C WoT Thing Architecture [[wot-architecture]] and
-            WoT Thing Description [[wot-thing-description]] define a
-            powerful description mechanism and a format to describe
-            myriads of very different devices, which may be connected
-            over various protocols. The format is very flexible and open
-            and puts very few normative requirements on devices that
-            implement it.</p>
-
-        <p>
-            However, this flexibility de-facto prevents
-            interoperability, since, without additional <strong>rules</strong>,
-            it allows implementers to make many choices that do not
-            provide <strong>guarantees</strong> of common behavior
-            between implementations.
+      <p>
+      The present document defines a WoT Profile that enables out of the box interoperability
+      among it's adopterts. It defines a set of constraints and rules that compliant 
+      thing descriptions have to adopt to ensure interoperability.
         </p>
         <p>
-            These rules have to be prescriptive, to ensure that
+            These rules are prescriptive, to ensure that
             compliant implementations satisfy the semantic guarantees,
             that are implied by them. We call this set of rules a <a>Profile</a>.
-
+       </p>
         <p>
             The <strong>WoT Profile Specification</strong> as defined in
             the present document serves two purposes:
@@ -145,6 +135,29 @@
             other features of the thing description that go beyond the constraints
             of the core profile, however the interoperability guarantees of the core profile
             hold only for the <a>WoT Core Profile</a> subset.
+
+          <section>
+            <h3>Motivatino for a Profile</h3>
+          </section>
+
+            <p>The W3C WoT Thing Architecture [[wot-architecture]] and
+              WoT Thing Description [[wot-thing-description]] define a
+              powerful description mechanism and a format to describe
+              myriads of very different devices, which may be connected
+              over various protocols. The format is very flexible and open
+              and puts very few normative requirements on devices that
+              implement it.</p>
+  
+          <p>
+              However, this flexibility de-facto prevents
+              interoperability, since, without additional <strong>rules</strong>,
+              it allows implementers to make many choices that do not
+              provide <strong>guarantees</strong> of common behavior
+              between implementations.
+          </p>
+  
+
+
     </section>
 
     <section id='sotd'></section>
