@@ -216,8 +216,8 @@
                 existing deployments and protocols, a broad spectrum of
                 variations and potentially high complexity of thing
                 descriptions inhibits interoperability and will most
-                likely lead to additional profiles of the TD and
-                domain-specific thing consumer implementations.</p>
+                likely lead to additional profiles of the <a>WoT Thing Description</a> 
+                and domain-specific thing consumer implementations.</p>
 
             <p>
                 The WoT <a>Core Profile</a> can be used by green field
@@ -240,7 +240,7 @@
                 de-facto agreements on the use of a small constrained
                 subset of interaction patterns and protocol choices.
                 These de-facto agreements select a common subset of the
-                WoT <a>Thing Description specification</a>, based on
+                WoT <a>Thing Description</a>, based on
                 proven interoperability among manufacturers.
             </p>
             <p>
@@ -282,7 +282,7 @@
                 schemas for properties and actions which are required
                 for resource constrained devices in real-world
                 deployments. The format does not forbid the use of
-                additional elements of the TD for vendor specific
+                additional elements of the <a>WoT Thing Description</a> for vendor specific
                 extensions, however this will impact interoperability.</p>
         </section>
         <section>
@@ -325,7 +325,7 @@
         <p>
             For convenience of the reader, we use the terms <em>keyword</em>
             and <em>field</em> for the linguistic notion <em>vocabulary term</em>
-            as defined in the <a>Thing Description Specification</a>.
+            as defined in the <a>Thing Description</a> Specification.
         </p>
         <p>
             We use the terms <em>device</em> and <em>thing</em> in an
@@ -361,7 +361,7 @@
               <dt>
                 <dfn>WoT Core Profile</dfn>
             </dt>
-            <dd>The subset of the Thing Description specification
+            <dd>The subset of the WoT Thing Description specification
                 defined by the present document.</dd>
 
   
@@ -436,20 +436,20 @@
         <h2 id="the-profiling-profile">Profiling Mechanism</h2>
         <p>
             This section describes a generic mechanism to define a
-            profile of the <a>TD specification</a> in a unambiguous way.
+            profile of the <a>WoT Thing Description</a> in a unambiguous way.
         </p>
         <p>
-            The W3C WoT <a>Thing Description</a> specification defines a
+            The W3C WoT <a>WoT Thing Description</a> specification defines a
             formal language, i.e. a set of vocabulary terms (keywords),
             a set of classes that are built from these keywords, and a
             set of additional rules, that define constraints on
             permitted values and keyword presence (mandatory / optional)
             dependent on the context where the keyword is used. In
-            addition the TD specification defines relationships and
+            addition the <a>WoT Thing Description</a> specification defines relationships and
             corresponding cardinalities between these classes.
         </p>
         <p>
-            The <a>TD specification</a> already has some constraints,
+            The <a>WoT Thing Description</a> specification already has some constraints,
             but there is a wide variety of variations that are left to
             the interpretation or the discretion of an implementer. The
             rationale for the <a>Core Profile</a> is not to forbid
@@ -475,8 +475,8 @@
             <p>
                 A profile is a set of constraints and rules, which
                 provide additional semantic guarantees that are applied
-                to the TD specification. These constraints define a
-                subset of valid <a>Thing Descriptions</a> by defining
+                to the <a>WoT Thing Description</a>  specification. These constraints define a
+                subset of valid <a>WoT Thing Descriptions</a> by defining
                 additional rules on various aspects of the <a>Thing
                     Description</a> specification.
             </p>
@@ -488,7 +488,7 @@
                     <th>Example</th>
                 </tr>
                 <tr>
-                    <td>vocabulary of TD classes</td>
+                    <td>vocabulary of Thing Description classes</td>
                     <td>guaranteed set of metadata fields</td>
                     <td>Make specific vocabulary terms mandatory,
                         remove others</td>
@@ -588,7 +588,7 @@
 
                 <p>
                     The following rules are applicable to multiple
-                    classes of the <a>TD Specification</a>, as they
+                    classes of the <a>WoT Thing Description</a> Specification, as they
                     provide clearer semantics, improved readability and
                     simplified processing on resource constrained
                     devices.
@@ -597,7 +597,7 @@
                 <section>
                     <h4>Mandatory fields</h4>
                     <p>
-                        One of the primary benefits of the WoT <a>Thing
+                        One of the primary benefits of the <a>WoT Thing
                             Description</a> over a typical IoT format is the
                         additional documentation for a human reader.
                     </p>
@@ -697,13 +697,13 @@
                 <h2 id="thing">Thing</h2>
                 The <a>Core Data Model</a> applies the following
                 constraints and rules to the Thing class of section
-                5.3.1.1 of the <a>TD Specification</a>.
+                5.3.1.1 of the <a>WoT Thing Description</a> Specification.
                 <section>
                     <h3>Mandatory fields</h3>
                     <p>
                         To provide minimum interoperability, the
                         following metadata fields of a <a>Thing</a> MUST
-                        be contained in an <a>Core TD</a>:
+                        be contained in a compliant Thing Description:
                     </p>
                     <table class="def">
                         <thead>
@@ -770,7 +770,7 @@
                     <p>If a Thing Description is used solely within
                         a company, the email address of the developer
                         SHOULD be used in the support field, if the
-                        IF-TD is provided externally, a support email
+                        Thing Description is provided externally, a support email
                         address SHOULD be used.</p>
 
                     <section class="note">
@@ -801,7 +801,8 @@
                 The <a>Core Data Model</a> applies the following
                 constraints and rules to the
                 <code>DataSchema</code>
-                class of section 5.3.2.1 of the <a>TD Specification</a>.
+                class of section 5.3.2.1 of the <a>WoT Thing Description</a> 
+                Specification</a>.
                 <p>
                     This section defines a subset of the class
                     <code>DataSchema</code>
@@ -883,7 +884,7 @@
                 The <a>Core Data Model</a> applies the following
                 constraints and rules to the
                 <code>PropertyAffordance</code>
-                class of section 5.3.1.3 of the <a>TD Specification</a>.
+                class of section 5.3.1.3 of the <a>WoT Thing Description</a> Specification.
                 <section>
                     <h4>Mandatory fields</h4>
                     <p>
@@ -1053,7 +1054,7 @@
                 The <a>Core Data Model</a> applies the following
                 constraints and rules to the
                 <code>ActionAffordance</code>
-                class of section 5.3.1.4 of the <a>TD Specification</a>.
+                class of section 5.3.1.4 of the <a>WoT Thing Description</a> Specification.
 
                 <section>
                     <h4>Mandatory fields</h4>
@@ -1182,7 +1183,7 @@
                 The <a>Core Data Model</a> applies the following
                 constraints and rules to the
                 <code>EventAffordance</code>
-                class of section 5.3.1.5 of the <a>TD Specification</a>.
+                class of section 5.3.1.5 of the <a>WoT Thing Description</a> Specification.
 
                 <p>
                     A <a>Thing</a> may provide more than one event
