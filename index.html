@@ -119,7 +119,7 @@
       <li>In addition it defines a <strong><a>Core
             Profile</a></strong> of the Thing Description for use with
         the HTTP(S) and selected notification protocols. The <a>Core
-          Profile</a> formalizes the results of several plug-fests
+          Profile</a> formalizes the results of several PlugFests
         that were conducted by the WoT Interest Group and of
         tests that were conducted as part of the development. It
         is expected that additional profiles for thing templates
@@ -222,7 +222,7 @@
         The WoT <a>Core Profile</a> can be used by green field
         deployments and gives guidance to new implementers of
         the WoT specifications. It has already proved in
-        brown-field scenarios in the plug-fests, where existing
+        brown-field scenarios in the PlugFests, where existing
         devices, that already existed as products, prototypes or
         demonstrators, were described with Thing Descriptions
         that are constrained to the <a>Core Profile</a>.
@@ -235,7 +235,7 @@
       </h2>
 
       <p>
-        During the recent WoT plug-fests there were many
+        During the recent WoT PlugFests there were many
         de-facto agreements on the use of a small constrained
         subset of interaction patterns and protocol choices.
         These de-facto agreements select a common subset of the
@@ -246,7 +246,7 @@
         The aim of this specification is to formalize these
         agreements by defining a <strong><a>WoT Core
             Profile</a></strong> based on the choices that were made by
-        the implementers of plug fest devices.
+        the implementers of PlugFest devices.
       </p>
       <p>
         The <a>WoT Core Profile</a> contains additional
@@ -507,7 +507,7 @@
         <tr>
           <td>values of vocabulary terms</td>
           <td>simplified processing</td>
-          <td>Limit the length of characters per string,
+          <td>Limit the length of characters per string.
             Always use arrays, where the spec permits a
             string or an array of strings.</td>
         </tr>
@@ -584,10 +584,11 @@
         the Thing Description specification.
         The normative rules defined by that data model
         are the baseline for the definition of the core data model
-        and are normative for the core datamodel.
+        and are normative for the core data model.
         A core profile compliant implementation MUST additionally satisfy the
         requirements of this chapter.
       </p>
+
       <section id="general">
         <h3 id="general">General</h3>
 
@@ -607,7 +608,7 @@
             additional documentation for a human reader.
           </p>
           <p>
-            Therefore the fields
+            Therefore, the fields
             <code>title</code>
             and
             <code>description</code>
@@ -651,6 +652,17 @@
           , an
           <code>array of string</code>
           MUST be used.
+
+          <section class="ednote">
+            <p>TODO: decide if multiple types and contexts are required.</p>
+
+            <p>In this case the following section could be added:</p>
+            <p>
+            The only exception to this rule are <code>@context</code> and <code>@type</code> annotations,
+            where both <code>string</code> or <code>array of string</code> MAY be used.
+          </p>
+          </section>
+           
         </p>
 
         <p>
@@ -702,7 +714,7 @@
         <h2 id="thing">Thing</h2>
         The <a>Core Data Model</a> applies the following
         constraints and rules to the Thing class of section
-        5.3.1.1 of the <a>WoT Thing Description</a> Specification.
+        5.3.1.1 of the <a>WoT Thing Description</a> specification.
         <section>
           <h3>Mandatory fields</h3>
           <p>
@@ -769,7 +781,7 @@
           <h5 id="recommended-practice-">Recommended
             practice</h5>
           <p>It is RECOMMENDED to use the value
-            &quot;Undefined&quot; for strings, where the
+            &quot;&quot; for strings, where the
             value cannot be determined.</p>
 
           <p>If a Thing Description is used solely within
@@ -795,7 +807,7 @@
 
 
       <section>
-        <h3 id="data schemas">Data Schemas</h3>
+        <h3 id="data schema">Data Schema</h3>
         <p>
           Data Schemas are used for the values of Properties,
           Action input and output parameters and Event message
@@ -866,7 +878,7 @@
               <td>type</td>
               <td>string</td>
               <td>one of boolean, integer, number,
-                string, object or string</td>
+                string, array or object</td>
             </tr>
           </tbody>
         </table>
@@ -874,10 +886,8 @@
           The values
           <code> object </code>
           ,
-          <code> array </code>
-          , or
-          <code> null </code>
-          MUST NOT be used in the type field.
+          <code> array </code> MAY only be used at the top level of a Data Schema.
+          The type value MUST NOT be <code> null </code>.
         </p>
       </section>
 
@@ -1055,7 +1065,7 @@
       <!-- Actions -->
 
       <section>
-        <h3 id="actions">Interaction Affordance</h3>
+        <h3 id="actions">Action Affordances</h3>
         The <a>Core Data Model</a> applies the following
         constraints and rules to the
         <code>ActionAffordance</code>
@@ -1184,7 +1194,7 @@
 
 
       <section>
-        <h3 id="events">Event Affordances</h3>
+        <h3 id="events">Event Affordance</h3>
         The <a>Core Data Model</a> applies the following
         constraints and rules to the
         <code>EventAffordance</code>
@@ -1198,13 +1208,14 @@
         <section class="ednote">
           <p>TODO:</p>
           <p>The events section needs to be signifcantly extended and define addtional constraints to ensure OOTBI.
-             WebSockets and WebHooks can be considered as initial candidates for supported protocols for the event mechanism
-             to identify appropriate <em>data model</em> constraints.
+            LongPoll, WebSockets and WebHooks can be considered as initial candidates for supported protocols for the
+            event mechanism
+            to identify appropriate <em>data model</em> constraints.
           </p>
           <p>
-             The individual <em>protocol constraints</em> need to be defined in a respective 
-             protocol binding chapter after they have been identified/evaluated in plugfests.</p>
-         </section>
+            The individual <em>protocol constraints</em> need to be defined in a respective
+            protocol binding chapter after they have been identified/evaluated in plugfests.</p>
+        </section>
 
         <section>
           <h4>Mandatory fields</h4>
@@ -1389,7 +1400,7 @@
         </p>
         <p>
           The set of security schemes supported in the <a>Core
-            Data Model</a> is based on the plug-fest results. To
+            Data Model</a> is based on the PlugFest results. To
           ensure interoperability, a TD consumer, which
           compliant with the <a>Core Data Model</a> MUST
           support <strong>all</strong> of the following
