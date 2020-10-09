@@ -97,13 +97,13 @@
 <body>
   <section id="abstract">
     <p>
-      The present document defines a WoT Profile that enables out of the box interoperability
-      among things and devices. It defines a set of constraints and rules that compliant
-      thing descriptions have to adopt to ensure interoperability.
+        This document intorduce a WoT profile concept that supports the so-called <i>out of the box interoperability</i>
+        among WoT-enabled things / devices. A WoT profile defines set of guidelines and rules that can be followed to ensure 
+        interoperability. 
     </p>
     <p>
-      These rules are prescriptive, to ensure that
-      compliant implementations satisfy the semantic guarantees,
+      These guidelines and rules are prescriptive, to ensure that
+      compliant implementations satisfy the semantic guarantees such as in <a>Thing Description</a>,
       that are implied by them. We call this set of rules a <em>Profile</em>.
     </p>
     <p>
@@ -116,25 +116,33 @@
         profile in an unambiguous way. This mechanism can be
         used to define additional profiles.
       </li>
-      <li>In addition it defines a <strong><a>Core
+      <li>It define a first base <strong><a>Core
             Profile</a></strong> of the Thing Description for use with
-        the HTTP(S) and selected notification protocols. The <a>Core
-          Profile</a> formalizes the results of several PlugFests
-        that were conducted by the WoT Interest Group and of
-        tests that were conducted as part of the development. It
-        is expected that additional profiles for thing templates
-        and other protocols will be defined in the near future.
+        the HTTP(S) and selected sub-protocols (e.g., for eventing). 
       </li>
     </ul>
+
     <p>
-      Devices that constrain their use of the Thing Description to
-      the <a>WoT Core Profile</a> can interoperate with each other
-      out-of-the-box.
+        The <a>Core Profile</a> formalizes the experiences of several WoT PlugFests
+          that were conducted by the WoT Interest Group and of
+          tests that were conducted as part of the development. It
+          is expected that additional profiles in combination with other (sub-)protocols 
+          will be defined in the near future.
     </p>
-    <p>Note that the core profile is not exclusive. Device implementers are free to adopt
-      other features of the thing description that go beyond the constraints
-      of the core profile, however the interoperability guarantees of the core profile
+
+
+    <p>
+      Implementations like for devices that constrain their use of the <a>Thing Description</a> to
+      the <a>WoT Core Profile</a> can interoperate with each other <i>out-of-the-box</i>.
+    </p>
+    <p>Note that a WoT profile like the <a>WoT Core Profile</a> is not exclusive. 
+        E.g., developer or device implementers are free to adopt other features of the <a>Thing Description</a> 
+        that go beyond the constraints of the <a>WoT Core Profile</a>, however the interoperability guarantees of the core profile
       hold only for the <a>WoT Core Profile</a> subset.
+    </p>
+
+
+
 
     <section class="ednote">
       The name <a>WoT Core Profile</a> is still under discussion in the group and is used as a working title.
@@ -552,7 +560,7 @@
 
       <p>A profile is not exclusive, i.e. a thing may conform
         to multiple profiles. Profiles can build on top of each
-        other or overlap, extended profiles can be built on top
+        other, overlap, or disjoint. An extended profiles can be built on top
         of the core profile.</p>
       <p>
         This specification does not put any requirements on the 
