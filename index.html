@@ -1503,7 +1503,21 @@
         annotations based on JSON-LD MAY be present but are not
         required to perform all interactions with the thing
         instance.</p>
-    </section>
+
+        <section id="canonical-representation">
+          <h2 id="canonical-td-representations">Canonical TD
+            representation</h2>
+          <p>
+            A canonical representation servers multiple purposes.
+            It is simplifying the parsing process, enables to identify 
+            equivalent TDs by simple string comparisons.
+            Furthermore it allows the use of a simple signing mechanism,
+            such as <ahref="https://w3c-ccg.github.io/ld-proofs/">Linked Data Proofs</a> or JSON Web Signatures [[RFC7515]] and enables 
+            identity checks on encrypted TDs.  
+          </p>
+      </section>
+
+
 
     <!--  Normative References 
 
