@@ -116,14 +116,24 @@
         profile in an unambiguous way. This mechanism can be
         used to define additional profiles.
       </li>
-      <li>In addition it defines a <strong><a>Core
-            Profile</a></strong> of the Thing Description for use with
-        the HTTP(S) and selected notification protocols. The <a>Core
+      <li>In addition, it defines a <strong><a>WoT Core
+        Profile</a></strong> of the Thing Description, which
+        consists of a core data model and protocol
+        binding rules. The <a>WoT Core
           Profile</a> formalizes the results of several PlugFests
         that were conducted by the WoT Interest Group and of
-        tests that were conducted as part of the development. It
-        is expected that additional profiles for thing templates
-        and other protocols will be defined in the near future.
+        tests that were conducted as part of the development.
+        <p>
+          This document incudes a binding of the core data model to
+          HTTP(S) and selected notification protocols.
+          The core data model can be bound to other protocols -
+          it is expected that bindings to other protocols (e.g. MQTT, CoAP)
+          will be defined in the near future.
+          </p>
+          <p>
+          A TD that is compliant to the <a>core profile</a> MUST adhere to
+          both the constraints on the data model and the protocol binding.
+        </p>
       </li>
     </ul>
     <p>
@@ -160,8 +170,6 @@
       provide <strong>guarantees</strong> of common behavior
       between implementations.
     </p>
-
-
 
   </section>
 
@@ -555,7 +563,7 @@
         other or overlap, extended profiles can be built on top
         of the core profile.</p>
       <p>
-        This specification does not put any requirements on the 
+        This specification does not put any requirements on the
         scope and contents of other profiles.
       </p>
 
@@ -662,16 +670,16 @@
           <code>array of string</code>
           MUST be used.
 
-          <section class="ednote">
-            <p>TODO: decide if multiple types and contexts are required.</p>
+        <section class="ednote">
+          <p>TODO: decide if multiple types and contexts are required.</p>
 
-            <p>In this case the following section could be added:</p>
-            <p>
+          <p>In this case the following section could be added:</p>
+          <p>
             The only exception to this rule are <code>@context</code> and <code>@type</code> annotations,
             where both <code>string</code> or <code>array of string</code> MAY be used.
           </p>
-          </section>
-           
+        </section>
+
         </p>
 
         <p>
@@ -1539,8 +1547,8 @@
 			<p>(https://tools.ietf.org/html/rfc6068).</p>
 		</section -->
   </section>
-  <section>
-    <h4 id="open-issues">Open Issues</h4>
+  <section id="open-issues">
+    <h3>Open Issues</h3>
     <ul>
       <li>define action semantics</li>
       <li>define subscription mechanism</li>
@@ -1548,7 +1556,7 @@
     </ul>
   </section>
 
-  <section id="core-profile-json-schema" class="appendix informative">
+  <section id="core-profile-json-schema" class="appendix normative">
     <h1>JSON Schema of the Core Profile</h1>
     <p>
       A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance with
