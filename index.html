@@ -117,7 +117,7 @@
         used to define additional profiles.
       </li>
       <li>In addition, it defines a <strong><a>WoT Core
-        Profile</a></strong> of the Thing Description, which
+            Profile</a></strong> of the Thing Description, which
         consists of a core data model and protocol
         binding rules. The <a>WoT Core
           Profile</a> formalizes the results of several PlugFests
@@ -129,8 +129,8 @@
           The core data model can be bound to other protocols -
           it is expected that bindings to other protocols (e.g. MQTT, CoAP)
           will be defined in the near future.
-          </p>
-          <p>
+        </p>
+        <p>
           A TD that is compliant to the <a>core profile</a> MUST adhere to
           both the constraints on the data model and the protocol binding.
         </p>
@@ -1448,17 +1448,22 @@
       <h3>Protocol Binding</h3>
 
       <section class="ednote">This section is work in
-        progress and not ready for review.</section>
-
-      This section describes how the <a>Core Data Model</a> can be
-      bound to different protocols. In addition to a set of
-      mapping rules, it defines additional behavior, e.g.
-      timeouts, error behavior, action semantics, etc.
-      The HTTP protocol binding is not meant to be exclusive,
-      the common core data model can be supported by other protocols as well.
+        progress and will undergo significant changes past FPWD.</section>
+      <p>
+        This section describes how the <a>Core Data Model</a> is
+        bound to different protocols. In addition to a set of
+        mapping rules, it defines additional behavior, e.g.
+        timeouts, error behavior, action semantics, etc.
+        </p>
+        <section class="note">
+        <h3>Common core data model</h3>
+        The HTTP protocol binding is not meant to be exclusive,
+        the common core data model can be bound to other protocols as well.
+        The common core datamodel ensures interoperability across different protocols.
+      </section>
 
       <section class="ednote">
-        Constraints for additional protocols can be defined in a future version of this specification,
+        Bindings for additional protocols can be defined in a future version of this specification,
         or, already included in the current version. </section>
 
       <section id="http-protocol-binding">
