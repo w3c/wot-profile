@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.7.27">
+  <meta charset="utf-8">
+  <meta name="generator" content="ReSpec 25.18.3">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+  .issue-label{text-transform:initial}
+  .warning>p:first-child{margin-top:0}
+  .warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+  span.warning{padding:.1em .5em .15em}
+  .issue.closed span.issue-number{text-decoration:line-through}
+  .warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+  .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+  li.task-list-item{list-style:none}
+  input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+  .issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+  </style>
+  <style>
+  dfn{cursor:pointer}
+  .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+  .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+  .dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+  .dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+  .dfn-panel *{margin:0}
+  .dfn-panel b{display:block;color:#000;margin-top:.25em}
+  .dfn-panel ul a[href]{color:#333}
+  .dfn-panel>div{display:flex}
+  .dfn-panel a.self-link{font-weight:700;margin-right:auto}
+  .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+  .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+  .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+  .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+  .dfn-panel a[href]:hover{border-bottom-width:1px}
+  .dfn-panel ul{padding:0}
+  .dfn-panel li{margin-left:1em}
+  .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+  </style>
+  <title>Web of Things (WoT) Profile</title>
+  <style id="respec-mainstyle">
+  @keyframes pop{
+  0%{transform:scale(1,1)}
+  25%{transform:scale(1.25,1.25);opacity:.75}
+  100%{transform:scale(1,1)}
+  }
+  .hljs{background:0 0!important}
+  a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}
+  dfn{font-weight:700}
+  a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+  a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+  a.bibref{text-decoration:none}
+  .respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+  .respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+  @supports not (text-decoration:red wavy underline){
+  .respec-offending-element:not(pre){display:inline-block}
+  .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+  }
+  #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+  cite .bibref{font-style:normal}
+  code{color:#c63501}
+  th code{color:inherit}
+  a[href].orcid{padding-left:4px;padding-right:4px}
+  a[href].orcid>svg{margin-bottom:-2px}
+  .toc a,.tof a{text-decoration:none}
+  a .figno,a .secno{color:#000}
+  ol.tof,ul.tof{list-style:none outside none}
+  .caption{margin-top:.5em;font-style:italic}
+  table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+  .simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+  .simple th a{color:#fff;padding:3px 5px;text-align:left}
+  .simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+  .simple td{padding:3px 10px;border-top:1px solid #ddd}
+  .simple tr:nth-child(even){background:#f0f6ff}
+  .section dd>p:first-child{margin-top:0}
+  .section dd>p:last-child{margin-bottom:0}
+  .section dd{margin-bottom:1em}
+  .section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+  #issue-summary>ul{column-count:2}
+  #issue-summary li{list-style:none;display:inline-block}
+  details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+  details.respec-tests-details>*{padding-right:2em}
+  details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+  details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+  details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+  details.respec-tests-details>li{padding-left:1em}
+  a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+  h2,h3,h4,h5,h6{position:relative}
+  aside.example .marker>a.self-link{color:inherit}
+  h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+  h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}
+  @media (max-width:767px){
+  dd{margin-left:0}
+  h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}
+  }
+  @media print{
+  .removeOnSave{display:none}
+  }
+  </style>
+  <meta name="description" content=
+  "The WoT Profile Specification defines a Profiling Mechanism and a WoT Core Profile, which enables out of the box interoperability among things and devices. Out of the box interoperability implies, that devices can be integrated into various application scenarios without deep level adaptations. Typically only minor configuration operations are necessary (such as entering a network key, or IP address) to use the device in a certain scenario. These actions can be done by anyone without specific training.">
+  <link rel="canonical" href="https://www.w3.org/TR/wot-profile/">
+  <style>
+  var{position:relative;cursor:pointer}
+  var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+  var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+  var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+  var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+  </style>
+  <script id="initialUserConfig" type="application/json">
+  {
+  "lint": {
+    "no-headingless-sections": false
+  },
+  "specStatus": "FPWD",
+  "maxTocLevel": 6,
+  "processVersion": 2019,
+  "shortName": "wot-profile",
+  "copyrightStart": 2020,
+  "group": "wg/wot",
+  "wgPublicList": "public-wot-wg",
+  "edDraftURI": "https://w3c.github.io/wot-profile/",
+  "githubAPI": "https://api.github.com/repos/w3c/wot-profile",
+  "issueBase": "https://www.github.com/w3c/wot-profile/issues",
+  "editors": [
+    {
+      "name": "Michael Lagally",
+      "w3cid": "47166",
+      "company": "Oracle Corp.",
+      "companyURL": "https://www.oracle.com/"
+    },
+    {
+      "name": "Michael McCool",
+      "w3cid": "93137",
+      "company": "Intel Corp.",
+      "companyURL": "https://www.intel.com/"
+    },
+    {
+      "name": "Ryuichi Matsukura",
+      "w3cid": "64284",
+      "company": "Fujitsu Ltd.",
+      "companyURL": "https://www.fujitsu.com/"
+    },
+    {
+      "name": "Sebastian Kaebisch",
+      "w3cid": "43064",
+      "company": "Siemens AG",
+      "companyURL": "https://www.siemens.com/"
+    },
+    {
+      "name": "Tomoaki Mizushima",
+      "w3cid": "98915",
+      "company": "Internet Research Institute, Inc.",
+      "companyURL": "https://www.iri.co.jp/"
+    }
+  ],
+  "otherLinks": [
+    {
+      "key": "Contributors",
+      "data": [
+        {
+          "value": "In the GitHub repository",
+          "href": "https://github.com/w3c/wot-security/graphs/contributors"
+        }
+      ]
+    },
+    {
+      "key": "Repository",
+      "data": [
+        {
+          "value": "We are on GitHub",
+          "href": "https://github.com/w3c/wot-profile/"
+        },
+        {
+          "value": "File a bug",
+          "href": "https://github.com/w3c/wot-profile/issues"
+        },
+        {
+          "value": "Contribute",
+          "href": "https://github.com/w3c/wot-profile/pulls"
+        }
+      ]
+    }
+  ],
+  "localBiblio": {
+    "JSON-SCHEMA": {
+      "title": "JSON Schema Validation: A Vocabulary for Structural Validation of JSON",
+      "href": "https://tools.ietf.org/html/draft-handrews-json-schema-validation-01",
+      "authors": [
+        "Austin Wright",
+        "Henry Andrews",
+        "Geraint Luff"
+      ],
+      "status": "Internet-Draft",
+      "date": "19 March 2018",
+      "publisher": "IETF",
+      "id": "json-schema"
+    },
+    "ISO-6709": {
+      "title": "ISO-6709:2008 : Standard representation of geographic point location by coordinates",
+      "href": "https://www.iso.org/standard/39242.html",
+      "status": "Published",
+      "date": "2008-07",
+      "publisher": "ISO"
+    }
+  },
+  "publishISODate": "2020-11-24T00:00:00.000Z",
+  "generatedSubtitle": "First Public Working Draft 24 November 2020"
+  }
+  </script>
+  <link rel="stylesheet" href=
+  "https://www.w3.org/StyleSheets/TR/2016/W3C-WD">
+</head>
+<body class="h-entry toc-inline">
+  <div class="head">
+    <a class="logo" href="https://www.w3.org/"><img alt="W3C"
+    width="72" height="48" src=
+    "https://www.w3.org/StyleSheets/TR/2016/logos/W3C"></a>
+    <h1 id="title" class="title">Web of Things (WoT) Profile</h1>
+    <h2>W3C First Public Working Draft <time class="dt-published"
+    datetime="2020-11-24">24 November 2020</time></h2>
+    <dl>
+      <dt>This version:</dt>
+      <dd>
+        <a class="u-url" href=
+        "https://www.w3.org/TR/2020/WD-wot-profile-20201124/">https://www.w3.org/TR/2020/WD-wot-profile-20201124/</a>
+      </dd>
+      <dt>Latest published version:</dt>
+      <dd>
+        <a href=
+        "https://www.w3.org/TR/wot-profile/">https://www.w3.org/TR/wot-profile/</a>
+      </dd>
+      <dt>Latest editor's draft:</dt>
+      <dd>
+        <a href=
+        "https://w3c.github.io/wot-profile/">https://w3c.github.io/wot-profile/</a>
+      </dd>
+      <dt>Editors:</dt>
+      <dd class="p-author h-card vcard" data-editor-id="47166">
+        <span class="p-name fn">Michael Lagally</span> (<a class=
+        "p-org org h-org h-card" href=
+        "https://www.oracle.com/">Oracle Corp.</a>)
+      </dd>
+      <dd class="p-author h-card vcard" data-editor-id="93137">
+        <span class="p-name fn">Michael McCool</span> (<a class=
+        "p-org org h-org h-card" href=
+        "https://www.intel.com/">Intel Corp.</a>)
+      </dd>
+      <dd class="p-author h-card vcard" data-editor-id="64284">
+        <span class="p-name fn">Ryuichi Matsukura</span> (<a class=
+        "p-org org h-org h-card" href=
+        "https://www.fujitsu.com/">Fujitsu Ltd.</a>)
+      </dd>
+      <dd class="p-author h-card vcard" data-editor-id="43064">
+        <span class="p-name fn">Sebastian Kaebisch</span>
+        (<a class="p-org org h-org h-card" href=
+        "https://www.siemens.com/">Siemens AG</a>)
+      </dd>
+      <dd class="p-author h-card vcard" data-editor-id="98915">
+        <span class="p-name fn">Tomoaki Mizushima</span> (<a class=
+        "p-org org h-org h-card" href=
+        "https://www.iri.co.jp/">Internet Research Institute,
+        Inc.</a>)
+      </dd>
+      <dt>Contributors:</dt>
+      <dd>
+        <a href=
+        "https://github.com/w3c/wot-security/graphs/contributors">In
+        the GitHub repository</a>
+      </dd>
+      <dt>Repository:</dt>
+      <dd>
+        <a href="https://github.com/w3c/wot-profile/">We are on
+        GitHub</a>
+      </dd>
+      <dd>
+        <a href="https://github.com/w3c/wot-profile/issues">File a
+        bug</a>
+      </dd>
+      <dd>
+        <a href=
+        "https://github.com/w3c/wot-profile/pulls">Contribute</a>
+      </dd>
+    </dl>
+    <p class="copyright"><a href=
+    "https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    © 2020 <a href="https://www.w3.org/"><abbr title=
+    "World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+    (<a href="https://www.csail.mit.edu/"><abbr title=
+    "Massachusetts Institute of Technology">MIT</abbr></a>,
+    <a href="https://www.ercim.eu/"><abbr title=
+    "European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+    <a href="https://www.keio.ac.jp/">Keio</a>, <a href=
+    "https://ev.buaa.edu.cn/">Beihang</a>). W3C <a href=
+    "https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">
+    liability</a>, <a href=
+    "https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">
+    trademark</a> and <a rel="license" href=
+    "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">
+    permissive document license</a> rules apply.</p>
+    <hr title="Separator for header">
+  </div>
+  <section id="abstract" class="introductory">
+    <h2>Abstract</h2>
+    <p>The <em>WoT Profile Specification</em> defines a Profiling
+    Mechanism and a <em>WoT Core Profile</em>, which enables
+    <em>out of the box interoperability</em> among things and
+    devices. <em>Out of the box interoperability</em> implies, that
+    devices can be integrated into various application scenarios
+    without deep level adaptations. Typically only minor
+    configuration operations are necessary (such as entering a
+    network key, or IP address) to use the device in a certain
+    scenario. These actions can be done by anyone without specific
+    training.</p>The <a href="#dfn-wot-core-profile" class=
+    "internalDFN" data-link-type="dfn" id=
+    "ref-for-dfn-wot-core-profile-1">WoT Core Profile</a> defines a
+    set of <em>constraints and rules</em>, which compliant thing
+    descriptions have to adopt to guarantee interoperability.
+    <p>These rules are prescriptive, to ensure that compliant
+    implementations satisfy the semantic guarantees implied by
+    them. We call this set of rules a <em>Profile</em>.</p>
+    <p>The <strong>WoT Profile Specification</strong> as defined in
+    this document serves two purposes:</p>
+    <ul>
+      <li>It defines a generic <strong>Profiling Mechanism</strong>
+      which provides a mechanism to describe a profile in an
+      unambiguous way. This mechanism can be used to define
+      additional profiles.</li>
+      <li>In addition, it defines a <strong><a href=
+      "#dfn-wot-core-profile" class="internalDFN" data-link-type=
+      "dfn" id="ref-for-dfn-wot-core-profile-2">WoT Core
+      Profile</a></strong> of the Thing Description, which consists
+      of a core data model and protocol binding rules. The
+        <a href="#dfn-wot-core-profile" class="internalDFN"
+        data-link-type="dfn" id=
+        "ref-for-dfn-wot-core-profile-3">WoT Core Profile</a>
+        formalizes the results of several PlugFests that were
+        conducted by the WoT Interest Group and of tests that were
+        conducted as part of the development.
+        <p>This document incudes a binding of the core data model
+        to HTTP(S) and selected notification sub-protocols. The
+        core data model can be bound to other protocols - it is
+        expected that bindings to other protocols (e.g. MQTT, CoAP)
+        will be defined in the near future.</p>
+        <p>A TD that is compliant to the <a href=
+        "#dfn-core-profile" class="internalDFN" data-link-type=
+        "dfn" id="ref-for-dfn-core-profile-1">core profile</a>
+        <em class="rfc2119">MUST</em> adhere to both the
+        constraints on the data model and the protocol binding.</p>
+      </li>
+    </ul>
+    <p>Devices that constrain their use of the Thing Description to
+    the <a href="#dfn-wot-core-profile" class="internalDFN"
+    data-link-type="dfn" id="ref-for-dfn-wot-core-profile-4">WoT
+    Core Profile</a> can interoperate with each other
+    out-of-the-box.</p>
+    <p>Note that the core profile is not exclusive. Device
+    implementers are free to adopt other features of the thing
+    description that go beyond the constraints of the core profile,
+    however the interoperability guarantees of the core profile
+    hold only for the <a href="#dfn-wot-core-profile" class=
+    "internalDFN" data-link-type="dfn" id=
+    "ref-for-dfn-wot-core-profile-5">WoT Core Profile</a>
+    subset.</p>
+    <div class="note" id="issue-container-generatedID">
+      <div role="heading" class="ednote-title marker" id="h-ednote"
+      aria-level="3">
+        <span>Editor's note</span>
+      </div>
+      <section class="">
+        The name <em>WoT Core Profile</em> is still under
+        discussion in the group and is used as a working title. It
+        is subject to change after the profile specification has
+        reached a certain level of maturity.
+      </section>
+    </div>
+    <section>
+      <h3 id="motivation-for-a-profile">Motivation for a
+      Profile<a class="self-link" aria-label="§" href=
+      "#motivation-for-a-profile"></a></h3>
+    </section>
+    <p>The <abbr title="World Wide Web Consortium">W3C</abbr> WoT
+    Thing Architecture [<cite><a class="bibref" data-link-type=
+    "biblio" href="#bib-wot-architecture" title=
+    "Web of Things (WoT) Architecture">wot-architecture</a></cite>]
+    and WoT Thing Description [<cite><a class="bibref"
+    data-link-type="biblio" href="#bib-wot-thing-description"
+    title="Web of Things (WoT) Thing Description">wot-thing-description</a></cite>]
+    define a powerful description mechanism and a format to
+    describe myriads of very different devices, which may be
+    connected over various protocols. The format is very flexible
+    and open and puts very few normative requirements on devices
+    that implement it.</p>
+    <p>However, this flexibility de-facto prevents
+    interoperability, since, without additional
+    <strong>rules</strong>, it allows implementers to make many
+    choices that do not provide <strong>guarantees</strong> of
+    common behavior between implementations.</p>
+  </section>
+  <section id="sotd" class="introductory">
+    <h2>Status of This Document</h2>
+    <p><em>This section describes the status of this document at
+    the time of its publication. Other documents may supersede this
+    document. A list of current <abbr title=
+    "World Wide Web Consortium">W3C</abbr> publications and the
+    latest revision of this technical report can be found in the
+    <a href="https://www.w3.org/TR/"><abbr title=
+    "World Wide Web Consortium">W3C</abbr> technical reports
+    index</a> at https://www.w3.org/TR/.</em></p>
+    <p>This document was published by the <a href=
+    "https://www.w3.org/WoT/WG/">Web of Things Working Group</a> as
+    a First Public Working Draft. This document is intended to
+    become a <abbr title="World Wide Web Consortium">W3C</abbr>
+    Recommendation.</p>
+    <p>Comments regarding this document are welcome. Please send
+    them to <a href=
+    "mailto:public-wot-wg@w3.org">public-wot-wg@w3.org</a>
+    (<a href="https://lists.w3.org/Archives/Public/public-wot-wg/">archives</a>).</p>
+    <p>Publication as a First Public Working Draft does not imply
+    endorsement by the <abbr title=
+    "World Wide Web Consortium">W3C</abbr> Membership.</p>
+    <p>This is a draft document and may be updated, replaced or
+    obsoleted by other documents at any time. It is inappropriate
+    to cite this document as other than work in progress.</p>
+    <p>This document was produced by a group operating under the
+    <a href=
+    "https://www.w3.org/Consortium/Patent-Policy-20170801/">1
+    August 2017 <abbr title="World Wide Web Consortium">W3C</abbr>
+    Patent Policy</a>. <abbr title=
+    "World Wide Web Consortium">W3C</abbr> maintains a <a rel=
+    "disclosure" href=
+    "https://www.w3.org/2004/01/pp-impl/95969/status">public list
+    of any patent disclosures</a> made in connection with the
+    deliverables of the group; that page also includes instructions
+    for disclosing a patent. An individual who has actual knowledge
+    of a patent which the individual believes contains <a href=
+    "https://www.w3.org/Consortium/Patent-Policy-20170801/#def-essential">
+    Essential Claim(s)</a> must disclose the information in
+    accordance with <a href=
+    "https://www.w3.org/Consortium/Patent-Policy-20170801/#sec-Disclosure">
+    section 6 of the <abbr title=
+    "World Wide Web Consortium">W3C</abbr> Patent Policy</a>.</p>
+    <p>This document is governed by the <a id=
+    "w3c_process_revision" href=
+    "https://www.w3.org/2020/Process-20200915/">15 September 2020
+    <abbr title="World Wide Web Consortium">W3C</abbr> Process
+    Document</a>.</p>
+  </section>
+  <nav id="toc">
+    <h2 class="introductory" id="table-of-contents">Table of
+    Contents</h2>
+    <ol class="toc">
+      <li class="tocline">
+        <a class="tocxref" href="#introduction"><bdi class=
+        "secno">1.</bdi> Introduction</a>
+        <ol class="toc">
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#deployment-scenarios"><bdi class="secno">1.1</bdi>
+            Deployment Scenarios</a>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#why-define-a-core-profile"><bdi class=
+            "secno">1.2</bdi> Why a <span class="formerLink"
+            data-link-type="dfn">Core Profile</span>?</a>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#out-of-the-box-interoperability"><bdi class=
+            "secno">1.3</bdi> Out-of-the-box interoperability</a>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#structure-of-this-document"><bdi class=
+            "secno">1.4</bdi> Structure of this document</a>
+          </li>
+        </ol>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#conformance"><bdi class=
+        "secno">2.</bdi> Conformance</a>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#terminology"><bdi class=
+        "secno">3.</bdi> Terminology</a>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href=
+        "#the-profiling-profile"><bdi class="secno">4.</bdi>
+        Profiling Mechanism</a>
+        <ol class="toc">
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#profile-description-methodology"><bdi class=
+            "secno">4.1</bdi> Methodology</a>
+          </li>
+        </ol>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#core-profile"><bdi class=
+        "secno">5.</bdi> WoT Core Profile</a>
+        <ol class="toc">
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#wot-core-data-model"><bdi class="secno">5.1</bdi> WoT
+            Core Data Model</a>
+            <ol class="toc">
+              <li class="tocline">
+                <a class="tocxref" href="#general"><bdi class=
+                "secno">5.1.1</bdi> General</a>
+                <ol class="toc">
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#mandatory-fields"><bdi class=
+                    "secno">5.1.1.1</bdi> Mandatory fields</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#length-and-value-limits"><bdi class=
+                    "secno">5.1.1.2</bdi> Length and Value
+                    Limits</a>
+                  </li>
+                </ol>
+              </li>
+              <li class="tocline">
+                <a class="tocxref" href="#thing"><bdi class=
+                "secno">5.1.2</bdi> Thing</a>
+                <ol class="toc">
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#mandatory-fields-0"><bdi class=
+                    "secno">5.1.2.1</bdi> Mandatory fields</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#recommended-practice-"><bdi class=
+                    "secno">5.1.2.2</bdi> Recommended practice</a>
+                  </li>
+                </ol>
+              </li>
+              <li class="tocline">
+                <a class="tocxref" href=
+                "#data-schema"><bdi class="secno">5.1.3</bdi>
+                Data Schema</a>
+              </li>
+              <li class="tocline">
+                <a class="tocxref" href="#properties"><bdi class=
+                "secno">5.1.4</bdi> Property Affordance</a>
+                <ol class="toc">
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#mandatory-fields-1"><bdi class=
+                    "secno">5.1.4.1</bdi> Mandatory fields</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#additional-constraints"><bdi class=
+                    "secno">5.1.4.2</bdi> Additional
+                    Constraints</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#recommended-practice-0"><bdi class=
+                    "secno">5.1.4.3</bdi> Recommended Practice</a>
+                  </li>
+                </ol>
+              </li>
+              <li class="tocline">
+                <a class="tocxref" href="#actions"><bdi class=
+                "secno">5.1.5</bdi> Action Affordances</a>
+                <ol class="toc">
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#mandatory-fields-2"><bdi class=
+                    "secno">5.1.5.1</bdi> Mandatory fields</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#additional-constraints-0"><bdi class=
+                    "secno">5.1.5.2</bdi> Additional
+                    Constraints</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#recommended-practice-1"><bdi class=
+                    "secno">5.1.5.3</bdi> Recommended Practice</a>
+                  </li>
+                </ol>
+              </li>
+              <li class="tocline">
+                <a class="tocxref" href="#events"><bdi class=
+                "secno">5.1.6</bdi> Event Affordance</a>
+                <ol class="toc">
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#mandatory-fields-3"><bdi class=
+                    "secno">5.1.6.1</bdi> Mandatory fields</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#additional-constraints-1"><bdi class=
+                    "secno">5.1.6.2</bdi> Additional
+                    Constraints</a>
+                  </li>
+                </ol>
+              </li>
+              <li class="tocline">
+                <a class="tocxref" href="#forms"><bdi class=
+                "secno">5.1.7</bdi> Forms</a>
+                <ol class="toc">
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#mandatory-fields-4"><bdi class=
+                    "secno">5.1.7.1</bdi> Mandatory fields</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#additional-constraints-2"><bdi class=
+                    "secno">5.1.7.2</bdi> Additional
+                    Constraints</a>
+                  </li>
+                </ol>
+              </li>
+              <li class="tocline">
+                <a class="tocxref" href="#links"><bdi class=
+                "secno">5.1.8</bdi> Links</a>
+              </li>
+              <li class="tocline">
+                <a class="tocxref" href="#security"><bdi class=
+                "secno">5.1.9</bdi> Security</a>
+                <ol class="toc">
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#recommended-practice-2"><bdi class=
+                    "secno">5.1.9.1</bdi> Recommended Practice</a>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href="#protocol-binding"><bdi class=
+            "secno">5.2</bdi> Protocol Binding</a>
+            <ol class="toc">
+              <li class="tocline">
+                <a class="tocxref" href=
+                "#http-protocol-binding"><bdi class=
+                "secno">5.2.1</bdi> HTTP Protocol Binding</a>
+                <ol class="toc">
+                  <li class="tocline">
+                    <a class="tocxref" href=
+                    "#properties"><bdi class="secno">5.2.1.1</bdi>
+                    Properties</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href="#actions"><bdi class=
+                    "secno">5.2.1.2</bdi> Actions</a>
+                  </li>
+                  <li class="tocline">
+                    <a class="tocxref" href="#events"><bdi class=
+                    "secno">5.2.1.3</bdi> Events</a>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#external-td-representations"><bdi class=
+            "secno">5.3</bdi> External TD representations</a>
+          </li>
+        </ol>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#open-issues"><bdi class=
+        "secno">6.</bdi> Open Issues</a>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href=
+        "#core-profile-json-schema"><bdi class="secno">A.</bdi>
+        JSON Schema of the Core Profile</a>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#references"><bdi class=
+        "secno">B.</bdi> References</a>
+        <ol class="toc">
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#normative-references"><bdi class="secno">B.1</bdi>
+            Normative references</a>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#informative-references"><bdi class="secno">B.2</bdi>
+            Informative references</a>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </nav>
+  <section id="intro">
+    <h2 id="introduction"><bdi class="secno">1.</bdi>
+    Introduction<a class="self-link" aria-label="§" href=
+    "#introduction"></a></h2>
+    <p>The <abbr title="World Wide Web Consortium">W3C</abbr> WoT
+    Architecture [<cite><a class="bibref" data-link-type="biblio"
+    href="#bib-wot-architecture" title=
+    "Web of Things (WoT) Architecture">wot-architecture</a></cite>]
+    and the WoT Thing Description [<cite><a class="bibref"
+    data-link-type="biblio" href="#bib-wot-thing-description"
+    title="Web of Things (WoT) Thing Description">wot-thing-description</a></cite>]
+    have been developed as a versatile format, that allows
+    describing the interactions between multiple devices and
+    protocols.</p>
+    <p>This flexibility permits an easy integration of new device
+    types and protocols, however it risks interoperability, since
+    there are <em>no guarantees</em> that two devices which are
+    formally spec-compliant, will be able to communicate.</p>
+    <p>To increase adoption of the WoT specifications,
+    interoperability between on premise devices, edge devices and
+    the cloud is essential. Even if every manufacturer is
+    implementing the current Thing Description specification in
+    full flexibility, there is no interoperability guarantee; many
+    choices are still left to the implementations and there are
+    very few normative requirements that a device has to
+    fulfill.</p>
+    <section id="deployment-scenarios">
+      <h3 id="x1-1-deployment-scenarios"><bdi class=
+      "secno">1.1</bdi> Deployment Scenarios<a class="self-link"
+      aria-label="§" href="#deployment-scenarios"></a></h3>
+      <p>A Thing Description can be used in two fundamentally
+      different deployment scenarios:</p>
+      <ul>
+        <li>a "brown-field" scenario, where it is created to
+        describe the interactions with existing systems.</li>
+        <li>a "green-field" scenario, where a device model and a
+        thing description are developed together.</li>
+      </ul>
+      <p>For green field deployments, where the implementations are
+      being carried out and corresponding thing descriptions are
+      being created, it is easier to achieve full interoperability
+      by using a small, extensible <a href="#dfn-core-profile"
+      class="internalDFN" data-link-type="dfn" id=
+      "ref-for-dfn-core-profile-2">Core Profile</a>.</p>
+      <p>In the brown field area, due to the nature of existing
+      deployments and protocols, a broad spectrum of variations and
+      potentially high complexity of thing descriptions inhibits
+      interoperability and will most likely lead to additional
+      profiles of the <a href="#dfn-wot-thing-description" class=
+      "internalDFN" data-link-type="dfn" id=
+      "ref-for-dfn-wot-thing-description-1">WoT Thing
+      Description</a> and domain-specific thing consumer
+      implementations.</p>
+      <p>The WoT <a href="#dfn-core-profile" class="internalDFN"
+      data-link-type="dfn" id="ref-for-dfn-core-profile-3">Core
+      Profile</a> can be used by green field deployments and gives
+      guidance to new implementers of the WoT specifications. It
+      has already proved in brown-field scenarios in the PlugFests,
+      where existing devices, that already existed as products,
+      prototypes or demonstrators, were described with Thing
+      Descriptions that are constrained to the <a href=
+      "#dfn-core-profile" class="internalDFN" data-link-type="dfn"
+      id="ref-for-dfn-core-profile-4">Core Profile</a>.</p>
+    </section>
+    <section id="why-profile">
+      <h3 id="why-define-a-core-profile"><bdi class=
+      "secno">1.2</bdi> Why a <a href="#dfn-core-profile" class=
+      "internalDFN" data-link-type="dfn" id=
+      "ref-for-dfn-core-profile-5">Core Profile</a>? <a class=
+      "self-link" aria-label="§" href=
+      "#why-define-a-core-profile"></a></h3>
+      <p>During the recent WoT PlugFests there were many de-facto
+      agreements on the use of a small constrained subset of
+      interaction patterns and protocol choices. These de-facto
+      agreements select a common subset of the <a href=
+      "#dfn-wot-thing-description" class="internalDFN"
+      data-link-type="dfn" id=
+      "ref-for-dfn-wot-thing-description-2">WoT Thing
+      Description</a>, based on proven interoperability among
+      manufacturers.</p>
+      <p>The aim of this specification is to formalize these
+      agreements by defining a <strong><a href=
+      "#dfn-wot-core-profile" class="internalDFN" data-link-type=
+      "dfn" id="ref-for-dfn-wot-core-profile-6">WoT Core
+      Profile</a></strong> based on the choices that were made by
+      the implementers of PlugFest devices.</p>
+      <p>The <a href="#dfn-wot-core-profile" class="internalDFN"
+      data-link-type="dfn" id="ref-for-dfn-wot-core-profile-7">WoT
+      Core Profile</a> contains additional normative requirements
+      that <em class="rfc2119">MUST</em> be satisfied by devices to
+      be compliant to the profile.</p>
+      <figure id="WoT-Core-Profile-figure">
+        <img src="images/WoT%20Core%20Profile.png" class=
+        "wot-profiles" alt="WoT-Core-Profile-Picture" height="251"
+        width="781">
+        <figcaption>
+          Figure <bdi class="figno">1</bdi> <span class=
+          "fig-title">WoT Core Profile - A Subset of
+          Affordances</span>
+        </figcaption>
+      </figure>
+      <p>Adoption of the <a href="#dfn-wot-core-profile" class=
+      "internalDFN" data-link-type="dfn" id=
+      "ref-for-dfn-wot-core-profile-8">WoT Core Profile</a> will
+      significantly limit the implementation burden of device and
+      cloud implementors.</p>
+      <p>The <a href="#dfn-wot-core-profile" class="internalDFN"
+      data-link-type="dfn" id="ref-for-dfn-wot-core-profile-9">WoT
+      Core Profile</a> was defined with the following main
+      goals:</p>
+      <ul>
+        <li>guarantee interoperability among all implementations of
+        the profile.</li>
+        <li>limit the implementation complexity for resource
+        constrained devices.</li>
+        <li>ensure that a thing description is also useful for a
+        human reader.</li>
+      </ul>
+      <p>It makes choices on the required metadata fields as well
+      as the supported interactions and protocol endpoints. It
+      introduces some constraints on data schemas for properties
+      and actions which are required for resource constrained
+      devices in real-world deployments. The format does not forbid
+      the use of additional elements of the <a href=
+      "#dfn-wot-thing-description" class="internalDFN"
+      data-link-type="dfn" id=
+      "ref-for-dfn-wot-thing-description-3">WoT Thing
+      Description</a> for vendor specific extensions, however this
+      will impact interoperability.</p>
+    </section>
+    <section id="out-of-the-box-interoperability-0">
+      <h3 id="out-of-the-box-interoperability"><bdi class=
+      "secno">1.3</bdi> Out-of-the-box interoperability<a class=
+      "self-link" aria-label="§" href=
+      "#out-of-the-box-interoperability"></a></h3>
+      <p>Devices, which implement the <a href="#dfn-core-profile"
+      class="internalDFN" data-link-type="dfn" id=
+      "ref-for-dfn-core-profile-6">Core Profile</a>, are
+      <strong>out-of-the-box interoperable</strong> with other
+      <a href="#dfn-core-profile" class="internalDFN"
+      data-link-type="dfn" id="ref-for-dfn-core-profile-7">Core
+      Profile</a> compliant devices. Furthermore, the <a href=
+      "#dfn-core-profile" class="internalDFN" data-link-type="dfn"
+      id="ref-for-dfn-core-profile-8">Core Profile</a> simplifies
+      device validation and compliance testing since a
+      corresponding conformance test suite can be defined.</p>
+      <div class="note" role="note" id=
+      "issue-container-generatedID-0">
+        <div role="heading" class="note-title marker" id="h-note"
+        aria-level="4">
+          <span>Note</span>
+        </div>
+        <section class="">
+          It is also a goal of the <em>WoT Core Profile</em> to
+          ensure that compliant files can be understood by humans -
+          therefore descriptions, dates, and author fields are
+          either mandatory or highly recommended.
+        </section>
+      </div>
+    </section>
+    <section id="structure-of-this-document">
+      <h3 id="x1-4-structure-of-this-document"><bdi class=
+      "secno">1.4</bdi> Structure of this document<a class=
+      "self-link" aria-label="§" href=
+      "#structure-of-this-document"></a></h3>
+      <div class="note" id="issue-container-generatedID-1">
+        <div role="heading" class="ednote-title marker" id=
+        "h-ednote-0" aria-level="4">
+          <span>Editor's note</span>
+        </div>
+        <section class="">
+          to be added.
+        </section>
+      </div>
+    </section>
+  </section>
+  <section id="conformance">
+    <h2 id="x2-conformance"><bdi class="secno">2.</bdi>
+    Conformance<a class="self-link" aria-label="§" href=
+    "#conformance"></a></h2>
+    <p>As well as sections marked as non-normative, all authoring
+    guidelines, diagrams, examples, and notes in this specification
+    are non-normative. Everything else in this specification is
+    normative.</p>
+    <p>The key words <em class="rfc2119">MAY</em>, <em class=
+    "rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>,
+    <em class="rfc2119">NOT RECOMMENDED</em>, <em class=
+    "rfc2119">RECOMMENDED</em>, and <em class="rfc2119">SHOULD</em>
+    in this document are to be interpreted as described in <a href=
+    "https://tools.ietf.org/html/bcp14">BCP 14</a> [<cite><a class=
+    "bibref" data-link-type="biblio" href="#bib-rfc2119" title=
+    "Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>]
+    [<cite><a class="bibref" data-link-type="biblio" href=
+    "#bib-rfc8174" title=
+    "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
+    when, and only when, they appear in all capitals, as shown
+    here.</p>
+    <p>A device or consumer implementation complies with this
+    specification if it follows the normative statements in the
+    present document.</p>
+    <p>A JSON Schema [<cite><a class="bibref" data-link-type=
+    "biblio" href="#bib-json-schema" title=
+    "JSON Schema Validation: A Vocabulary for Structural Validation of JSON">JSON-SCHEMA</a></cite>]
+    to validate the compliance of a Thing Description with the core
+    profile is provided in Appendix <a href=
+    "#core-profile-json-schema" class="sec-ref">§&nbsp;<bdi class=
+    "secno">A.</bdi> JSON Schema of the Core Profile</a>.</p>
+  </section>
+  <section id="terminology">
+    <h2 id="x3-terminology"><bdi class="secno">3.</bdi>
+    Terminology<a class="self-link" aria-label="§" href=
+    "#terminology"></a></h2>
+    <p>This specification uses the same terminology as the WoT
+    Architecture and Thing Description specifications.</p>
+    <p>For convenience of the reader, we use the terms
+    <em>keyword</em> and <em>field</em> for the linguistic notion
+    <em>vocabulary term</em> as defined in the <em>Thing
+    Description</em> Specification.</p>
+    <p>We use the terms <em>device</em> and <em>thing</em> in an
+    interchangeable manner.</p>
+    <h4 id="additional-definitions-">Additional
+    Definitions:<a class="self-link" aria-label="§" href=
+    "#additional-definitions-"></a></h4>
+    <dl>
+      <dt><dfn id="dfn-profile">Profile</dfn></dt>
+      <dd>A set of prescriptive rules, to ensure that compliant
+      implementations satisfy the semantic guarantees that are
+      implied by them.</dd>
+      <dt><dfn id="dfn-wot-core-profile">WoT Core
+      Profile</dfn></dt>
+      <dd>The subset of the Thing Description defined by the
+      present document.</dd>
+      <dt><dfn id="dfn-core-profile">Core Profile</dfn></dt>
+      <dd>
+        Synonym for <a href="#dfn-wot-core-profile" class=
+        "internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-wot-core-profile-10">WoT Core Profile</a>.
+      </dd>
+      <dd><dfn id="dfn-core-data-model">Core Data Model</dfn></dd>
+      <dd>
+        A Data Model that conforms to the subset of the Thing
+        Description specification as defined in section <a href=
+        "#wot-core-data-model" class="sec-ref">§&nbsp;<bdi class=
+        "secno">5.1</bdi> WoT Core Data Model</a>.
+      </dd>
+      <dt><dfn id="dfn-thing-description">Thing
+      Description</dfn></dt>
+      <dd>
+        Synonym for <a href="#dfn-wot-thing-description" class=
+        "internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-wot-thing-description-4">WoT Thing
+        Description</a>.
+      </dd>
+      <dd><dfn data-plurals="wot thing descriptions" id=
+      "dfn-wot-thing-description">WoT Thing Description</dfn></dd>
+      <dd>The Web of Things Thing Description as defined in
+      [<cite><a class="bibref" data-link-type="biblio" href=
+      "#bib-wot-thing-description" title=
+      "Web of Things (WoT) Thing Description">wot-thing-description</a></cite>].</dd>
+    </dl>
+  </section>
+  <section id="profiling-mechanism">
+    <h2 id="the-profiling-profile"><bdi class="secno">4.</bdi>
+    Profiling Mechanism<a class="self-link" aria-label="§" href=
+    "#the-profiling-profile"></a></h2>
+    <p>This section describes a generic mechanism to define a
+    profile of the <a href="#dfn-wot-thing-description" class=
+    "internalDFN" data-link-type="dfn" id=
+    "ref-for-dfn-wot-thing-description-5">WoT Thing Description</a>
+    in a unambiguous way.</p>
+    <p>The <abbr title="World Wide Web Consortium">W3C</abbr>
+    <a href="#dfn-wot-thing-description" class="internalDFN"
+    data-link-type="dfn" id=
+    "ref-for-dfn-wot-thing-description-6">WoT Thing Description</a>
+    specification defines a formal language, i.e. a set of
+    vocabulary terms (keywords), a set of classes that are built
+    from these keywords, and a set of additional rules, that define
+    constraints on permitted values and keyword presence (mandatory
+    / optional) dependent on the context where the keyword is used.
+    In addition the <a href="#dfn-wot-thing-description" class=
+    "internalDFN" data-link-type="dfn" id=
+    "ref-for-dfn-wot-thing-description-7">WoT Thing Description</a>
+    specification defines relationships and corresponding
+    cardinalities between these classes.</p>
+    <p>The <a href="#dfn-wot-thing-description" class="internalDFN"
+    data-link-type="dfn" id=
+    "ref-for-dfn-wot-thing-description-8">WoT Thing Description</a>
+    specification already has some constraints, but there is a wide
+    variety of variations that are left to the interpretation or
+    the discretion of an implementer. The rationale for the
+    <a href="#dfn-core-profile" class="internalDFN" data-link-type=
+    "dfn" id="ref-for-dfn-core-profile-9">Core Profile</a> is not
+    to forbid complex things, rather to enable statements like:</p>
+    <ul>
+      <li><cite>If you constrain your TD to the <a href=
+      "#dfn-core-profile" class="internalDFN" data-link-type="dfn"
+      id="ref-for-dfn-core-profile-10">Core Profile</a>, all other
+      devices that conform the <a href="#dfn-core-profile" class=
+      "internalDFN" data-link-type="dfn" id=
+      "ref-for-dfn-core-profile-11">Core Profile</a> can
+      interoperate with it out of the box.</cite></li>
+      <li><cite>If you have additional needs your device is free to
+      implement other profiles or add-ons at your own choice, but
+      other devices that only implement the <a href=
+      "#dfn-core-profile" class="internalDFN" data-link-type="dfn"
+      id="ref-for-dfn-core-profile-12">Core Profile</a> will most
+      likely not be able to use these additions.”</cite></li>
+    </ul>
+    <section id="methodology">
+      <h3 id="profile-description-methodology"><bdi class=
+      "secno">4.1</bdi> Methodology<a class="self-link" aria-label=
+      "§" href="#profile-description-methodology"></a></h3>
+      <p>A profile is a set of constraints and rules, which provide
+      additional semantic guarantees that are applied to the
+      <a href="#dfn-wot-thing-description" class="internalDFN"
+      data-link-type="dfn" id=
+      "ref-for-dfn-wot-thing-description-9">WoT Thing
+      Description</a> specification. These constraints define a
+      subset of valid <a href="#dfn-wot-thing-description" class=
+      "internalDFN" data-link-type="dfn" id=
+      "ref-for-dfn-wot-thing-description-10">WoT Thing
+      Descriptions</a> by defining additional rules on various
+      aspects of the <a href="#dfn-wot-thing-description" class=
+      "internalDFN" data-link-type="dfn" id=
+      "ref-for-dfn-wot-thing-description-11">WoT Thing
+      Description</a> specification.</p>
+      <table class="def">
+        <tbody>
+          <tr>
+            <th>Constraints on</th>
+            <th>Rationale</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>vocabulary of Thing Description classes</td>
+            <td>guaranteed set of metadata fields</td>
+            <td>Make specific vocabulary terms mandatory, remove
+            others</td>
+          </tr>
+          <tr>
+            <td>class relationships</td>
+            <td>unambiguous structure</td>
+            <td>limited cardinality, e.g. only one form per
+            operation per interaction affordance.</td>
+          </tr>
+          <tr>
+            <td>values of vocabulary terms</td>
+            <td>simplified processing</td>
+            <td>Limit the length of characters per string. Always
+            use arrays, where the spec permits a string or an array
+            of strings.</td>
+          </tr>
+          <tr>
+            <td>data schemas</td>
+            <td>simplified processing</td>
+            <td>No arbitrary nested objects or arrays of
+            arrays</td>
+          </tr>
+          <tr>
+            <td>security</td>
+            <td>reduced implementation effort</td>
+            <td>Only a restricted set of security mechanisms</td>
+          </tr>
+          <tr>
+            <td>protocol binding</td>
+            <td>guaranteed protocol semantics</td>
+            <td>limited protocol(s) and protocol features, Example:
+            predefined mapping of http verbs (GET/PUT) to operation
+            verbs, similar constraints for other protocols.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>These constraints and rules fall into two categories:</p>
+      <ul>
+        <li>constraints for the data model.</li>
+        <li>constraints for the protocol binding.</li>
+      </ul>
+      <p>These two categories are orthogonal to each other, i.e. a
+      data model that conforms to a profile can be mapped to
+      different protocols. The protocol binding for each protocol
+      may contain additional (protocol-specific) constraints.</p>
+      <p>A profile is not exclusive, i.e. a thing may conform to
+      multiple profiles. Profiles can build on top of each other or
+      overlap, extended profiles can be built on top of the core
+      profile.</p>
+      <p>This specification does not put any requirements on the
+      scope and contents of other profiles.</p>
+      <figure id="WoT-Profiles">
+        <img src="images/WoT%20Profiles.png" class="wot-profiles"
+        alt="WoT Profiles" height="391" width="802">
+        <figcaption>
+          Figure <bdi class="figno">2</bdi> <span class=
+          "fig-title">WoT Core Profile - Other Profiles</span>
+        </figcaption>
+      </figure>
+      <p>In the present document, we define a <a href=
+      "#dfn-core-profile" class="internalDFN" data-link-type="dfn"
+      id="ref-for-dfn-core-profile-13">Core Profile</a> by defining
+      a <a href="#dfn-core-data-model" class="internalDFN"
+      data-link-type="dfn" id="ref-for-dfn-core-data-model-1">Core
+      Data Model</a> and a set of <a href=
+      "#protocol-binding">Protocol Binding</a> Rules for selected
+      protocols.</p>
+    </section>
+  </section>
+  <section id="core-profile">
+    <h2 id="x5-wot-core-profile"><bdi class="secno">5.</bdi> WoT
+    Core Profile<a class="self-link" aria-label="§" href=
+    "#core-profile"></a></h2>This section defines the <a href=
+    "#dfn-core-profile" class="internalDFN" data-link-type="dfn"
+    id="ref-for-dfn-core-profile-14">Core Profile</a> by defining a
+    <a href="#dfn-core-data-model" class="internalDFN"
+    data-link-type="dfn" id="ref-for-dfn-core-data-model-2">Core
+    Data Model</a> and a set of <a href=
+    "#protocol-binding">Protocol Binding</a> Rules.
+    <section id="wot-core-data-model">
+      <h3 id="x5-1-wot-core-data-model"><bdi class=
+      "secno">5.1</bdi> WoT Core Data Model<a class="self-link"
+      aria-label="§" href="#wot-core-data-model"></a></h3>
+      <p>The core data model incorporates the data model defined by
+      chapter 5 of the Thing Description specification. The
+      normative rules defined by that data model are the baseline
+      for the definition of the core data model and are normative
+      for the core data model. A core profile compliant
+      implementation <em class="rfc2119">MUST</em> additionally
+      satisfy the requirements of this chapter.</p>
+      <section id="general">
+        <h4 id="x5-general"><bdi class="secno">5.1.1</bdi>
+        General<a class="self-link" aria-label="§" href=
+        "#general"></a></h4>
+        <p>The following rules are applicable to multiple classes
+        of the <a href="#dfn-wot-thing-description" class=
+        "internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-wot-thing-description-12">WoT Thing
+        Description</a> Specification, as they provide clearer
+        semantics, improved readability and simplified processing
+        on resource constrained devices.</p>
+        <section id="mandatory-fields">
+          <h5 id="x5-1-1-1-mandatory-fields"><bdi class=
+          "secno">5.1.1.1</bdi> Mandatory fields<a class=
+          "self-link" aria-label="§" href=
+          "#mandatory-fields"></a></h5>
+          <p>One of the primary benefits of the <a href=
+          "#dfn-wot-thing-description" class="internalDFN"
+          data-link-type="dfn" id=
+          "ref-for-dfn-wot-thing-description-13">WoT Thing
+          Description</a> over a typical IoT format is the
+          additional documentation for a human reader.</p>
+          <p>Therefore, the fields <code>title</code> and
+          <code>description</code> are MANDATORY for Things,
+          Property Affordances, Action Affordances, Event
+          Affordances and Data Schemas.</p>
+          <p>It is possible to have empty values for these fields,
+          if, for specific purposes it is not desired to provide
+          documentation, however this is <em class="rfc2119">NOT
+          RECOMMENDED</em> and the conscious decision is obvious
+          from the TD.</p>
+        </section>
+        <section id="length-and-value-limits">
+          <h5 id="x5-1-1-2-length-and-value-limits"><bdi class=
+          "secno">5.1.1.2</bdi> Length and Value Limits<a class=
+          "self-link" aria-label="§" href=
+          "#length-and-value-limits"></a></h5>
+          <p>The length of <code>id</code> ,
+          <code>description</code> and <code>descriptions</code>
+          values is limited to 512 characters.</p>
+          <p>The length of <code>title</code> and
+          <code>titles</code> values is limited to 64
+          characters.</p>
+        </section>
+        <p>Where a type permits using an <code>array of
+        string</code> or a <code>string</code> , an <code>array of
+        string</code> <em class="rfc2119">MUST</em> be used.</p>
+        <div class="note" id="issue-container-generatedID-2">
+          <div role="heading" class="ednote-title marker" id=
+          "h-ednote-1" aria-level="5">
+            <span>Editor's note</span>
+          </div>
+          <section class="">
+            <p>TODO: decide if multiple types and contexts are
+            required.</p>
+            <p>In this case the following section could be
+            added:</p>
+            <p>The only exception to this rule are
+            <code>@context</code> and <code>@type</code>
+            annotations, where both <code>string</code> or
+            <code>array of string</code> <em class=
+            "rfc2119">MAY</em> be used.</p>
+          </section>
+        </div>
+        <p>Where a type permits using an <code>array of
+        DataSchema</code> or a <code>DataSchema</code> , an
+        <code>array of DataSchema</code> <em class=
+        "rfc2119">MUST</em> be used.</p>
+        <p>All elements of an <code>enum</code> <em class=
+        "rfc2119">MUST</em> be either <code>string</code> or
+        <code>number</code> . Different types in a single
+        <code>enum</code> are NOT PERMITTED.</p>
+      </section>
+      <section id="thing-0">
+        <h4 id="thing"><bdi class="secno">5.1.2</bdi>
+        Thing<a class="self-link" aria-label="§" href=
+        "#thing"></a></h4>The <a href="#dfn-core-data-model" class=
+        "internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-core-data-model-3">Core Data Model</a> applies
+        the following constraints and rules to the Thing class of
+        section 5.3.1.1 of the <a href="#dfn-wot-thing-description"
+        class="internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-wot-thing-description-14">WoT Thing
+        Description</a> specification.
+        <section id="mandatory-fields-0">
+          <h5 id="x5-1-2-1-mandatory-fields"><bdi class=
+          "secno">5.1.2.1</bdi> Mandatory fields<a class=
+          "self-link" aria-label="§" href=
+          "#mandatory-fields-0"></a></h5>
+          <p>To provide minimum interoperability, the following
+          metadata fields of a <a data-type="element" href=
+          "https://html.spec.whatwg.org/multipage/tables.html#the-th-element">
+          Thing</a> <em class="rfc2119">MUST</em> be contained in a
+          compliant Thing Description:</p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>human readable documentation</td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>urn_type</td>
+                <td>a globally unique urn of the thing</td>
+              </tr>
+              <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>human readable documentation</td>
+              </tr>
+              <tr>
+                <td>created</td>
+                <td>date</td>
+                <td>human readable documentation</td>
+              </tr>
+              <tr>
+                <td>modified</td>
+                <td>date</td>
+                <td>human readable documentation</td>
+              </tr>
+              <tr>
+                <td>support</td>
+                <td>urn_type</td>
+                <td>human readable documentation</td>
+              </tr>
+              <tr>
+                <td>security</td>
+                <td>array of string</td>
+                <td>simplified handling</td>
+              </tr>
+              <tr>
+                <td>version</td>
+                <td>VersionInfo</td>
+                <td>clear versioning, easy to compare different
+                TDs</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="recommended-practice">
+          <h5 id="recommended-practice-"><bdi class=
+          "secno">5.1.2.2</bdi> Recommended practice<a class=
+          "self-link" aria-label="§" href=
+          "#recommended-practice-"></a></h5>
+          <p>It is <em class="rfc2119">RECOMMENDED</em> to use the
+          value "" for strings, where the value cannot be
+          determined.</p>
+          <p>If a Thing Description is used solely within a
+          company, the email address of the developer <em class=
+          "rfc2119">SHOULD</em> be used in the support field, if
+          the Thing Description is provided externally, a support
+          email address <em class="rfc2119">SHOULD</em> be
+          used.</p>
+          <div class="note" role="note" id=
+          "issue-container-generatedID-3">
+            <div role="heading" class="note-title marker" id=
+            "h-note-0" aria-level="6">
+              <span>Note</span>
+            </div>
+            <section class="">
+              <p>It will be evaluated whether the profile also
+              recommends some new TD terms that may be introduced
+              in TD 1.1. Currently the following terms are
+              discussed: serialNumber, hardwareRevision,
+              softwareRevision, loc_latitude, loc_longitude
+              loc_altitude, loc_height, and loc_depth. If these, or
+              some of them, are defined in the TD 1.1 model, they
+              may be recommended here in one of the next draft
+              updates.</p>
+            </section>
+          </div>
+        </section>
+      </section>
+      <section id="data-schema">
+        <h4 id="x5-data-schema"><bdi class="secno">5.1.3</bdi> Data
+        Schema<a class="self-link" aria-label="§" href=
+        "#x5-data-schema"></a></h4>
+        <p>Data Schemas are used for the values of Properties,
+        Action input and output parameters and Event message
+        payloads. The value of a <em>Data Schema</em> can be a
+        simple type (boolean, integer, number, string) or an
+        instance of a structured type (array and object).</p>The
+        <a href="#dfn-core-data-model" class="internalDFN"
+        data-link-type="dfn" id=
+        "ref-for-dfn-core-data-model-4">Core Data Model</a> applies
+        the following constraints and rules to the
+        <code>DataSchema</code> class of section 5.3.2.1 of the
+        <a href="#dfn-wot-thing-description" class="internalDFN"
+        data-link-type="dfn" id=
+        "ref-for-dfn-wot-thing-description-15">WoT Thing
+        Description</a> Specification.
+        <p>This section defines a subset of the class
+        <code>DataSchema</code> that can be processed on
+        resource-constrained devices.</p>
+        <h4 id="constraints-against-the-td-specification">Data
+        Schema Constraints<a class="self-link" aria-label="§" href=
+        "#constraints-against-the-td-specification"></a></h4>
+        <p>The <a href="#dfn-core-data-model" class="internalDFN"
+        data-link-type="dfn" id=
+        "ref-for-dfn-core-data-model-5">Core Data Model</a>
+        restricts the use of arrays and objects to the <strong>top
+        level</strong> of Data Schemas, i.e. only a one-level
+        hierarchy is permitted. The members of a top level
+        <code>object</code> or <code>array</code> <em class=
+        "rfc2119">MUST NOT</em> be array or object types.</p>
+        <div class="note" role="note" id=
+        "issue-container-generatedID-4">
+          <div role="heading" class="note-title marker" id=
+          "h-note-1" aria-level="5">
+            <span>Note</span><span class="issue-label">:
+            RATIONALE</span>
+          </div>
+          <section class="">
+            <p>This may appear as a severe limitation, however it
+            is motivated by integrating with multiple cloud
+            services. Many enterprise services and applications are
+            based on (relational) databases, where individual
+            property values are stored. Of course databases can
+            also store objects (e.g. encoded as a JSON string),
+            however this will prevent processing by other
+            enterprise applications.</p>
+            <p>If a property conceptually has a deeper structure,
+            such as grid of lamps with RGB colors, the structure
+            can be represented in the keyword of the property, i.e.
+            lamp1_color_r, lamp1_color_g and lamp1_color_b. A
+            similar mapping can be done for arrays and hierarchical
+            objects. This constraint leads to simpler Thing
+            Descriptions that can be handled by very limited
+            devices.</p>
+          </section>
+        </div>
+        <p>The following fields <em class="rfc2119">MUST</em> be
+        contained in a DataSchema:</p>
+        <table class="def">
+          <thead>
+            <tr>
+              <th>keyword</th>
+              <th>type</th>
+              <th>constraints</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>description</td>
+              <td>human readable description</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>string</td>
+              <td>one of boolean, integer, number, string, array or
+              object</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>The values <code>object</code> , <code>array</code>
+        <em class="rfc2119">MAY</em> only be used at the top level
+        of a Data Schema. The type value <em class="rfc2119">MUST
+        NOT</em> be <code>null</code> .</p>
+      </section>
+      <section id="property-affordance">
+        <h4 id="x5-property-affordance"><bdi class="secno">5.1.4</bdi> Property
+        Affordance<a class="self-link" aria-label="§" href=
+        "#properties"></a></h4>The <a href="#dfn-core-data-model"
+        class="internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-core-data-model-6">Core Data Model</a> applies
+        the following constraints and rules to the
+        <code>PropertyAffordance</code> class of section 5.3.1.3 of
+        the <a href="#dfn-wot-thing-description" class=
+        "internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-wot-thing-description-16">WoT Thing
+        Description</a> Specification.
+        <section id="mandatory-fields-1">
+          <h5 id="x5-1-4-1-mandatory-fields"><bdi class=
+          "secno">5.1.4.1</bdi> Mandatory fields<a class=
+          "self-link" aria-label="§" href=
+          "#mandatory-fields-1"></a></h5>
+          <p>The following property fields <em class=
+          "rfc2119">MUST</em> be contained in the
+          <code>properties</code> element of a <em>Profile
+          compliant TD</em>:</p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>constraints</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>unique name among all properties</td>
+              </tr>
+              <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>human readable description</td>
+              </tr>
+              <tr>
+                <td>type</td>
+                <td>string</td>
+                <td>one of <code>boolean</code> ,
+                <code>string</code> , <code>number</code> ,
+                <code>integer</code> , <code>object</code> or
+                <code>array</code> . The type value
+                <code>null</code> <em class="rfc2119">MUST NOT</em>
+                be used.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="additional-constraints">
+          <h5 id="x5-1-4-2-additional-constraints"><bdi class=
+          "secno">5.1.4.2</bdi> Additional Constraints<a class=
+          "self-link" aria-label="§" href=
+          "#additional-constraints"></a></h5>
+          <p>The <em>Thing Description</em> permits arbitrary
+          object depths for properties. Parsing of a deeply nested
+          structure is not possible on resource constrained
+          devices. Therefore each property <em class=
+          "rfc2119">MAY</em> contain <code>array</code> or
+          <code>object</code> elements only at <em>top
+          level</em>.</p>
+          <p>The following additional constraints <em class=
+          "rfc2119">MUST</em> be applied to the Property
+          Affordances of a <em>Thing Description</em> conforming to
+          the <a href="#dfn-core-profile" class="internalDFN"
+          data-link-type="dfn" id=
+          "ref-for-dfn-core-profile-15">Core Profile</a>:</p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>constraint</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>const</td>
+                <td>anyType</td>
+                <td><em class="rfc2119">MUST NOT</em> be used</td>
+              </tr>
+              <tr>
+                <td>enum</td>
+                <td>array of simple type</td>
+                <td><em>Values</em> of enums <em class=
+                "rfc2119">MAY</em> only be simple types. Handling
+                of <em>any type</em> is too complex to implement on
+                resource constrained devices</td>
+              </tr>
+              <tr>
+                <td>forms</td>
+                <td>array of Forms</td>
+                <td>The <code>Array of Form</code> of each property
+                <em class="rfc2119">MUST</em> contain only a
+                <em>single endpoint</em> for each operation
+                <code>readproperty</code> ,
+                <code>writeproperty</code> ,
+                <code>observeproperty</code> ,
+                <code>unobserveproperty</code>.</td>
+              </tr>
+              <tr>
+                <td>format</td>
+                <td>string</td>
+                <td>If the field <code>format</code> is used, only
+                formats defined in section 7.3.1-7.3.6 of
+                [<cite><a class="bibref" data-link-type="biblio"
+                href="#bib-json-schema" title=
+                "JSON Schema Validation: A Vocabulary for Structural Validation of JSON">JSON-SCHEMA</a></cite>]
+                <em class="rfc2119">MAY</em> be used.</td>
+              </tr>
+              <tr>
+                <td>oneOf</td>
+                <td>string</td>
+                <td>The DataSchema field <code>oneOf</code> does
+                not make sense for properties and <em class=
+                "rfc2119">MUST NOT</em> be used.</td>
+              </tr>
+              <tr>
+                <td>uriVariables</td>
+                <td>Map of DataSchema</td>
+                <td><code>uriVariables</code> <em class=
+                "rfc2119">MUST NOT</em> be used.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="recommended-practice-0">
+          <h5 id="x5-1-4-3-recommended-practice"><bdi class=
+          "secno">5.1.4.3</bdi> Recommended Practice<a class=
+          "self-link" aria-label="§" href=
+          "#recommended-practice-0"></a></h5>
+          <p>It is highly <em class="rfc2119">RECOMMENDED</em> to
+          always specify a <code>unit</code> , if a value has a
+          metric. Authors of <em>Thing Descriptions</em> should be
+          aware, that units that are common in their geographic
+          region are not globally applicable and may lead to
+          misinterpretation with drastic consequences.</p>
+          <p>The field <code>unit</code> could be used for
+          non-decimal numeric types as well, e.g. a string value
+          with binary or hex data ( <code>0xCAFEBABE</code> ,
+          <code>0b01000010</code> ), where the unit is
+          <code>hex</code> or <code>bin</code> , to indicate how
+          the value should be interpreted. It is strongly
+          <em class="rfc2119">RECOMMENDED</em> to use the values
+          <code>hex</code> , <code>oct</code> or <code>bin</code>
+          in this case to achieve interoperability.</p>
+        </section>
+      </section>
+      <section id="action-affordances">
+        <h4 id="x5-action-affordances"><bdi class="secno">5.1.5</bdi> Action
+        Affordances<a class="self-link" aria-label="§" href=
+        "#action-affordances"></a></h4>The <a href="#dfn-core-data-model"
+        class="internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-core-data-model-7">Core Data Model</a> applies
+        the following constraints and rules to the
+        <code>ActionAffordance</code> class of section 5.3.1.4 of
+        the <a href="#dfn-wot-thing-description" class=
+        "internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-wot-thing-description-17">WoT Thing
+        Description</a> Specification.
+        <section id="mandatory-fields-2">
+          <h5 id="x5-1-5-1-mandatory-fields"><bdi class=
+          "secno">5.1.5.1</bdi> Mandatory fields<a class=
+          "self-link" aria-label="§" href=
+          "#mandatory-fields-2"></a></h5>
+          <p>The following fields <em class="rfc2119">MUST</em> be
+          contained in an action element of an <a href=
+          "#dfn-core-profile" class="internalDFN" data-link-type=
+          "dfn" id="ref-for-dfn-core-profile-16">Core Profile</a>
+          compliant TD:</p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>constraints</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>unique name among all actions</td>
+              </tr>
+              <tr>
+                <td>input</td>
+                <td>array of DataSchema</td>
+                <td>all elements of the subclasses objectSchema and
+                dataSchema <em class="rfc2119">MUST</em> only
+                contain simple types.</td>
+              </tr>
+              <tr>
+                <td>output</td>
+                <td>array of DataSchema</td>
+                <td>all elements of the subclasses objectSchema and
+                dataSchema <em class="rfc2119">MUST</em> only
+                contain simple types.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="additional-constraints-0">
+          <h5 id="x5-1-5-2-additional-constraints"><bdi class=
+          "secno">5.1.5.2</bdi> Additional Constraints<a class=
+          "self-link" aria-label="§" href=
+          "#additional-constraints-0"></a></h5>
+          <p>The elements of the DataSchema subclasses ArraySchema
+          and ObjectSchema for the fields <code>input</code> and
+          <code>output</code> are restricted to simple types in a
+          <a href="#dfn-thing-description" class="internalDFN"
+          data-link-type="dfn" id=
+          "ref-for-dfn-thing-description-1">Thing Description</a>
+          conforming to the <a href="#dfn-core-data-model" class=
+          "internalDFN" data-link-type="dfn" id=
+          "ref-for-dfn-core-data-model-8">Core Data Model</a>.
+          Without this limitation a higher implementation burden
+          would be put on resource constrained devices (arbitrary
+          cascaded arrays and multi-level objects) which cannot be
+          satisfied by all consuming devices.</p>
+          <p>The following additional constraints <em class=
+          "rfc2119">MUST</em> be applied to the Interaction
+          Affordances of a <a href="#dfn-thing-description" class=
+          "internalDFN" data-link-type="dfn" id=
+          "ref-for-dfn-thing-description-2">Thing Description</a>
+          conforming to the <a href="#dfn-core-data-model" class=
+          "internalDFN" data-link-type="dfn" id=
+          "ref-for-dfn-core-data-model-9">Core Data Model</a>:</p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>constraint</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>forms</td>
+                <td>array of Forms</td>
+                <td>The <code>Array of Form</code> of each action
+                <em class="rfc2119">MUST</em> contain only a
+                <em>single</em> endpoint.</td>
+              </tr>
+              <tr>
+                <td>format</td>
+                <td>string</td>
+                <td>If the field <code>format</code> is used, only
+                formats defined in section 7.3.1-7.3.6 of
+                [<cite><a class="bibref" data-link-type="biblio"
+                href="#bib-json-schema" title=
+                "JSON Schema Validation: A Vocabulary for Structural Validation of JSON">JSON-SCHEMA</a></cite>]
+                <em class="rfc2119">MAY</em> be used.</td>
+              </tr>
+              <tr>
+                <td>oneOf</td>
+                <td>string</td>
+                <td>The DataSchema field <code>oneOf</code> does
+                not make sense for properties and <em class=
+                "rfc2119">MUST NOT</em> be used.</td>
+              </tr>
+              <tr>
+                <td>uriVariables</td>
+                <td>Map of DataSchema</td>
+                <td><code>uriVariables</code> <em class=
+                "rfc2119">MUST NOT</em> be used.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <div class="note" id="issue-container-generatedID-5">
+          <div role="heading" class="ednote-title marker" id=
+          "h-ednote-2" aria-level="5">
+            <span>Editor's note</span>
+          </div>
+          <section class="">
+            <p>TODO:</p>
+            <p>- no optional parameters</p>
+            <p>- timeout</p>
+          </section>
+        </div>
+        <section id="recommended-practice-1">
+          <h5 id="x5-1-5-3-recommended-practice"><bdi class=
+          "secno">5.1.5.3</bdi> Recommended Practice<a class=
+          "self-link" aria-label="§" href=
+          "#recommended-practice-1"></a></h5>
+        </section>
+      </section>
+      <section id="event-affordance">
+        <h4 id="x5-event-affordance"><bdi class="secno">5.1.6</bdi> Event
+        Affordance<a class="self-link" aria-label="§" href=
+        "#x5-event-affordance"></a></h4>The <a href="#dfn-core-data-model"
+        class="internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-core-data-model-10">Core Data Model</a>
+        applies the following constraints and rules to the
+        <code>EventAffordance</code> class of section 5.3.1.5 of
+        the <a href="#dfn-wot-thing-description" class=
+        "internalDFN" data-link-type="dfn" id=
+        "ref-for-dfn-wot-thing-description-18">WoT Thing
+        Description</a> Specification.
+        <p>A <a data-type="element" href=
+        "https://html.spec.whatwg.org/multipage/tables.html#the-th-element">
+        Thing</a> may provide more than one event mechanism to
+        enable a variety of consumers.</p>
+        <div class="note" id="issue-container-generatedID-6">
+          <div role="heading" class="ednote-title marker" id=
+          "h-ednote-3" aria-level="5">
+            <span>Editor's note</span>
+          </div>
+          <section class="">
+            <p>TODO:</p>
+            <p>The events section needs to be signifcantly extended
+            and define addtional constraints to ensure OOTBI.
+            LongPoll, WebSockets and WebHooks can be considered as
+            initial candidates for supported protocols for the
+            event mechanism to identify appropriate <em>data
+            model</em> constraints.</p>
+            <p>The individual <em>protocol constraints</em> need to
+            be defined in a respective protocol binding chapter
+            after they have been identified/evaluated in
+            plugfests.</p>
+          </section>
+        </div>
+        <section id="mandatory-fields-3">
+          <h5 id="x5-1-6-1-mandatory-fields"><bdi class=
+          "secno">5.1.6.1</bdi> Mandatory fields<a class=
+          "self-link" aria-label="§" href=
+          "#mandatory-fields-3"></a></h5>
+          <p>The following fields <em class="rfc2119">MUST</em> be
+          present in an event element of a <em>Core TD</em>:</p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>constraints</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>unique name among all events</td>
+              </tr>
+              <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>human readable description</td>
+              </tr>
+              <tr>
+                <td>data</td>
+                <td>set of DataSchema instances in a JSON
+                object</td>
+                <td>only the DataSchema subclasses booleanSchema,
+                IntegerSchema, NumberSchema, StringSchema are
+                permitted</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="additional-constraints-1">
+          <h5 id="x5-1-6-2-additional-constraints"><bdi class=
+          "secno">5.1.6.2</bdi> Additional Constraints<a class=
+          "self-link" aria-label="§" href=
+          "#additional-constraints-1"></a></h5>
+          <p>The following additional constraints <em class=
+          "rfc2119">MUST</em> be applied to the Event Affordances
+          of a <a href="#dfn-wot-thing-description" class=
+          "internalDFN" data-link-type="dfn" id=
+          "ref-for-dfn-wot-thing-description-19">WoT Thing
+          Description</a> conforming to the profile:</p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>constraint</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>forms</td>
+                <td>array of Forms</td>
+                <td>The <code>Array of Form</code> of each event
+                <em class="rfc2119">MUST</em> contain only a
+                <em>single</em> endpoint.</td>
+              </tr>
+              <tr>
+                <td>uriVariables</td>
+                <td>Map of DataSchema</td>
+                <td><code>uriVariables</code> <em class=
+                "rfc2119">MUST NOT</em> be used.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+      <section id="forms-0">
+        <h4 id="forms"><bdi class="secno">5.1.7</bdi>
+        Forms<a class="self-link" aria-label="§" href=
+        "#forms"></a></h4>
+        <p>A <a data-type="element" href=
+        "https://html.spec.whatwg.org/multipage/tables.html#the-th-element">
+        Thing</a> may provide more than one event mechanism to
+        enable a variety of consumers.</p>
+        <section id="mandatory-fields-4">
+          <h5 id="x5-1-7-1-mandatory-fields"><bdi class=
+          "secno">5.1.7.1</bdi> Mandatory fields<a class=
+          "self-link" aria-label="§" href=
+          "#mandatory-fields-4"></a></h5>
+          <p>The following fields <em class="rfc2119">MUST</em> be
+          present in a form element of a <em>Core TD</em>:</p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>constraints</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>unique name among all events</td>
+              </tr>
+              <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>human readable description</td>
+              </tr>
+              <tr>
+                <td>data</td>
+                <td>set of DataSchema instances in a JSON
+                object</td>
+                <td>only the DataSchema subclasses booleanSchema,
+                IntegerSchema, NumberSchema, StringSchema are
+                permitted</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="additional-constraints-2">
+          <h5 id="x5-1-7-2-additional-constraints"><bdi class=
+          "secno">5.1.7.2</bdi> Additional Constraints<a class=
+          "self-link" aria-label="§" href=
+          "#additional-constraints-2"></a></h5>
+          <p>The following additional constraints <em class=
+          "rfc2119">MUST</em> be applied to the Form elements of a
+          <a href="#dfn-wot-thing-description" class="internalDFN"
+          data-link-type="dfn" id=
+          "ref-for-dfn-wot-thing-description-20">WoT Thing
+          Description</a> conforming to the <a href=
+          "#dfn-core-profile" class="internalDFN" data-link-type=
+          "dfn" id="ref-for-dfn-core-profile-17">Core
+          profile</a>:</p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>constraint</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>security</td>
+                <td>
+                string&nbsp;or&nbsp;Array&nbsp;of&nbsp;string</td>
+                <td><code>security</code> at form level <em class=
+                "rfc2119">MUST NOT</em> be used.</td>
+              </tr>
+              <tr>
+                <td>scopes</td>
+                <td>
+                string&nbsp;or&nbsp;Array&nbsp;of&nbsp;string</td>
+                <td><code>scopes</code> <em class="rfc2119">MUST
+                NOT</em> be used.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+      <section id="links-0">
+        <h4 id="links"><bdi class="secno">5.1.8</bdi>
+        Links<a class="self-link" aria-label="§" href=
+        "#links"></a></h4>
+        <div class="note" id="issue-container-generatedID-7">
+          <div role="heading" class="ednote-title marker" id=
+          "h-ednote-4" aria-level="5">
+            <span>Editor's note</span>
+          </div>
+          <section class="">
+            TODO: Consider selecting a defined set from
+            [<cite><a class="bibref" data-link-type="biblio" href=
+            "#bib-rfc8288" title="Web Linking">RFC8288</a></cite>].
+          </section>
+        </div>
+        <p>The "type" relationship as defined in chapter 6 of
+        [<cite><a class="bibref" data-link-type="biblio" href=
+        "#bib-rfc6903" title=
+        "Additional Link Relation Types">RFC6903</a></cite>] is
+        reserved for indicating an instance relationship between a
+        thing and a thing template. The <a href=
+        "#dfn-core-data-model" class="internalDFN" data-link-type=
+        "dfn" id="ref-for-dfn-core-data-model-11">Core Data
+        Model</a> does not put additional constraints or
+        requirements on links. The interpretation of a link is out
+        of scope.</p>
+      </section>
+      <section id="security-0">
+        <h4 id="security"><bdi class="secno">5.1.9</bdi>
+        Security<a class="self-link" aria-label="§" href=
+        "#security"></a></h4>
+        <p>The <a href="#dfn-core-data-model" class="internalDFN"
+        data-link-type="dfn" id=
+        "ref-for-dfn-core-data-model-12">Core Data Model</a>
+        defines a subset of the security schemes that <em class=
+        "rfc2119">MAY</em> be implemented on resource constrained
+        devices. A security scheme <em class="rfc2119">MUST</em> be
+        defined at the thing level. The security scheme is applied
+        to the thing as a whole, a thing may adopt multiple
+        security schemes.</p>
+        <p>The set of security schemes supported in the <a href=
+        "#dfn-core-data-model" class="internalDFN" data-link-type=
+        "dfn" id="ref-for-dfn-core-data-model-13">Core Data
+        Model</a> is based on the PlugFest results. To ensure
+        interoperability, a TD consumer, which compliant with the
+        <a href="#dfn-core-data-model" class="internalDFN"
+        data-link-type="dfn" id=
+        "ref-for-dfn-core-data-model-14">Core Data Model</a>
+        <em class="rfc2119">MUST</em> support <strong>all</strong>
+        of the following security schemes:</p>
+        <ul>
+          <li>no security</li>
+          <li>Basic Auth</li>
+          <li>Digest</li>
+          <li>Bearer Token</li>
+          <li>Oauth2</li>
+        </ul>
+        <section id="recommended-practice-2">
+          <h5 id="x5-1-9-1-recommended-practice"><bdi class=
+          "secno">5.1.9.1</bdi> Recommended Practice<a class=
+          "self-link" aria-label="§" href=
+          "#recommended-practice-2"></a></h5>
+          <p>When using the "no security" or "Basic Auth" security
+          schemes it is strongly recommended to use transport layer
+          encryption.</p>
+        </section>
+      </section>
+    </section>
+    <section id="protocol-binding">
+      <h3 id="x5-2-protocol-binding"><bdi class="secno">5.2</bdi>
+      Protocol Binding<a class="self-link" aria-label="§" href=
+      "#protocol-binding"></a></h3>
+      <div class="note" id="issue-container-generatedID-8">
+        <div role="heading" class="ednote-title marker" id=
+        "h-ednote-5" aria-level="4">
+          <span>Editor's note</span>
+        </div>
+        <section class="">
+          This section is work in progress and will undergo
+          significant changes past FPWD to incorporate experiences
+          of implementations in plug-fests and products.
+        </section>
+      </div>
+      <p>This section describes how the <a href=
+      "#dfn-core-data-model" class="internalDFN" data-link-type=
+      "dfn" id="ref-for-dfn-core-data-model-15">Core Data Model</a>
+      is bound to different protocols. In addition to a set of
+      mapping rules, it defines additional behavior, e.g. timeouts,
+      error behavior, action semantics, etc.</p>
+      <div class="note" role="note" id=
+      "issue-container-generatedID-9">
+        <div role="heading" class="note-title marker" id="h-note-2"
+        aria-level="4">
+          <span>Note</span>
+        </div>
+        <section class="">
+          <h4 id="common-core-data-model">Common core data
+          model<a class="self-link" aria-label="§" href=
+          "#common-core-data-model"></a></h4>The HTTP protocol
+          binding is not meant to be exclusive, the common core
+          data model can be bound to other protocols as well. The
+          common core datamodel ensures interoperability across
+          different protocols.
+        </section>
+      </div>
+      <div class="note" id="issue-container-generatedID-10">
+        <div role="heading" class="ednote-title marker" id=
+        "h-ednote-6" aria-level="4">
+          <span>Editor's note</span>
+        </div>
+        <section class="">
+          Bindings for additional protocols can be defined in a
+          future version of this specification, or, already
+          included in the current version.
+        </section>
+      </div>
+      <section id="http-protocol-binding">
+        <h4 id="x5-2-1-http-protocol-binding"><bdi class=
+        "secno">5.2.1</bdi> HTTP Protocol Binding<a class=
+        "self-link" aria-label="§" href=
+        "#http-protocol-binding"></a></h4>
+        <p>All communication is using JSON payloads over HTTP(s).
+        The content type header <em class="rfc2119">MUST</em> be
+        set to "application/json".</p>
+        <section id="properties-0">
+          <h5 id="properties"><bdi class="secno">5.2.1.1</bdi>
+          Properties<a class="self-link" aria-label="§" href=
+          "#properties"></a></h5>
+          <p>The HTTP verbs GET and PUT are mapped on reading and
+          writing a property - all other protocol verbs return an
+          error "405 Method Not Allowed".</p>
+          <blockquote>
+            <p>Note: Since HTTP does not provide a pub/sub
+            mechanism, the observe interaction is not supported
+            directly. The event mechanism can be used instead to
+            send notifications on property changes.</p>
+          </blockquote>
+          <p>Multiple properties can be set/get by accessing the
+          Properties endpoint.</p>
+        </section>
+        <section id="actions-0">
+          <h5 id="actions"><bdi class="secno">5.2.1.2</bdi>
+          Actions<a class="self-link" aria-label="§" href=
+          "#actions"></a></h5>
+          <p>Actions can be synchronous and asynchronous. The
+          current TD specification does not distinguish these two
+          cases and does not describe a detailed mechanism.</p>
+          <p>The HTTP verb POST is mapped to invoking an action on
+          the actions endpoint - all other protocol verbs return an
+          error "405 Method Not Allowed".</p>
+        </section>
+        <section id="events-0">
+          <h5 id="events"><bdi class="secno">5.2.1.3</bdi>
+          Events<a class="self-link" aria-label="§" href=
+          "#events"></a></h5>
+          <div class="note" id="issue-container-generatedID-11">
+            <div role="heading" class="ednote-title marker" id=
+            "h-ednote-7" aria-level="6">
+            <span>Editor's note</span><span class="issue-label">: Under discussion</span>
+            </div>
+            <section class="">
+              The candidate sub-protocols for events are WebHooks,
+              WebSockets, SSE and Long polling. SSE and LongPolling
+              are suggested as the preferred candidates for a thing
+              that provides event affordances.
+            </section>
+          </div>
+        </section>
+      </section>
+    </section>
+    <section id="external-representation">
+      <h3 id="external-td-representations"><bdi class=
+      "secno">5.3</bdi> External TD representations<a class=
+      "self-link" aria-label="§" href=
+      "#external-td-representations"></a></h3>
+      <p>The default representation is JSON. Semantic annotations
+      based on JSON-LD <em class="rfc2119">MAY</em> be present but
+      are not required to perform all interactions with the thing
+      instance.</p>
+    </section>
+  </section>
+  <section id="open-issues">
+    <h2 id="x6-open-issues"><bdi class="secno">6.</bdi> Open
+    Issues<a class="self-link" aria-label="§" href=
+    "#open-issues"></a></h2>
+    <ul>
+      <li>define action semantics</li>
+      <li>define subscription mechanism</li>
+      <li>Examples</li>
+    </ul>
+  </section>
+  <section id="core-profile-json-schema" class=
+  "appendix normative">
+    <h2 id="a-json-schema-of-the-core-profile"><bdi class=
+    "secno">A.</bdi> JSON Schema of the Core Profile<a class=
+    "self-link" aria-label="§" href=
+    "#core-profile-json-schema"></a></h2>
+    <p>A Thing Description can be syntactically validated with the
+    JSON Schema [<cite><a class="bibref" data-link-type="biblio"
+    href="#bib-json-schema" title=
+    "JSON Schema Validation: A Vocabulary for Structural Validation of JSON">JSON-SCHEMA</a></cite>]
+    for compliance with the core profile.</p>
+    <div class="note" id="issue-container-generatedID-12">
+      <div role="heading" class="ednote-title marker" id=
+      "h-ednote-8" aria-level="3">
+        <span>Editor's note</span>
+      </div>
+      <p class="">Todo: Define a JSON-SCHEMA.</p>
+    </div>
+  </section>
+  <section id="references" class="appendix">
+    <h2 id="b-references"><bdi class="secno">B.</bdi>
+    References<a class="self-link" aria-label="§" href=
+    "#references"></a></h2>
+    <section id="normative-references">
+      <h3 id="b-1-normative-references"><bdi class=
+      "secno">B.1</bdi> Normative references<a class="self-link"
+      aria-label="§" href="#normative-references"></a></h3>
+      <dl class="bibliography">
+        <dt id="bib-html">[html]</dt>
+        <dd>
+          <a href=
+          "https://html.spec.whatwg.org/multipage/"><cite>HTML
+          Standard</cite></a>. Anne van Kesteren; Domenic Denicola;
+          Ian Hickson; Philip Jägenstedt; Simon Pieters. WHATWG.
+          Living Standard. URL: <a href=
+          "https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
+        </dd>
+        <dt id="bib-json-schema">[JSON-SCHEMA]</dt>
+        <dd>
+          <a href=
+          "https://tools.ietf.org/html/draft-handrews-json-schema-validation-01">
+          <cite>JSON Schema Validation: A Vocabulary for Structural
+          Validation of JSON</cite></a>. Austin Wright; Henry
+          Andrews; Geraint Luff. IETF. 19 March 2018.
+          Internet-Draft. URL: <a href=
+          "https://tools.ietf.org/html/draft-handrews-json-schema-validation-01">
+          https://tools.ietf.org/html/draft-handrews-json-schema-validation-01</a>
+        </dd>
+        <dt id="bib-rfc2119">[RFC2119]</dt>
+        <dd>
+          <a href="https://tools.ietf.org/html/rfc2119"><cite>Key
+          words for use in RFCs to Indicate Requirement
+          Levels</cite></a>. S. Bradner. IETF. March 1997. Best
+          Current Practice. URL: <a href=
+          "https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+        </dd>
+        <dt id="bib-rfc6903">[RFC6903]</dt>
+        <dd>
+          <a href=
+          "https://tools.ietf.org/html/rfc6903"><cite>Additional
+          Link Relation Types</cite></a>. J. Snell. IETF. March
+          2013. Informational. URL: <a href=
+          "https://tools.ietf.org/html/rfc6903">https://tools.ietf.org/html/rfc6903</a>
+        </dd>
+        <dt id="bib-rfc8174">[RFC8174]</dt>
+        <dd>
+          <a href=
+          "https://tools.ietf.org/html/rfc8174"><cite>Ambiguity of
+          Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>.
+          B. Leiba. IETF. May 2017. Best Current Practice. URL:
+          <a href=
+          "https://tools.ietf.org/html/rfc8174">https://tools.ietf.org/html/rfc8174</a>
+        </dd>
+        <dt id="bib-wot-architecture">[wot-architecture]</dt>
+        <dd>
+          <a href=
+          "https://www.w3.org/TR/wot-architecture/"><cite>Web of
+          Things (WoT) Architecture</cite></a>. Matthias Kovatsch;
+          Ryuichi Matsukura; Michael Lagally; Toru Kawaguchi;
+          Kunihiko Toumura; Kazuo Kajimoto. W3C. 9 April 2020. W3C
+          Recommendation. URL: <a href=
+          "https://www.w3.org/TR/wot-architecture/">https://www.w3.org/TR/wot-architecture/</a>
+        </dd>
+        <dt id="bib-wot-thing-description">
+        [wot-thing-description]</dt>
+        <dd>
+          <a href=
+          "https://www.w3.org/TR/wot-thing-description/"><cite>Web
+          of Things (WoT) Thing Description</cite></a>. Sebastian
+          Käbisch; Takuki Kamiya; Michael McCool; Victor Charpenay;
+          Matthias Kovatsch. W3C. 9 April 2020. W3C Recommendation.
+          URL: <a href=
+          "https://www.w3.org/TR/wot-thing-description/">https://www.w3.org/TR/wot-thing-description/</a>
+        </dd>
+      </dl>
+    </section>
+    <section id="informative-references">
+      <h3 id="b-2-informative-references"><bdi class=
+      "secno">B.2</bdi> Informative references<a class="self-link"
+      aria-label="§" href="#informative-references"></a></h3>
+      <dl class="bibliography">
+        <dt id="bib-rfc8288">[RFC8288]</dt>
+        <dd>
+          <a href="https://httpwg.org/specs/rfc8288.html"><cite>Web
+          Linking</cite></a>. M. Nottingham. IETF. October 2017.
+          Proposed Standard. URL: <a href=
+          "https://httpwg.org/specs/rfc8288.html">https://httpwg.org/specs/rfc8288.html</a>
+        </dd>
+      </dl>
+    </section>
+  </section>
+  <p role="navigation" id="back-to-top"><a href=
+  "#title"><abbr title="Back to Top">↑</abbr></a></p>
+  <aside class="dfn-panel" hidden="" id=
+  "dfn-panel-for-dfn-profile">
+    <div>
+      <a class="self-link" href="#dfn-profile">Permalink</a>
+    </div><b>Referenced in:</b>
+    <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+  </aside>
+  <aside class="dfn-panel" hidden="" id=
+  "dfn-panel-for-dfn-wot-core-profile">
+    <div>
+      <a class="self-link" href=
+      "#dfn-wot-core-profile">Permalink</a>
+    </div><b>Referenced in:</b>
+    <ul>
+      <li>
+        <a href="#ref-for-dfn-wot-core-profile-1">Abstract</a>
+        <a href="#ref-for-dfn-wot-core-profile-2">(2)</a> <a href=
+        "#ref-for-dfn-wot-core-profile-3">(3)</a> <a href=
+        "#ref-for-dfn-wot-core-profile-4">(4)</a> <a href=
+        "#ref-for-dfn-wot-core-profile-5">(5)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-core-profile-6">1.2 Why a Core
+        Profile?</a> <a href=
+        "#ref-for-dfn-wot-core-profile-7">(2)</a> <a href=
+        "#ref-for-dfn-wot-core-profile-8">(3)</a> <a href=
+        "#ref-for-dfn-wot-core-profile-9">(4)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-core-profile-10">3.
+        Terminology</a>
+      </li>
+    </ul>
+  </aside>
+  <aside class="dfn-panel" hidden="" id=
+  "dfn-panel-for-dfn-core-profile">
+    <div>
+      <a class="self-link" href="#dfn-core-profile">Permalink</a>
+    </div><b>Referenced in:</b>
+    <ul>
+      <li>
+        <a href="#ref-for-dfn-core-profile-1">Abstract</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-profile-2">1.1 Deployment
+        Scenarios</a> <a href="#ref-for-dfn-core-profile-3">(2)</a>
+        <a href="#ref-for-dfn-core-profile-4">(3)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-profile-5">1.2 Why a Core
+        Profile?</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-profile-6">1.3 Out-of-the-box
+        interoperability</a> <a href=
+        "#ref-for-dfn-core-profile-7">(2)</a> <a href=
+        "#ref-for-dfn-core-profile-8">(3)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-profile-9">4. Profiling
+        Mechanism</a> <a href=
+        "#ref-for-dfn-core-profile-10">(2)</a> <a href=
+        "#ref-for-dfn-core-profile-11">(3)</a> <a href=
+        "#ref-for-dfn-core-profile-12">(4)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-profile-13">4.1 Methodology</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-profile-14">5. WoT Core
+        Profile</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-profile-15">5.1.4.2 Additional
+        Constraints</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-profile-16">5.1.5.1 Mandatory
+        fields</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-profile-17">5.1.7.2 Additional
+        Constraints</a>
+      </li>
+    </ul>
+  </aside>
+  <aside class="dfn-panel" hidden="" id=
+  "dfn-panel-for-dfn-core-data-model">
+    <div>
+      <a class="self-link" href=
+      "#dfn-core-data-model">Permalink</a>
+    </div><b>Referenced in:</b>
+    <ul>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-1">4.1
+        Methodology</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-2">5. WoT Core
+        Profile</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-3">5.1.2 Thing</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-4">5.1.3 Data
+        Schema</a> <a href="#ref-for-dfn-core-data-model-5">(2)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-6">5.1.4 Property
+        Affordance</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-7">5.1.5 Action
+        Affordances</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-8">5.1.5.2 Additional
+        Constraints</a> <a href=
+        "#ref-for-dfn-core-data-model-9">(2)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-10">5.1.6 Event
+        Affordance</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-11">5.1.8 Links</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-12">5.1.9
+        Security</a> <a href=
+        "#ref-for-dfn-core-data-model-13">(2)</a> <a href=
+        "#ref-for-dfn-core-data-model-14">(3)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-core-data-model-15">5.2 Protocol
+        Binding</a>
+      </li>
+    </ul>
+  </aside>
+  <aside class="dfn-panel" hidden="" id=
+  "dfn-panel-for-dfn-thing-description">
+    <div>
+      <a class="self-link" href=
+      "#dfn-thing-description">Permalink</a>
+    </div><b>Referenced in:</b>
+    <ul>
+      <li>
+        <a href="#ref-for-dfn-thing-description-1">5.1.5.2
+        Additional Constraints</a> <a href=
+        "#ref-for-dfn-thing-description-2">(2)</a>
+      </li>
+    </ul>
+  </aside>
+  <aside class="dfn-panel" hidden="" id=
+  "dfn-panel-for-dfn-wot-thing-description">
+    <div>
+      <a class="self-link" href=
+      "#dfn-wot-thing-description">Permalink</a>
+    </div><b>Referenced in:</b>
+    <ul>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-1">1.1
+        Deployment Scenarios</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-2">1.2 Why a
+        Core Profile?</a> <a href=
+        "#ref-for-dfn-wot-thing-description-3">(2)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-4">3.
+        Terminology</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-5">4. Profiling
+        Mechanism</a> <a href=
+        "#ref-for-dfn-wot-thing-description-6">(2)</a> <a href=
+        "#ref-for-dfn-wot-thing-description-7">(3)</a> <a href=
+        "#ref-for-dfn-wot-thing-description-8">(4)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-9">4.1
+        Methodology</a> <a href=
+        "#ref-for-dfn-wot-thing-description-10">(2)</a> <a href=
+        "#ref-for-dfn-wot-thing-description-11">(3)</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-12">5.1.1
+        General</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-13">5.1.1.1
+        Mandatory fields</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-14">5.1.2
+        Thing</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-15">5.1.3 Data
+        Schema</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-16">5.1.4
+        Property Affordance</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-17">5.1.5
+        Action Affordances</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-18">5.1.6 Event
+        Affordance</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-19">5.1.6.2
+        Additional Constraints</a>
+      </li>
+      <li>
+        <a href="#ref-for-dfn-wot-thing-description-20">5.1.7.2
+        Additional Constraints</a>
+      </li>
+    </ul>
+  </aside>
+  <script id="respec-dfn-panel">
+  (() => {
+  // @ts-check
+  if (document.respec) {
+  document.respec.ready.then(dfnPanel);
+  } else {
+  dfnPanel();
+  }
+
+  function dfnPanel() {
+  /** @type {HTMLElement} */
+  let panel;
+  document.body.addEventListener("click", event => {
+    if (!(event.target instanceof HTMLElement)) return;
+
+    /** @type {HTMLElement} */
+    const el = event.target;
+
+    const action = deriveAction(el);
+    switch (action) {
+      case "show": {
+        if (panel) hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = el.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        displayPanel(dfn, panel, { x: event.clientX, y: event.clientY });
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        break;
+      }
+    }
+  });
+  }
+
+  /** @param {HTMLElement} clickTarget */
+  function deriveAction(clickTarget) {
+  const hitALink = !!clickTarget.closest("a");
+  if (clickTarget.closest("dfn, .index-term")) {
+    return hitALink ? null : "show";
+  }
+  if (clickTarget.closest(".dfn-panel")) {
+    if (hitALink) {
+      const clickedSelfLink = clickTarget.classList.contains("self-link");
+      return clickedSelfLink ? "hide" : "dock";
+    }
+    const panel = clickTarget.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : null;
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return null;
+  }
+
+  /**
+  * @param {HTMLElement} dfn
+  * @param {HTMLElement} panel
+  * @param {{ x: number, y: number }} clickPosition
+  */
+  function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+  }
+
+  /** @param {HTMLElement} panel */
+  function hidePanel(panel) {
+  panel.hidden = true;
+  panel.classList.remove("docked");
+  }
+  })()
+  </script>
+  <script src=
+  "https://www.w3.org/scripts/TR/2016/fixup.js"></script>
+</body>
+</html>
