@@ -1554,53 +1554,43 @@
             array elements</em>
           and <em>base urls</em> in <a href="https://github.com/w3c/wot-profile/issues/55"></a>
         </section>
+      </section>
 
-        <section id="TD-signing">
-          <h2 id="signed-td">Signing of a Thing Description</h2>
-          <p>
-            Signing of a TD can be used to validate the authenticity by validating
-            the signature with the cryptographic key(s) of the signer.
-          </p>
-          <section class="ednote">
-            Need to select a signing mechanism and clarify corresponding algorithms.
-          </section>
-
-        </section>
-
-        <section id="TD-encryption">
-          <h2 id="encrypted-td">Encryption of a Thing Description</h2>
-          <p>
-            Encryption of a TD can be used to ensure that the contents are only available to authorized persons.
-
-
-          </p>
-        </section>
-
-
-        <section id="signed-canonical-representation">
-          <h2 id="signed-canonical-td-representations">Signed Canonical TD
-            representation</h2>
-          <p>
-
-  
-
-          </p>
-
-          <section id="signed-encrpted-canonical-representation">
-            <h2 id="signed-encrypted-canonical-td-representations">Signed Encrypted Canonical TD
-              representation</h2>
-            <p>
-  
-    
-  
-            </p>
-  
-
+      <section id="TD-signing">
+        <h2 id="signed-td">Signing of a Thing Description</h2>
+        <p>
+          Signing of a TD can be used to validate the authenticity by validating
+          the signature with the cryptographic key(s) of the signer.
+        </p>
+        <section class="ednote">
+          Need to select a signing mechanism and clarify corresponding algorithms.
         </section>
 
       </section>
 
-      <!--  Normative References 
+      <section id="signed-canonical-representation">
+        <h2 id="signed-canonical-td-representations">Signed Canonical TD
+          representation</h2>
+        <p>
+
+
+
+        </p>
+      </section>
+
+      <section id="signed-encrpted-canonical-representation">
+        <h2 id="signed-encrypted-canonical-td-representations">Encrypted Canonical TD
+          representation</h2>
+        <p>
+          Encryption of a TD can be used to ensure that the contents are only available to authorized persons.
+        </p>
+
+
+      </section>
+
+    </section>
+
+    <!--  Normative References 
 
 		<section>
 			<h2 id="normative-references">Normative references</h2>
@@ -1633,26 +1623,26 @@
 			</p>
 			<p>(https://tools.ietf.org/html/rfc6068).</p>
 		</section -->
-    </section>
-    <section id="open-issues">
-      <h3>Open Issues</h3>
-      <ul>
-        <li>define action semantics</li>
-        <li>define subscription mechanism</li>
-        <li>Examples</li>
-      </ul>
-    </section>
+  </section>
+  <section id="open-issues">
+    <h3>Open Issues</h3>
+    <ul>
+      <li>define action semantics</li>
+      <li>define subscription mechanism</li>
+      <li>Examples</li>
+    </ul>
+  </section>
 
-    <section id="core-profile-json-schema" class="appendix normative">
-      <h1>JSON Schema of the Core Profile</h1>
-      <p>
-        A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance
-        with
-        the core profile.
-      </p>
-      <p class="ednote">
-        Todo: Define a JSON-SCHEMA.
-      </p>
+  <section id="core-profile-json-schema" class="appendix normative">
+    <h1>JSON Schema of the Core Profile</h1>
+    <p>
+      A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance
+      with
+      the core profile.
+    </p>
+    <p class="ednote">
+      Todo: Define a JSON-SCHEMA.
+    </p>
 
 </body>
 
