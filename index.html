@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="tablestyle.css">
   <title>Web of Things (WoT) Profile</title>
   <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
   <script class="remove">
@@ -11,7 +10,7 @@
       lint: {
         "no-headingless-sections": false,
       },
-      specStatus: "FPWD",
+      specStatus: "ED",
       maxTocLevel: 6,
       processVersion: 2019,
       shortName: "wot-profile",
@@ -21,6 +20,8 @@
       edDraftURI: "https://w3c.github.io/wot-profile/",
       githubAPI: "https://api.github.com/repos/w3c/wot-profile",
       issueBase: "https://www.github.com/w3c/wot-profile/issues",
+      previousPublishDate: "2020-11-24",
+      previousMaturity: "FPWD",
       editors: [{
         name: "Michael Lagally",
         w3cid: "47166",
@@ -340,7 +341,7 @@
   </section>
 
   <section id="terminology">
-    <h2 id="terminology">Terminology</h2>
+    <h2 id="x3-terminology">Terminology</h2>
     <p>This specification uses the same terminology as the WoT
       Architecture and Thing Description specifications.</p>
     <p>
@@ -459,7 +460,7 @@
 
   <!-- Profiling mechanism -->
 
-  <section id="profiling mechanism">
+  <section id="profiling-mechanism">
     <h2 id="the-profiling-profile">Profiling Mechanism</h2>
     <p>
       This section describes a generic mechanism to define a
@@ -576,7 +577,7 @@
         scope and contents of other profiles.
       </p>
 
-      <figure id="WoT Profiles">
+      <figure id="WoT-Profiles">
         <img src="images/WoT Profiles.png" class="wot-profiles" alt="WoT Profiles" />
         <figcaption>WoT Core Profile - Other Profiles</figcaption>
       </figure>
@@ -616,7 +617,7 @@
       </p>
 
       <section id="general">
-        <h3 id="general">General</h3>
+        <h3 id="x5-general">General</h3>
 
         <p>
           The following rules are applicable to multiple
@@ -833,7 +834,7 @@
 
 
       <section>
-        <h3 id="data schema">Data Schema</h3>
+        <h3 id="data-schema">Data Schema</h3>
         <p>
           Data Schemas are used for the values of Properties,
           Action input and output parameters and Event message
@@ -921,7 +922,7 @@
       <!-- Properties -->
 
       <section>
-        <h3 id="properties">Property Affordance</h3>
+        <h3 id="x5-property-affordance">Property Affordance</h3>
         The <a>Core Data Model</a> applies the following
         constraints and rules to the
         <code>PropertyAffordance</code>
@@ -1091,7 +1092,7 @@
       <!-- Actions -->
 
       <section>
-        <h3 id="actions">Action Affordances</h3>
+        <h3 id="x5-action-affordances">Action Affordances</h3>
         The <a>Core Data Model</a> applies the following
         constraints and rules to the
         <code>ActionAffordance</code>
@@ -1220,7 +1221,7 @@
 
 
       <section>
-        <h3 id="events">Event Affordance</h3>
+        <h3 id="x5-event-affordance">Event Affordance</h3>
         The <a>Core Data Model</a> applies the following
         constraints and rules to the
         <code>EventAffordance</code>
@@ -1512,7 +1513,7 @@
         </section>
         <section>
           <h3 id="events">Events</h3>
-          <section class="ednote" Under discussion>
+          <section class="ednote" title="Under discussion">
             The candidate sub-protocols for events are
             WebHooks, WebSockets, SSE and Long polling.
             SSE and LongPolling are suggested as the 
