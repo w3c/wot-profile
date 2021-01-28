@@ -977,11 +977,13 @@
             object depths for properties. Parsing of a
             deeply nested structure is not possible on
             resource constrained devices. Therefore each
-            property MAY contain
+            property MUST NOT exceed a maximum depth 
+	    of 5 levels of nested
             <code>array</code>
             or
             <code>object</code>
-            elements only at <em>top level</em>.
+            elements. It is RECOMMENDED to keep the nesting 
+	    of these elements below 4.
           </p>
 
           <p>
