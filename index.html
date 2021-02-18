@@ -595,7 +595,7 @@
     </section>
 	  
     <section id="reference-devices">
-      <h2>Reference Device Classes</h2>	  
+      <h2>Reference Device</h2>	  
 	<p>
 	Since a profile is to be supported by a wide variety of devices, lower 
 	bound for device characteristics and capabilities have to be selected.
@@ -612,8 +612,11 @@
 	control or read telemetry data from some other device.
 	</p>
 	<p>These devices are simple consumers/producers that just are required to consume a SINGLE TD.
+	</p>
+	<section>
+	<h3 id="core-device">Embedded Reference Device</a>
 	The characteristics of a minimum device which can run a TCP / HTTP stack + process JSON payloads to consume and expose TDs
-	were identified with several model assumptions and by inspecting some real workd devices.
+	were identified with several model assumptions and by inspecting some real world devices.
 		
 	<p>
 	Additionally all TDs that were used during the PlugFests showed that 95% of TDs were around 8KB in size.
@@ -621,6 +624,7 @@
 	<p>
 	A maximum size of a TD of 16 KB leaves enough headroom and can be still handled on embedded devices with 64-128KB of RAM.
 	</p>
+       </section>
     </section>
 	     
   </section>
