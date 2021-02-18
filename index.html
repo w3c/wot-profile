@@ -593,6 +593,36 @@
                 -->
       </p>
     </section>
+	  
+    <section id="reference-devices">
+      <h2>Reference Device Classes</h2>	  
+	<p>
+	Since a profile is to be supported by a wide variety of devices, lower 
+	bound for device characteristics and capabilities have to be selected.
+	Small embedded devices have very limited RAM and Flash storage among other limitations 
+	(e.g. clock speed, power consumption) which make complex processing unfeasible.
+	</p>
+	<p>
+	<section>
+	<h3 id="use-case">Use Case</a>
+	<p>
+	As the baseline use case we select the capability to process a full TD without additional external components.
+	A device in the <em>producer</em> role generates a TD and allows consumers to use telemetry and control of device actions.
+	In the <em>consumer</em> role a device is extracting pieces of information from a single TD to 
+	control or read telemetry data from some other device.
+	</p>
+	<p>These devices are simple consumers/producers that just are required to consume a SINGLE TD.
+	The characteristics of a minimum device which can run a TCP / HTTP stack + process JSON payloads to consume and expose TDs
+	were identified with several model assumptions and by inspecting some real workd devices.
+		
+	<p>
+	Additionally all TDs that were used during the PlugFests showed that 95% of TDs were around 8KB in size.
+	</p>	
+	<p>
+	A maximum size of a TD of 16 KB leaves enough headroom and can be still handled on embedded devices with 64-128KB of RAM.
+	</p>
+    </section>
+	     
   </section>
 
 
