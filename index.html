@@ -608,14 +608,62 @@
 </p>
 
 <p>The following device categories describe the footprint and characteristics of typical representants of these classes.
- This is used to identify the possible features and use cases for these device classes.
+ This is used to identify the possible features and use cases for these device classes.</p>
 
- <ul>
- <li>Node - endpoint with typically 64-128 KB of RAM</li>
- <li>Gateway/Hub - intermediate node, typically a few MB of RAM</li>
- <li>Edge - </li>
- <li>Cloud - multiple CPUs, virtualisation, large storage</li>
- </ul>
+ <p>
+We are aligned with the classes defined in https://tools.ietf.org/html/rfc7228 for constrained devices,
+however put the bounds on typical sizes of RAM / Flash in the real world.
+Note that this is not a strict categorisation, categories may overlap and not all memory may be available for user applications.</p>
+
+<table>
+<tr>
+  <th>Category</th> 
+  <th>data size (RAM)</th>
+  <th>code size (Flash, ROM, ...)</th>
+  <th>Typical Representant</th>
+</tr>  
+<tr>
+  <td>Class-0, C0</td>
+  <td><< 10 KiB</td>
+  <td><< 100 KiB</td>
+  <td>sensor nodes</td>
+</tr>
+<tr>
+  <td>Class-1, C1</td>
+  <td>~ 10 KiB</td>
+  <td>~ 100 KiB</td>
+  <td></td>
+</tr><tr>
+  <td>Class-2, C2</td>
+  <td>~ 64 KiB</td>
+  <td>~ 256 KiB</td>
+  <td>nodeMCU</td>
+</tr>
+</tr><tr>
+  <td>Class-3, C3</td>
+  <td>~ 64-256 KiB</td>
+  <td>~ 256 KiB - several MBs</td>
+  <td>ISP gateway</td>
+</tr>
+</tr><tr>
+  <td>Class-4, C4</td>
+  <td>~  256 KiB -  several MB</td>
+  <td>~  1 MB - several MB</td>
+  <td>gateway</td>
+</tr>
+</tr><tr>
+  <td>Class-5, C5</td>
+  <td>~ 1 GB</td>
+  <td>~ 1 GB</td>
+  <td>edge</td>
+</tr>
+</tr><tr>
+  <td>Class-6, C6</td>
+  <td>~ several GB</td>
+  <td>~ several GB</td>
+  <td>cloud</td>
+</tr>
+</table>
 
 </p>
   </section>
