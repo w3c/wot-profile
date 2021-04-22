@@ -1453,28 +1453,434 @@
       </section>
     </section>
 
-    <section
     <!-- Protocol Binding -->
+    <section id="protocol-binding">
       <h3>Protocol Binding</h3>
+      <p>
+        This section defines a protocol binding which describes how a
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
+        communicates with a
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        [[wot-architecture]] using JSON [[JSON]] payloads over
+        the HTTP [[HTTP11]] protocol.
+      </p>
+      <p>
+        A Consumer or Web Thing conforming to the WoT Core Profile
+        MUST implement this protocol binding.
+      </p>
       <section id="properties">
         <h4>Properties</h4>
         <section id="readproperty">
           <h5><code>readproperty</code></h5>
+          <p>
+            The URL of a <code>Property</code> resource to be used when reading
+            the value of a property MUST be obtained from a Canonical TD by
+            locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the corresponding
+            <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
+            <code>PropertyAffordance</code></a>
+            for which the value of its <code>op</code> member is
+            <code>readproperty</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>
+            In order to read the value of a property, a Consumer MUST send
+            an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>GET</code></li>
+              <li>URL set to the URL of the <code>Property</code> resource</li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+            </ul>
+          </p>
+          <pre class="example">
+          GET /things/lamp/properties/on HTTP/1.1
+          Host: mythingserver.com
+          Accept: application/json
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to read the corresponding
+            property, then upon successfully reading the value of the property
+            it MUST send an HTTP response with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with the value of the property serialized in JSON</li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          false
+          </pre>
+          <p>
+            If the property can not be read successfully then the Web Thing
+            MUST send an HTTP response with an HTTP error code which describes the
+            reason for the failure. E.g.
+          </p>
+          <ul>
+            <li><code>400 Bad Request</code></li>
+            <li><code>401 Unauthorized</code></li>
+            <li><code>403 Forbidden</code></li>
+            <li><code>404 Not Found</code></li>
+            <li><code>500 Internal Server Error</code></li>
+          </ul>
         </section>
         <section id="writeproperty">
           <h5><code>writeproperty</code></h5>
+          <p>
+            The URL of a <code>Property</code> resource to be used when writing
+            the value of a property MUST be obtained from a Canonical TD by
+            locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the corresponding
+            <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
+            <code>PropertyAffordance</code></a>
+            for which the value of its <code>op</code> member is
+            <code>writeproperty</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>In order to write the value of a property, a Consumer MUST send
+            an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>PUT</code></li>
+              <li>URL set to the URL of the <code>Property</code> resource</li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with a requested new value for the property serialized
+                in JSON</li>
+            </ul>
+          </p>
+          <pre class="example">
+          PUT /things/lamp/properties/on HTTP/1.1
+          Host: mythingserver.com
+          Content-Type: application/json
+          Accept: application/json
+          true
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to write the corresponding
+            property, then upon successfully writing the value of the
+            property it MUST send an HTTP response with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with the new value of the property serialized in JSON
+                </li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          true
+          </pre>
+          <p>
+            If the value of the property can not be written successfully then
+            the Web Thing MUST send an HTTP response with an HTTP error code
+            which describes the reason for the failure. E.g.
+          </p>
+          <ul>
+            <li><code>400 Bad Request</code></li>
+            <li><code>401 Unauthorized</code></li>
+            <li><code>403 Forbidden</code></li>
+            <li><code>404 Not Found</code></li>
+            <li><code>500 Internal Server Error</code></li>
+          </ul>
         </section>
         <section id="readallproperties">
           <h5><code>readallproperties</code></h5>
+          <p>
+            The URL of a <code>Properties</code> resource to be used when
+            reading the value of all properties at once MUST be obtained from a
+            Canonical TD by locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the top level
+            <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+            <code>forms</code></a> member
+            for which the value of its <code>op</code> member is
+            <code>readallproperties</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>
+            In order to read the value of all properties, a Consumer MUST send
+            an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>GET</code></li>
+              <li>URL set to the URL of the <code>Properties</code> resource
+                </li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+            </ul>
+          </p>
+          <pre class="example">
+          GET /things/lamp/properties HTTP/1.1
+          Host: mythingserver.com
+          Accept: application/json
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above, then upon successfully reading the value of the properties
+            to which the Consumer has permission to access, it MUST send an HTTP
+            response with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with the values of the properties serialized in JSON,
+              as an object keyed by property name</li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          {
+            "on": false,
+            "level": 100
+          }
+          </pre>
+          <p>
+            If the properties can not be read successfully then the Web Thing
+            MUST send an HTTP response with an HTTP error code which describes
+            the reason for the failure. E.g.
+          </p>
+          <ul>
+            <li><code>400 Bad Request</code></li>
+            <li><code>401 Unauthorized</code></li>
+            <li><code>403 Forbidden</code></li>
+            <li><code>404 Not Found</code></li>
+            <li><code>500 Internal Server Error</code></li>
+          </ul>
         </section>
         <section id="writeallproperties">
           <h5><code>writeallproperties</code></h5>
+          <p>
+            The URL of a <code>Properties</code> resource to be used when
+            writing the value of all properties at once MUST be obtained from a
+            Canonical TD by locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the top level
+            <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+            <code>forms</code></a> member
+            for which the value of its <code>op</code> member is
+            <code>writeallproperties</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>
+            In order to write the value of all writable properties at once,
+            a Consumer MUST send an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>PUT</code></li>
+              <li>URL set to the URL of the <code>Properties</code> resource
+                </li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+              <li>A body with requested new values for the writable properties
+                serialized in JSON, as an object keyed by property name</li>
+            </ul>
+          </p>
+          <pre class="example">
+          PUT /things/lamp/properties HTTP/1.1
+          Host: mythingserver.com
+          Content-Type: application/json
+          Accept: application/json
+          {
+            "on": true,
+            "level": 50
+          }
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above, then upon successfully writing the value of the properties
+            it MUST send an HTTP response with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with the new values of the properties serialized in
+                JSON, as an object keyed by property name</li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          {
+            "on": true,
+            "level": 50
+          }
+          </pre>
+          <p>
+            If the properties can not be written successfully then the Web Thing
+            MUST send an HTTP response with an HTTP error code which describes
+            the reason for the failure. E.g.
+          </p>
+          <ul>
+            <li><code>400 Bad Request</code></li>
+            <li><code>401 Unauthorized</code></li>
+            <li><code>403 Forbidden</code></li>
+            <li><code>404 Not Found</code></li>
+            <li><code>500 Internal Server Error</code></li>
+          </ul>
         </section>
         <section id="readmultipleproperties">
           <h5><code>readmultipleproperties</code></h5>
+          <p>
+            The URL of a <code>Properties</code> resource to be used when
+            reading the value of multiple properties at once MUST be obtained
+            from a Canonical TD by locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the top level
+            <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+            <code>forms</code></a> member
+            for which the value of its <code>op</code> member is
+            <code>readmultipleproperties</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>
+            In order to read the value of multiple properties, a Consumer MUST
+            send an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>GET</code></li>
+              <li>URL set to the URL of the <code>Properties</code> resource
+                </li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+              <li>A body with a list of the names of properties to be read
+                serialized in JSON, as an array of property names</li>
+            </ul>
+          </p>
+          <pre class="example">
+          GET /things/lamp/properties HTTP/1.1
+          Host: mythingserver.com
+          Accept: application/json
+          ["on", "level"]
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above, then upon successfully reading the values of the properties
+            it MUST send an HTTP response with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with the values of the properties serialized in JSON,
+              as an object keyed by property name</li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          {
+            "on": false,
+            "level": 100
+          }
+          </pre>
+          <p>
+            If the properties can not be read successfully then the Web Thing
+            MUST send an HTTP response with an HTTP error code which describes
+            the reason for the failure. E.g.
+          </p>
+          <ul>
+            <li><code>400 Bad Request</code></li>
+            <li><code>401 Unauthorized</code></li>
+            <li><code>403 Forbidden</code></li>
+            <li><code>404 Not Found</code></li>
+            <li><code>500 Internal Server Error</code></li>
+          </ul>
         </section>
         <section id="writemultipleproperties">
           <h5><code>writemultipleproperties</code></h5>
+          <p>
+            The URL of a <code>Properties</code> resource to be used when
+            writing the value of multiple properties at once MUST be obtained
+            from a Canonical TD by locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the top level
+            <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+            <code>forms</code></a> member
+            for which the value of its <code>op</code> member is
+            <code>writemultipleproperties</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>
+            In order to write the value of multiple properties at once, a
+            Consumer MUST send an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>PUT</code></li>
+              <li>URL set to the URL of the <code>Properties</code> resource
+                </li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+              <li>A body with requested new values for the writable properties
+                serialized in JSON, as an object keyed by property name</li>
+            </ul>
+          </p>
+          <pre class="example">
+          PUT /things/lamp/properties HTTP/1.1
+          Host: mythingserver.com
+          Content-Type: application/json
+          Accept: application/json
+          {
+            "on": true,
+            "level": 50
+          }
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above, then upon successfully writing the value of the properties
+            it MUST send an HTTP response with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with the new values of the properties serialized in
+                JSON, as an object keyed by property name</li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          {
+            "on": true,
+            "level": 50
+          }
+          </pre>
+          <p>
+            If the properties can not be written successfully then the Web Thing
+            MUST send an HTTP response with an HTTP error code which describes
+            the reason for the failure. E.g.
+          </p>
+          <ul>
+            <li><code>400 Bad Request</code></li>
+            <li><code>401 Unauthorized</code></li>
+            <li><code>403 Forbidden</code></li>
+            <li><code>404 Not Found</code></li>
+            <li><code>500 Internal Server Error</code></li>
+          </ul>
         </section>
         <section class="ednote">
           <p>
@@ -1493,6 +1899,68 @@
         <h4>Actions</h4>
         <section id="invokeaction">
           <h5><code>invokeaction</code></h5>
+          <p>
+            The URL of an <code>Action</code> resource to be used when invoking
+            an action MUST be obtained from a Canonical TD by locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the corresponding
+            <a href="https://www.w3.org/TR/wot-thing-description/#actionaffordance">
+            <code>ActionAffordance</code></a>
+            for which the value of its <code>op</code> member is
+            <code>invokeaction</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>In order to invoke an action on a Web Thing, a Consumer MUST send
+            an HTTP request to the Web Thing with:
+            <ul>
+              <li>Method set to <code>POST</code></li>
+              <li>URL set to the URL of the <code>Action</code> resource</li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with an input to the action, if any, serialized in
+                JSON</li>
+            </ul>
+          </p>
+          <pre class="example">
+          POST /things/lamp/actions/fade HTTP/1.1
+          Host: mythingserver.com
+          Content-Type: application/json
+          Accept: application/json
+          {
+            "level": 100,
+            "duration": 5
+          }
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to invoke the corresponding
+            action, then upon successfully invoking the action it MUST send an
+            HTTP response with:
+          </p>
+          <p class="ednote">The response to invoking an action needs to
+            be defined. Given not all actions can be completed within the
+            timeout period of an HTTP response, this may need to include a
+            reference to an action request resource in an action queue (see
+            <a href="https://github.com/w3c/wot-thing-description/issues/302">
+            #302</a>).
+          </p>
+          <p>
+            If the action can not be invoked successfully then
+            the Web Thing MUST send an HTTP response with an HTTP error code
+            which describes the reason for the failure. E.g.
+          </p>
+          <ul>
+            <li><code>400 Bad Request</code></li>
+            <li><code>401 Unauthorized</code></li>
+            <li><code>403 Forbidden</code></li>
+            <li><code>404 Not Found</code></li>
+            <li><code>418 I'm a teapot</code></li>
+            <li><code>500 Internal Server Error</code></li>
+          </ul>
         </section>
         <section class="ednote">Other operations under consideration include
           <code>queryaction</code>, <code>updateaction</code> and
@@ -1538,6 +2006,7 @@
       </section>
     </section>
 
+    <!-- External Representation -->
     <section id="external-representation">
       <h2 id="external-td-representations">External TD
         representations</h2>
