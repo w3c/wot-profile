@@ -98,17 +98,17 @@
 <body>
   <section id="abstract">
     <p>
-      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and a <em>WoT Core Profile</em>, 
+      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and a <em>WoT Core Profile</em>,
       which enables <em>out of the box interoperability</em>
       among things and devices. <em>Out of the box interoperability</em> implies,
-      that devices can be integrated into various application scenarios without 
-      deep level adaptations. Typically only minor configuration operations are 
-      necessary (such as entering a network key, or IP address) 
-      to use the device in a certain scenario. 
+      that devices can be integrated into various application scenarios without
+      deep level adaptations. Typically only minor configuration operations are
+      necessary (such as entering a network key, or IP address)
+      to use the device in a certain scenario.
       These actions can be done by anyone without specific training.
     </p>
-      The <a>WoT Core Profile</a> defines a set of <em>constraints 
-      and rules</em>, which compliant thing descriptions have to adopt 
+      The <a>WoT Core Profile</a> defines a set of <em>constraints
+      and rules</em>, which compliant thing descriptions have to adopt
       to guarantee interoperability.
     </p>
     <p>
@@ -977,12 +977,12 @@
             object depths for properties. Parsing of a
             deeply nested structure is not possible on
             resource constrained devices. Therefore each
-            property MUST NOT exceed a maximum depth 
+            property MUST NOT exceed a maximum depth
 	    of 5 levels of nested
             <code>array</code>
             or
             <code>object</code>
-            elements. It is RECOMMENDED to keep the nesting 
+            elements. It is RECOMMENDED to keep the nesting
 	    of these elements below 4.
           </p>
 
@@ -1453,79 +1453,90 @@
       </section>
     </section>
 
-
+    <section
     <!-- Protocol Binding -->
-
-    <section id="protocol-binding">
       <h3>Protocol Binding</h3>
-
-      <section class="ednote">This section is work in
-        progress and will undergo significant changes past FPWD
-        to incorporate experiences of implementations 
-        in plug-fests and products.</section>
-      <p>
-        This section describes how the <a>Core Data Model</a> is
-        bound to different protocols. In addition to a set of
-        mapping rules, it defines additional behavior, e.g.
-        timeouts, error behavior, action semantics, etc.
-        </p>
-        <section class="note">
-        <h3>Common core data model</h3>
-        The HTTP protocol binding is not meant to be exclusive,
-        the common core data model can be bound to other protocols as well.
-        The common core datamodel ensures interoperability across different protocols.
+      <section id="properties">
+        <h4>Properties</h4>
+        <section id="readproperty">
+          <h5><code>readproperty</code></h5>
+        </section>
+        <section id="writeproperty">
+          <h5><code>writeproperty</code></h5>
+        </section>
+        <section id="readallproperties">
+          <h5><code>readallproperties</code></h5>
+        </section>
+        <section id="writeallproperties">
+          <h5><code>writeallproperties</code></h5>
+        </section>
+        <section id="readmultipleproperties">
+          <h5><code>readmultipleproperties</code></h5>
+        </section>
+        <section id="writemultipleproperties">
+          <h5><code>writemultipleproperties</code></h5>
+        </section>
+        <section class="ednote">
+          <p>
+            Other operations under consideration include
+            <code>observeproperty</code>, <code>unobserveproperty</code>,
+            <code>observeallproperties</code> and
+            <code>unobserveallproperties</code>.
+          </p>
+          <p>
+            These operations would require consesus on a default observe
+            mechanism for HTTP (e.g. Server Sent Events or WebSockets).
+          </p>
+        </section>
       </section>
-
-      <section class="ednote">
-        Bindings for additional protocols can be defined in a future version of this specification,
-        or, already included in the current version. </section>
-
-      <section id="http-protocol-binding">
-        <h3>HTTP Protocol Binding</h3>
-        <p>All communication is using JSON payloads over
-          HTTP(s). The content type header MUST be set to
-          &quot;application/json&quot;.</p>
-
-        <section>
-          <h3 id="properties">Properties</h3>
-          <p>The HTTP verbs GET and PUT are mapped on
-            reading and writing a property - all other
-            protocol verbs return an error &quot;405 Method
-            Not Allowed&quot;.</p>
-          <blockquote>
-            <p>Note: Since HTTP does not provide a
-              pub/sub mechanism, the observe interaction
-              is not supported directly. The event
-              mechanism can be used instead to send
-              notifications on property changes.</p>
-          </blockquote>
-          <p>Multiple properties can be set/get by
-            accessing the Properties endpoint.</p>
+      <section id="actions">
+        <h4>Actions</h4>
+        <section id="invokeaction">
+          <h5><code>invokeaction</code></h5>
         </section>
-        <section>
-          <h3 id="actions">Actions</h3>
-          <p>Actions can be synchronous and asynchronous.
-            The current TD specification does not
-            distinguish these two cases and does not
-            describe a detailed mechanism.</p>
-          <p>The HTTP verb POST is mapped to invoking an
-            action on the actions endpoint - all other
-            protocol verbs return an error &quot;405 Method
-            Not Allowed&quot;.</p>
+        <section class="ednote">Other operations under consideration include
+          <code>queryaction</code>, <code>updateaction</code> and
+          <code>cancelaction</code>. These operations do not yet exist in
+          the WoT Thing Description specification (see
+          <a href="https://github.com/w3c/wot-thing-description/issues/302">
+            #302
+          </a>).
         </section>
-        <section>
-          <h3 id="events">Events</h3>
-          <section class="ednote" title="Under discussion">
-            The candidate sub-protocols for events are
-            WebHooks, WebSockets, SSE and Long polling.
-            SSE and LongPolling are suggested as the 
-            preferred candidates for a thing that provides 
-            event affordances.</section>
+      </section>
+      <section id="events">
+        <h4>Events</h4>
+        <section class="ednote">
+          <p>
+            Other operations under consideration include
+            <code>subscribeevent</code>, <code>unsubscribeevent</code>,
+            <code>subscribeallevents</code>, <code>unsubscribeallevents</code>,
+            <code>readpastevents</code> and <code>readallpastevents</code>.
+          </p>
+          <p>
+            <code>subscribeevent</code>, <code>unsubscribeevent</code>,
+            <code>subscribeallevents</code> and
+            <code>unsubscribeallevents</code> would require consensus on a
+            default event subscription mechanism for HTTP (e.g. Server Sent
+            Events or WebSockets).
+          </p>
+          <p>
+            <code>subscribeallevents</code> and
+            <code>unsubscribeallevents</code> do not yet exist in the WoT Thing
+            Description specification (see
+            <a href="https://github.com/w3c/wot-thing-description/issues/1082">
+              #1082
+            </a>).
+          </p>
+          <p>
+            <code>readpastevents</code> and <code>readallpastevents</code> do
+            not yet exist in the WoT Thing Description specification (see
+            <a href="https://github.com/w3c/wot-thing-description/issues/892">
+              #892
+            </a>).
+          </p>
         </section>
       </section>
     </section>
-
-    <!-- External Representation -->
 
     <section id="external-representation">
       <h2 id="external-td-representations">External TD
@@ -1540,11 +1551,11 @@
             representation</h2>
           <p>
             A canonical representation serves multiple purposes.
-            It is simplifying the parsing process, enables to identify 
+            It is simplifying the parsing process, enables to identify
             equivalent TDs by simple string comparisons.
             Furthermore it allows the use of a simple signing mechanism,
-            such as <a href="https://w3c-ccg.github.io/ld-proofs/">Linked Data Proofs</a> or JSON Web Signatures [[RFC7515]] and enables 
-            identity checks on encrypted TDs.  
+            such as <a href="https://w3c-ccg.github.io/ld-proofs/">Linked Data Proofs</a> or JSON Web Signatures [[RFC7515]] and enables
+            identity checks on encrypted TDs.
           </p>
 	  <p>
 	     The canonical JSON representation format of a TD adopts the JSON Canonicalization Scheme (JCS) defined by
@@ -1554,7 +1565,7 @@
 
 
 
-    <!--  Normative References 
+    <!--  Normative References
 
 		<section>
 			<h2 id="normative-references">Normative references</h2>
