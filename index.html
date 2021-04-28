@@ -1632,15 +1632,15 @@
           </pre>
           <p>
             If a Web Thing receives an HTTP request following the format
-            above, then upon successfully reading the value of the properties
-            to which the Consumer has permission to access, it MUST send an HTTP
-            response with:
+            above, then upon successfully reading the values of all the
+            readable properties to which the Consumer has permission to
+            access, it MUST send an HTTP response with:
             <ul>
               <li>Status code set to <code>200</code></li>
               <li><code>Content-Type</code> header set to <code>application/json
                 </code></li>
-              <li>A body with the values of the properties serialized in JSON,
-              as an object keyed by property name</li>
+              <li>A body with the values of all readable properties serialized
+                in JSON, as an object keyed by property name</li>
             </ul>
           </p>
           <pre class="example">
@@ -1707,14 +1707,14 @@
           </pre>
           <p>
             If a Web Thing receives an HTTP request following the format
-            above, then upon successfully writing the value of the properties
-            it MUST send an HTTP response with:
+            above, then upon successfully writing the value of all writable
+            properties it MUST send an HTTP response with:
             <ul>
               <li>Status code set to <code>200</code></li>
               <li><code>Content-Type</code> header set to <code>application/json
                 </code></li>
-              <li>A body with the new values of the properties serialized in
-                JSON, as an object keyed by property name</li>
+              <li>A body with the new values of all writable properties
+                serialized in JSON, as an object keyed by property name</li>
             </ul>
           </p>
           <pre class="example">
@@ -1765,8 +1765,8 @@
                 </code></li>
               <li><code>Accept</code> header set to <code>application/json
                 </code></li>
-              <li>A body with a list of the names of properties to be read
-                serialized in JSON, as an array of property names</li>
+              <li>A body with a list of the names of readable properties to be
+                read serialized in JSON, as an array of property names</li>
             </ul>
           </p>
           <pre class="example">
@@ -1777,14 +1777,14 @@
           </pre>
           <p>
             If a Web Thing receives an HTTP request following the format
-            above, then upon successfully reading the values of the properties
-            it MUST send an HTTP response with:
+            above, then upon successfully reading the values of the requested
+            readable properties it MUST send an HTTP response with:
             <ul>
               <li>Status code set to <code>200</code></li>
               <li><code>Content-Type</code> header set to <code>application/json
                 </code></li>
-              <li>A body with the values of the properties serialized in JSON,
-              as an object keyed by property name</li>
+              <li>A body with the values of the requested readable properties
+                serialized in JSON, as an object keyed by property name</li>
             </ul>
           </p>
           <pre class="example">
@@ -1851,14 +1851,15 @@
           </pre>
           <p>
             If a Web Thing receives an HTTP request following the format
-            above, then upon successfully writing the value of the properties
-            it MUST send an HTTP response with:
+            above, then upon successfully writing the values of the requested
+            writable properties it MUST send an HTTP response with:
             <ul>
               <li>Status code set to <code>200</code></li>
               <li><code>Content-Type</code> header set to <code>application/json
                 </code></li>
-              <li>A body with the new values of the properties serialized in
-                JSON, as an object keyed by property name</li>
+              <li>A body with the new values of the requested writable
+                properties serialized in JSON, as an object keyed by property
+                name</li>
             </ul>
           </p>
           <pre class="example">
