@@ -1518,18 +1518,6 @@
           Content-Type: application/json
           false
           </pre>
-          <p>
-            If the property can not be read successfully then the Web Thing
-            MUST send an HTTP response with an HTTP error code which describes the
-            reason for the failure. E.g.
-          </p>
-          <ul>
-            <li><code>400 Bad Request</code></li>
-            <li><code>401 Unauthorized</code></li>
-            <li><code>403 Forbidden</code></li>
-            <li><code>404 Not Found</code></li>
-            <li><code>500 Internal Server Error</code></li>
-          </ul>
         </section>
         <section id="writeproperty">
           <h5><code>writeproperty</code></h5>
@@ -1579,18 +1567,6 @@
           <pre class="example">
           HTTP/1.1 204 No Content
           </pre>
-          <p>
-            If the value of the property can not be written successfully then
-            the Web Thing MUST send an HTTP response with an HTTP error code
-            which describes the reason for the failure. E.g.
-          </p>
-          <ul>
-            <li><code>400 Bad Request</code></li>
-            <li><code>401 Unauthorized</code></li>
-            <li><code>403 Forbidden</code></li>
-            <li><code>404 Not Found</code></li>
-            <li><code>500 Internal Server Error</code></li>
-          </ul>
         </section>
         <section id="readallproperties">
           <h5><code>readallproperties</code></h5>
@@ -1645,18 +1621,6 @@
             "level": 100
           }
           </pre>
-          <p>
-            If the properties can not be read successfully then the Web Thing
-            MUST send an HTTP response with an HTTP error code which describes
-            the reason for the failure. E.g.
-          </p>
-          <ul>
-            <li><code>400 Bad Request</code></li>
-            <li><code>401 Unauthorized</code></li>
-            <li><code>403 Forbidden</code></li>
-            <li><code>404 Not Found</code></li>
-            <li><code>500 Internal Server Error</code></li>
-          </ul>
         </section>
         <section id="writemultipleproperties">
           <h5><code>writemultipleproperties</code></h5>
@@ -1710,18 +1674,6 @@
           <pre class="example">
           HTTP/1.1 204 No Content
           </pre>
-          <p>
-            If the properties can not be written successfully then the Web Thing
-            MUST send an HTTP response with an HTTP error code which describes
-            the reason for the failure. E.g.
-          </p>
-          <ul>
-            <li><code>400 Bad Request</code></li>
-            <li><code>401 Unauthorized</code></li>
-            <li><code>403 Forbidden</code></li>
-            <li><code>404 Not Found</code></li>
-            <li><code>500 Internal Server Error</code></li>
-          </ul>
         </section>
         <section class="ednote">
           <p>
@@ -1797,19 +1749,6 @@
             <a href="https://github.com/w3c/wot-thing-description/issues/302">
             #302</a>).
           </p>
-          <p>
-            If the action can not be invoked successfully then
-            the Web Thing MUST send an HTTP response with an HTTP error code
-            which describes the reason for the failure. E.g.
-          </p>
-          <ul>
-            <li><code>400 Bad Request</code></li>
-            <li><code>401 Unauthorized</code></li>
-            <li><code>403 Forbidden</code></li>
-            <li><code>404 Not Found</code></li>
-            <li><code>418 I'm a teapot</code></li>
-            <li><code>500 Internal Server Error</code></li>
-          </ul>
         </section>
         <section class="ednote">Other operations under consideration include
           <code>queryaction</code>, <code>updateaction</code> and
@@ -1852,6 +1791,37 @@
             </a>).
           </p>
         </section>
+      </section>
+      <section id="error-responses">
+        <h4>Error Responses</h4>
+        <p>
+          If any of the operations defined above are unsuccessful then
+          the Web Thing MUST send an HTTP response with an HTTP error code which
+          describes the reason for the failure. It is RECOMMENDED that error
+          responses use one of the following HTTP error codes:
+        </p>
+        <ul>
+          <li><code>400 Bad Request</code></li>
+          <li><code>401 Unauthorized</code></li>
+          <li><code>403 Forbidden</code></li>
+          <li><code>404 Not Found</code></li>
+          <li><code>500 Internal Server Error</code></li>
+        </ul>
+        <p>
+          Web Things MAY respond with other valid HTTP error codes
+          (e.g. <code>418 I'm a teapot</code>), but Consumers MAY interpret
+          those error codes as a generic <code>4xx</code> or <code>5xx</code>
+          error with no special defined behaviour.
+        </p>
+        <p class="ednote">
+          If we define the finite set of error responses as above then we
+          should also define what a Consumer should do if it receives a 3xx
+          redirect type response.
+        </p>
+        <p>
+          If an HTTP error response contains a body, the content of that body
+          MUST conform with with the Problem Details format [[RFC7807]].
+        </p>
       </section>
     </section>
 
