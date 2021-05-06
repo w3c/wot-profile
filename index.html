@@ -1573,17 +1573,11 @@
             property, then upon successfully writing the value of the
             property it MUST send an HTTP response with:
             <ul>
-              <li>Status code set to <code>200</code></li>
-              <li><code>Content-Type</code> header set to <code>application/json
-                </code></li>
-              <li>A body with the new value of the property serialized in JSON
-                </li>
+              <li>Status code set to <code>204</code></li>
             </ul>
           </p>
           <pre class="example">
-          HTTP/1.1 200 OK
-          Content-Type: application/json
-          true
+          HTTP/1.1 204 No Content
           </pre>
           <p>
             If the value of the property can not be written successfully then
@@ -1710,21 +1704,11 @@
             above, then upon successfully writing the values of the requested
             writable properties it MUST send an HTTP response with:
             <ul>
-              <li>Status code set to <code>200</code></li>
-              <li><code>Content-Type</code> header set to <code>application/json
-                </code></li>
-              <li>A body with the new values of the requested writable
-                properties serialized in JSON, as an object keyed by property
-                name</li>
+              <li>Status code set to <code>204</code></li>
             </ul>
           </p>
           <pre class="example">
-          HTTP/1.1 200 OK
-          Content-Type: application/json
-          {
-            "on": true,
-            "level": 50
-          }
+          HTTP/1.1 204 No Content
           </pre>
           <p>
             If the properties can not be written successfully then the Web Thing
