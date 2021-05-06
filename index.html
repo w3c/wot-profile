@@ -478,12 +478,12 @@
     <p>
       In order to denote that a given
       <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-      conforms to a particular profile, its Thing Description
-      [[wot-thing-description]] MUST include a <code>profile</code> member whose
-      value is set to a valid profile identifier corresponding to that profile.
-    </p>
-    <p>
-      A profile identifier MUST be a valid URI [[RFC3986]].
+      conforms to one or more profiles, its Thing Description MUST include a
+      <a href="https://w3c.github.io/wot-thing-description/#thing">
+      <code>profile</code></a> member [[wot-thing-description]]. The value of
+      the <code>profile</code> member MUST be set to either a valid URI
+      [[RFC3986]] identifying a single profile, or an array of valid URIs
+      identifying multiple profiles.
     </p>
     <pre class="example">
     {
@@ -495,22 +495,13 @@
       ...
     }
     </pre>
-    <p>
-      In order to denote that a given
-      <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-      conforms to multiple profiles, its Thing Description
-      [[wot-thing-description]] MUST include a <code>profile</code> member whose
-      value is set to an array of valid profile identifiers corresponding to the
-      profiles to which it conforms.
-      </thead>
-    </p>
     <pre class="example">
     {
       "@context": "https://www.w3.org/2019/wot/td/v1",
       "id": "urn:dev:ops:32473-WoTLamp-1234",
       "profile": [
         "https://www.w3.org/2021/wot/profile/core",
-        "https://www.w3.org/2021/wot/profile/constained"
+        "https://www.w3.org/2021/wot/profile/constrained"
       ],
       "title": "My Lamp",
       "description": "A web connected lamp",
