@@ -98,17 +98,17 @@
 <body>
   <section id="abstract">
     <p>
-      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and a <em>WoT Core Profile</em>, 
+      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and a <em>WoT Core Profile</em>,
       which enables <em>out of the box interoperability</em>
       among things and devices. <em>Out of the box interoperability</em> implies,
-      that devices can be integrated into various application scenarios without 
-      deep level adaptations. Typically only minor configuration operations are 
-      necessary (such as entering a network key, or IP address) 
-      to use the device in a certain scenario. 
+      that devices can be integrated into various application scenarios without
+      deep level adaptations. Typically only minor configuration operations are
+      necessary (such as entering a network key, or IP address)
+      to use the device in a certain scenario.
       These actions can be done by anyone without specific training.
     </p>
-      The <a>WoT Core Profile</a> defines a set of <em>constraints 
-      and rules</em>, which compliant thing descriptions have to adopt 
+      The <a>WoT Core Profile</a> defines a set of <em>constraints
+      and rules</em>, which compliant thing descriptions have to adopt
       to guarantee interoperability.
     </p>
     <p>
@@ -977,12 +977,12 @@
             object depths for properties. Parsing of a
             deeply nested structure is not possible on
             resource constrained devices. Therefore each
-            property MUST NOT exceed a maximum depth 
+            property MUST NOT exceed a maximum depth
 	    of 5 levels of nested
             <code>array</code>
             or
             <code>object</code>
-            elements. It is RECOMMENDED to keep the nesting 
+            elements. It is RECOMMENDED to keep the nesting
 	    of these elements below 4.
           </p>
 
@@ -1453,80 +1453,379 @@
       </section>
     </section>
 
-
     <!-- Protocol Binding -->
-
     <section id="protocol-binding">
       <h3>Protocol Binding</h3>
-
-      <section class="ednote">This section is work in
-        progress and will undergo significant changes past FPWD
-        to incorporate experiences of implementations 
-        in plug-fests and products.</section>
       <p>
-        This section describes how the <a>Core Data Model</a> is
-        bound to different protocols. In addition to a set of
-        mapping rules, it defines additional behavior, e.g.
-        timeouts, error behavior, action semantics, etc.
-        </p>
-        <section class="note">
-        <h3>Common core data model</h3>
-        The HTTP protocol binding is not meant to be exclusive,
-        the common core data model can be bound to other protocols as well.
-        The common core datamodel ensures interoperability across different protocols.
+        This section defines a protocol binding which describes how a
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
+        communicates with a
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        [[wot-architecture]] using JSON [[JSON]] payloads over
+        the HTTP [[HTTP11]] protocol.
+      </p>
+      <p>
+        A Consumer or Web Thing conforming to the WoT Core Profile
+        MUST implement this protocol binding.
+      </p>
+      <section id="properties">
+        <h4>Properties</h4>
+        <section id="readproperty">
+          <h5><code>readproperty</code></h5>
+          <p>
+            The URL of a <code>Property</code> resource to be used when reading
+            the value of a property MUST be obtained from a Canonical TD by
+            locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the corresponding
+            <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
+            <code>PropertyAffordance</code></a>
+            for which the value of its <code>op</code> member is
+            <code>readproperty</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>
+            In order to read the value of a property, a Consumer MUST send
+            an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>GET</code></li>
+              <li>URL set to the URL of the <code>Property</code> resource</li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+            </ul>
+          </p>
+          <pre class="example">
+          GET /things/lamp/properties/on HTTP/1.1
+          Host: mythingserver.com
+          Accept: application/json
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to read the corresponding
+            property, then upon successfully reading the value of the property
+            it MUST send an HTTP response with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with the value of the property serialized in JSON</li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          false
+          </pre>
+        </section>
+        <section id="writeproperty">
+          <h5><code>writeproperty</code></h5>
+          <p>
+            The URL of a <code>Property</code> resource to be used when writing
+            the value of a property MUST be obtained from a Canonical TD by
+            locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the corresponding
+            <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
+            <code>PropertyAffordance</code></a>
+            for which the value of its <code>op</code> member is
+            <code>writeproperty</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>In order to write the value of a property, a Consumer MUST send
+            an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>PUT</code></li>
+              <li>URL set to the URL of the <code>Property</code> resource</li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with a requested new value for the property serialized
+                in JSON</li>
+            </ul>
+          </p>
+          <pre class="example">
+          PUT /things/lamp/properties/on HTTP/1.1
+          Host: mythingserver.com
+          Content-Type: application/json
+          Accept: application/json
+          true
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to write the corresponding
+            property, then upon successfully writing the value of the
+            property it MUST send an HTTP response with:
+            <ul>
+              <li>Status code set to <code>204</code></li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 204 No Content
+          </pre>
+        </section>
+        <section id="readallproperties">
+          <h5><code>readallproperties</code></h5>
+          <p>
+            The URL of a <code>Properties</code> resource to be used when
+            reading the value of all properties at once MUST be obtained from a
+            Canonical TD by locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the top level
+            <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+            <code>forms</code></a> member
+            for which the value of its <code>op</code> member is
+            <code>readallproperties</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>
+            In order to read the value of all properties, a Consumer MUST send
+            an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>GET</code></li>
+              <li>URL set to the URL of the <code>Properties</code> resource
+                </li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+            </ul>
+          </p>
+          <pre class="example">
+          GET /things/lamp/properties HTTP/1.1
+          Host: mythingserver.com
+          Accept: application/json
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above, then upon successfully reading the values of all the
+            readable properties to which the Consumer has permission to
+            access, it MUST send an HTTP response with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with the values of all readable properties serialized
+                in JSON, as an object keyed by property name</li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          {
+            "on": false,
+            "level": 100
+          }
+          </pre>
+        </section>
+        <section id="writemultipleproperties">
+          <h5><code>writemultipleproperties</code></h5>
+          <p>
+            The URL of a <code>Properties</code> resource to be used when
+            writing the value of multiple properties at once MUST be obtained
+            from a Canonical TD by locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the top level
+            <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+            <code>forms</code></a> member
+            for which the value of its <code>op</code> member is
+            <code>writemultipleproperties</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>
+            In order to write the value of multiple properties at once, a
+            Consumer MUST send an HTTP request to a Web Thing with:
+            <ul>
+              <li>Method set to <code>PUT</code></li>
+              <li>URL set to the URL of the <code>Properties</code> resource
+                </li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+              <li>A body with requested new values for the writable properties
+                serialized in JSON, as an object keyed by property name</li>
+            </ul>
+          </p>
+          <pre class="example">
+          PUT /things/lamp/properties HTTP/1.1
+          Host: mythingserver.com
+          Content-Type: application/json
+          Accept: application/json
+          {
+            "on": true,
+            "level": 50
+          }
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above, then upon successfully writing the values of the requested
+            writable properties it MUST send an HTTP response with:
+            <ul>
+              <li>Status code set to <code>204</code></li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 204 No Content
+          </pre>
+        </section>
+        <section class="ednote">
+          <p>
+            Other operations under consideration include
+            <code>observeproperty</code>, <code>unobserveproperty</code>,
+            <code>observeallproperties</code> and
+            <code>unobserveallproperties</code>.
+          </p>
+          <p>
+            These operations would require consesus on a default observe
+            mechanism for HTTP (e.g. Server Sent Events or WebSockets).
+          </p>
+          <p>
+            <code>readmultipleproperties</code> is currently excluded due to
+            the complexities of the request payload format and because it
+            doesn't add much functionality over <code>readproperty</code> and
+            <code>readallproperties</code>.
+            <code>writeallproperties</code> is currently excluded because it
+            is just a special case of <code>writemultipleproperties</code>.
+          </p>
+        </section>
       </section>
-
-      <section class="ednote">
-        Bindings for additional protocols can be defined in a future version of this specification,
-        or, already included in the current version. </section>
-
-      <section id="http-protocol-binding">
-        <h3>HTTP Protocol Binding</h3>
-        <p>All communication is using JSON payloads over
-          HTTP(s). The content type header MUST be set to
-          &quot;application/json&quot;.</p>
-
-        <section>
-          <h3 id="properties">Properties</h3>
-          <p>The HTTP verbs GET and PUT are mapped on
-            reading and writing a property - all other
-            protocol verbs return an error &quot;405 Method
-            Not Allowed&quot;.</p>
-          <blockquote>
-            <p>Note: Since HTTP does not provide a
-              pub/sub mechanism, the observe interaction
-              is not supported directly. The event
-              mechanism can be used instead to send
-              notifications on property changes.</p>
-          </blockquote>
-          <p>Multiple properties can be set/get by
-            accessing the Properties endpoint.</p>
+      <section id="actions">
+        <h4>Actions</h4>
+        <section id="invokeaction">
+          <h5><code>invokeaction</code></h5>
+          <p>
+            The URL of an <code>Action</code> resource to be used when invoking
+            an action MUST be obtained from a Canonical TD by locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the corresponding
+            <a href="https://www.w3.org/TR/wot-thing-description/#actionaffordance">
+            <code>ActionAffordance</code></a>
+            for which the value of its <code>op</code> member is
+            <code>invokeaction</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+          </p>
+          <p>In order to invoke an action on a Web Thing, a Consumer MUST send
+            an HTTP request to the Web Thing with:
+            <ul>
+              <li>Method set to <code>POST</code></li>
+              <li>URL set to the URL of the <code>Action</code> resource</li>
+              <li><code>Accept</code> header set to <code>application/json
+                </code></li>
+              <li><code>Content-Type</code> header set to <code>application/json
+                </code></li>
+              <li>A body with an input to the action, if any, serialized in
+                JSON</li>
+            </ul>
+          </p>
+          <pre class="example">
+          POST /things/lamp/actions/fade HTTP/1.1
+          Host: mythingserver.com
+          Content-Type: application/json
+          Accept: application/json
+          {
+            "level": 100,
+            "duration": 5
+          }
+          </pre>
+          <p>
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to invoke the corresponding
+            action, then upon successfully invoking the action it MUST send an
+            HTTP response with:
+          </p>
+          <p class="ednote">The response to invoking an action needs to
+            be defined. Given not all actions can be completed within the
+            timeout period of an HTTP response, this may need to include a
+            reference to an action request resource in an action queue (see
+            <a href="https://github.com/w3c/wot-thing-description/issues/302">
+            #302</a>).
+          </p>
         </section>
-        <section>
-          <h3 id="actions">Actions</h3>
-          <p>Actions can be synchronous and asynchronous.
-            The current TD specification does not
-            distinguish these two cases and does not
-            describe a detailed mechanism.</p>
-          <p>The HTTP verb POST is mapped to invoking an
-            action on the actions endpoint - all other
-            protocol verbs return an error &quot;405 Method
-            Not Allowed&quot;.</p>
+        <section class="ednote">Other operations under consideration include
+          <code>queryaction</code>, <code>updateaction</code> and
+          <code>cancelaction</code>. These operations do not yet exist in
+          the WoT Thing Description specification (see
+          <a href="https://github.com/w3c/wot-thing-description/issues/302">
+            #302
+          </a>).
         </section>
-        <section>
-          <h3 id="events">Events</h3>
-          <section class="ednote" title="Under discussion">
-            The candidate sub-protocols for events are
-            WebHooks, WebSockets, SSE and Long polling.
-            SSE and LongPolling are suggested as the 
-            preferred candidates for a thing that provides 
-            event affordances.</section>
+      </section>
+      <section id="events">
+        <h4>Events</h4>
+        <section class="ednote">
+          <p>
+            Other operations under consideration include
+            <code>subscribeevent</code>, <code>unsubscribeevent</code>,
+            <code>subscribeallevents</code>, <code>unsubscribeallevents</code>,
+            <code>readpastevents</code> and <code>readallpastevents</code>.
+          </p>
+          <p>
+            <code>subscribeevent</code>, <code>unsubscribeevent</code>,
+            <code>subscribeallevents</code> and
+            <code>unsubscribeallevents</code> would require consensus on a
+            default event subscription mechanism for HTTP (e.g. Server Sent
+            Events or WebSockets).
+          </p>
+          <p>
+            <code>subscribeallevents</code> and
+            <code>unsubscribeallevents</code> do not yet exist in the WoT Thing
+            Description specification (see
+            <a href="https://github.com/w3c/wot-thing-description/issues/1082">
+              #1082
+            </a>).
+          </p>
+          <p>
+            <code>readpastevents</code> and <code>readallpastevents</code> do
+            not yet exist in the WoT Thing Description specification (see
+            <a href="https://github.com/w3c/wot-thing-description/issues/892">
+              #892
+            </a>).
+          </p>
         </section>
+      </section>
+      <section id="error-responses">
+        <h4>Error Responses</h4>
+        <p>
+          If any of the operations defined above are unsuccessful then
+          the Web Thing MUST send an HTTP response with an HTTP error code which
+          describes the reason for the failure. It is RECOMMENDED that error
+          responses use one of the following HTTP error codes:
+        </p>
+        <ul>
+          <li><code>400 Bad Request</code></li>
+          <li><code>401 Unauthorized</code></li>
+          <li><code>403 Forbidden</code></li>
+          <li><code>404 Not Found</code></li>
+          <li><code>500 Internal Server Error</code></li>
+        </ul>
+        <p>
+          Web Things MAY respond with other valid HTTP error codes
+          (e.g. <code>418 I'm a teapot</code>), but Consumers MAY interpret
+          those error codes as a generic <code>4xx</code> or <code>5xx</code>
+          error with no special defined behaviour.
+        </p>
+        <p class="ednote">
+          If we define the finite set of error responses as above then we
+          should also define what a Consumer should do if it receives a 3xx
+          redirect type response.
+        </p>
+        <p>
+          If an HTTP error response contains a body, the content of that body
+          MUST conform with with the Problem Details format [[RFC7807]].
+        </p>
       </section>
     </section>
 
     <!-- External Representation -->
-
     <section id="external-representation">
       <h2 id="external-td-representations">External TD
         representations</h2>
@@ -1540,11 +1839,11 @@
             representation</h2>
           <p>
             A canonical representation serves multiple purposes.
-            It is simplifying the parsing process, enables to identify 
+            It is simplifying the parsing process, enables to identify
             equivalent TDs by simple string comparisons.
             Furthermore it allows the use of a simple signing mechanism,
-            such as <a href="https://w3c-ccg.github.io/ld-proofs/">Linked Data Proofs</a> or JSON Web Signatures [[RFC7515]] and enables 
-            identity checks on encrypted TDs.  
+            such as <a href="https://w3c-ccg.github.io/ld-proofs/">Linked Data Proofs</a> or JSON Web Signatures [[RFC7515]] and enables
+            identity checks on encrypted TDs.
           </p>
 	  <p>
 	     The canonical JSON representation format of a TD adopts the JSON Canonicalization Scheme (JCS) defined by
@@ -1554,7 +1853,7 @@
 
 
 
-    <!--  Normative References 
+    <!--  Normative References
 
 		<section>
 			<h2 id="normative-references">Normative references</h2>
