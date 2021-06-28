@@ -35,3 +35,7 @@ common behavior between implementations.
 These rules have to be prescriptive, to ensure that compliant
 implementations satisfy the semantic guarantees, that are implied by
 them. We call this set of rules a **Profile**.
+
+WoT Profile work is conducted as part of the WoT architecture TF, 
+please see https://www.w3.org/WoT/IG/wiki/WG_WoT_Architecture_WebConf
+for more information and call logistics.
