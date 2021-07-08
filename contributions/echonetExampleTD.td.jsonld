@@ -1,0 +1,114 @@
+{
+	"id": "urn:simple",
+	"@context": "https://www.w3.org/2019/wot/td/v1",
+    "eoj": "0x0290",
+	"title": "General Lighting",
+	"descriptions": {"ja": "一般照明","en": "General Lighting"},
+	"securityDefinitions": {
+		"basic_sc": {
+			"scheme": "basic",
+			"in": "header"
+		}
+	},
+	"security": [
+		"basic_sc"
+	],
+
+	"properties": {
+		"brightness": {
+            "type":"object",
+            "properties":{
+                "brightness": {
+			        "type": "number"
+                }
+            },
+            "epc": "0xB0",
+            "descriptions": { "ja": "照度レベル設定","en": "Illuminance level"},
+            "observable":false,
+			"forms": [
+				{
+					"href": "/elapi/v1/devices/<deviceId>/properties/brightness",
+					"op": ["readproperty","writeproperty"],
+					"contentType": "application/json"
+				}
+			]
+		},
+        "operationMode": {
+            "type":"object",
+            "properties":{
+                "operationMode": {
+			        "type": "string",
+                    "enum":["auto","normal","night","color"]
+                }
+            },
+            "epc": "0xB6",
+            "observable":true,
+            "descriptions": {"ja": "点灯モード設定","en": "Lighting mode setting"},
+			"forms": [
+				{
+					"href": "/elapi/v1/devices/<deviceId>/properties/operationMode",
+					"op": ["readproperty","writeproperty"],
+					"contentType": "application/json"
+				}
+			]
+		},
+        "rgb": {
+            "type":"object",
+            "properties":{
+                "rgb": {
+			        "type": "object",
+                    "properties":{
+                        "r":{
+			                "type": "number"
+                        },
+                        "g":{
+			                "type": "number"
+                        },
+                        "b":{
+			                "type": "number"
+                        }
+                    }
+                }
+            },
+            "epc": "0xC0",
+            "observable":true,
+            "descriptions": {"ja": "点灯モード設定","en": "Lighting mode setting"},
+			"forms": [
+				{
+					"href": "/elapi/v1/devices/<deviceId>/properties/rgb",
+					"op": ["readproperty","writeproperty"],
+					"contentType": "application/json"
+				}
+			]
+		}
+	},
+	"actions": {
+		"exampleAction": {
+			"safe": false,
+			"idempotent": false,
+            "input":{
+                "type": "object",
+                "properties":{
+                    "exampleParameter":{
+                        "type": "number"
+                    }
+                }
+            },
+            "output":{
+                "type": "object",
+                "properties":{
+                    "exampleResponse":{
+                        "type": "number"
+                    }
+                }
+            },
+			"forms": [
+				{
+					"href": "/elapi/v1/devices/<deviceId>/actions/exampleAction",
+					"op": "invokeaction",
+					"contentType": "application/json"
+				}
+			]
+		}
+	}
+}
