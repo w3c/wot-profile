@@ -1797,6 +1797,10 @@
             is <code>http</code> or <code>https</code>.
             </span>
           </p>
+
+-sync / async
+
+
           <p>
             <span class="rfc2119-assertion" id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-2">
             In order to invoke an action on a Web Thing, a Consumer MUST send
@@ -1823,33 +1827,43 @@
             "duration": 5
           }
           </pre>
+
+
+          <p>
+          Given not all actions can be completed within the
+          timeout period of an HTTP response, the response includes a
+          reference to a status URL to query the processing status.
+        </p>
+
+
           <p>
             <span class="rfc2119-assertion" id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-3">
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to invoke the corresponding
             action, then upon successfully invoking the action it MUST send an
-            HTTP response with:
+            HTTP response with the following JSON structure:
             </span>
+
+            <!--  todo - JSON schema -->
+            <pre class="example">
+            {
+              completed : boolean
+              id: unique action id
+              requestTime: - time when the action request has been received
+              responseTime: - time when the action response has been sent
+              status: one of [ 
+                "RECEIVED” – action request has been received
+                "DISPATCHED” – action has been dispatched (e.g. to a subsystem)
+                "COMPLETED” – action has completed
+                "EXPIRED” – action is expired
+                "FAILED” – action has failed
+                "UNKNOWN" – action status is unknown
+              ]
+              result: JSON object with the response 
+              statusUrl: query the status of a an action
+            }
+          </pre>
           </p>
-          <p class="ednote">
-            The response to invoking an action needs to be defined.
-            <span class="rfc2119-assertion" id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-4">
-            Given not all actions can be completed within the
-            timeout period of an HTTP response, this may need to include a
-            reference to an action request resource in an action queue (see
-            <a href="https://github.com/w3c/wot-thing-description/issues/302">
-            #302</a>).
-            </span>
-          </p>
-        </section>
-        <section class="ednote">Other operations under consideration include
-          <code>queryaction</code>, <code>updateaction</code> and
-          <code>cancelaction</code>. These operations do not yet exist in
-          the WoT Thing Description specification (see
-          <a href="https://github.com/w3c/wot-thing-description/issues/302">
-            #302
-          </a>).
-        </section>
       </section>
       <section id="events">
         <h4>Events</h4>
