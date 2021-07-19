@@ -1987,18 +1987,186 @@
           </p>
           <ul>
             <li>Status code set to <code>201</code></li>
-            <li><code>Location</code> header set to the URL of a dynamically 
-              created <code>ActionStatus</code> resource.</li>
+            <li>
+              <code>Location</code> header set to the URL of a dynamically 
+              created <code>ActionStatus</code> resource, the
+              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+              scheme</a> [[RFC3986]] of which MUST resolve to <code>http</code>
+              or <code>https</code>
+            </li>
           </ul>
           <pre class="example">
             HTTP/1.1 201 CREATED
             Location: /things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655
           </pre>
         </section>
-        <section class="ednote">Other operations under consideration include
-          <code>queryaction</code>, <code>updateaction</code> and
-          <code>cancelaction</code>. These operations do not yet exist in
-          the WoT Thing Description specification (see
+
+        <section id="queryaction">
+          <h5><code>queryaction</code></h5>
+          <p>
+            A <code>queryaction</code> operation is used to query the current 
+            state of an ongoing action request.
+          </p>
+          <p class="rfc2119-assertion"
+          id="profile-5.2.2.2-thing-protocol-binding-actions-queryaction-1">
+            A Web Thing which provides <a href="#async-action-response">
+            Asynchronous Action Response</a>s to an <code>invokeaction</code>
+            operation on an <code>Action</code> MUST also support 
+            <code>queryaction</code> operations on 
+            that same <code>Action</code>.
+            A Web Thing which only provides <a href="#sync-action-response">
+            Synchronous Action Response</a>s to an <code>invokeaction</code> 
+            operation on an <code>Action</code> SHOULD NOT support 
+            <code>queryaction</code> operations on that same
+            <code>Action</code>.
+          </p>
+          <p class="rfc2119-assertion"
+          id="profile-5.2.2.2-thing-protocol-binding-actions-queryaction-2">
+            The URL of an <code>ActionStatus</code> resource to be used in a 
+            <code>queryaction</code> operation MUST be obtained from the 
+            <code>Location</code> header of an <a href="#async-action-response">
+            Asynchronous Action Response</a>.
+          </p>
+          <p class="rfc2119-assertion"
+          id="profile-5.2.2.2-thing-protocol-binding-actions-queryaction-3">
+            In order to query the status of an action request, a Consumer MUST 
+            send an HTTP request to a Web Thing with:
+          </p>
+          <ul>
+            <li>Method set to <code>GET</code></li>
+            <li>
+              URL set to the URL of the <code>ActionStatus</code> resource
+            </li>
+            <li>
+              <code>Accept</code> header set to <code>application/json
+              </code>
+            </li>
+          </ul>
+          <pre class="example">
+          GET /things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655
+          Host: mythingserver.com
+          Accept: application/json
+          </pre>
+          <p class="rfc2119-assertion"
+          id="profile-5.2.2.2-thing-protocol-binding-actions-queryaction-4">
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to query the corresponding
+            <code>ActionStatus</code> resource, then upon successfully reading 
+            the the status of the action request it MUST send an HTTP response 
+            with:
+          </p>
+          <ul>
+            <li>Status code set to <code>200</code></li>
+            <li><code>Content-Type</code> header set to <code>application/json
+              </code></li>
+            <li>A body containing an <code>ActionStatus</code> object
+              representing the current status of the action request, serialized 
+            in JSON</li>
+          </ul>
+          <pre class="example">
+            HTTP/1.1 200 OK
+            Content-Type: application/json
+            {
+              "status": "running"
+            }
+          </pre>
+          <p class="rfc2119-assertion" 
+          id="profile-5.2.2.2-thing-protocol-binding-actions-queryaction-5">
+            If a Web Thing encounters an error in attempting to execute an
+            action then when responding to a <code>queryaction</code> request it
+            MUST send an HTTP response including:
+          </p>
+          <ul>
+            <li>Status code set to <code>200</code></li>
+            <li><code>Content-Type</code> header set to 
+              <code>application/json</code></li>
+            <li>
+              A body containing an <a href="#ActionStatus">
+              <code>ActionStatus</code></a> object serialized
+              in JSON, including a <code>status</code> member set to 
+              <code>"failed"</code> and optionally an <code>error</code> member
+              providing any additional error information.
+            </li>
+          </ul>
+          <pre class="example">
+            HTTP/1.1 400 Bad Request
+            Content-Type: application/json
+            {
+              "status": "failed",
+              "error": {
+                "type": "https://mythingserver.com/docs/errors/invalid-level",
+                "title": "Invalid value for level provided",
+                "invalid-params": [
+                  {
+                    "name": "level",
+                    "reason": "Must be a valid number between 0 and 100",
+                  }
+                ]
+              }
+            }
+          </pre>
+        </section>
+
+        <section id="cancelaction">
+          <h5><code>cancelaction</code></h5>
+          <p>
+            A <code>cancelaction</code> operation is used to cancel an ongoing
+            <code>Action</code> request.
+          </p>
+          <p class="rfc2119-assertion"
+          id="profile-5.2.2.2-thing-protocol-binding-actions-cancelaction-1">
+            A Web Thing which provides <a href="#async-action-response">
+            Asynchronous Action Response</a>s to an <code>invokeaction</code>
+            operation on an <code>Action</code> MAY also support 
+            <code>cancelaction</code> operations on 
+            that same <code>Action</code>.
+            A Web Thing which only provides <a href="#sync-action-response">
+            Synchronous Action Response</a>s to an <code>invokeaction</code> 
+            operation on an <code>Action</code> SHOULD NOT support 
+            <code>cancelaction</code> operations on that same
+            <code>Action</code>.
+          </p>
+          <p class="rfc2119-assertion"
+          id="profile-5.2.2.2-thing-protocol-binding-actions-canncelaction-2">
+            The URL of an <code>ActionStatus</code> resource to be used in a 
+            <code>cancelaction</code> operation MUST be obtained from the 
+            <code>Location</code> header of an <a href="#async-action-response">
+            Asynchronous Action Response</a>.
+          </p>
+          <p class="rfc2119-assertion"
+          id="profile-5.2.2.2-thing-protocol-binding-actions-cancelaction-3">
+            In order to cancel an action request, a Consumer MUST send an HTTP 
+            request to a Web Thing with:
+          </p>
+          <ul>
+            <li>Method set to <code>DELETE</code></li>
+            <li>
+              URL set to the URL of the <code>ActionStatus</code> resource
+            </li>
+          </ul>
+          <pre class="example">
+            DELETE /things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655 HTTP/1.1
+            Host: mythingserver.com
+          </pre>
+          <p class="rfc2119-assertion"
+          id="profile-5.2.2.2-thing-protocol-binding-actions-cancelaction-4">
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to cancel the corresponding
+            <code>Action</code> request, then upon successfully cancelling 
+            <code>Action</code> it MUST send an HTTP response with:
+          </p>
+          <ul>
+            <li>Status code set to <code>204</code></li>
+          </ul>
+          <pre class="example">
+            HTTP/1.1 204 No Content
+          </pre>
+        </section>
+
+        <section class="ednote">Another operation under consideration is
+          <code>updateaction</code>. <code>queryaction</code>,
+          <code>updateaction</code> and <code>cancelaction</code> operations do
+          not yet exist in the WoT Thing Description specification (see
           <a href="https://github.com/w3c/wot-thing-description/issues/302">
             #302
           </a>).
