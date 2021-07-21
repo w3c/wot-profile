@@ -1,6 +1,14 @@
-# WoT Profile
-      
-The **[WoT Profile](http://w3c.github.io/wot-profile/)** specification serves two purposes:
+# Web of Things (WoT) Profile
+[![Follow on Twitter](https://img.shields.io/twitter/follow/W3C_WoT.svg?label=follow+W3C_WoT)](https://twitter.com/W3C_WoT)
+[![Stack Exchange questions](https://img.shields.io/stackexchange/stackoverflow/t/web-of-things?style=plastic)]( https://stackoverflow.com/questions/tagged/web-of-things)
+
+General information about the Web of Things can be found on https://www.w3.org/WoT/.
+  
+---
+This repository is for discussion and development of the 
+**[Web of Things (WoT) Profile](http://w3c.github.io/wot-profile/)** deliverable.
+
+This specification serves two purposes:
 
 - It defines a generic **Profiling Mechanism** which
 provides a mechanism to describe a profile in an unambiguous way.
