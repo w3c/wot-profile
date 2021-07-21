@@ -1853,37 +1853,260 @@
       </section>
       <section id="events">
         <h4>Events</h4>
-        <section class="ednote">
-          <p>
-            Other operations under consideration include
-            <code>subscribeevent</code>, <code>unsubscribeevent</code>,
-            <code>subscribeallevents</code>, <code>unsubscribeallevents</code>,
-            <code>readpastevents</code> and <code>readallpastevents</code>.
+
+        <section id="subscribeevent">
+          <h5><code>subscribeevent</code></h5>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeevent-1">
+            The URL of an <code>Event</code> resource to be used when 
+            subscribing to an event MUST be obtained from a Canonical TD by
+            locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the corresponding
+            <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">
+            <code>EventAffordance</code></a>
+            for which the value of its <code>op</code> member is
+            <code>subscribeevent</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+            If multiple <code>Form</code>s meet these criteria but one 
+            <code>Form</code> has a <code>subprotocol</code> member with a value 
+            of <code>"sse"</code> then that <code>Form</code> SHOULD be used.
+          </p>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeevent-2">
+            In order to subscribe to an event, a Consumer MUST follow the 
+            Server-Sent Events [[EVENTSOURCE]] specification to open a
+            connection with the Web Thing at the URL of the <code>Event</code>
+            resource.
           </p>
           <p>
-            <code>subscribeevent</code>, <code>unsubscribeevent</code>,
-            <code>subscribeallevents</code> and
-            <code>unsubscribeallevents</code> would require consensus on a
-            default event subscription mechanism for HTTP (e.g. Server Sent
-            Events or WebSockets).
+            This will usually involve the Consumer sending an HTTP request to
+            the Web Thing with:
+            <ul>
+              <li>Method set to <code>GET</code></li>
+              <li>URL set to the URL of the <code>Event</code> resource</li>
+              <li>
+                <code>Accept</code> header set to <code>text/event-stream</code>
+              </li>
+              <li>
+                <code>Connection</code> header set to <code>keep-alive</code>
+              </li>
+            </ul>
+          </p>
+          <pre class="example">
+          GET /things/lamp/events/overheated HTTP/1.1
+          Host: mythingserver.com
+          Accept: text/event-stream
+          Connection: keep-alive
+          </pre>
+          <p class="note" title="Opening a connection using JavaScript">
+            A Server-Sent Events connection can be initiated in JavaScript 
+            [[ECMASCRIPT]] using an <code>EventSource</code> 
+            [[EVENTSOURCE]] object.
+            <pre class="example">
+              const overheatedEventSource = new EventSource('/things/lamp/events/overheated');
+            </pre>
+          </p>
+          <p class="rfc2119-assertion" 
+          id="core-profile-protocol-binding-events-subscribeevent-3">
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to subscribe to the 
+            corresponding event, then it MUST follow the Server-Sent Events 
+            [[EVENTSOURCE]] specification to maintain an open connection with 
+            the Consumer and push event data to the Consumer as events of the 
+            specified type are emitted.
           </p>
           <p>
-            <code>subscribeallevents</code> and
-            <code>unsubscribeallevents</code> do not yet exist in the WoT Thing
-            Description specification (see
-            <a href="https://github.com/w3c/wot-thing-description/issues/1082">
-              #1082
-            </a>).
+            This will usually involve the Web Thing initially sending an HTTP 
+            response to the Consumer with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li>
+                <code>Content-Type</code> header set to 
+                <code>text/event-stream</code>
+              </li>
+            </ul>
+          </p>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: text/event-stream
+          </pre>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeevent-4">
+            Whenever an event of the specified type occurs while the Web Thing 
+            has an open connection with a Consumer, the Web Thing MUST 
+            send event data to the Consumer using the event stream format in the 
+            Server-Sent Events [[EVENTSOURCE]] specification. For each message 
+            sent, the Web Thing MUST set the <code>event</code> field to the 
+            name of the <code>EventAffordance</code> and populate the 
+            <code>data</code> field with event data, if any. The 
+            event data MUST follow the data schema specified in the
+            <code>EventAffordance</code> and MUST be serialized in JSON.
+          </p>
+          <pre class="example">
+            event: "overheated"
+            data: 90
+          </pre>
+          <p class="rfc2119-assertion" 
+          id="core-profile-protocol-binding-events-subscribeevent-5">
+            If the connection between the Consumer and Web Thing drops
+            (except as a result of the <code>unsubscribe</code> operation 
+            defined below), the Consumer MUST re-establish the connection 
+            following the steps outlined in the Server-Sent Events specification
+            [[EVENTSOURCE]]. Once the connection is re-established the Web Thing
+            SHOULD, if possible, send any missed events which occured since
+            the last event specified by the Consumer in a 
+            <code>Last-Event-ID</code> header.
+          </p>
+        </section>
+
+        <section id="unsubscribeevent">
+          <h5><code>unsubscribeevent</code></h5>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-unsubscribeevent-1">
+            In order to unsubscribe from an event, a Consumer MUST terminate 
+            the corresponding Server-Sent Events connection with the Web Thing 
+            as specified in the Server-Sent Events specification
+            [[EVENTSOURCE]].
+          </p>
+          <p class="note" title="Terminating a connection using JavaScript">
+            A Server-Sent Events connection can be terminated in JavaScript 
+            [[ECMASCRIPT]] using the <code>close()</code> method on an 
+            <code>EventSource</code> [[EVENTSOURCE]] object.
+            <pre class="example">
+              overheatedEventSource.close();
+            </pre>
+          </p>
+        </section>
+
+        <section id="subscribeallevents">
+          <h5><code>subscribeallevents</code></h5>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeallevents-1">
+            The URL of a resource to be used when subscribing to all events 
+            emitted by a Web Thing MUST be obtained from a Canonical TD by
+            locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the top level 
+            <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
+            member of a Thing Description for which the value of its 
+            <code>op</code> member is <code>subscribeallevents</code> and the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
+            is <code>http</code> or <code>https</code>.
+            If multiple <code>Form</code>s meet these criteria but one 
+            <code>Form</code> has a <code>subprotocol</code> member with a value 
+            of <code>"sse"</code> then that <code>Form</code> SHOULD be used.
+          </p>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeallevents-2">
+            In order to subscribe to all events emitted by a Web Thing, a
+            Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
+            specification to open a connection with the Web Thing at the URL of
+            the events resource.
           </p>
           <p>
-            <code>readpastevents</code> and <code>readallpastevents</code> do
-            not yet exist in the WoT Thing Description specification (see
-            <a href="https://github.com/w3c/wot-thing-description/issues/892">
-              #892
-            </a>).
+            This will usually involve the Consumer sending an HTTP request to
+            the Web Thing with:
+            <ul>
+              <li>Method set to <code>GET</code></li>
+              <li>URL set to the URL of the events resource</li>
+              <li>
+                <code>Accept</code> header set to <code>text/event-stream</code>
+              </li>
+              <li>
+                <code>Connection</code> header set to <code>keep-alive</code>
+              </li>
+            </ul>
+          </p>
+          <pre class="example">
+            GET /things/lamp/events HTTP/1.1
+            Host: mythingserver.com
+            Accept: text/event-stream
+            Connection: keep-alive
+          </pre>
+          <p class="note" title="Opening a connection using JavaScript">
+            A Server-Sent Events connection can be initiated in JavaScript 
+            [[ECMASCRIPT]] using an <code>EventSource</code> 
+            [[EVENTSOURCE]] object.
+            <pre class="example">
+              const lampEventsSource = new EventSource('/things/lamp/events');
+            </pre>
+          </p>
+          <p class="rfc2119-assertion" 
+          id="core-profile-protocol-binding-events-subscribeallevents-3">
+            If a Web Thing receives an HTTP request following the format
+            above then it MUST follow the Server-Sent Events 
+            [[EVENTSOURCE]] specification to maintain an open connection with 
+            the Consumer and push event data to the Consumer for all event 
+            types for which it has permission to subscribe.
+          </p>
+          <p>
+            This will usually involve the Web Thing initially sending an HTTP 
+            response to the Consumer with:
+            <ul>
+              <li>Status code set to <code>200</code></li>
+              <li>
+                <code>Content-Type</code> header set to 
+                <code>text/event-stream</code>
+              </li>
+            </ul>
+          </p>
+          <pre class="example">
+            HTTP/1.1 200 OK
+            Content-Type: text/event-stream
+          </pre>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeallevents-4">
+            Whenever an event occurs while the Web Thing has an open connection
+            with a Consumer, the Web Thing MUST send event data to the Consumer 
+            using the event stream format in the Server-Sent Events
+            [[EVENTSOURCE]] specification. For each message sent, the Web Thing
+            MUST set the <code>event</code> field to the 
+            name of the <code>EventAffordance</code> and populate the 
+            <code>data</code> field with event data, if any. The 
+            event data MUST follow the data schema specified in the
+            <code>EventAffordance</code> and MUST be serialized in JSON.
+          </p>
+          <pre class="example">
+            event: "overheated"
+            data: 90
+          </pre>
+          <p class="rfc2119-assertion" 
+          id="core-profile-protocol-binding-events-subscribeallevents-5">
+            If the connection between the Consumer and Web Thing drops
+            (except as a result of the <code>unsubscribeallevents</code>
+            operation defined below), the Consumer MUST re-establish the
+            connection following the steps outlined in the Server-Sent Events
+            specification [[EVENTSOURCE]]. Once the connection is re-established
+            the Web Thing SHOULD, if possible, send any missed events which
+            occured since the last event specified by the Consumer in a 
+            <code>Last-Event-ID</code> header.
+          </p>
+        </section>
+
+        <section id="unsubscribeallevents">
+          <h5><code>unsubscribeallevents</code></h5>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-unsubscribeallevents-1">
+            In order to unsubscribe from all events, a Consumer MUST terminate 
+            the corresponding Server-Sent Events connection with the events 
+            endpoint of the Web Thing, following the steps specified in the 
+            Server-Sent Events specification [[EVENTSOURCE]].
+          </p>
+          <p class="note" title="Terminating a connection using JavaScript">
+            A Server-Sent Events connection can be terminated in JavaScript 
+            [[ECMASCRIPT]] using the <code>close()</code> method on an 
+            <code>EventSource</code> [[EVENTSOURCE]] object.
+            <pre class="example">
+              lampEventsSource.close();
+            </pre>
           </p>
         </section>
       </section>
+
       <section id="error-responses">
         <h4>Error Responses</h4>
         <p>
