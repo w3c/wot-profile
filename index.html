@@ -1851,9 +1851,18 @@
           </a>).
         </section>
       </section>
+
       <section id="events">
         <h4>Events</h4>
-
+        <p>
+          The Core Profile uses Server-Sent Events [[EVENTSOURCE]] as a
+          mechanism for Consumers to subscribe to events emitted by a Web Thing.
+          Any <code>Form</code> within an <code>Event</code> affordance whose 
+          <code>href</code> member contains a URI with a URI scheme of 
+          <code>http</code> or <code>https</code> is assumed to have a 
+          <code>subprotocol</code> of <code>sse</code>, unless specified
+          otherwise.
+        </p>
         <section id="subscribeevent">
           <h5><code>subscribeevent</code></h5>
           <p class="rfc2119-assertion" 
@@ -1944,10 +1953,14 @@
             <code>data</code> field with event data, if any. The 
             event data MUST follow the data schema specified in the
             <code>EventAffordance</code> and MUST be serialized in JSON.
+            The <code>id</code> field SHOULD be set to a unique identifier for 
+            the event, for use when re-establishing a dropped connection (see 
+            below).
           </p>
           <pre class="example">
-            event: "overheated"
-            data: 90
+            event: overheated\n
+            data: 90\n
+            id: 12345\n\n
           </pre>
           <p class="rfc2119-assertion" 
           id="core-profile-protocol-binding-events-subscribeevent-5">
@@ -2069,10 +2082,14 @@
             <code>data</code> field with event data, if any. The 
             event data MUST follow the data schema specified in the
             <code>EventAffordance</code> and MUST be serialized in JSON.
+            The <code>id</code> field SHOULD be set to a unique identifier for 
+            the event, for use when re-establishing a dropped connection (see 
+            below).
           </p>
           <pre class="example">
-            event: "overheated"
-            data: 90
+            event: overheated\n
+            data: 90\n
+            id: 12345\n\n
           </pre>
           <p class="rfc2119-assertion" 
           id="core-profile-protocol-binding-events-subscribeallevents-5">
