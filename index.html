@@ -519,8 +519,8 @@
   <section id="core-profile">
     <h2>WoT Core Profile</h2>
     This section defines the <a>Core Profile</a> by defining a <a>Core
-      Data Model</a> and a set of <a href="#protocol-binding">Protocol
-      Binding</a> Rules.
+      Data Model</a> and a <a href="#protocol-binding">Protocol
+      Binding</a> for <a>HTTP</a>.
     <section id="wot-core-data-model">
       <h2>WoT Core Data Model</h2>
       <p>
@@ -642,27 +642,6 @@
           are NOT PERMITTED.
           </span>
         </p>
-        <!--  table class="def">
-				<thead>
-					<tr>
-						<th>keyword</th>
-						<th>type</th>
-						<th>remarks</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>@context</td>
-						<td>array of string</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>@type</td>
-						<td>array of string</td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table -->
       </section>
 
       <!-- Thing -->
@@ -686,14 +665,14 @@
               <tr>
                 <th>keyword</th>
                 <th>type</th>
-                <th>remarks</th>
+                <th>constraints</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>title</td>
                 <td>string</td>
-                <td>human readable documentation</td>
+                <td>max length: 64 characters</td>
               </tr>
               <tr>
                 <td>id</td>
@@ -702,24 +681,9 @@
                   thing</td>
               </tr>
               <tr>
-                <td>description</td>
+                <td>profile</td>
                 <td>string</td>
-                <td>human readable documentation</td>
-              </tr>
-              <tr>
-                <td>created</td>
-                <td>date</td>
-                <td>human readable documentation</td>
-              </tr>
-              <tr>
-                <td>modified</td>
-                <td>date</td>
-                <td>human readable documentation</td>
-              </tr>
-              <tr>
-                <td>support</td>
-                <td>urn_type</td>
-                <td>human readable documentation</td>
+                <td>value: "core-json-http11"</td>
               </tr>
               <tr>
                 <td>security</td>
@@ -737,11 +701,59 @@
         </section>
 
         <section>
-          <h5 id="recommended-practice-">Recommended
-            practice</h5>
-          <p>It is RECOMMENDED to use the value
+          <h3 id="recommended-practice-">Recommended
+            practice</h3>
+            <p>
+              <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-3">
+              The following metadata fields of a <a>Thing</a> SHOULD be contained in a compliant
+              Thing Description:
+              </span>
+            </p>
+
+            <table class="def">
+              <thead>
+                <tr>
+                  <th>keyword</th>
+                  <th>type</th>
+                  <th>remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>title</td>
+                  <td>string</td>
+                  <td>human readable documentation</td>
+                </tr>
+                <tr>
+                  <td>description</td>
+                  <td>string</td>
+                  <td>human readable documentation</td>
+                </tr>
+                <tr>
+                  <td>created</td>
+                  <td>date</td>
+                  <td>human readable documentation</td>
+                </tr>
+                <tr>
+                  <td>modified</td>
+                  <td>date</td>
+                  <td>human readable documentation</td>
+                </tr>
+                <tr>
+                  <td>support</td>
+                  <td>urn_type</td>
+                  <td>human readable documentation</td>
+                </tr>
+              </tbody>
+            </table>
+   
+
+
+          <p>
+            <span class="rfc2119-assertion" id="profile-5.1.2.1-thing-mandatory-fields-2">
+           It is RECOMMENDED to use the value
             &quot;&quot; for strings, where the
-            value cannot be determined.</p>
+            value cannot be determined.</p> </span>
 
           <p>
             <span class="rfc2119-assertion" id="profile-5.1.2.1-thing-mandatory-fields-2">
@@ -852,14 +864,15 @@
           </thead>
           <tbody>
             <tr>
-              <td>description</td>
-              <td>human readable description</td>
-            </tr>
-            <tr>
               <td>type</td>
               <td>string</td>
               <td>one of boolean, integer, number,
                 string, array or object</td>
+            </tr>
+            <tr>
+              <td>title</td>
+              <td>string</td>
+              <td>maximum length: 64 characters</td>
             </tr>
           </tbody>
         </table>
@@ -874,6 +887,39 @@
           The type value MUST NOT be <code> null </code>.
           </span>
         </p>
+
+
+        <section>
+          <h4>Recommended Practice</h4>
+            <p>
+              <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-3">
+              The following fields SHOULD be contained in a
+              DataSchema:
+              </span>
+            </p>
+            <table class="def">
+              <thead>
+                <tr>
+                  <th>keyword</th>
+                  <th>type</th>
+                  <th>constraints</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>description</td>
+                  <td>human readable description</td>
+                  <td>Usage of the english language is recommended</td>
+                </tr>
+             </tbody>
+            </table>
+            </section>
+
+
+
+
+
+
       </section>
 
 
@@ -911,11 +957,6 @@
                   properties</td>
               </tr>
               <tr>
-                <td>description</td>
-                <td>string</td>
-                <td>human readable description</td>
-              </tr>
-              <tr>
                 <td>type</td>
                 <td>string</td>
                 <td>
@@ -932,7 +973,6 @@
             </tbody>
           </table>
         </section>
-
         <section>
           <h4>Additional Constraints</h4>
           <p>
@@ -1044,6 +1084,30 @@
 
         <section>
           <h4>Recommended Practice</h4>
+          <p>
+            <span class="rfc2119-assertion" id="profile-5.1.4.1-thing-property-affordance-mandatory-fields-1">
+            The following property fields SHOULD be contained
+            in the
+            <code>properties</code>
+            element of a <em>Profile compliant TD</em>:
+            </span>
+          </p>
+          <table class="def">
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>type</th>
+                <th>constraints</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>human readable description</td>
+              </tr>
+            </tbody>
+          </table>
           <p>
             It is highly RECOMMENDED to always specify a
             <code>unit</code>
@@ -1234,6 +1298,10 @@
 
         <section>
           <h4>Recommended Practice</h4>
+
+          <section class="ednote">
+            <p>TODO:</p>
+          </section>
         </section>
       </section>
 
@@ -1510,7 +1578,7 @@
 
     <!-- Protocol Binding -->
     <section id="protocol-binding">
-      <h3>Protocol Binding</h3>
+      <h3>HTTP 1.1 Protocol Binding</h3>
       <p>
         This section defines a protocol binding which describes how a
         <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
