@@ -1783,22 +1783,32 @@
         <section id="invokeaction">
           <h5><code>invokeaction</code></h5>
           <p>
-            <span class="rfc2119-assertion" id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-1">
+            <span class="rfc2119-assertion"
+            id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-1">
             The URL of an <code>Action</code> resource to be used when invoking
-            an action MUST be obtained from a Canonical TD by locating a
+            an action MUST be obtained from a Thing Description by locating a
             <a href="https://www.w3.org/TR/wot-thing-description/#form">
             <code>Form</code></a> inside the corresponding
             <a href="https://www.w3.org/TR/wot-thing-description/#actionaffordance">
             <code>ActionAffordance</code></a>
-            for which the value of its <code>op</code> member is
-            <code>invokeaction</code> and the
-            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
-            is <code>http</code> or <code>https</code>.
+            for which:
+            <ul>
+              <li>
+                After defaults have been applied, the value of its 
+                <code>op</code> member is <code>invokeaction</code>
+              </li>
+              <li>
+                After being resolved against a base URL where applicable, the
+                <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+                scheme</a> [[RFC3986]] of the value of its <code>href</code>
+                member is <code>http</code> or <code>https</code>
+              </li>
+            </ul>
             </span>
           </p>
           <p>
-            <span class="rfc2119-assertion" id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-2">
+            <span class="rfc2119-assertion"
+            id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-2">
             In order to invoke an action on a Web Thing, a Consumer MUST send
             an HTTP request to the Web Thing with:
             </span>
@@ -1826,32 +1836,21 @@
           <p class="rfc2119-assertion" 
             id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-3">
             If a Web Thing receives an HTTP request following the format
-            above and the Consumer has permission to invoke the corresponding
-            action, then it MUST send an HTTP response following one of two
-            formats:
+            above then it MUST respond with one of three response formats:
           </p>
           <ol>
             <li>
-              <a href="#sync-action-response">Synchronous Action Response
-              </a> - A <code>200 OK</code> response containing an 
-              <a href="#ActionStatus"><code>ActionStatus</code></a> 
-              object.
+              <a href="#sync-action-response">Synchronous Action Response</a>
             </li>
             <li>
-              <a href="#async-action-response">Asynchronous Action 
-              Response</a> - A <code>201 Created</code> response with 
-              the URL of an <a href="#ActionStatus"><code>ActionStatus
-              </code></a> resource in the <code>Location</code> header.
+              <a href="#async-action-response">Asynchronous Action Response</a>
+            </li>
+            <li>
+              <a href="#error-responses">Error Response</a>
             </li>
           </ol>
           <p class="rfc2119-assertion" 
           id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-4">
-            Conforming Consumers MUST support both formats of the initial 
-            <code>invokeaction</code> response, but support for subsequent 
-            operations on an <code>ActionStatus</code> resource is OPTIONAL.
-          </p>
-          <p class="rfc2119-assertion" 
-          id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-5">
             For long-running actions which are not expected to finish executing
             within the timeout period of an HTTP request (e.g. 30 to 120 
             seconds), it is RECOMMENDED that a Web Thing respond with an 
@@ -1862,11 +1861,24 @@
             <code>invokeaction</code> response.
           </p>
           <p class="rfc2119-assertion" 
-          id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-6">
+          id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-5">
             For short-lived actions which are expected to finish executing
             within the timeout period of an HTTP request, a Web Thing MAY wait
             until the action has completed to send a Synchronous Action
             Response.
+          </p>
+          <p class="rfc2119-assertion" 
+          id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-6">
+            If a Web Thing encounters an error in attempting to execute an
+            action before responding to the <code>invokeaction</code> request, 
+            then it MUST send an Error Response.
+          </p>
+          <p class="rfc2119-assertion" 
+          id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-7">
+            Conforming Consumers MUST support all three types of response 
+            to the initial <code>invokeaction</code> request, but 
+            support for subsequent operations on an <code>ActionStatus</code>
+            resource is OPTIONAL.
           </p>
 
           <h6 id="ActionStatus"><code>ActionStatus</code> object</h6>
@@ -1918,12 +1930,25 @@
                 <td>optional</td>
                 <td><code>object</code></td>
               </tr>
+              <tr class="rfc2119-table-assertion">
+                <td><code>href</code></td>
+                <td>
+                  The [[URL]] of an <code>ActionStatus</code> resource which can
+                  be polled with a <code>queryaction</code> operation to get 
+                  the latest status of the action, the
+                  <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+                  scheme</a> [[RFC3986]] of which MUST resolve to
+                  <code>http</code> or <code>https</code> 
+                </td>
+                <td>optional</td>
+                <td><code>string</code></td>
+              </tr>
             </tbody>
           </table>
 
           <h6 id="sync-action-response">Synchronous Action Response</h6>
           <p class="rfc2119-assertion" 
-          id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-7">
+          id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-8">
             If providing a Synchronous Action Response, a Web Thing MUST send 
             an HTTP response with:
           </p>
@@ -1942,62 +1967,39 @@
               "status": "completed"
             }
           </pre>
-          <p class="rfc2119-assertion" 
-          id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-8">
-            If a Web Thing encounters an error in attempting to execute an
-            action before sending an Synchronous Action Response, it MUST send 
-            an HTTP error response with:
-          </p>
-          <ul>
-            <li>An error response status code (e.g. <code>400</code> for an 
-              invalid input or <code>500</code> for a failed actuation)</li>
-            <li><code>Content-Type</code> header set to 
-              <code>application/json</code></li>
-            <li>
-              A body containing an <a href="#ActionStatus">
-              <code>ActionStatus</code></a> object serialized
-              in JSON, including a <code>status</code> member set to 
-              <code>"failed"</code> and optionally an <code>error</code> member
-              providing any additional error information.
-            </li>
-          </ul>
-          <pre class="example">
-            HTTP/1.1 400 Bad Request
-            Content-Type: application/json
-            {
-              "status": "failed",
-              "error": {
-                "type": "https://mythingserver.com/docs/errors/invalid-level",
-                "title": "Invalid value for level provided",
-                "invalid-params": [
-                  {
-                    "name": "level",
-                    "reason": "Must be a valid number between 0 and 100",
-                  }
-                ]
-              }
-            }
-          </pre>
 
           <h6 id="async-action-response">Asynchronous Action Response</h6>
           <p class="rfc2119-assertion" 
           id="profile-5.2.2.1-thing-protocol-binding-actions-invokeaction-9">
             If providing an Asynchronous Action Response, a Web Thing MUST send 
-            an HTTP response with:
+            an HTTP response containing the URL of an <code>ActionStatus</code>
+            resource, the
+            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+            scheme</a> [[RFC3986]] of which MUST resolve to <code>http</code>
+            or <code>https</code>. The response MUST have:
           </p>
           <ul>
             <li>Status code set to <code>201</code></li>
+            <li><code>Content-Type</code> header set to 
+              <code>application/json</code></li>
             <li>
-              <code>Location</code> header set to the URL of a dynamically 
-              created <code>ActionStatus</code> resource, the
-              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-              scheme</a> [[RFC3986]] of which MUST resolve to <code>http</code>
-              or <code>https</code>
+              <code>Location</code> header set to the URL of the
+              <code>ActionStatus</code> resource
+            </li>
+            <li>A body containing an <a href="#ActionStatus">
+              <code>ActionStatus</code></a> object serialized
+              in JSON, with its <code>href</code> member set to the URL 
+              of the <code>ActionStatus</code> resource 
             </li>
           </ul>
           <pre class="example">
             HTTP/1.1 201 CREATED
+            Content-Type: application/json
             Location: /things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655
+            {
+              "status": "pending",
+              "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655"
+            }
           </pre>
         </section>
 
@@ -2025,7 +2027,8 @@
             The URL of an <code>ActionStatus</code> resource to be used in a 
             <code>queryaction</code> operation MUST be obtained from the 
             <code>Location</code> header of an <a href="#async-action-response">
-            Asynchronous Action Response</a>.
+            Asynchronous Action Response</a>, or the <code>href</code> member of 
+            the <code>ActionStatus</code> object in its body.
           </p>
           <p class="rfc2119-assertion"
           id="profile-5.2.2.2-thing-protocol-binding-actions-queryaction-3">
@@ -2072,24 +2075,14 @@
           </pre>
           <p class="rfc2119-assertion" 
           id="profile-5.2.2.2-thing-protocol-binding-actions-queryaction-5">
-            If a Web Thing encounters an error in attempting to execute an
-            action then when responding to a <code>queryaction</code> request it
-            MUST send an HTTP response including:
+            If the queried action failed to execute, then the 
+            <code>status</code> member of the <code>ActionStatus</code> object 
+            MUST be set to <code>"failed"</code> and the <code>error</code>
+            member may optionally provide additional error information 
+            conforming to the Problem Details format [[RFC7807]].
           </p>
-          <ul>
-            <li>Status code set to <code>200</code></li>
-            <li><code>Content-Type</code> header set to 
-              <code>application/json</code></li>
-            <li>
-              A body containing an <a href="#ActionStatus">
-              <code>ActionStatus</code></a> object serialized
-              in JSON, including a <code>status</code> member set to 
-              <code>"failed"</code> and optionally an <code>error</code> member
-              providing any additional error information.
-            </li>
-          </ul>
           <pre class="example">
-            HTTP/1.1 400 Bad Request
+            HTTP/1.1 200 OK
             Content-Type: application/json
             {
               "status": "failed",
@@ -2128,11 +2121,12 @@
           </p>
           <p class="rfc2119-assertion"
           id="profile-5.2.2.2-thing-protocol-binding-actions-canncelaction-2">
-            The URL of an <code>ActionStatus</code> resource to be used in a 
-            <code>cancelaction</code> operation MUST be obtained from the 
-            <code>Location</code> header of an <a href="#async-action-response">
-            Asynchronous Action Response</a>.
-          </p>
+          The URL of an <code>ActionStatus</code> resource to be used in a 
+          <code>cancelaction</code> operation MUST be obtained from the 
+          <code>Location</code> header of an <a href="#async-action-response">
+          Asynchronous Action Response</a>, or the <code>href</code> member of 
+          the <code>ActionStatus</code> object in its body.
+        </p>
           <p class="rfc2119-assertion"
           id="profile-5.2.2.2-thing-protocol-binding-actions-cancelaction-3">
             In order to cancel an action request, a Consumer MUST send an HTTP 
