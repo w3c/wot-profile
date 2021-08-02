@@ -89,7 +89,14 @@
           date: "2008-07",
           publisher: "ISO"
         },
-
+        "EVENTSOURCE": {
+          title: "Server-Sent Events",
+          href: "https://html.spec.whatwg.org/multipage/server-sent-events.html",
+          authors: ["Ian Hickson"],
+          status: "Living Standard",
+          publisher: "WHATWG",
+          date: "30 July 2021"
+        }
       }
     };
   </script>
@@ -1857,32 +1864,35 @@
         <p>
           The Core Profile uses Server-Sent Events [[EVENTSOURCE]] as a
           mechanism for Consumers to subscribe to events emitted by a Web Thing.
-          Any <code>Form</code> within an <code>Event</code> affordance whose 
-          <code>href</code> member contains a URI with a URI scheme of 
-          <code>http</code> or <code>https</code> is assumed to have a 
-          <code>subprotocol</code> of <code>sse</code>, unless specified
-          otherwise.
         </p>
         <section id="subscribeevent">
           <h5><code>subscribeevent</code></h5>
           <p class="rfc2119-assertion" 
             id="core-profile-protocol-binding-events-subscribeevent-1">
             The URL of an <code>Event</code> resource to be used when 
-            subscribing to an event MUST be obtained from a Canonical TD by
-            locating a
+            subscribing to an event MUST be obtained from a Thing Description 
+            by locating a 
             <a href="https://www.w3.org/TR/wot-thing-description/#form">
-            <code>Form</code></a> inside the corresponding
+            <code>Form</code></a> inside the corresponding 
             <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">
-            <code>EventAffordance</code></a>
-            for which the value of its <code>op</code> member is
-            <code>subscribeevent</code> and the
-            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
-            is <code>http</code> or <code>https</code>.
-            If multiple <code>Form</code>s meet these criteria but one 
-            <code>Form</code> has a <code>subprotocol</code> member with a value 
-            of <code>"sse"</code> then that <code>Form</code> SHOULD be used.
+            <code>EventAffordance</code></a> for which:
+            <ul>
+              <li>
+                After defaults have been applied, the value of its 
+                <code>op</code> member is <code>subscribeevent</code>
+              </li>
+              <li>
+                After being resolved against a base URL where applicable, the
+                <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+                scheme</a> [[RFC3986]] of the value of its <code>href</code>
+                member is <code>http</code> or <code>https</code>
+              </li>
+              <li>Its <code>subprotocol</code> member has a value of
+                <code>"sse"</code>
+              </li>
+            </ul>
           </p>
+            
           <p class="rfc2119-assertion" 
             id="core-profile-protocol-binding-events-subscribeevent-2">
             In order to subscribe to an event, a Consumer MUST follow the 
@@ -1911,9 +1921,12 @@
           Connection: keep-alive
           </pre>
           <p class="note" title="Opening a connection using JavaScript">
-            A Server-Sent Events connection can be initiated in JavaScript 
-            [[ECMASCRIPT]] using an <code>EventSource</code> 
-            [[EVENTSOURCE]] object.
+            For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
+            in a runtime which exposes the
+            <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
+            <code>EventSource</code></a> interface, a Server-Sent Events 
+            connection can be initiated using the <code>EventSource</code>
+            constructor.
             <pre class="example">
               const overheatedEventSource = new EventSource('/things/lamp/events/overheated');
             </pre>
@@ -1985,9 +1998,12 @@
             [[EVENTSOURCE]].
           </p>
           <p class="note" title="Terminating a connection using JavaScript">
-            A Server-Sent Events connection can be terminated in JavaScript 
-            [[ECMASCRIPT]] using the <code>close()</code> method on an 
-            <code>EventSource</code> [[EVENTSOURCE]] object.
+            For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
+            in a runtime which exposes the
+            <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
+            <code>EventSource</code></a> interface, a Server-Sent Events 
+            connection can be terminated using the <code>close()</code> method 
+            on an <code>EventSource</code> [[EVENTSOURCE]] object.
             <pre class="example">
               overheatedEventSource.close();
             </pre>
@@ -1998,20 +2014,28 @@
           <h5><code>subscribeallevents</code></h5>
           <p class="rfc2119-assertion" 
             id="core-profile-protocol-binding-events-subscribeallevents-1">
-            The URL of a resource to be used when subscribing to all events 
-            emitted by a Web Thing MUST be obtained from a Canonical TD by
-            locating a
+            The URL of an events resource to be used when subscribing to all
+            events emitted by a Web Thing MUST be obtained from a Thing
+            Description by locating a 
             <a href="https://www.w3.org/TR/wot-thing-description/#form">
             <code>Form</code></a> inside the top level 
             <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
-            member of a Thing Description for which the value of its 
-            <code>op</code> member is <code>subscribeallevents</code> and the
-            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
-            is <code>http</code> or <code>https</code>.
-            If multiple <code>Form</code>s meet these criteria but one 
-            <code>Form</code> has a <code>subprotocol</code> member with a value 
-            of <code>"sse"</code> then that <code>Form</code> SHOULD be used.
+            member of a Thing Description for which:
+            <ul>
+              <li>
+                The value of its <code>op</code> member is 
+                <code>subscribeallevents</code>
+              </li>
+              <li>
+                After being resolved against a base URL where applicable, the
+                <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+                scheme</a> [[RFC3986]] of the value of its <code>href</code>
+                member is <code>http</code> or <code>https</code>
+              </li>
+              <li>Its <code>subprotocol</code> member has a value of
+                <code>"sse"</code>
+              </li>
+            </ul>
           </p>
           <p class="rfc2119-assertion" 
             id="core-profile-protocol-binding-events-subscribeallevents-2">
@@ -2041,9 +2065,12 @@
             Connection: keep-alive
           </pre>
           <p class="note" title="Opening a connection using JavaScript">
-            A Server-Sent Events connection can be initiated in JavaScript 
-            [[ECMASCRIPT]] using an <code>EventSource</code> 
-            [[EVENTSOURCE]] object.
+            For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
+            in a runtime which exposes the
+            <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
+            <code>EventSource</code></a> interface, a Server-Sent Events 
+            connection can be initiated using the <code>EventSource</code>
+            constructor.
             <pre class="example">
               const lampEventsSource = new EventSource('/things/lamp/events');
             </pre>
@@ -2114,9 +2141,12 @@
             Server-Sent Events specification [[EVENTSOURCE]].
           </p>
           <p class="note" title="Terminating a connection using JavaScript">
-            A Server-Sent Events connection can be terminated in JavaScript 
-            [[ECMASCRIPT]] using the <code>close()</code> method on an 
-            <code>EventSource</code> [[EVENTSOURCE]] object.
+            For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
+            in a runtime which exposes the
+            <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
+            <code>EventSource</code></a> interface, a Server-Sent Events 
+            connection can be terminated using the <code>close()</code> method 
+            on an <code>EventSource</code> [[EVENTSOURCE]] object.
             <pre class="example">
               lampEventsSource.close();
             </pre>
