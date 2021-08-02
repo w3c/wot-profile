@@ -1925,7 +1925,9 @@
                 <td>
                   An error message, if any, associated with a failed action 
                   which MUST conform with the Problem Details format
-                  [[RFC7807]].
+                  [[RFC7807]] (only needed in response to a
+                  <a href="#queryaction"><code>queryaction</code></a> 
+                  operation).
                 </td>
                 <td>optional</td>
                 <td><code>object</code></td>
@@ -1938,7 +1940,9 @@
                   the latest status of the action, the
                   <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
                   scheme</a> [[RFC3986]] of which MUST resolve to
-                  <code>http</code> or <code>https</code> 
+                  <code>http</code> or <code>https</code> (only needed for an 
+                  <a href="#async-action-response">Asynchronous Action
+                  Response</a>).
                 </td>
                 <td>optional</td>
                 <td><code>string</code></td>
