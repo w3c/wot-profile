@@ -1876,27 +1876,30 @@
             <code>Form</code></a> inside the corresponding 
             <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">
             <code>EventAffordance</code></a> for which:
-            <ul>
-              <li>
-                After defaults have been applied, the value of its 
-                <code>op</code> member is <code>subscribeevent</code>
-              </li>
-              <li>
-                After being resolved against a base URL where applicable, the
-                <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-                scheme</a> [[RFC3986]] of the value of its <code>href</code>
-                member is <code>http</code> or <code>https</code>
-              </li>
-              <li>Its <code>subprotocol</code> member has a value of
-                <code>"sse"</code>
-              </li>
-            </ul>
+          </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeevent-2">
+            <li>
+              After defaults have been applied, the value of its 
+              <code>op</code> member is <code>subscribeevent</code>
+            </li>
+            <li>
+              After being resolved against a base URL where applicable, the
+              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+              scheme</a> [[RFC3986]] of the value of its <code>href</code>
+              member is <code>http</code> or <code>https</code>
+            </li>
+            <li>Its <code>subprotocol</code> member has a value of
+              <code>"sse"</code>
+            </li>
+          </ul>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeevent-3">
             The resolved value of the <code>href</code> member MUST then be used
             as the URL of the <code>Event</code> resource.
           </p>
-            
           <p class="rfc2119-assertion" 
-            id="core-profile-protocol-binding-events-subscribeevent-2">
+            id="core-profile-protocol-binding-events-subscribeevent-4">
             In order to subscribe to an event, a Consumer MUST follow the 
             Server-Sent Events [[EVENTSOURCE]] specification to open a
             connection with the Web Thing at the URL of the <code>Event</code>
@@ -1905,17 +1908,17 @@
           <p>
             This will usually involve the Consumer sending an HTTP request to
             the Web Thing with:
-            <ul>
-              <li>Method set to <code>GET</code></li>
-              <li>URL set to the URL of the <code>Event</code> resource</li>
-              <li>
-                <code>Accept</code> header set to <code>text/event-stream</code>
-              </li>
-              <li>
-                <code>Connection</code> header set to <code>keep-alive</code>
-              </li>
-            </ul>
           </p>
+          <ul>
+            <li>Method set to <code>GET</code></li>
+            <li>URL set to the URL of the <code>Event</code> resource</li>
+            <li>
+              <code>Accept</code> header set to <code>text/event-stream</code>
+            </li>
+            <li>
+              <code>Connection</code> header set to <code>keep-alive</code>
+            </li>
+          </ul>
           <pre class="example">
           GET /things/lamp/events/overheated HTTP/1.1
           Host: mythingserver.com
@@ -1934,7 +1937,7 @@
             </pre>
           </p>
           <p class="rfc2119-assertion" 
-          id="core-profile-protocol-binding-events-subscribeevent-3">
+            id="core-profile-protocol-binding-events-subscribeevent-5">
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to subscribe to the 
             corresponding event, then it MUST follow the Server-Sent Events 
@@ -1945,20 +1948,20 @@
           <p>
             This will usually involve the Web Thing initially sending an HTTP 
             response to the Consumer with:
-            <ul>
-              <li>Status code set to <code>200</code></li>
-              <li>
-                <code>Content-Type</code> header set to 
-                <code>text/event-stream</code>
-              </li>
-            </ul>
           </p>
+          <ul>
+            <li>Status code set to <code>200</code></li>
+            <li>
+              <code>Content-Type</code> header set to 
+              <code>text/event-stream</code>
+            </li>
+          </ul>
           <pre class="example">
           HTTP/1.1 200 OK
           Content-Type: text/event-stream
           </pre>
           <p class="rfc2119-assertion" 
-            id="core-profile-protocol-binding-events-subscribeevent-4">
+            id="core-profile-protocol-binding-events-subscribeevent-6">
             Whenever an event of the specified type occurs while the Web Thing 
             has an open connection with a Consumer, the Web Thing MUST 
             send event data to the Consumer using the event stream format in the 
@@ -1978,7 +1981,7 @@
             id: 12345\n\n
           </pre>
           <p class="rfc2119-assertion" 
-          id="core-profile-protocol-binding-events-subscribeevent-5">
+            id="core-profile-protocol-binding-events-subscribeevent-7">
             If the connection between the Consumer and Web Thing drops
             (except as a result of the <code>unsubscribe</code> operation 
             defined below), the Consumer MUST re-establish the connection 
@@ -2023,21 +2026,25 @@
             <code>Form</code></a> inside the top level 
             <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
             member of a Thing Description for which:
-            <ul>
-              <li>
-                The value of its <code>op</code> member is 
-                <code>subscribeallevents</code>
-              </li>
-              <li>
-                After being resolved against a base URL where applicable, the
-                <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-                scheme</a> [[RFC3986]] of the value of its <code>href</code>
-                member is <code>http</code> or <code>https</code>
-              </li>
-              <li>Its <code>subprotocol</code> member has a value of
-                <code>"sse"</code>
-              </li>
-            </ul>
+          </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeallevents-2">
+            <li>
+              The value of its <code>op</code> member is 
+              <code>subscribeallevents</code>
+            </li>
+            <li>
+              After being resolved against a base URL where applicable, the
+              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+              scheme</a> [[RFC3986]] of the value of its <code>href</code>
+              member is <code>http</code> or <code>https</code>
+            </li>
+            <li>Its <code>subprotocol</code> member has a value of
+              <code>"sse"</code>
+            </li>
+          </ul>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-events-subscribeallevents-3">
             The resolved value of the <code>href</code> member MUST then be used
             as the URL of the events resource.
           </p>
@@ -2051,17 +2058,17 @@
           <p>
             This will usually involve the Consumer sending an HTTP request to
             the Web Thing with:
-            <ul>
-              <li>Method set to <code>GET</code></li>
-              <li>URL set to the URL of the events resource</li>
-              <li>
-                <code>Accept</code> header set to <code>text/event-stream</code>
-              </li>
-              <li>
-                <code>Connection</code> header set to <code>keep-alive</code>
-              </li>
-            </ul>
           </p>
+          <ul>
+            <li>Method set to <code>GET</code></li>
+            <li>URL set to the URL of the events resource</li>
+            <li>
+              <code>Accept</code> header set to <code>text/event-stream</code>
+            </li>
+            <li>
+              <code>Connection</code> header set to <code>keep-alive</code>
+            </li>
+          </ul>
           <pre class="example">
             GET /things/lamp/events HTTP/1.1
             Host: mythingserver.com
@@ -2090,14 +2097,14 @@
           <p>
             This will usually involve the Web Thing initially sending an HTTP 
             response to the Consumer with:
-            <ul>
-              <li>Status code set to <code>200</code></li>
-              <li>
-                <code>Content-Type</code> header set to 
-                <code>text/event-stream</code>
-              </li>
-            </ul>
           </p>
+          <ul>
+            <li>Status code set to <code>200</code></li>
+            <li>
+              <code>Content-Type</code> header set to 
+              <code>text/event-stream</code>
+            </li>
+          </ul>
           <pre class="example">
             HTTP/1.1 200 OK
             Content-Type: text/event-stream
@@ -2123,7 +2130,7 @@
             id: 12345\n\n
           </pre>
           <p class="rfc2119-assertion" 
-          id="core-profile-protocol-binding-events-subscribeallevents-5">
+            id="core-profile-protocol-binding-events-subscribeallevents-5">
             If the connection between the Consumer and Web Thing drops
             (except as a result of the <code>unsubscribeallevents</code>
             operation defined below), the Consumer MUST re-establish the
