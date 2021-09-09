@@ -1857,6 +1857,14 @@
           The Core Profile uses Server-Sent Events [[EVENTSOURCE]] as a
           mechanism for Consumers to subscribe to events emitted by a Web Thing.
         </p>
+        <p class="note">
+          Consumers are not required to implement the 
+          <a href="https://www.w3.org/TR/eventsource/#the-eventsource-interface">
+          <code>EventSource</code>
+          JavaScript API</a> from the Server-Sent Events
+          specification in order to conform with this profile. Any programming
+          language may be used to consume an event stream.
+        </p>
         <section id="subscribeevent">
           <h5><code>subscribeevent</code></h5>
           <p class="rfc2119-assertion" 
