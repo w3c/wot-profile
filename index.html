@@ -1529,53 +1529,66 @@
         <h4>Properties</h4>
         <section id="readproperty">
           <h5><code>readproperty</code></h5>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.1-thing-protocol-binding-properties-readproperty-1">
+          <p class="rfc2119-assertion"
+            id="core-profile-protocol-binding-properties-readproperty-1">
             The URL of a <code>Property</code> resource to be used when reading
-            the value of a property MUST be obtained from a Canonical TD by
+            the value of a property MUST be obtained from a Thing Description by
             locating a
             <a href="https://www.w3.org/TR/wot-thing-description/#form">
             <code>Form</code></a> inside the corresponding
             <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
             <code>PropertyAffordance</code></a>
-            for which the value of its <code>op</code> member is
-            <code>readproperty</code> and the
-            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
-            is <code>http</code> or <code>https</code>.
-            </span>
+            for which:
           </p>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.1-thing-protocol-binding-properties-readproperty-2">
+          <ul class="rfc2119-assertion"
+            id="core-profile-protocol-binding-properties-readproperty-2">
+            <li>
+              After defaults have been applied, its <code>op</code> member 
+              contains the value <code>readproperty</code>
+            </li>
+            <li>
+              After being resolved against a base URL where applicable, the
+              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+              scheme</a> [[RFC3986]] of the value of its <code>href</code>
+              member is <code>http</code> or <code>https</code>
+            </li>
+          </ul>
+          <p class="rfc2119-assertion"
+          id="core-profile-protocol-binding-properties-readproperty-3">
+            The resolved value of the <code>href</code> member MUST then be used
+            as the URL of the <code>Property</code> resource.
+          </p>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-readproperty-4">
             In order to read the value of a property, a Consumer MUST send
             an HTTP request to a Web Thing with:
-            </span>
-            <ul>
-              <li>Method set to <code>GET</code></li>
-              <li>URL set to the URL of the <code>Property</code> resource</li>
-              <li><code>Accept</code> header set to <code>application/json
-                </code></li>
-            </ul>
           </p>
+          <ul class="rfc2119-assertion"
+            id="core-profile-protocol-binding-properties-readproperty-5">
+            <li>Method set to <code>GET</code></li>
+            <li>URL set to the URL of the <code>Property</code> resource</li>
+            <li><code>Accept</code> header set to <code>application/json
+              </code></li>
+          </ul>
           <pre class="example">
           GET /things/lamp/properties/on HTTP/1.1
           Host: mythingserver.com
           Accept: application/json
           </pre>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.1-thing-protocol-binding-properties-readproperty-3">
+          <p class="rfc2119-assertion"
+            id="core-profile-protocol-binding-properties-readproperty-6">
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to read the corresponding
             property, then upon successfully reading the value of the property
             it MUST send an HTTP response with:
-            </span>
-            <ul>
-              <li>Status code set to <code>200</code></li>
-              <li><code>Content-Type</code> header set to <code>application/json
-                </code></li>
-              <li>A body with the value of the property serialized in JSON</li>
-            </ul>
           </p>
+          <ul class="rfc2119-assertion"
+            id="core-profile-protocol-binding-properties-readproperty-7">
+            <li>Status code set to <code>200</code></li>
+            <li><code>Content-Type</code> header set to <code>application/json
+              </code></li>
+            <li>A body with the value of the property serialized in JSON</li>
+          </ul>
           <pre class="example">
           HTTP/1.1 200 OK
           Content-Type: application/json
@@ -1584,38 +1597,51 @@
         </section>
         <section id="writeproperty">
           <h5><code>writeproperty</code></h5>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.2-thing-protocol-binding-properties-writeproperty-1">
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writeproperty-1">
             The URL of a <code>Property</code> resource to be used when writing
-            the value of a property MUST be obtained from a Canonical TD by
+            the value of a property MUST be obtained from a Thing Description by
             locating a
             <a href="https://www.w3.org/TR/wot-thing-description/#form">
             <code>Form</code></a> inside the corresponding
             <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
             <code>PropertyAffordance</code></a>
-            for which the value of its <code>op</code> member is
-            <code>writeproperty</code> and the
-            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
-            is <code>http</code> or <code>https</code>.
-            </span>
+            for which:
           </p>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.2-thing-protocol-binding-properties-writeproperty-2">
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writeproperty-2">
+            <li>
+              After defaults have been applied, its <code>op</code> member 
+              contains the value <code>writeproperty</code>
+            </li>
+            <li>
+              After being resolved against a base URL where applicable, the
+              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+              scheme</a> [[RFC3986]] of the value of its <code>href</code>
+              member is <code>http</code> or <code>https</code>
+            </li>
+          </ul>
+          <p class="rfc2119-assertion" 
+          id="core-profile-protocol-binding-properties-writeproperty-3">
+            The resolved value of the <code>href</code> member MUST then be used
+            as the URL of the <code>Property</code> resource.
+          </p>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writeproperty-4">
             In order to write the value of a property, a Consumer MUST send
             an HTTP request to a Web Thing with:
-            </span>
-            <ul>
-              <li>Method set to <code>PUT</code></li>
-              <li>URL set to the URL of the <code>Property</code> resource</li>
-              <li><code>Accept</code> header set to <code>application/json
-                </code></li>
-              <li><code>Content-Type</code> header set to <code>application/json
-                </code></li>
-              <li>A body with a requested new value for the property serialized
-                in JSON</li>
-            </ul>
           </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writeproperty-5">
+            <li>Method set to <code>PUT</code></li>
+            <li>URL set to the URL of the <code>Property</code> resource</li>
+            <li><code>Accept</code> header set to <code>application/json
+              </code></li>
+            <li><code>Content-Type</code> header set to <code>application/json
+              </code></li>
+            <li>A body with a requested new value for the property serialized
+              in JSON</li>
+          </ul>
           <pre class="example">
           PUT /things/lamp/properties/on HTTP/1.1
           Host: mythingserver.com
@@ -1623,72 +1649,85 @@
           Accept: application/json
           true
           </pre>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.2-thing-protocol-binding-properties-writeproperty-3">
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writeproperty-6">
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to write the corresponding
             property, then upon successfully writing the value of the
             property it MUST send an HTTP response with:
-            </span>
-            <ul>
-              <li>Status code set to <code>204</code></li>
-            </ul>
           </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writeproperty-7">
+            <li>Status code set to <code>204</code></li>
+          </ul>
           <pre class="example">
           HTTP/1.1 204 No Content
           </pre>
         </section>
         <section id="readallproperties">
           <h5><code>readallproperties</code></h5>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.3-thing-protocol-binding-properties-readallproperties-1">
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-readallproperties-1">
             The URL of a <code>Properties</code> resource to be used when
             reading the value of all properties at once MUST be obtained from a
-            Canonical TD by locating a
+            Thing Description by locating a
             <a href="https://www.w3.org/TR/wot-thing-description/#form">
             <code>Form</code></a> inside the top level
             <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
             <code>forms</code></a> member
-            for which the value of its <code>op</code> member is
-            <code>readallproperties</code> and the
-            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
-            is <code>http</code> or <code>https</code>.
-            </span>
+            for which:
           </p>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.3-thing-protocol-binding-properties-readallproperties-2">
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-readallproperties-2">
+            <li>
+              Its <code>op</code> member contains the value
+              <code>readallproperties</code>
+            </li>
+            <li>
+              After being resolved against a base URL where applicable, the
+              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+              scheme</a> [[RFC3986]] of the value of its <code>href</code>
+              member is <code>http</code> or <code>https</code>
+            </li>
+          </ul>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-readallproperties-3">
+            The resolved value of the <code>href</code> member MUST then be used
+            as the URL of the <code>Properties</code> resource.
+          </p>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-readallproperties-3">
             In order to read the value of all properties, a Consumer MUST send
             an HTTP request to a Web Thing with:
-            </span>
-            <ul>
-              <li>Method set to <code>GET</code></li>
-              <li>URL set to the URL of the <code>Properties</code> resource
-                </li>
-              <li><code>Accept</code> header set to <code>application/json
-                </code></li>
-            </ul>
           </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-readallproperties-4">
+            <li>Method set to <code>GET</code></li>
+            <li>URL set to the URL of the <code>Properties</code> resource
+              </li>
+            <li><code>Accept</code> header set to <code>application/json
+              </code></li>
+          </ul>
           <pre class="example">
           GET /things/lamp/properties HTTP/1.1
           Host: mythingserver.com
           Accept: application/json
           </pre>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.3-thing-protocol-binding-properties-readallpropertis-3">
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-readallproperties-5">
             If a Web Thing receives an HTTP request following the format
             above, then upon successfully reading the values of all the
             readable properties to which the Consumer has permission to
             access, it MUST send an HTTP response with:
-            </span>
-            <ul>
-              <li>Status code set to <code>200</code></li>
-              <li><code>Content-Type</code> header set to <code>application/json
-                </code></li>
-              <li>A body with the values of all readable properties serialized
-                in JSON, as an object keyed by property name</li>
-            </ul>
           </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-readallproperties-6">
+            <li>Status code set to <code>200</code></li>
+            <li><code>Content-Type</code> header set to <code>application/json
+              </code></li>
+            <li>A body with the values of all readable properties serialized
+              in JSON, as an object keyed by property name</li>
+          </ul>
           <pre class="example">
           HTTP/1.1 200 OK
           Content-Type: application/json
@@ -1700,39 +1739,52 @@
         </section>
         <section id="writemultipleproperties">
           <h5><code>writemultipleproperties</code></h5>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.4-thing-protocol-binding-properties-writemultipleproperties-1">
-            The URL of a <code>Properties</code> resource to be used when
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writemultipleproperties-1">
+            The URL of a <code>Properties</code> resource to be used when 
             writing the value of multiple properties at once MUST be obtained
-            from a Canonical TD by locating a
+            from a Thing Description by locating a
             <a href="https://www.w3.org/TR/wot-thing-description/#form">
             <code>Form</code></a> inside the top level
             <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
             <code>forms</code></a> member
-            for which the value of its <code>op</code> member is
-            <code>writemultipleproperties</code> and the
-            <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
-            scheme</a> [[RFC3986]] of the value of its <code>href</code> member
-            is <code>http</code> or <code>https</code>.
-            </span>
+            for which:
           </p>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.4-thing-protocol-binding-properties-writemultipleproperties-2">
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writemultipleproperties-2">
+            <li>
+              Its <code>op</code> member contains the value
+              <code>writemultipleproperties</code>
+            </li>
+            <li>
+              After being resolved against a base URL where applicable, the
+              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+              scheme</a> [[RFC3986]] of the value of its <code>href</code>
+              member is <code>http</code> or <code>https</code>
+            </li>
+          </ul>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writemultipleproperties-3">
+            The resolved value of the <code>href</code> member MUST then be used
+            as the URL of the <code>Properties</code> resource.
+          </p>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writemultipleproperties-4">
             In order to write the value of multiple properties at once, a
             Consumer MUST send an HTTP request to a Web Thing with:
-            </span>
-            <ul>
-              <li>Method set to <code>PUT</code></li>
-              <li>URL set to the URL of the <code>Properties</code> resource
-                </li>
-              <li><code>Content-Type</code> header set to <code>application/json
-                </code></li>
-              <li><code>Accept</code> header set to <code>application/json
-                </code></li>
-              <li>A body with requested new values for the writable properties
-                serialized in JSON, as an object keyed by property name</li>
-            </ul>
           </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writemultipleproperties-5">
+            <li>Method set to <code>PUT</code></li>
+            <li>URL set to the URL of the <code>Properties</code> resource
+              </li>
+            <li><code>Content-Type</code> header set to <code>application/json
+              </code></li>
+            <li><code>Accept</code> header set to <code>application/json
+              </code></li>
+            <li>A body with requested new values for the writable properties
+              serialized in JSON, as an object keyed by property name</li>
+          </ul>
           <pre class="example">
           PUT /things/lamp/properties HTTP/1.1
           Host: mythingserver.com
@@ -1743,12 +1795,11 @@
             "level": 50
           }
           </pre>
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.2.1.4-thing-protocol-binding-properties-writemultipleproperties-3">
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-properties-writemultipleproperties-6">
             If a Web Thing receives an HTTP request following the format
             above, then upon successfully writing the values of the requested
             writable properties it MUST send an HTTP response with:
-            </span>
             <ul>
               <li>Status code set to <code>204</code></li>
             </ul>
