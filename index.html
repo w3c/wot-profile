@@ -573,12 +573,17 @@
           <h4>Date format</h4>
           <p class="rfc2119-assertion" 
           id="profile-date-format-1">
-            All date and time values MUST use the format defined in [ISO 8601].
+            All date and time values MUST use the canonical dateTime representation format defined in section 3.2.7 of [xmlschema-2].
           </p>
+	  As described by this section the following constraints must be observed:
           <p class="rfc2119-assertion" 
           id="profile-date-format-2">
-            Whenever reasonable, all times SHOULD use UTC as the standard time zone.
+            All dateTime values MUST use UTC as the time zone and use the 'Z' identifier.
         </p>
+          <p class="rfc2119-assertion" 
+          id="profile-date-format-3">
+	    A time value of 24:00 is NOT PERMITTED, the value 00:00 MUST be used instead.
+	</p>		
         </section>
 
 
