@@ -2203,12 +2203,12 @@
           </p>
           <p class="rfc2119-assertion"
             id="core-profile-protocol-binding-actions-cancelaction-2">
-          The URL of an <code>ActionStatus</code> resource to be used in a 
-          <code>cancelaction</code> operation MUST be obtained from the 
-          <code>Location</code> header of an <a href="#async-action-response">
-          Asynchronous Action Response</a>, or the <code>href</code> member of 
-          the <code>ActionStatus</code> object in its body.
-        </p>
+            The URL of an <code>ActionStatus</code> resource to be used in a 
+            <code>cancelaction</code> operation MUST be obtained from the 
+            <code>Location</code> header of an <a href="#async-action-response">
+            Asynchronous Action Response</a>, or the <code>href</code> member of 
+            the <code>ActionStatus</code> object in its body.
+          </p>
           <p class="rfc2119-assertion"
             id="core-profile-protocol-binding-actions-cancelaction-3">
             In order to cancel an action request, a Consumer MUST send an HTTP 
@@ -2241,13 +2241,112 @@
           </pre>
         </section>
 
-        <section class="ednote">Another operation under consideration is
-          <code>updateaction</code>. <code>queryaction</code>,
-          <code>updateaction</code> and <code>cancelaction</code> operations do
-          not yet exist in the WoT Thing Description specification (see
-          <a href="https://github.com/w3c/wot-thing-description/issues/302">
-            #302
-          </a>).
+        <section id="queryallactions">
+          <h5><code>queryallactions</code></h5>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-actions-queryallactions-1">
+            The URL of an <code>Actions</code> resource to be used when
+            querying the status of all ongoing action requests MUST be obtained
+            from a Thing Description by locating a
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the top level
+            <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+            <code>forms</code></a> member
+            for which:
+          </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-actions-queryallactions-2">
+            <li>
+              Its <code>op</code> member contains the value
+              <code>queryallactions</code>
+            </li>
+            <li>
+              After being resolved against a base URL where applicable, the
+              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+              scheme</a> [[RFC3986]] of the value of its <code>href</code>
+              member is <code>http</code> or <code>https</code>
+            </li>
+          </ul>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-actions-queryallactions-3">
+            The resolved value of the <code>href</code> member MUST then be used
+            as the URL of the <code>Actions</code> resource.
+          </p>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-actions-queryallactions-4">
+            In order to query the status of all ongoing action requests, a
+            Consumer MUST send an HTTP request to a Web Thing with:
+          </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-actions-queryallactions-5">
+            <li>Method set to <code>GET</code></li>
+            <li>URL set to the URL of the <code>Actions</code> resource
+              </li>
+            <li><code>Accept</code> header set to <code>application/json
+              </code></li>
+          </ul>
+          <pre class="example">
+          GET /things/lamp/actions HTTP/1.1
+          Host: mythingserver.com
+          Accept: application/json
+          </pre>
+          <p class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-actions-queryallactions-6">
+            If a Web Thing receives an HTTP request following the format
+            above, then upon successfully retreiving the status of all ongoing 
+            action requests to which the Consumer has permission to access, it
+            MUST send an HTTP response with:
+          </p>
+          <ul class="rfc2119-assertion" 
+            id="core-profile-protocol-binding-actions-queryallactions-7">
+            <li>Status code set to <code>200</code></li>
+            <li><code>Content-Type</code> header set to <code>application/json
+              </code></li>
+            <li>A body containing an object, keyed by <code>Action</code> name,
+              with the value of each object member being an array of 
+              <a href="#ActionStatus"><code>ActionStatus</code></a> objects 
+              representing the action requests, serialized in JSON.
+            </li>
+          </ul>
+          <pre class="example">
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          {
+            "fade": [
+              {
+                "status": "completed",
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655"
+              },
+              {
+                "status": "failed",
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-558329",
+              },
+              {
+                "status": "running",
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-434656"
+              },
+              {
+                "status": "pending",
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-ea9519"
+              }
+            ]
+          }
+          </pre>
+        </section>
+
+        <section class="note" title="Retention of ActionStatus objects">
+          When an <code>Action</code> request is cancelled with a 
+          <code>cancelaction</code> operation, its <code>ActionStatus</code>
+          object is deleted and need not be retained. For all other
+          <code>Action</code> requests it is assumed that a Web Thing will 
+          store the <code>ActionStatus</code> object so that its status may
+          later be queried with a <code>queryaction</code> or
+          <code>queryallactions</code> operation. It is not expected that 
+          <code>ActionStatus</code> objects should be retained indefinitely,
+          they may be stored in volatile memory and/or periodically pruned.
+          The length of time for which to retain <code>ActionStatus</code>
+          objects is expected to be implementation-specific and may depend on
+          application-specific requirements or resource constraints. 
         </section>
       </section>
 
