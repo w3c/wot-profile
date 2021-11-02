@@ -2625,7 +2625,8 @@
             The basic principle is a server initiated push connection to consumers,
             where it is up to the discretion of the web thing to decide when a connection 
             is established and message data is sent. This mechanism enables Web Things, 
-            that are residing behind a firewall to sned messages to a consumer on the public Internet.
+            that are residing behind a firewall to sned messages to a consumer on the public Internet,
+            which is not possible with the SSE based event mechanism.
           </p>
 
           <!-- subscribeevent -->
@@ -2653,7 +2654,7 @@
                 member is <code>http</code> or <code>https</code>
               </li>
               <li>Its <code>subprotocol</code> member has a value of
-                <code>"sse"</code>
+                <code>"webhook"</code>
               </li>
             </ul>
             <p class="rfc2119-assertion" id="core-profile-protocol-binding-events-swebhook-subscribeevent-3">
@@ -2661,9 +2662,8 @@
               as the URL of the <code>Event</code> resource.
             </p>
             <p class="rfc2119-assertion" id="core-profile-protocol-binding-events-webhook-subscribeevent-4">
-              In order to subscribe to an event, a Consumer MUST follow the
-              Server-Sent Events [[EVENTSOURCE]] specification to open a
-              connection with the Web Thing at the URL of the <code>Event</code>
+              In order to subscribe to an event, a Consumer MUST open a
+              connection to the Web Thing at the URL of the <code>Event</code>
               resource.
             </p>
             <p>
@@ -2671,7 +2671,7 @@
               the Web Thing with:
             </p>
             <ul>
-              <li>Method set to <code>GET</code></li>
+              <li>Method set to <code>POST</code></li>
               <li>URL set to the URL of the <code>Event</code> resource</li>
               <li>
                 <code>Accept</code> header set to <code>text/event-stream</code>
@@ -2681,10 +2681,14 @@
               </li>
             </ul>
             <pre class="example">
-      GET /things/lamp/events/overheated HTTP/1.1
+      POST /things/lamp/events/overheated HTTP/1.1
       Host: mythingserver.com
       Accept: text/event-stream
       Connection: keep-alive
+      Payload: {
+        subscriberId: 
+        callback: 
+      }
       </pre>
             <p class="note" title="Opening a connection using JavaScript">
               For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed
@@ -3043,9 +3047,8 @@
     <section id="open-issues">
       <h3>Open Issues</h3>
       <ul>
-        <li>define action semantics</li>
-        <li>define subscription mechanism</li>
-        <li>Examples</li>
+        <li>Authentication</li>
+         <li>Examples</li>
       </ul>
     </section>
 
