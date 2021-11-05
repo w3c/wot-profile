@@ -1652,8 +1652,6 @@
             id="core-profile-protocol-binding-properties-writeproperty-5">
             <li>Method set to <code>PUT</code></li>
             <li>URL set to the URL of the <code>Property</code> resource</li>
-            <li><code>Accept</code> header set to <code>application/json
-              </code></li>
             <li><code>Content-Type</code> header set to <code>application/json
               </code></li>
             <li>A body with a requested new value for the property serialized
@@ -1663,7 +1661,6 @@
           PUT /things/lamp/properties/on HTTP/1.1
           Host: mythingserver.com
           Content-Type: application/json
-          Accept: application/json
           true
           </pre>
           <p class="rfc2119-assertion" 
@@ -1797,8 +1794,6 @@
               </li>
             <li><code>Content-Type</code> header set to <code>application/json
               </code></li>
-            <li><code>Accept</code> header set to <code>application/json
-              </code></li>
             <li>A body with requested new values for the writable properties
               serialized in JSON, as an object keyed by property name</li>
           </ul>
@@ -1806,7 +1801,6 @@
           PUT /things/lamp/properties HTTP/1.1
           Host: mythingserver.com
           Content-Type: application/json
-          Accept: application/json
           {
             "on": true,
             "level": 50
