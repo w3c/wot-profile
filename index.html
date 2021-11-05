@@ -493,7 +493,7 @@
     {
       "@context": "https://www.w3.org/2019/wot/td/v1",
       "id": "urn:dev:ops:32473-WoTLamp-1234",
-      "profile": "https://www.w3.org/2021/wot/profile/core",
+      "profile": "https://www.w3.org/2022/wot/profile/core/v1",
       "title": "My Lamp",
       "description": "A web connected lamp",
       ...
@@ -504,8 +504,8 @@
       "@context": "https://www.w3.org/2019/wot/td/v1",
       "id": "urn:dev:ops:32473-WoTLamp-1234",
       "profile": [
-        "https://www.w3.org/2021/wot/profile/core",
-        "https://www.w3.org/2021/wot/profile/constrained"
+        "https://www.w3.org/2022/wot/profile/core/v1",
+        "https://www.w3.org/2022/wot/profile/constrained/v1"
       ],
       "title": "My Lamp",
       "description": "A web connected lamp",
@@ -520,6 +520,20 @@
     This section defines the <a>Core Profile</a> by defining a <a>Core
       Data Model</a> and a set of <a href="#protocol-binding">Protocol
       Binding</a> Rules.
+
+    <!-- Identifier -->
+    <section id="identifier">
+      <h2>Identifier</h2>
+      <p class="rfc2119-assertion" id="core-profile-identifier-1">
+        In order to denote that a given
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        conforms to the Core Profile, its Thing Description MUST have a
+        <a href="https://w3c.github.io/wot-thing-description/#thing">
+        <code>profile</code></a> member [[wot-thing-description]] with a value
+        of <code>https://www.w3.org/2022/wot/profile/core/v1</code>.
+      </p>
+    </section>
+
     <section id="wot-core-data-model">
       <h2>WoT Core Data Model</h2>
       <p>
