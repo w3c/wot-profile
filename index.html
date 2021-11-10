@@ -2021,6 +2021,33 @@
                 <td>optional</td>
                 <td><code>string</code></td>
               </tr>
+              <tr class="rfc2119-table-assertion">
+                <td><code>timeRequested</code></td>
+                <td>
+                  A timestamp indicating the time at which the Thing received 
+                  the request to execute the action, in ISO format [[ISO8601-1]].
+                </td>
+                <td>optional</td>
+                <td><code>string</code></td>
+              </tr>
+              <tr class="rfc2119-table-assertion">
+                <td><code>timeCompleted</code></td>
+                <td>
+                  A timestamp indicating the time at which the Thing finished 
+                  executing the action, in ISO format [[ISO8601-1]].
+                </td>
+                <td>optional</td>
+                <td><code>string</code></td>
+              </tr>
+              <tr class="rfc2119-table-assertion">
+                <td><code>timeFailed</code></td>
+                <td>
+                  A timestamp indicating the time at which the Action failed to 
+                  execute, in ISO format [[ISO8601-1]].
+                </td>
+                <td>optional</td>
+                <td><code>string</code></td>
+              </tr>
             </tbody>
           </table>
 
@@ -2043,7 +2070,9 @@
             HTTP/1.1 200 OK
             Content-Type: application/json
             {
-              "status": "completed"
+              "status": "completed",
+              "timeRequested": "2021-11-10T11:43:20.135Z",
+              "timeCompleted": "2021-11-10T11:43:25.135Z"
             }
           </pre>
 
@@ -2078,7 +2107,8 @@
             Location: /things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655
             {
               "status": "pending",
-              "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655"
+              "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655",
+              "timeRequested": "2021-11-10T11:43:19.135Z"
             }
           </pre>
         </section>
@@ -2152,7 +2182,8 @@
             HTTP/1.1 200 OK
             Content-Type: application/json
             {
-              "status": "running"
+              "status": "running",
+              "timeRequested": "2021-11-10T11:43:19.135Z"
             }
           </pre>
           <p class="rfc2119-assertion"
@@ -2177,7 +2208,8 @@
                     "reason": "Must be a valid number between 0 and 100",
                   }
                 ]
-              }
+              },
+              "timeFailed": "2021-11-10T11:43:20.513Z"
             }
           </pre>
         </section>
