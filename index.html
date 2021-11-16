@@ -197,8 +197,6 @@
   <section id='sotd'></section>
 
   <section id="intro">
-    <!--  h1 id="w3c-web-of-things-a-wot--profile-for-http-rest">W3C Web of Things: A WoT <a>Core Profile</a> for HTTP/REST</h1-->
-
     <h1 id="introduction">Introduction</h1>
     <p>
       The W3C WoT Architecture [[wot-architecture]] and the WoT
@@ -386,17 +384,6 @@
         Synonym for <a>WoT Core Profile</a>.
       </dd>
 
-      <!-- dt>
-        <dfn>Digital Twin Profile</dfn>
-      </dt>
-      <dd>A profile for defining a virtual representation of
-        a thing or a group of things.</dd>
-      <dt>
-        <dfn>Thing Template Profile</dfn>
-      </dt>
-      <dd>A profile for defining a class of things that share
-        the same Data Model.</dd -->
-
       <dfn>Core Data Model</dfn>
       </dt>
       <dd>
@@ -415,60 +402,6 @@
       <dd>
         The Web of Things Thing Description as defined in [[wot-thing-description]].
       </dd>
-
-
-      <!--
-                <dt>
-                <dfn>TD Specification</dfn>
-            </dt>
-            <dd>
-                Synonym for The WoT <a>Thing Description
-                    Specification</a>.
-            </dd>
-            <dt>
-                <dfn>Thing Description Specification</dfn>
-            </dt>
-            <dd>The WoT Thing Description Specification.</dd>
-            <dt>
-                <dfn>Thing Description</dfn>
-            </dt>
-            <dd>A Data Model that conforms to the Thing Description
-                Specification.</dd>
-            <dt>
-            <dt>
-                <dfn>Core Data Model</dfn>
-            </dt>
-            <dd>
-                A Data Model that conforms to the subset of the Thing
-                Description specification as
-                defined in section <a href="wot-core-datamodel"></a>.
-            </dd>
-            <dt>
-
-                <dfn>Core Profile</dfn>
-            </dt>
-            <dd>
-                Synonym for <a>WoT Core Profile</a>.
-            </dd>
-            <dt>
-                <dfn>Core TD</dfn>
-            </dt>
-            <dd>
-                Synonym for <a>Core Thing Description</a>.
-            </dd>
-            <dt>
-                <dfn>Core Thing Description</dfn>
-            </dt>
-            <dd>
-                A Thing Description that conforms to the <a>Core
-                    Profile</a>.
-            </dd>
-                <dt>
-                  <dfn>WoT Thing Description</dfn>
-              </dt>
-              <dd>Synonym for <a>Thing Description</a>.</dd>
-          </dl>
-        -->
   </section>
 
   <!-- Profiling mechanism -->
@@ -514,7 +447,7 @@
     </pre>
   </section>
 
-  <!-- <a>Core Profile</a> -->
+  <!-- Core Profile -->
   <section id="core-profile">
     <h2>WoT Core Profile</h2>
     This section defines the <a>Core Profile</a> by defining a <a>Core
@@ -659,31 +592,10 @@
           are NOT PERMITTED.
           </span>
         </p>
-        <!--  table class="def">
-				<thead>
-					<tr>
-						<th>keyword</th>
-						<th>type</th>
-						<th>remarks</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>@context</td>
-						<td>array of string</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>@type</td>
-						<td>array of string</td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table -->
+
       </section>
 
       <!-- Thing -->
-
       <section>
         <h2 id="thing">Thing</h2>
         The <a>Core Data Model</a> applies the following
@@ -792,8 +704,6 @@
 
 
       <!-- Data Schemas-->
-
-
       <section>
         <h3 id="data-schema">Data Schema</h3>
         <p>
@@ -895,7 +805,6 @@
 
 
       <!-- Properties -->
-
       <section>
         <h3 id="x5-property-affordance">Property Affordance</h3>
         The <a>Core Data Model</a> applies the following
@@ -1103,7 +1012,6 @@
 
 
       <!-- Actions -->
-
       <section>
         <h3 id="x5-action-affordances">Action Affordances</h3>
         The <a>Core Data Model</a> applies the following
@@ -1256,8 +1164,6 @@
 
 
       <!-- Events -->
-
-
       <section>
         <h3 id="x5-event-affordance">Event Affordance</h3>
         The <a>Core Data Model</a> applies the following
@@ -1368,8 +1274,6 @@
       </section>
 
       <!-- Forms -->
-
-
       <section>
         <h3 id="forms">Forms</h3>
         <p>
@@ -1462,7 +1366,6 @@
       </section>
 
       <!-- Links -->
-
       <section>
         <h3 id="links">Links</h3>
         <section class="ednote">TODO: Consider
@@ -1479,7 +1382,6 @@
       </section>
 
       <!--  Security -->
-
       <section>
         <h3 id="security">Security</h3>
         <p>
@@ -2706,48 +2608,6 @@
         </p>
       </section>
     </section>
-
-    <!--  Normative References
-
-		<section>
-			<h2 id="normative-references">Normative references</h2>
-			<p>
-				urn_type = a valid URN as defined in <a
-					href=https://tools.ietf.org/rfc/rfc2141.txt>RFC2141</a>
-			</p>
-			<p>
-				uri_type = a valid URI as defined by <a
-					href=https://tools.ietf.org/rfc/rfc3986.txt>RFC3986</a>
-			</p>
-			<p>
-				identifier = a valid ECMAScript identifier name as defined in
-				chapter 11.6 of <a
-					href=http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>ECMAScript</a>
-			</p>
-			<p>
-				number = a valid ECMAScript number as defined in chapter 20.1 of <a
-					href=http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>ECMAScript</a>
-			</p>
-			<p>
-				string = a valid ECMAScript string literal as defined in chapter
-				11.8.4 of <a
-					href=http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>ECMAScript</a>
-			</p>
-			<p>
-				date = a valid ECMAScript date as defined in chapter '20.3.1.16 Date
-				Time String Format' of <a
-					href=http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>ECMAScript</a>
-			</p>
-			<p>(https://tools.ietf.org/html/rfc6068).</p>
-		</section -->
-  </section>
-  <section id="open-issues">
-    <h3>Open Issues</h3>
-    <ul>
-      <li>define action semantics</li>
-      <li>define subscription mechanism</li>
-      <li>Examples</li>
-    </ul>
   </section>
 
   <section id="core-profile-json-schema" class="appendix normative">
