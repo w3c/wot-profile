@@ -2207,7 +2207,9 @@
             <li>A body containing an object, keyed by <code>Action</code> name,
               with the value of each object member being an array of 
               <a href="#ActionStatus"><code>ActionStatus</code></a> objects 
-              representing the action requests, serialized in JSON.
+              representing the action requests, serialized in JSON. Each array 
+              MUST be sorted in reverse chronological order such that the 
+              most recent action request appears first.
             </li>
           </ul>
           <pre class="example">
