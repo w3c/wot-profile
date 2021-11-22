@@ -261,6 +261,64 @@
         demonstrators, were described with Thing Descriptions
         that are constrained to the <a>Core Profile</a>.
       </p>
+    </section>
+
+    <!-- Use Cases -->
+  <section id="profile-use-cases">
+    <h2>Use Cases and Requirements</h2>
+    <p>
+      A set of over 30 use cases for the Web of Things were contributed by stakeholders 
+      from multiple industries for various application domains.
+      These have been published in the WoT Use Cases and Requirements document [wot-use-cases]. 
+    </p><p>
+      Based on these use cases a set of requirements have been derived which drive the development 
+      of the W3C Web of Things specification family. 
+      Several of these domains require easy integration of devices from multiple vendors, 
+      in other words, out-of-the-box interoperability. 
+      However, the descriptive approach taken by the WoT specifications generally leads 
+      to a very large space of possible devices which can work against out-of-the box interoperability. 
+    </p><p>
+      For example, a WoT Thing Description (TD) can in theory include a description based on a 
+      networking protocol unknown to a device that wishes to connect to it.  
+      To ensure interoperability without additional setup or configuration, 
+      the range of such choices needs to be limited to a finite set so that a consumer 
+      of a Thing Description can be sure it will be able to interact with any possible Thing. 
+      A finite set of choices is also important for implementing devices with a fixed code base. 
+      Defining such constraints leads to the profile methodology, common constraints and the HTTP Core profile.
+      </p>
+      <p>
+      In addition to multiple vertical use cases that will use HTTP(s) for their implementations,
+      there are two key horizontal use cases that are addressed by this profile specification.
+      </p>
+      <section id="profile-use-case-MVSE">
+        <h2>Multi-Vendor System Integration - Out of the box interoperability</h2>
+          A user of devices wants to process data from all device that conforms to a class of devices in a uniform way. 
+          He needs a guarantee that he is able to correctly interact with all affordances of the Thing 
+          that complies with this class of devices. 
+          Behavioral ambiguities between different implementations of the same description should not be possible. 
+          He want to integrate it into my existing scenarios out of the box, i.e. with close to zero configuration tasks.
+      </section>
+        <section id="profile-use-case-CPI">
+          <h2>Cross Protocol Interworking</h2>
+          <p>
+            Multiple diverse network protocols are used in smart home, industrial, smart city and other domains.
+            Multiple horizontal and vertical use cases require integration of devices that use different protocols.
+            Key requirement of these use cases is to gathering data from multiple devices, which usually requires 
+            an "Agent" (Intermediary) to bridge across these protocols. 
+          </p>
+          <p>
+            To provide interoperability and to reduce implementation complexity of this agent 
+            a common set of (minimum and maximum) requirements and constraints 
+            need to be supported by all interoperating devices.
+        </p>
+        </section>
+        <p>
+          The major benefit of the WoT architecture and the Thing Description is the clear 
+          separation of the interaction model and the protocol bindings via the binding template mechanism [add ref].
+          This separation allows to define common protocol agnostic rules that enable these use cases.
+        </p>
+    </section>
+  
 
     </section>
     <section id="why-profile">
@@ -406,62 +464,7 @@
 
   </section>
 
-  <!-- Use Cases -->
-  <section id="profile-use-cases">
-  <h2>Use Cases and Requirements</h2>
-  <p>
-    A set of over 30 use cases for the Web of Things were contributed by stakeholders 
-    from multiple industries for various application domains.
-    These have been published in the WoT Use Cases and Requirements document [wot-use-cases]. 
-  </p><p>
-    Based on these use cases a set of requirements have been derived which drive the development 
-    of the W3C Web of Things specification family. 
-    Several of these domains require easy integration of devices from multiple vendors, 
-    in other words, out-of-the-box interoperability. 
-    However, the descriptive approach taken by the WoT specifications generally leads 
-    to a very large space of possible devices which can work against out-of-the box interoperability. 
-    </p><p>
-    For example, a WoT Thing Description (TD) can in theory include a description based on a 
-    networking protocol unknown to a device that wishes to connect to it.  
-    To ensure interoperability without additional setup or configuration, 
-    the range of such choices needs to be limited to a finite set so that a consumer 
-    of a Thing Description can be sure it will be able to interact with any possible Thing. 
-    A finite set of choices is also important for implementing devices with a fixed code base. 
-    Defining such constraints leads to the profile methodology, common constraints and the HTTP Core profile.
-    </p>
-    <p>
-    In addition to multiple vertical use cases that will use HTTP(s) for their implementations,
-    there are two key horizontal use cases that are addressed by this profile specification.
- 
-    <section id="profile-use-case-MVSE">
-      <h2>Multi-Vendor System Integration - Out of the box interoperability</h2>
-        A user of devices wants to process data from all device that conforms to a class of devices in a uniform way. 
-        He needs a guarantee that he is able to correctly interact with all affordances of the Thing 
-        that complies with this class of devices. 
-        Behavioral ambiguities between different implementations of the same description should not be possible. 
-        He want to integrate it into my existing scenarios out of the box, i.e. with close to zero configuration tasks.
-    </section>
-      <section id="profile-use-case-CPI">
-        <h2>Cross Protocol Interworking</h2>
-        <p>
-          Multiple diverse network protocols are used in smart home, industrial, smart city and other domains.
-          Multiple horizontal and vertical use cases require integration of devices that use different protocols.
-          Key requirement of these use cases is to gathering data from multiple devices, which usually requires 
-          an "Agent" (Intermediary) to bridge across these protocols. 
-        </p>
-        <p>
-          To provide interoperability and to reduce implementation complexity of this agent 
-          a common set of (minimum and maximum) requirements and constraints 
-          need to be supported by all interoperating devices.
-      </p>
-      </section>
-      <p>
-        The major benefit of the WoT architecture and the Thing Description is the clear 
-        separation of the interaction model and the protocol bindings via the binding template mechanism [add ref].
-        This separation allows to define common protocol agnostic rules that enable these use cases.
-      </p>
-  </section>
-
+  
 
   <!-- Profiling mechanism -->
   <section id="profiling-mechanism">
