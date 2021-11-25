@@ -2305,7 +2305,7 @@
                   A timestamp indicating the time at which the Thing received 
                   the request to execute the action, in ISO format [[ISO8601-1]].
                 </td>
-                <td>optional</td>
+                <td>mandatory</td>
                 <td><code>string</code></td>
               </tr>
               <tr class="rfc2119-table-assertion">
@@ -2643,19 +2643,25 @@
             "fade": [
               {
                 "status": "completed",
-                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655"
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655",
+                "timeRequested": "2021-11-10T11:43:19.135Z",
+                "timeEnded": "2021-11-10T11:43:20.513Z"
               },
               {
                 "status": "failed",
                 "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-558329",
+                "timeRequested": "2021-11-10T11:42:15.133Z",
+                "timeEnded": "2021-11-10T11:42:22.524Z"
               },
               {
                 "status": "running",
-                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-434656"
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-434656",
+                "timeRequested": "2021-11-10T11:41:53.351Z"
               },
               {
                 "status": "pending",
-                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-ea9519"
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-ea9519",
+                "timeRequested": "2021-11-10T11:39:53.651Z"
               }
             ]
           }
