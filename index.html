@@ -2031,19 +2031,11 @@
                 <td><code>string</code></td>
               </tr>
               <tr class="rfc2119-table-assertion">
-                <td><code>timeCompleted</code></td>
+                <td><code>timeEnded</code></td>
                 <td>
-                  A timestamp indicating the time at which the Thing finished 
-                  executing the action, in ISO format [[ISO8601-1]].
-                </td>
-                <td>optional</td>
-                <td><code>string</code></td>
-              </tr>
-              <tr class="rfc2119-table-assertion">
-                <td><code>timeFailed</code></td>
-                <td>
-                  A timestamp indicating the time at which the Action failed to 
-                  execute, in ISO format [[ISO8601-1]].
+                  A timestamp indicating the time at which the Thing
+                  successfully completed executing the action, or failed to 
+                  execute the action, in ISO format [[ISO8601-1]].
                 </td>
                 <td>optional</td>
                 <td><code>string</code></td>
@@ -2072,7 +2064,7 @@
             {
               "status": "completed",
               "timeRequested": "2021-11-10T11:43:20.135Z",
-              "timeCompleted": "2021-11-10T11:43:25.135Z"
+              "timeEnded": "2021-11-10T11:43:25.135Z"
             }
           </pre>
 
@@ -2205,11 +2197,12 @@
                 "invalid-params": [
                   {
                     "name": "level",
-                    "reason": "Must be a valid number between 0 and 100",
+                    "reason": "Must be a valid number between 0 and 100"
                   }
                 ]
               },
-              "timeFailed": "2021-11-10T11:43:20.513Z"
+              "timeRequested": "2021-11-10T11:43:19.135Z",
+              "timeEnded": "2021-11-10T11:43:20.513Z"
             }
           </pre>
         </section>
