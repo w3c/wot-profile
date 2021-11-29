@@ -2615,19 +2615,126 @@
 
 
 
-        <!---  Webhooks  -->
+        <!---  Push Events  -->
 
-        <section id="Webhooks">
-          <h4>Webhooks</h4>
+        <section id="push-events">
+          <h4>Push Events</h4>
           <p>
-            Webhooks are a notification mechanism for Consumers to subscribe
-            to events emitted by a Web Thing.
-            The basic principle is a server initiated push connection to consumers,
-            where it is up to the discretion of the web thing to decide when a connection 
-            is established and message data is sent. This mechanism enables Web Things, 
-            that are residing behind a firewall to sned messages to a consumer on the public Internet,
-            which is not possible with the SSE based event mechanism.
+            This section defines a JSON based event format and a push event mechanism based on WebHooks over HTTPs.
+            These are used together for a scalable event mechanism that can scale to millions of devices.
+            The Webhooks based push event model complements the SSE based pull model.
+            It depends on the deployment scenarios whether consumers implement SSE,
+            Webhooks, or both event mechanisms.
           </p>
+          <section id="webhooks">
+            <h4>Webhooks</h4>
+            <p>
+              Webhooks are a notification mechanism for Consumers to subscribe
+              to events emitted by a Web Thing.
+              The basic principle is a server initiated push connection to consumers,
+              where it is up to the discretion of the web thing to decide when a connection
+              is established and message data is sent. This mechanism enables Web Things,
+              that are residing behind a firewall to sned messages to a consumer on the public Internet,
+              which is not possible with the SSE based event mechanism.
+            </p>
+
+            <p>A consumer subscribes an event listener to event affordances he is interested in.
+              A single listener can handle events from multiple WebThings which can be associated
+              by the combination of the source and id fields.
+            </p>
+          </section>
+
+          <section id="payload-formats">
+            <h5>Event payload format</h5>
+            <p>
+              This section defines a JSON object format for events.
+            </p>
+            <p>
+              The format is aligned with the cloud events specification
+              <!-- todo: add ref -->
+              to ensure interoperability with cloud systems that adopt this specification.
+            </p>
+            <p>
+              An event message contains a set of metadata properties and an optional data payload.
+              The metadata fields allow to determine the type and source of the event as well as
+              a timestamp indicating when the event occured and an optional data payload.
+            </p>
+            <p>
+              <span class="rfc2119-assertion" id="profile-json-event-payload">
+                The following constraints MUST be
+                applied to the event payload:
+              </span>
+            </p>
+            <table class="def">
+              <thead>
+                <tr>
+                  <th>keyword</th>
+                  <th>type</th>
+                  <th>constraint</th>
+                  <th>remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>string</td>
+                  <td>mandatory, non-empty</td>
+                  <td>for each distinct event the combination of source + id MUST be unique. A WebThing MAY resend the
+                    same event with the same id. If an event is resent with the same id, a consumer SHOULD treat it as
+                    duplicate.</td>
+                </tr>
+                <tr>
+                  <td>source</td>
+                  <td>uri</td>
+                  <td>mandatory, non-empty</td>
+                  <td>The combination of source + id MUST be unique for each distinct event. The source MUST be set to
+                    the <a>baseURI</a> of the WebThing.</td>
+                </tr>
+                <tr>
+                  <td>subject</td>
+                  <td>string</td>
+                  <td>optional</td>
+                  <td>When this field is used, it MUST be set to the <code>title</code> of the event or property affordance.</td>
+                </tr>
+                <tr>
+                  <td>type</td>
+                  <td>string</td>
+                  <td>mandatory, non-empty</td>
+                  <td>For event affordances the source MUST be set to the string "/events/"&lt;<code>name</code> of the event affordance&gt;.</br>
+                      For property affordances the source MUST be set to the string "/properties/"&lt;<code>name</code> of the property affordance&gt;.
+                  </td>
+                </tr>
+                <tr>
+                  <td>time</td>
+                  <td>string</td>
+                  <td>optional, compliant with RFC3339</td>
+                  <td>time when the event occurred. If the WebThing does not have a clock, it MUST use the same
+                    algorithm on all event affordances to determine the value of this field.
+                </tr>
+                <tr>
+                  <td>datacontenttype</td>
+                  <td>string</td>
+                  <td>optional, RFC2046 compliant MIME type, when set the value MUST be "application/json"</td>
+                  <td>If a WebThing contains a <code>data member</code>, this field MUST be present.</td>
+                </tr>
+                <tr>
+                  <td>data</td>
+                  <td>string</td>
+                  <td>optional</td>
+                  <td>JSON encoded <code>data</code> object of the interaction affordance.</td>
+                </tr>
+              </tbody>
+            </table>
+            <span class="rfc2119-assertion" id="profile-event-payload-size">
+              The size of an event object MUST NOT exceed 64KB.
+            </span>
+
+            <p class="ednote">
+                This event format is currently only used for event affordances. It is expected that a future profile 
+                will also introduce observable properties, for which the format is already prepared.
+            </p>
+    
+          </section>
 
           <!-- subscribeevent -->
 
@@ -2755,7 +2862,7 @@
             </p>
           </section>
 
-           <!-- unsubscribeevent -->
+          <!-- unsubscribeevent -->
 
           <section id="unsubscribeevent">
             <h5><code>unsubscribeevent</code></h5>
@@ -3048,7 +3155,7 @@
       <h3>Open Issues</h3>
       <ul>
         <li>Authentication</li>
-         <li>Examples</li>
+        <li>Examples</li>
       </ul>
     </section>
 
