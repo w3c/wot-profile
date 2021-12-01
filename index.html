@@ -274,18 +274,20 @@
       Several of these domains require easy integration of devices from multiple vendors, 
       in other words, out-of-the-box interoperability. 
       However, the descriptive approach taken by the WoT specifications generally leads 
-      to a very large space of possible devices which can work against out-of-the box interoperability. 
+      to a large variety of different protocols and data formats, 
+      which can work against out-of-the box interoperability. 
     </p><p>
       For example, a WoT Thing Description (TD) can in theory include a description based on a 
       networking protocol unknown to a device that wishes to connect to it.  
-      To ensure interoperability without additional setup or configuration, 
+      To ensure interoperability without additional customization (e.g. by writing software or 
+      performing complex setup or configuration steps), 
       the range of such choices needs to be limited to a finite set so that a consumer 
       of a Thing Description can be sure it will be able to interact with any possible Thing. 
-      A finite set of choices is also important for implementing devices with a fixed code base. 
-      Defining such constraints leads to the profile methodology, common constraints and the HTTP Core profile.
+      A finite set of customization choices is also important for implementing devices with a fixed code base. 
+      Defining such constraints leads to the profile mechanism and the WoT Core profile.
       </p>
       <p>
-      In addition to multiple vertical use cases that will use HTTP(s) for their implementations,
+      In addition to multiple vertical use cases that will use HTTP(S) for their implementations,
       there are two key horizontal use cases that are addressed by this profile specification.
       </p>
       <section id="profile-use-case-MVSE">
@@ -296,29 +298,27 @@
           Behavioral ambiguities between different implementations of the same description should not be possible. 
           He want to integrate it into my existing scenarios out of the box, i.e. with close to zero configuration tasks.
       </section>
-        <section id="profile-use-case-CPI">
-          <h2>Cross Protocol Interworking</h2>
-          <p>
-            Multiple diverse network protocols are used in smart home, industrial, smart city and other domains.
-            Multiple horizontal and vertical use cases require integration of devices that use different protocols.
-            Key requirement of these use cases is to gathering data from multiple devices, which usually requires 
-            an "Agent" (Intermediary) to bridge across these protocols. 
-          </p>
-          <p>
-            To provide interoperability and to reduce implementation complexity of this agent 
-            a common set of (minimum and maximum) requirements and constraints 
-            need to be supported by all interoperating devices.
+      <section id="profile-use-case-CPI">
+        <h2>Cross Protocol Interworking</h2>
+        <p>
+          Multiple diverse network protocols are used in smart home, industrial, smart city and other domains.
+          Multiple horizontal and vertical use cases require integration of devices that use different protocols.
+          Key requirement of these use cases is to gathering data from multiple devices, which usually requires
+          an "Agent" (Intermediary) to bridge across these protocols.
         </p>
-        </section>
+        <p>
+          To provide interoperability and to reduce implementation complexity of this agent
+          a common set of requirements and constraints need to be supported by all interoperating devices.
+        </p>
+      </section>
         <p>
           The major benefit of the WoT architecture and the Thing Description is the clear 
-          separation of the interaction model and the protocol bindings via the binding template mechanism [add ref].
-          This separation allows to define common protocol agnostic rules that enable these use cases.
+          separation of the interaction model and the protocol binding.
+          This separation makes it possible to define common protocol agnostic 
+          rules that enable these use cases.
         </p>
     </section>
   
-
-    </section>
     <section id="why-profile">
       <h2 id="why-define-a-core-profile">
         Why a <a>Core Profile</a>?
