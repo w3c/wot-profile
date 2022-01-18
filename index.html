@@ -3328,33 +3328,36 @@
           ]
         },
         "actionStatusList": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "status": {
-                "type": "string",
-                "enum": [
-                  "pending",
-                  "running",
-                  "completed",
-                  "failed"
-                ]
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "running",
+                    "completed",
+                    "failed"
+                  ]
+                },
+                "error": {
+                  "type": "object"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "const": "./actions/fade/{id}"
+                }
               },
-              "error": {
-                "type": "object"
-              },
-              "href": {
-                "type": "string",
-                "format": "uri",
-                "const": "./actions/fade/{id}"
-              }
-            },
-            "required": [
-              "status"
-            ]
+              "required": [
+                "status"
+              ]
+            }
           }
-        }
+        }  
       }
     }
   </pre>
