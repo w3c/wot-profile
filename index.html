@@ -305,8 +305,6 @@
           implementations of the profile.</li>
         <li>limit the implementation complexity for
           resource constrained devices.</li>
-        <li>ensure that a thing description is also useful
-          for a human reader.</li>
       </ul>
 
       <p>It makes choices on the required metadata fields as
@@ -329,12 +327,6 @@
         since a corresponding conformance test suite can be
         defined.
       </p>
-      <section class="note">
-        It is also a goal of the <em>WoT Core Profile</em> to
-        ensure that compliant files can be understood by humans
-        - therefore descriptions, dates, and author fields are
-        either mandatory or highly recommended.
-      </section>
     </section>
     <section>
       <h2>Structure of this document</h2>
@@ -402,6 +394,179 @@
       <dd>
         The Web of Things Thing Description as defined in [[wot-thing-description]].
       </dd>
+  </section>
+
+  <section id="requirements">
+    <h2>Profile Requirements</h2>
+    <p>
+      The following requirements were identified by the WoT profile task force and are addressed by the Profile 1.0 specification.
+    </p><p>
+    <h3>Interoperability</h3>
+    <!-- Supporters: Oracle, Intel, Siemens, Fujitsu, Ben, Cristano -->
+    <p>
+      This is the most important objective of the profile.
+      A TD Consumer satisfying the requirements of a profile should be able to process any TD also satisfying the profile
+      and should be able to correctly interact with all affordances of the Thing such a TD describes.
+    </p>
+    
+    This implies that a profile has three parts:
+    <ul>
+      <li>Restrictions on TDs</li>
+      <li>Implementation requirements, constraints and behavioral assertions for Consumers</li>
+      <li>Implementation requirements, constraints and behavioral assertions on Things</li>
+    </ul>
+    
+    <p>
+      <section class="ednote">
+        Note: We don't want to prevent a TD to have forms for additional protocols,
+        but these can be ignored by compliant consumers, and could be removed without
+        affecting profile comformance and compatibility.
+        This may be useful for consumers that support multiple profiles.
+      </section>
+    </p>
+    
+    <h3>Limit and reduce complexity</h3>
+    <!-- Supporters: Oracle, Siemens, Ben, Cristiano -->
+    <p>
+      Complexity addresses at least the follwing two things to simplify the development and
+      reduce the implementation effort:
+    </p>
+    <ul>
+      <li>Implementation complexity on a thing and consumer, e.g. eliminating the need of RDF processing,
+        but still permitting semantic annotations.</li>
+      <li>simplifying thing description to have less variations.</li>
+      <li>limiting the effort for JSON implementation.</li>
+    </ul>
+    <!-- 
+    Note:
+    Siemens: There should be multiple forms permitted, concerns on size limits on TDs, there may be edge devices with huge TDs. 
+    We should not limit the length of a TD. Context extensions (e.g. for units) may need RDF processing, 
+    semantic annotations are needed for that purpose. For simple semantic annotations, a JSON parser is sufficient. 
+    It is not required for all uses cases of the profile to implement RDF processing. 
+    It is hard to find these numbers for limitations, in some cases you have to do a specific agreement with a 
+    customer to agree on their constaints / system limits, need to discuss with the customer, 
+    identify frameworks, background, we cannot find a consensus. 
+    Each IoT project is different, each customer uses a different framework.
+    
+    Ben: agree with all points of Sebastian, not all profiles should impose storage size and bandwidth limits.
+    
+    Cristiano: Disagree with limit storage and bandwidth requirements and Use finite (maximum) resources.
+    
+    Ege: agree on the requirement, we need to determine what we exactly mean with "complexity"
+    
+    Oracle: Complexity applies to all potential adopters, i.e. things, gateways, edge, cloud
+    -->
+    
+    <h3>No Ambiguities, select single choice</h3>
+    <!-- Supporters: Oracle, Fujitsu, Intel, Ben, Cristiano, Ege -->
+    <p>
+      Get rid of ambiguities, i.e. clarify specifications to define interpretation of a TD and behavior of the thing and
+      consumer.
+    </p>
+    <p>
+      Examples are the choice of properties vs. actions, use of PUT or POST for HTTP, observe protocols.
+    </p>
+    <!--
+    Notes: 
+    Intel: If something is really ambiguous, it needs to be updated in the TD, if there are multiple choices, 
+    Profile can narrow down to one choice. 
+    Ben: broadly support the requirement, however requiring that all profiles adopt the same ontology. 
+    Choice of actions vs. properties should be done in the TD.
+    This will probably create new requirements for the TD spec.
+    -->
+    
+    <h3>Developer guidance</h3>
+    <!-- Supporters: Fujitsu, Siemens, Intel, Oracle, Ben, Cristiano-->
+    <p>
+      A profile should help define what needs to be implemented. This requirement also includes behavioral goals and
+      recommendations about best practice for the implementation of Consumers and Things.
+    </p>
+    <h3>Multiple profiles (mechanism)</h3>
+    <!-- Supporters: Intel, Siemens, Ben, Cristiano, Hitachi -->
+    <p>
+      The mechanism used to indicate that a TD satisfies a profile should be general enough to indicate
+      the TD satisfies the requirements for multiple profiles.
+    </p>
+    <!--
+      Some people are concerned about fragmentation, if multiple profiles would be defined.
+      However this requirement is about the mechanism to identify the profile in use.
+  
+    Discussion: 
+    Does this mean a thing can support multiple profiles? 
+    TD already supports multiple profiles Profiling mechanism is described in the profile spec, 
+    may need to be polished
+    -->
+    
+    <h3>Composable profiles</h3>
+    <!-- Proposer: Intel, Hitachi, Siemens, Ben(*)-->
+    <p>
+      It should be possible to combine multiple profiles both for production and consumption:
+    </p>
+    <p>
+      It should be possible to indicate that a consumer can ingest TDs that satisfy one or more profiles, even if each TDs
+      individually only satisfies one profile. For example, a Smart Building may need to use both "home" devices and
+      "industrial" devices. A gateway consuming TDs should be able to ingest TDs designed for both the home and industrial
+      contexts.
+    </p><p>
+      A Thing that satisfies all the requirements for multiple TDs (for example, a device using protocols common to two
+      different usage contexts) should be able to indicate that.
+    </p>
+    
+    <h3>Validatible TDs</h3>
+    <!-- Supporters: Intel, Oracle, Ben, Cristiano -->
+    <p>
+      Whether or not a TD satisfies the requirements of a given profile should be verifiable with automated tools.
+      We can use the existing TD JSDON Schema as a basis and reuse the existing tooling (TD-playground)
+    </p>
+    <h3>Identification of profiles</h3>
+    <!-- Supporters: Intel, Siemens, Fujitsu, Hitachi, Ben, Oracle -->
+    <p>
+      There should be a mechanism to identify which profiles a TD satisfies. This mechanism should be intrinsic to a TD,
+      i.e. be in-band.
+    </p>
+    
+    <h3>Profile should define a finite set of features and capabilities to implement by the consumer</h3>
+    <!-- Supporters: Intel, Oracle, Fujitsu, Ben(*), IRI -->
+    <p>
+      A profile should limit the number of options, for example the set of possible protocols, to a finite set, so that a
+      consumer can consume any TD in a given profile with a finite and static code base.
+    </p>
+    <!--
+    Notes: Ben: A profile should not rule out other protocols. Things should be permitted to support other protocols, e.g.
+    CoAP. Websockets are another example, these should be allowed in the same TD
+    -->
+    <!--
+      
+    <h3>Limit resource consumption</h3>
+    Supporters: Oracle, Siemens (-), Fujitsu, Ben (-), Cristiano (-)
+    
+    Profiles should limit the maximum amount of resources necessary to generate and consume a TD.
+    
+    Notes: 
+    
+    Sebastian: We do not want limits in a profile for non-resource constrained devices. 
+    I don't see the need for the current profile. 
+    
+    Ben: Agree that it is fine to have a profile for resource constrained devices, but should not be here. 
+    
+    Cristiano: Goal overlaps with limit and reduce complexity, this is use case specific, for a set of constrained devices 
+    
+    Oracle: All devices have resource limits. Reasonable limits increase interop, because they can be supported by a wide population of things. This will increase the likeliness of profile adoption/WoT adoption.
+    
+    <h3>Follow Security and Privacy Best Practices</h3>
+    Proposers: Intel, Ben(*)
+    
+    Profiles should not specify security and protocol combinations that do not satisfy security best practices as described in the WoT Security Best Practices document.
+    
+    New security schemes may be added, others may be deprecated. McCool: Security best practices / guidelines are not published yet, no single scheme can be recommended, we cannot implement it across the use cases. Profile should follow best practices, we should discourage usage of insecure protocol. This could be a note to an informative document. Ben: subject to review of the actual best practices
+    
+    <h3>Developer Mode</h3>
+    Proposers: Intel, Ben(-)
+    
+    There should be a mechanism to allow the "nosec" security scheme but only in a Developer context. Nosec may still be useful in a closed network even for production.
+    
+    Notes: this overlaps with previous section Cristiano: We can make this just a recommendation.
+    -->    
   </section>
 
   <!-- Profiling mechanism -->
