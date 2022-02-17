@@ -88,7 +88,16 @@
           status: "Published",
           date: "2008-07",
           publisher: "ISO"
+        },
+        "H2020-CREATE-IoT": {
+          title: "H2020 – CREATE-IoT Project - Recommendations for commonalities and interoperability profiles of IoT platforms",
+          href: "https://european-iot-pilots.eu/wp-content/uploads/2018/11/D06_02_WP06_H2020_CREATE-IoT_Final.pdf",
+          status: "Published",
+          date: "2018-11",
+          publisher: "IoT European Large-Scale Pilots Programme"
         }
+
+
       }
     };
   </script>
@@ -303,10 +312,7 @@
       <ul>
         <li>guarantee interoperability among all
           implementations of the profile.</li>
-        <li>limit the implementation complexity for
-          resource constrained devices.</li>
-        <li>ensure that a thing description is also useful
-          for a human reader.</li>
+        <li>limit the implementation complexity.</li>
       </ul>
 
       <p>It makes choices on the required metadata fields as
@@ -329,12 +335,37 @@
         since a corresponding conformance test suite can be
         defined.
       </p>
-      <section class="note">
-        It is also a goal of the <em>WoT Core Profile</em> to
-        ensure that compliant files can be understood by humans
-        - therefore descriptions, dates, and author fields are
-        either mandatory or highly recommended.
-      </section>
+      <p>
+        The following classification adopts the terminology as desribed in the
+        "H2020 – CREATE-IoT Project - Recommendations for commonalities and
+        interoperability profiles of IoT platforms" report.
+        The definitions below have been adapted to reflect the scope of the WoT profile.
+      </p>
+      <h3 id="out-of-the-box-interoperability-technical-interop">Technical Interoperability</h3>
+      
+      <p>Technical Interoperabilityis usually associated with communication protocols and the
+        infrastructure needed for those protocols to operate;
+        e.g. HTTP / TCP/IP
+      </p>
+      <h3 id="out-of-the-box-interoperability-syntactic-interop">Syntactic Interoperability</h3>
+      <p>Syntactic Interoperability is usually associated with data formats and encodings along with
+        techniques for compressing them;
+        e.g. JSON-LD for TDs, JSON payloads
+      </p>
+      <h3 id="out-of-the-box-interoperability-technical-interop">Semantic Interoperability</h3>
+      <p>
+        • Semantic Interoperability:
+        action semantics wrt sync, async - , events, how to set/get multiple properties, writable properties, error messages
+        out of scope: domain specific ontologies, e.g. semantic interop of automotive and medical devices
+      </p>
+      <h3 id="out-of-the-box-interoperability-organisational-interop">Organisational Interoperability</h3>
+      <p>
+        • Organisational Interoperability:
+        "Any Consumer which conforms with a given profile can interact with any Thing which conforms with the same profile,
+        without additional customization."
+        Things from all engineers, vendors and SDOs that support requirements for the profile spec can be integrated without
+        additional customization. This works across infrastructures, regions and cultures.
+      </p>
     </section>
     <section>
       <h2>Structure of this document</h2>
