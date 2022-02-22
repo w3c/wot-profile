@@ -336,35 +336,40 @@
         defined.
       </p>
       <p>
-        The following classification adopts the terminology as desribed in the
+        The following classification adopts the terminology as described in the
         "H2020 – CREATE-IoT Project - Recommendations for commonalities and
         interoperability profiles of IoT platforms" report.
         The definitions below have been adapted to reflect the scope of the WoT profile.
       </p>
       <h3 id="out-of-the-box-interoperability-technical-interop">Technical Interoperability</h3>
-      
-      <p>Technical Interoperabilityis usually associated with communication protocols and the
-        infrastructure needed for those protocols to operate;
-        e.g. HTTP / TCP/IP
+      <p><em>Technical Interoperability</em> is usually associated with communication protocols and the
+        infrastructure needed for those protocols to operate. This implied to agree on a common protocol
+        (e.g. HTTP / TCP/IP) and provide additional clarifications, where required.
       </p>
+
       <h3 id="out-of-the-box-interoperability-syntactic-interop">Syntactic Interoperability</h3>
-      <p>Syntactic Interoperability is usually associated with data formats and encodings along with
-        techniques for compressing them;
-        e.g. JSON-LD for TDs, JSON payloads
+      <p><em>Syntactic Interoperability</em> is usually associated with data formats and encodings along with
+        techniques for compressing them. Examples for these formats and encodings in the WoT are JSON, 
+        XML, JSON-LD, UTF-8 payloads.
       </p>
       <h3 id="out-of-the-box-interoperability-technical-interop">Semantic Interoperability</h3>
       <p>
-        • Semantic Interoperability:
-        action semantics wrt sync, async - , events, how to set/get multiple properties, writable properties, error messages
-        out of scope: domain specific ontologies, e.g. semantic interop of automotive and medical devices
+        <em>Semantic Interoperability</em> is associated with a common understanding of the behavior of communication partners.
+        In the profile context, it includes a common interpretation of (synchronous and asynchronous) action semantics, 
+        a common event model, how to set/get multiple properties, writable properties, 
+        a common error model and error messages.
+      </p><p>
+        Domain specific ontologies, e.g. semantic interop of automotive and medical devices exceed the scope of the profile.
       </p>
       <h3 id="out-of-the-box-interoperability-organisational-interop">Organisational Interoperability</h3>
       <p>
-        • Organisational Interoperability:
-        "Any Consumer which conforms with a given profile can interact with any Thing which conforms with the same profile,
-        without additional customization."
-        Things from all engineers, vendors and SDOs that support requirements for the profile spec can be integrated without
-        additional customization. This works across infrastructures, regions and cultures.
+        <em>Organisational Interoperability</em> in the profile context implies that any consumer, 
+        which conforms with a given profile can interact with any Thing which conforms 
+        with the same profile, without additional customization.
+      </p><p>
+        Devices created by various engineers, vendors and SDOs that satisfy the requirements 
+        of the profile spec can be integrated with compliant consumers without additional customization. 
+        This works across infrastructures, regions and cultures.
       </p>
     </section>
     <section>
