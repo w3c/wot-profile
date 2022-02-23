@@ -182,7 +182,7 @@
     </section>
 
     <p>
-      <span class="rfc2119-assertion" id="profile-abstract-2">
+      <span id="profile-abstract-2">
       The W3C WoT Thing Architecture [[wot-architecture]] and
       WoT Thing Description [[wot-thing-description]] define a
       powerful description mechanism and a format to describe
@@ -899,14 +899,14 @@
 
           <section class="note">
             <p>
-              <span class="rfc2119-assertion" id="profile-5.1.2.1-thing-mandatory-fields-4">
+              <span id="profile-5.1.2.1-thing-mandatory-fields-4">
               It will be evaluated whether the profile also recommends some new TD terms that may be
               introduced in TD 1.1.
               </span>
               Currently the following terms are discussed: serialNumber,
               hardwareRevision, softwareRevision, loc_latitude, loc_longitude
               loc_altitude, loc_height, and loc_depth.
-              <span class="rfc2119-assertion" id="profile-5.1.2.1-mandatory-fields-5">
+              <span id="profile-5.1.2.1-mandatory-fields-5">
               If these, or some of them, are defined in the TD
               1.1 model, they may be recommended here in one of the next draft updates.
               </span>
@@ -953,7 +953,7 @@
         </p>
         <section class="note" title="RATIONALE">
           <p>
-            <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-2">
+            <span id="profile-5.1.3-thing-data-schema-2">
             This may appear as a severe limitation,
             however it is motivated by integrating with
             multiple cloud services.
@@ -1149,9 +1149,9 @@
                 <td>
                   <span class="rfc2119-assertion" id="profile-5.1.4.2-thing-property-affordance-additional-constraints-6">
                   If the field <code>format</code>
-                  is used, only formats defined in
+                  is used, formats defined in
                   section 7.3.1-7.3.6 of
-                  [[JSON-SCHEMA]] MAY be used.
+                  [[JSON-SCHEMA]] MUST be used.
                   </span>
                 </td>
               </tr>
@@ -1187,7 +1187,7 @@
             It is highly RECOMMENDED to always specify a
             <code>unit</code>
             , if a value has a metric.
-            <span class="rfc2119-assertion" id="profile-5.1.4.3-thing-properties-recommended-practice-1">
+            <span id="profile-5.1.4.3-thing-properties-recommended-practice-1">
             Authors of <em>Thing Descriptions</em> should be aware, that units
             that are common in their geographic region are
             not globally applicable and may lead to
@@ -1332,9 +1332,9 @@
                 <td>
                   <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-3">
                   If the field <code>format</code>
-                  is used, only formats defined in
+                  is used, formats defined in
                   section 7.3.1-7.3.6 of
-                  [[JSON-SCHEMA]] MAY be used.
+                  [[JSON-SCHEMA]] MUST be used.
                   </span>
                 </td>
               </tr>
@@ -1386,7 +1386,7 @@
 
         <p>
           <span class="rfc2119-assertion" id="profile-5.1.6-thing-event-affordance-1">
-          A <a>Thing</a> may provide more than one event
+          A <a>Thing</a> MAY provide more than one event
           mechanism to enable a variety of consumers.
           </span>
         </p>
@@ -1491,7 +1491,7 @@
         <h3 id="forms">Forms</h3>
         <p>
           <span class="rfc2119-assertion" id="profile-5.1.7-thing-forms-1">
-          A <a>Thing</a> may provide more than one event
+          A <a>Thing</a> MAY provide more than one event
           mechanism to enable a variety of consumers.
           </span>
         </p>
@@ -1609,7 +1609,7 @@
           </span>
           <span class="rfc2119-assertion" id="profile-5.1.9-thing-security-3">
           The security scheme is
-          applied to the thing as a whole, a thing may adopt
+          applied to the thing as a whole, a thing MAY adopt
           multiple security schemes.
           </span>
         </p>
@@ -1676,7 +1676,7 @@
             id="core-profile-protocol-binding-properties-readproperty-2">
             <li>
               After defaults have been applied, its <code>op</code> member 
-              contains the value <code>readproperty</code>
+              contains the value <code>readproperty</code>.
             </li>
             <li>
               After being resolved against a base URL where applicable, the
@@ -2807,8 +2807,8 @@
           </span>
         </p>
         <p class="ednote">
-          <span class="rfc2119-assertion" id="profile-5.2.4-thing-protocol-binding-error-responses-4">
-          If we define the finite set of error responses as above then we
+          <span id="profile-5.2.4-thing-protocol-binding-error-responses-4">
+          TODO: If we define the finite set of error responses as above then we
           should also define what a Consumer should do if it receives a 3xx
           redirect type response.
           </span>
