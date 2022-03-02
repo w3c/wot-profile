@@ -434,8 +434,29 @@
 
   <section id="terminology">
     <h2 id="x3-terminology">Terminology</h2>
-    <p>This specification uses the same terminology as the WoT
-      Architecture and Thing Description specifications.</p>
+
+    <p>The fundamental WoT terminology such as
+      <dfn class="lint-ignore">Thing</dfn>,
+      <dfn class="lint-ignore">Consumer</dfn>,
+      <dfn class="lint-ignore">Thing Description</dfn> (<dfn class="lint-ignore">TD</dfn>),
+      <dfn class="lint-ignore">WoT Thing Description</dfn>,
+      <dfn class="lint-ignore">Partial TD</dfn>,
+      <dfn class="lint-ignore">Thing Model</dfn> (<dfn class="lint-ignore">TM</dfn>),
+      <dfn class="lint-ignore">Interaction Model</dfn>,
+      <dfn class="lint-ignore">Interaction Affordance</dfn>,
+      <dfn class="lint-ignore">Property</dfn>,
+      <dfn class="lint-ignore">Action</dfn>,
+      <dfn class="lint-ignore">Event</dfn>,
+      <dfn class="lint-ignore">Protocol Binding</dfn>,
+      <dfn class="lint-ignore">Servient</dfn>,
+      <dfn class="lint-ignore">Vocabulary</dfn>,
+      <dfn class="lint-ignore">Term</dfn>,
+      <dfn id="dfn-vocab-term" class="lint-ignore">Vocabulary Term</dfn>,
+      <dfn class="lint-ignore">WoT Interface</dfn>, and
+      <dfn class="lint-ignore">WoT Runtime</dfn>
+      are defined in <a href="https://www.w3.org/TR/wot-architecture/#terminology">Section 3</a>
+      of the WoT Architecture specification [[?WOT-ARCHITECTURE]].
+    
     <p>
       For convenience of the reader, we use the terms <em>keyword</em>
       and <em>field</em> for the linguistic notion <em>vocabulary term</em>
@@ -445,14 +466,16 @@
       We use the terms <em>device</em> and <em>thing</em> in an
       interchangeable manner.
     </p>
-    <h4 id="additional-definitions-">Additional Definitions:</h4>
+    
+    <h4 id="additional-definitions-">Additional Definitions</h4>
     <dl>
       <dt>
-        <dfn>Profile</dfn>
+        <dfn class="export">Profile</dfn>
       </dt>
       <dd>A set of prescriptive rules, to ensure that
         compliant implementations satisfy the semantic
         guarantees that are implied by them.
+      </dd>
       <dt>
         <dfn>WoT Core Profile</dfn>
       </dt>
@@ -472,17 +495,7 @@
         Description specification as
         defined in section <a href="#wot-core-data-model"></a>.
       </dd>
-      <dt>
-        <dfn>Thing Description</dfn>
-      </dt>
-      <dd>
-        Synonym for <a>WoT Thing Description</a>.
-      </dd>
-      <dfn>WoT Thing Description</dfn>
-      </dt>
-      <dd>
-        The Web of Things Thing Description as defined in [[wot-thing-description]].
-      </dd>
+    </dl>
   </section>
   
 
