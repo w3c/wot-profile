@@ -88,7 +88,16 @@
           status: "Published",
           date: "2008-07",
           publisher: "ISO"
+        },
+        "H2020-CREATE-IoT": {
+          title: "H2020 – CREATE-IoT Project - Recommendations for commonalities and interoperability profiles of IoT platforms",
+          href: "https://european-iot-pilots.eu/wp-content/uploads/2018/11/D06_02_WP06_H2020_CREATE-IoT_Final.pdf",
+          status: "Published",
+          date: "2018-11",
+          publisher: "IoT European Large-Scale Pilots Programme"
         }
+
+
       }
     };
   </script>
@@ -173,7 +182,7 @@
     </section>
 
     <p>
-      <span class="rfc2119-assertion" id="profile-abstract-2">
+      <span id="profile-abstract-2">
       The W3C WoT Thing Architecture [[wot-architecture11]] and
       WoT Thing Description [[wot-thing-description]] define a
       powerful description mechanism and a format to describe
@@ -259,8 +268,48 @@
         demonstrators, were described with Thing Descriptions
         that are constrained to the <a>Core Profile</a>.
       </p>
-
     </section>
+
+    <!-- Use Cases -->
+  <section id="profile-use-cases">
+    <h2>Use Cases and Requirements</h2>
+    <p>
+      A set of over 30 use cases for the Web of Things were contributed by stakeholders 
+      from multiple industries for various application domains.
+      These have been published in the WoT Use Cases and Requirements document [[wot-usecases]]. 
+    </p><p>
+      Based on these use cases a set of requirements have been derived which drive the development 
+      of the W3C Web of Things specification family. 
+      Several of these domains require easy integration of devices from multiple vendors, 
+      in other words, out-of-the-box interoperability. 
+      However, the descriptive approach taken by the WoT specifications generally leads 
+      to a large variety of different protocols and data formats, 
+      which can work against out-of-the box interoperability. 
+    </p><p>
+      For example, a WoT Thing Description (TD) can in theory include a description based on a 
+      networking protocol unknown to a device that wishes to connect to it.  
+      To ensure interoperability without additional customization (e.g. by writing software or 
+      performing complex setup or configuration steps), 
+      the range of such choices needs to be limited to a finite set so that a consumer 
+      of a Thing Description can be sure it will be able to interact with any possible Thing. 
+      A finite set of customization choices is also important for implementing devices with a fixed code base. 
+      Defining such constraints leads to the profile mechanism and the WoT Core profile.
+      </p>
+      <p>
+      In addition to multiple vertical use cases that will use HTTP(S) for their implementations,
+      there are horizontal use cases that are addressed by this profile specification.
+      The primary focus is to enable Multi-Vendor system integration with out of the box interoperability:
+      </p>
+      <section id="profile-use-case-MVSE">
+        <h2>Multi-Vendor System Integration - Out of the box interoperability</h2>
+          Users of devices want to process data from all devices that conform to a class of devices in a uniform way. 
+          They need a guarantee that they are able to correctly interact with all affordances of the Thing 
+          that complies with this class of devices. 
+          Different interpretations of the same Thing Description, that lead to different behaviour, should not be possible.
+          Users want to integrate devices in existing scenarios out of the box, i.e. with close to zero configuration tasks.
+      </section>
+    </section>
+  
     <section id="why-profile">
       <h2 id="why-define-a-core-profile">
         Why a <a>Core Profile</a>?
@@ -303,10 +352,7 @@
       <ul>
         <li>guarantee interoperability among all
           implementations of the profile.</li>
-        <li>limit the implementation complexity for
-          resource constrained devices.</li>
-        <li>ensure that a thing description is also useful
-          for a human reader.</li>
+        <li>limit the implementation complexity.</li>
       </ul>
 
       <p>It makes choices on the required metadata fields as
@@ -329,12 +375,47 @@
         since a corresponding conformance test suite can be
         defined.
       </p>
-      <section class="note">
-        It is also a goal of the <em>WoT Core Profile</em> to
-        ensure that compliant files can be understood by humans
-        - therefore descriptions, dates, and author fields are
-        either mandatory or highly recommended.
-      </section>
+      <p>
+        The following classification adopts the terminology as described in the
+        "H2020 – CREATE-IoT Project - Recommendations for commonalities and
+        interoperability profiles of IoT platforms" [[?H2020-CREATE-IoT]]
+        report.
+        The definitions below have been adapted to reflect the scope of the WoT profile.
+      </p>
+      <h3 id="out-of-the-box-interoperability-technical-interop">Technical Interoperability</h3>
+      <p><em>Technical Interoperability</em> is usually associated with communication protocols and the
+        infrastructure needed for those protocols to operate. This implies agreeing on a common protocol
+        (e.g. HTTP / TCP/IP) and providing additional clarifications, where required.
+      </p>
+
+      <h3 id="out-of-the-box-interoperability-syntactic-interop">Syntactic Interoperability</h3>
+      <p><em>Syntactic Interoperability</em> is usually associated with data formats and encodings along with
+        techniques for compressing them. Examples for these formats and encodings in the WoT are JSON, 
+        XML, JSON-LD, UTF-8 payloads.
+      </p>
+      <h3 id="out-of-the-box-interoperability-technical-interop">Semantic Interoperability</h3>
+      <p>
+        <em>Semantic Interoperability</em> is associated with a common understanding of the behavior of communication partners.
+        In the profile context, it includes a common interpretation of (synchronous and asynchronous) action semantics, 
+        a common event model, how to set/get multiple properties, writable properties, 
+        a common error model and error messages.
+      </p><p>
+        Domain specific ontologies, e.g. semantic interop of automotive and medical devices exceed the scope of the profile.
+      </p>
+      <h3 id="out-of-the-box-interoperability-organisational-interop">Organisational Interoperability</h3>
+      <p>
+        <em>Organisational Interoperability</em> in the profile context implies that any consumer, 
+        which conforms with a given profile can interact with any Thing which conforms 
+        with the same profile, without additional customization.
+      </p><p>
+        Organisational Interoperability also requires commonly agreed approaches to security, 
+        trust and privacy, i.e. a consumer is provided access to Things only, when these 
+        common terms and conditions are applied.
+      </p><p>
+        Devices created by various engineers, vendors and SDOs that satisfy the requirements 
+        of the profile spec can be integrated with compliant consumers without additional customization. 
+        This works across infrastructures, regions and cultures.
+      </p>
     </section>
     <section>
       <h2>Structure of this document</h2>
@@ -353,8 +434,29 @@
 
   <section id="terminology">
     <h2 id="x3-terminology">Terminology</h2>
-    <p>This specification uses the same terminology as the WoT
-      Architecture and Thing Description specifications.</p>
+
+    <p>The fundamental WoT terminology such as
+      <dfn class="lint-ignore">Thing</dfn>,
+      <dfn class="lint-ignore">Consumer</dfn>,
+      <dfn class="lint-ignore">Thing Description</dfn> (<dfn class="lint-ignore">TD</dfn>),
+      <dfn class="lint-ignore">WoT Thing Description</dfn>,
+      <dfn class="lint-ignore">Partial TD</dfn>,
+      <dfn class="lint-ignore">Thing Model</dfn> (<dfn class="lint-ignore">TM</dfn>),
+      <dfn class="lint-ignore">Interaction Model</dfn>,
+      <dfn class="lint-ignore">Interaction Affordance</dfn>,
+      <dfn class="lint-ignore">Property</dfn>,
+      <dfn class="lint-ignore">Action</dfn>,
+      <dfn class="lint-ignore">Event</dfn>,
+      <dfn class="lint-ignore">Protocol Binding</dfn>,
+      <dfn class="lint-ignore">Servient</dfn>,
+      <dfn class="lint-ignore">Vocabulary</dfn>,
+      <dfn class="lint-ignore">Term</dfn>,
+      <dfn id="dfn-vocab-term" class="lint-ignore">Vocabulary Term</dfn>,
+      <dfn class="lint-ignore">WoT Interface</dfn>, and
+      <dfn class="lint-ignore">WoT Runtime</dfn>
+      are defined in <a href="https://www.w3.org/TR/wot-architecture/#terminology">Section 3</a>
+      of the WoT Architecture specification [[?WOT-ARCHITECTURE]].
+    
     <p>
       For convenience of the reader, we use the terms <em>keyword</em>
       and <em>field</em> for the linguistic notion <em>vocabulary term</em>
@@ -364,14 +466,16 @@
       We use the terms <em>device</em> and <em>thing</em> in an
       interchangeable manner.
     </p>
-    <h4 id="additional-definitions-">Additional Definitions:</h4>
+    
+    <h4 id="additional-definitions-">Additional Definitions</h4>
     <dl>
       <dt>
-        <dfn>Profile</dfn>
+        <dfn class="export">Profile</dfn>
       </dt>
       <dd>A set of prescriptive rules, to ensure that
         compliant implementations satisfy the semantic
         guarantees that are implied by them.
+      </dd>
       <dt>
         <dfn>WoT Core Profile</dfn>
       </dt>
@@ -391,17 +495,180 @@
         Description specification as
         defined in section <a href="#wot-core-data-model"></a>.
       </dd>
-      <dt>
-        <dfn>Thing Description</dfn>
-      </dt>
-      <dd>
-        Synonym for <a>WoT Thing Description</a>.
-      </dd>
-      <dfn>WoT Thing Description</dfn>
-      </dt>
-      <dd>
-        The Web of Things Thing Description as defined in [[wot-thing-description]].
-      </dd>
+    </dl>
+  </section>
+  
+
+  <section id="requirements">
+    <h2>Profile Requirements</h2>
+    <p>
+      The following requirements were identified by the WoT profile task force and are addressed by the 
+      Profile 1.0 specification.
+    </p>
+    <h3>Interoperability</h3>
+    <!-- Supporters: Oracle, Intel, Siemens, Fujitsu, Ben, Cristano -->
+    <p>
+      This is the most important objective of the profile.
+      A TD Consumer satisfying the requirements of a profile should be able to process any TD also satisfying the profile
+      and should be able to correctly interact with all affordances of the Thing such a TD describes.
+    </p>
+    
+    This implies that a profile has three parts:
+    <ul>
+      <li>Restrictions on TDs</li>
+      <li>Implementation requirements, constraints and behavioral assertions for Consumers</li>
+      <li>Implementation requirements, constraints and behavioral assertions on Things</li>
+    </ul>
+    
+      <section class="ednote">
+        Note: We don't want to prevent a TD to have forms for additional protocols,
+        but these can be ignored by compliant consumers, and could be removed without
+        affecting profile comformance and compatibility.
+        This may be useful for consumers that support multiple profiles.
+      </section>
+    
+    <h3>Limit and reduce complexity</h3>
+    <!-- Supporters: Oracle, Siemens, Ben, Cristiano -->
+    <p>
+      Complexity addresses at least the follwing two things to simplify the development and
+      reduce the implementation effort:
+    </p>
+    <ul>
+      <li>Implementation complexity on a thing and consumer, e.g. eliminating the need of RDF processing,
+        but still permitting semantic annotations.</li>
+      <li>Simplifying thing description to have fewer variations.</li>
+      <li>Limiting the effort for JSON implementation.</li>
+    </ul>
+    <!-- 
+    Note:
+    Siemens: There should be multiple forms permitted, concerns on size limits on TDs, there may be edge devices with huge TDs. 
+    We should not limit the length of a TD. Context extensions (e.g. for units) may need RDF processing, 
+    semantic annotations are needed for that purpose. For simple semantic annotations, a JSON parser is sufficient. 
+    It is not required for all uses cases of the profile to implement RDF processing. 
+    It is hard to find these numbers for limitations, in some cases you have to do a specific agreement with a 
+    customer to agree on their constaints / system limits, need to discuss with the customer, 
+    identify frameworks, background, we cannot find a consensus. 
+    Each IoT project is different, each customer uses a different framework.
+    
+    Ben: agree with all points of Sebastian, not all profiles should impose storage size and bandwidth limits.
+    
+    Cristiano: Disagree with limit storage and bandwidth requirements and Use finite (maximum) resources.
+    
+    Ege: agree on the requirement, we need to determine what we exactly mean with "complexity"
+    
+    Oracle: Complexity applies to all potential adopters, i.e. things, gateways, edge, cloud
+    -->
+    
+    <h3>No Ambiguities, select single choice</h3>
+    <!-- Supporters: Oracle, Fujitsu, Intel, Ben, Cristiano, Ege -->
+    <p>
+      Get rid of ambiguities, i.e. clarify specifications to define interpretation of a TD and behavior of the thing and
+      consumer.
+    </p>
+    <p>
+      Examples are the choice of properties vs. actions, use of PUT or POST for HTTP, observe protocols.
+    </p>
+    <!--
+    Notes: 
+    Intel: If something is really ambiguous, it needs to be updated in the TD, if there are multiple choices, 
+    Profile can narrow down to one choice. 
+    Ben: broadly support the requirement, however requiring that all profiles adopt the same ontology. 
+    Choice of actions vs. properties should be done in the TD.
+    This will probably create new requirements for the TD spec.
+    -->
+    
+    <h3>Developer guidance</h3>
+    <!-- Supporters: Fujitsu, Siemens, Intel, Oracle, Ben, Cristiano-->
+    <p>
+      A profile should help define what needs to be implemented. This requirement also includes behavioral goals and
+      recommendations about best practice for the implementation of Consumers and Things.
+    </p>
+    <h3>Multiple profiles (mechanism)</h3>
+    <!-- Supporters: Intel, Siemens, Ben, Cristiano, Hitachi -->
+    <p>
+      The mechanism used to indicate that a TD satisfies a profile should be general enough to indicate
+      the TD satisfies the requirements for multiple profiles.
+    </p>
+    <!--
+      Some people are concerned about fragmentation, if multiple profiles would be defined.
+      However this requirement is about the mechanism to identify the profile in use.
+  
+    Discussion: 
+    Does this mean a thing can support multiple profiles? 
+    TD already supports multiple profiles Profiling mechanism is described in the profile spec, 
+    may need to be polished
+    -->
+    
+    <h3>Composable profiles</h3>
+    <!-- Proposer: Intel, Hitachi, Siemens, Ben(*)-->
+    <p>
+      It should be possible to combine multiple profiles both for production and consumption:
+    </p>
+    <p>
+      It should be possible to indicate that a consumer can ingest TDs that satisfy one or more profiles, even if each TDs
+      individually only satisfies one profile. For example, a Smart Building may need to use both "constrained" devices and
+      "unconstrained" devices. A gateway consuming TDs should be able to ingest TDs designed for both the constrained and unconstrained
+      contexts.
+    </p><p>
+      A Thing that satisfies all the requirements for multiple TDs (for example, a device using protocols common to two
+      different usage contexts) should be able to indicate that.
+    </p>
+    
+    <h3>Validatible TDs</h3>
+    <!-- Supporters: Intel, Oracle, Ben, Cristiano -->
+    <p>
+      Whether or not a TD satisfies the requirements of a given profile should be verifiable with automated tools.
+      We can use the existing TD JSDON Schema as a basis and reuse the existing tooling (TD-playground)
+    </p>
+    <h3>Identification of profiles</h3>
+    <!-- Supporters: Intel, Siemens, Fujitsu, Hitachi, Ben, Oracle -->
+    <p>
+      There should be a mechanism to identify which profiles a TD satisfies. This mechanism should be intrinsic to a TD,
+      i.e. be in-band.
+    </p>
+    
+    <h3>Profile should define a finite set of features and capabilities to implement by the consumer</h3>
+    <!-- Supporters: Intel, Oracle, Fujitsu, Ben(*), IRI -->
+    <p>
+      A profile should limit the number of options, for example the set of possible protocols, to a finite set, so that a
+      consumer can consume any TD in a given profile with a finite and static code base.
+    </p>
+    <!--
+    Notes: Ben: A profile should not rule out other protocols. Things should be permitted to support other protocols, e.g.
+    CoAP. Websockets are another example, these should be allowed in the same TD
+    -->
+    <!--
+      
+    <h3>Limit resource consumption</h3>
+    Supporters: Oracle, Siemens (-), Fujitsu, Ben (-), Cristiano (-)
+    
+    Profiles should limit the maximum amount of resources necessary to generate and consume a TD.
+    
+    Notes: 
+    
+    Sebastian: We do not want limits in a profile for non-resource constrained devices. 
+    I don't see the need for the current profile. 
+    
+    Ben: Agree that it is fine to have a profile for resource constrained devices, but should not be here. 
+    
+    Cristiano: Goal overlaps with limit and reduce complexity, this is use case specific, for a set of constrained devices 
+    
+    Oracle: All devices have resource limits. Reasonable limits increase interop, because they can be supported by a wide population of things. This will increase the likeliness of profile adoption/WoT adoption.
+    
+    <h3>Follow Security and Privacy Best Practices</h3>
+    Proposers: Intel, Ben(*)
+    
+    Profiles should not specify security and protocol combinations that do not satisfy security best practices as described in the WoT Security Best Practices document.
+    
+    New security schemes may be added, others may be deprecated. McCool: Security best practices / guidelines are not published yet, no single scheme can be recommended, we cannot implement it across the use cases. Profile should follow best practices, we should discourage usage of insecure protocol. This could be a note to an informative document. Ben: subject to review of the actual best practices
+    
+    <h3>Developer Mode</h3>
+    Proposers: Intel, Ben(-)
+    
+    There should be a mechanism to allow the "nosec" security scheme but only in a Developer context. Nosec may still be useful in a closed network even for production.
+    
+    Notes: this overlaps with previous section Cristiano: We can make this just a recommendation.
+    -->    
   </section>
 
   <!-- Profiling mechanism -->
@@ -426,7 +693,7 @@
     {
       "@context": "https://www.w3.org/2019/wot/td/v1",
       "id": "urn:dev:ops:32473-WoTLamp-1234",
-      "profile": "https://www.w3.org/2021/wot/profile/core",
+      "profile": "https://www.w3.org/2022/wot/profile/core/v1",
       "title": "My Lamp",
       "description": "A web connected lamp",
       ...
@@ -437,8 +704,8 @@
       "@context": "https://www.w3.org/2019/wot/td/v1",
       "id": "urn:dev:ops:32473-WoTLamp-1234",
       "profile": [
-        "https://www.w3.org/2021/wot/profile/core",
-        "https://www.w3.org/2021/wot/profile/constrained"
+        "https://www.w3.org/2022/wot/profile/core/v1",
+        "https://www.w3.org/2022/wot/profile/constrained/v1"
       ],
       "title": "My Lamp",
       "description": "A web connected lamp",
@@ -453,6 +720,26 @@
     This section defines the <a>Core Profile</a> by defining a <a>Core
       Data Model</a> and a set of <a href="#protocol-binding">Protocol
       Binding</a> Rules.
+
+    <!-- Identifier -->
+    <section id="identifier">
+      <h2>Identifier</h2>
+      <p class="rfc2119-assertion" id="core-profile-identifier-1">
+        In order to denote that a given
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        conforms to the Core Profile, its Thing Description MUST have a
+        <a href="https://w3c.github.io/wot-thing-description/#thing">
+        <code>profile</code></a> member [[wot-thing-description]] with a value
+        of <code>https://www.w3.org/2022/wot/profile/core/v1</code>.
+      </p>
+      <p class="ednote">
+        The name "Core Profile" and the URI 
+        <code>https://www.w3.org/2022/wot/profile/core/v1</code> have not yet 
+        been finalised and are subject to change (see 
+        <a href="https://github.com/w3c/wot-profile/issues/5">#5</a>).
+      </p>
+    </section>
+
     <section id="wot-core-data-model">
       <h2>WoT Core Data Model</h2>
       <p>
@@ -686,14 +973,14 @@
 
           <section class="note">
             <p>
-              <span class="rfc2119-assertion" id="profile-5.1.2.1-thing-mandatory-fields-4">
+              <span id="profile-5.1.2.1-thing-mandatory-fields-4">
               It will be evaluated whether the profile also recommends some new TD terms that may be
               introduced in TD 1.1.
               </span>
               Currently the following terms are discussed: serialNumber,
               hardwareRevision, softwareRevision, loc_latitude, loc_longitude
               loc_altitude, loc_height, and loc_depth.
-              <span class="rfc2119-assertion" id="profile-5.1.2.1-mandatory-fields-5">
+              <span id="profile-5.1.2.1-mandatory-fields-5">
               If these, or some of them, are defined in the TD
               1.1 model, they may be recommended here in one of the next draft updates.
               </span>
@@ -740,7 +1027,7 @@
         </p>
         <section class="note" title="RATIONALE">
           <p>
-            <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-2">
+            <span id="profile-5.1.3-thing-data-schema-2">
             This may appear as a severe limitation,
             however it is motivated by integrating with
             multiple cloud services.
@@ -936,9 +1223,9 @@
                 <td>
                   <span class="rfc2119-assertion" id="profile-5.1.4.2-thing-property-affordance-additional-constraints-6">
                   If the field <code>format</code>
-                  is used, only formats defined in
+                  is used, formats defined in
                   section 7.3.1-7.3.6 of
-                  [[JSON-SCHEMA]] MAY be used.
+                  [[JSON-SCHEMA]] MUST be used.
                   </span>
                 </td>
               </tr>
@@ -974,7 +1261,7 @@
             It is highly RECOMMENDED to always specify a
             <code>unit</code>
             , if a value has a metric.
-            <span class="rfc2119-assertion" id="profile-5.1.4.3-thing-properties-recommended-practice-1">
+            <span id="profile-5.1.4.3-thing-properties-recommended-practice-1">
             Authors of <em>Thing Descriptions</em> should be aware, that units
             that are common in their geographic region are
             not globally applicable and may lead to
@@ -1119,9 +1406,9 @@
                 <td>
                   <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-3">
                   If the field <code>format</code>
-                  is used, only formats defined in
+                  is used, formats defined in
                   section 7.3.1-7.3.6 of
-                  [[JSON-SCHEMA]] MAY be used.
+                  [[JSON-SCHEMA]] MUST be used.
                   </span>
                 </td>
               </tr>
@@ -1173,7 +1460,7 @@
 
         <p>
           <span class="rfc2119-assertion" id="profile-5.1.6-thing-event-affordance-1">
-          A <a>Thing</a> may provide more than one event
+          A <a>Thing</a> MAY provide more than one event
           mechanism to enable a variety of consumers.
           </span>
         </p>
@@ -1278,7 +1565,7 @@
         <h3 id="forms">Forms</h3>
         <p>
           <span class="rfc2119-assertion" id="profile-5.1.7-thing-forms-1">
-          A <a>Thing</a> may provide more than one event
+          A <a>Thing</a> MAY provide more than one event
           mechanism to enable a variety of consumers.
           </span>
         </p>
@@ -1380,51 +1667,6 @@
           interpretation of a link is out of scope.
         </p>
       </section>
-
-      <!--  Security -->
-      <section>
-        <h3 id="security">Security</h3>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5.1.9-thing-security-1">
-          The <a>Core Data Model</a> defines a subset of the
-          security schemes that MAY be implemented on resource
-          constrained devices.
-          </span>
-          <span class="rfc2119-assertion" id="profile-5.1.9-thing-security-2">
-          A security scheme MUST be
-          defined at the thing level.
-          </span>
-          <span class="rfc2119-assertion" id="profile-5.1.9-thing-security-3">
-          The security scheme is
-          applied to the thing as a whole, a thing may adopt
-          multiple security schemes.
-          </span>
-        </p>
-        <p>
-          The set of security schemes supported in the <a>Core
-            Data Model</a> is based on the PlugFest results.
-            <span class="rfc2119-assertion" id="profile-5.1.9-thing-security-4">
-              To ensure interoperability, a TD consumer, which
-              compliant with the <a>Core Data Model</a> MUST
-              support <strong>all</strong> of the following security schemes:
-            </span>
-        </p>
-
-        <ul>
-          <li>no security</li>
-          <li>Basic Auth</li>
-          <li>Digest</li>
-          <li>Bearer Token</li>
-          <li>Oauth2</li>
-        </ul>
-
-        <section>
-          <h4>Recommended Practice</h4>
-          <p>When using the "no security" or "Basic Auth"
-            security schemes it is strongly recommended to
-            use transport layer encryption.</p>
-        </section>
-      </section>
     </section>
 
     <!-- Protocol Binding -->
@@ -1463,7 +1705,7 @@
             id="core-profile-protocol-binding-properties-readproperty-2">
             <li>
               After defaults have been applied, its <code>op</code> member 
-              contains the value <code>readproperty</code>
+              contains the value <code>readproperty</code>.
             </li>
             <li>
               After being resolved against a base URL where applicable, the
@@ -1554,8 +1796,6 @@
             id="core-profile-protocol-binding-properties-writeproperty-5">
             <li>Method set to <code>PUT</code></li>
             <li>URL set to the URL of the <code>Property</code> resource</li>
-            <li><code>Accept</code> header set to <code>application/json
-              </code></li>
             <li><code>Content-Type</code> header set to <code>application/json
               </code></li>
             <li>A body with a requested new value for the property serialized
@@ -1565,7 +1805,6 @@
           PUT /things/lamp/properties/on HTTP/1.1
           Host: mythingserver.com
           Content-Type: application/json
-          Accept: application/json
           true
           </pre>
           <p class="rfc2119-assertion" 
@@ -1699,8 +1938,6 @@
               </li>
             <li><code>Content-Type</code> header set to <code>application/json
               </code></li>
-            <li><code>Accept</code> header set to <code>application/json
-              </code></li>
             <li>A body with requested new values for the writable properties
               serialized in JSON, as an object keyed by property name</li>
           </ul>
@@ -1708,7 +1945,6 @@
           PUT /things/lamp/properties HTTP/1.1
           Host: mythingserver.com
           Content-Type: application/json
-          Accept: application/json
           {
             "on": true,
             "level": 50
@@ -1900,8 +2136,8 @@
                 <td><code>error</code></td>
                 <td>
                   An error message, if any, associated with a failed action 
-                  which MUST conform with the Problem Details format
-                  [[RFC7807]] (only needed in response to a
+                  which MUST use the JSON serialization of the Problem Details 
+                  format [[RFC7807]] (only needed in response to a
                   <a href="#queryaction"><code>queryaction</code></a> 
                   operation).
                 </td>
@@ -2594,8 +2830,8 @@
           </span>
         </p>
         <p class="ednote">
-          <span class="rfc2119-assertion" id="profile-5.2.4-thing-protocol-binding-error-responses-4">
-          If we define the finite set of error responses as above then we
+          <span id="profile-5.2.4-thing-protocol-binding-error-responses-4">
+          TODO: If we define the finite set of error responses as above then we
           should also define what a Consumer should do if it receives a 3xx
           redirect type response.
           </span>
@@ -2608,6 +2844,63 @@
         </p>
       </section>
     </section>
+
+    <!--  Security -->
+    <section>
+      <h2 id="security">Security</h3>
+      <p class="rfc2119-assertion" id="core-profile-security-1">
+        Below is a list of <a href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
+        security schemes</a> [[wot-thing-description]] which conformant Web 
+        Things MAY use and conformant Consumers MUST support:
+      </p>
+      <ul>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
+            <code>NoSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#basicsecurityscheme">
+            <code>BasicSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#digestsecurityscheme">
+            <code>DigestSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#bearersecurityscheme">
+            <code>BearerSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#oauth2securityscheme">
+            <code>OAuth2SecurityScheme</code>
+          </a>
+        </li>
+      </ul>
+      <p class="ednote">
+        The list of security schemes to include in the Core Profile is still 
+        <a href="https://github.com/w3c/wot-profile/issues/6">under 
+        discussion</a>.
+      </p>
+      <p class="rfc2119-assertion" id="core-profile-security-2">
+        A Thing MAY implement multiple security schemes.
+      </p>
+      <p class="rfc2119-assertion" id="core-profile-security-3">
+        Security schemes MUST be applied using the top level <code>security</code>
+        member of a 
+        <a href="https://w3c.github.io/wot-thing-description/#thing">Thing</a>
+        and MUST NOT be applied to individual
+        <a href="https://w3c.github.io/wot-thing-description/#form"></a><code>
+        Form</code>s.
+      </p>
+      <p class="note">
+        Please see <a href="https://w3c.github.io/wot-security-best-practices/">
+        WoT Security Best Practices</a> for implementation advice.
+      </p>
+    </section>
   </section>
 
   <section id="core-profile-json-schema" class="appendix normative">
@@ -2619,6 +2912,14 @@
     <p class="ednote">
       Todo: Define a JSON-SCHEMA.
     </p>
+</section>
+<section id="open-issues">
+    <h3>Open Issues</h3>
+    <ul>
+      <li>define a JSON schema</li>
+      <li>Examples</li>
+    </ul>
+  </section>
 
 </body>
 
