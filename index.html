@@ -183,8 +183,8 @@
 
     <p>
       <span id="profile-abstract-2">
-      The W3C WoT Thing Architecture [[wot-architecture]] and
-      WoT Thing Description [[wot-thing-description]] define a
+      The W3C WoT Thing Architecture [[wot-architecture11]] and
+      WoT Thing Description [[wot-thing-description11]] define a
       powerful description mechanism and a format to describe
       myriads of very different devices, which may be connected
       over various protocols.
@@ -208,8 +208,8 @@
   <section id="intro">
     <h1 id="introduction">Introduction</h1>
     <p>
-      The W3C WoT Architecture [[wot-architecture]] and the WoT
-      Thing Description [[wot-thing-description]]
+      The W3C WoT Architecture [[wot-architecture11]] and the WoT
+      Thing Description [[wot-thing-description11]]
       have been developed as a versatile format, that allows
       describing the interactions between multiple devices and
       protocols.
@@ -684,7 +684,7 @@
       <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
       conforms to one or more profiles, its Thing Description MUST include a
       <a href="https://w3c.github.io/wot-thing-description/#thing">
-      <code>profile</code></a> member [[wot-thing-description]]. The value of
+      <code>profile</code></a> member [[wot-thing-description11]]. The value of
       the <code>profile</code> member MUST be set to either a valid URI
       [[RFC3986]] identifying a single profile, or an array of valid URIs
       identifying multiple profiles.
@@ -1667,51 +1667,6 @@
           interpretation of a link is out of scope.
         </p>
       </section>
-
-      <!--  Security -->
-      <section>
-        <h3 id="security">Security</h3>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5.1.9-thing-security-1">
-          The <a>Core Data Model</a> defines a subset of the
-          security schemes that MAY be implemented on resource
-          constrained devices.
-          </span>
-          <span class="rfc2119-assertion" id="profile-5.1.9-thing-security-2">
-          A security scheme MUST be
-          defined at the thing level.
-          </span>
-          <span class="rfc2119-assertion" id="profile-5.1.9-thing-security-3">
-          The security scheme is
-          applied to the thing as a whole, a thing MAY adopt
-          multiple security schemes.
-          </span>
-        </p>
-        <p>
-          The set of security schemes supported in the <a>Core
-            Data Model</a> is based on the PlugFest results.
-            <span class="rfc2119-assertion" id="profile-5.1.9-thing-security-4">
-              To ensure interoperability, a TD consumer, which
-              compliant with the <a>Core Data Model</a> MUST
-              support <strong>all</strong> of the following security schemes:
-            </span>
-        </p>
-
-        <ul>
-          <li>no security</li>
-          <li>Basic Auth</li>
-          <li>Digest</li>
-          <li>Bearer Token</li>
-          <li>Oauth2</li>
-        </ul>
-
-        <section>
-          <h4>Recommended Practice</h4>
-          <p>When using the "no security" or "Basic Auth"
-            security schemes it is strongly recommended to
-            use transport layer encryption.</p>
-        </section>
-      </section>
     </section>
 
     <!-- Protocol Binding -->
@@ -1722,7 +1677,7 @@
         <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
         communicates with a
         <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-        [[wot-architecture]] using JSON [[JSON]] payloads over
+        [[wot-architecture11]] using JSON [[JSON]] payloads over
         the HTTP [[HTTP11]] protocol.
       </p>
       <p>
@@ -1841,8 +1796,6 @@
             id="core-profile-protocol-binding-properties-writeproperty-5">
             <li>Method set to <code>PUT</code></li>
             <li>URL set to the URL of the <code>Property</code> resource</li>
-            <li><code>Accept</code> header set to <code>application/json
-              </code></li>
             <li><code>Content-Type</code> header set to <code>application/json
               </code></li>
             <li>A body with a requested new value for the property serialized
@@ -1852,7 +1805,6 @@
           PUT /things/lamp/properties/on HTTP/1.1
           Host: mythingserver.com
           Content-Type: application/json
-          Accept: application/json
           true
           </pre>
           <p class="rfc2119-assertion" 
@@ -1986,8 +1938,6 @@
               </li>
             <li><code>Content-Type</code> header set to <code>application/json
               </code></li>
-            <li><code>Accept</code> header set to <code>application/json
-              </code></li>
             <li>A body with requested new values for the writable properties
               serialized in JSON, as an object keyed by property name</li>
           </ul>
@@ -1995,7 +1945,6 @@
           PUT /things/lamp/properties HTTP/1.1
           Host: mythingserver.com
           Content-Type: application/json
-          Accept: application/json
           {
             "on": true,
             "level": 50
@@ -2187,8 +2136,8 @@
                 <td><code>error</code></td>
                 <td>
                   An error message, if any, associated with a failed action 
-                  which MUST conform with the Problem Details format
-                  [[RFC7807]] (only needed in response to a
+                  which MUST use the JSON serialization of the Problem Details 
+                  format [[RFC7807]] (only needed in response to a
                   <a href="#queryaction"><code>queryaction</code></a> 
                   operation).
                 </td>
@@ -2895,6 +2844,63 @@
         </p>
       </section>
     </section>
+
+    <!--  Security -->
+    <section>
+      <h2 id="security">Security</h3>
+      <p class="rfc2119-assertion" id="core-profile-security-1">
+        Below is a list of <a href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
+        security schemes</a> [[wot-thing-description]] which conformant Web 
+        Things MAY use and conformant Consumers MUST support:
+      </p>
+      <ul>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
+            <code>NoSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#basicsecurityscheme">
+            <code>BasicSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#digestsecurityscheme">
+            <code>DigestSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#bearersecurityscheme">
+            <code>BearerSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#oauth2securityscheme">
+            <code>OAuth2SecurityScheme</code>
+          </a>
+        </li>
+      </ul>
+      <p class="ednote">
+        The list of security schemes to include in the Core Profile is still 
+        <a href="https://github.com/w3c/wot-profile/issues/6">under 
+        discussion</a>.
+      </p>
+      <p class="rfc2119-assertion" id="core-profile-security-2">
+        A Thing MAY implement multiple security schemes.
+      </p>
+      <p class="rfc2119-assertion" id="core-profile-security-3">
+        Security schemes MUST be applied using the top level <code>security</code>
+        member of a 
+        <a href="https://w3c.github.io/wot-thing-description/#thing">Thing</a>
+        and MUST NOT be applied to individual
+        <a href="https://w3c.github.io/wot-thing-description/#form"></a><code>
+        Form</code>s.
+      </p>
+      <p class="note">
+        Please see <a href="https://w3c.github.io/wot-security-best-practices/">
+        WoT Security Best Practices</a> for implementation advice.
+      </p>
+    </section>
   </section>
 
   <section id="core-profile-json-schema" class="appendix normative">
@@ -2906,6 +2912,14 @@
     <p class="ednote">
       Todo: Define a JSON-SCHEMA.
     </p>
+</section>
+<section id="open-issues">
+    <h3>Open Issues</h3>
+    <ul>
+      <li>define a JSON schema</li>
+      <li>Examples</li>
+    </ul>
+  </section>
 
 </body>
 
