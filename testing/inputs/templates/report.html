@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>Web of Things (WoT) Architecture: Implementation Report</title>
+    <title>Web of Things (WoT) Profile: Implementation Report</title>
     <link rel="stylesheet" type="text/css" href="https://www.w3.org/StyleSheets/general.css"/>
     <style type="text/css" xml:space="preserve">
 /*<![CDATA[*/
@@ -117,20 +117,19 @@ pre.example {
 <div class="head">
   <a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" width="72" height="48"></a>
   <h1 id="h_ir">
-    Web of Things (WoT) Architecture:<br/>
+    Web of Things (WoT) Profile:<br/>
     Implementation Report
   </h1>
   <p>
     <b>Version</b>: {{LastModified}}
   </p>
   <p>
-    <b>Editors (Tentative)</b>:<br>
-    Michael Lagally (Oracle)<br>
-    Ryuichi Matsukura (Fujitsu Ltd.)<br>
-    Toru Kawaguchi (Panasonic Corp.)<br>
-    Kunihiko Toumura (Hitachi)<br>
-    Michael McCool (Intel)<br>
-    Ege Korkan (Siemens / Technical University of Munich)
+    <b>Editors</b>:<br>
+    Michael Lagally (<a href="https://www.oracle.com/">Oracle Corp.</a>)</br>
+    Michael McCool (<a href="https://www.intel.com/">Intel Corp.</a>)</br>
+    Ryuichi Matsukura (<a href="https://www.fujitsu.com/">Fujitsu Ltd.</a>)</br>
+    Sebastian Kaebisch (<a href="https://www.siemens.com/">Siemens AG</a>)</br>
+    Tomoaki Mizushima (<a href="https://www.iri.co.jp/">Internet Research Institute, Inc.</a>)
   </p>
 
   <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2019 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
@@ -186,8 +185,8 @@ pre.example {
 
 <h2 id="h_intro"><a id="intro" name="intro">1. Introduction</a> </h2>
 <p>
-  The <a href="http://www.w3.org/TR/wot-architecture/">Web of Things (WoT) Architecture</a>
-  document entered the <a href="https://www.w3.org/TR/2019/CR-wot-architecture-YYYYMMDD/">Candidate Recommendation</a> 
+  The <a href="http://www.w3.org/TR/wot-profile/">Web of Things (WoT) Profile</a>
+  document entered the <a href="https://www.w3.org/TR/2019/CR-wot-profile-YYYYMMDD/">Candidate Recommendation</a> 
   period for the second time on DD-MM-2022.
 </p>
 <p>
@@ -219,15 +218,15 @@ pre.example {
 	<li>Clarification and improvement through the exposition of the specification</li>
 	<li>Disposing of comments that were communicated to the WG during the CR period.
         These comments and their resolution are detailed in the
-        <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue tracker</a>
-        with the label <a href="https://github.com/w3c/wot-architecture/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.</li>
+        <a href="https://github.com/w3c/wot-profile/issues">GitHub Issue tracker</a>
+        with the label <a href="https://github.com/w3c/wot-profile/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.</li>
 	<li>Preparation of this Implementation Report.</li>
 </ol>
 
 <h2 id="h_participate"><a id="participate" name="participate">3. Participating in the Implementation Report</a></h2>
 <p>
   Implementers were invited to contribute to the assessment of the
-  <a href="https://www.w3.org/TR/2022/CR-wot-architecture-2022MMDD/">Web of Things (WoT) Architecture Candidate Recommendation</a>
+  <a href="https://www.w3.org/TR/2022/CR-wot-profile-2022MMDD/">Web of Things (WoT) Profile Candidate Recommendation</a>
   by submitting implementer reports describing the
   coverage of their implementations with respect to the test assertions outlined
   in the <a href="#automated_validation_results">table below</a>.
@@ -245,7 +244,7 @@ pre.example {
   mailing list <a href="mailto:public-wot-wg@w3.org">wot-wg@w3.org</a>
   (<a href="http://lists.w3.org/Archives/Public/public-wot-wg/">archive</a>)
   and as issues on the GitHub repository
-  <a href="https://github.com/w3c/wot-architecture/issues">https://github.com/w3c/wot-architecture</a>.
+  <a href="https://github.com/w3c/wot-profile/issues">https://github.com/w3c/wot-profile</a>.
 </p>
 
 <h2 id="h_pr_entrance_crit"><a id="pr_entrance_crit" name="pr_entrance_crit">4. Entrance criteria for the Proposed Recommendation phase</a></h2>
@@ -344,10 +343,10 @@ pre.example {
 <h2 id="h_systems"><a id="test-systems" name="test-systems">6. Systems</a></h2>
 <p>
   This section contains descriptions of each of the implementations
-  of the WoT Architecture specification
+  of the WoT Profile specification
   from all organizations that submitted implementer reports.
   Each implementation represents a working system
-  that is based on the WoT Architecture.
+  that is based on the WoT Profile.
 </p>
 <p>
   We only count systems with mostly independent code bases
@@ -365,7 +364,7 @@ pre.example {
 <h2 id="h_security"><a id="security" name="security">7. Security</a></h2>
 <p>
   The
-  <a href="https://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
+  <a href="https://www.w3.org/TR/wot-profile">Web of Things (WoT) Profile</a>
   specification describes systems that include features to support security.
   Functional aspects of assertions associated with security features are validated
   in the same fashion as other functional features.
@@ -382,11 +381,11 @@ pre.example {
 <h2 id="h_test_results"><a id="test_results" name="test_results">8. Test results</a></h2>
 <p>
   The aim of this section is to summarize the assertions from the
-  <a href="http://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
+  <a href="http://www.w3.org/TR/wot-profile">Web of Things (WoT) Profile</a>
   document and summarize the results from the implementation
   reports received in the CR period.
   The tables in each section below lists all assertions derived from the
-  <a href="http://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
+  <a href="http://www.w3.org/TR/wot-profile">Web of Things (WoT) Profile</a>
   document.
   The results are broken into two parts: 
   those for which automated testing has been implemented,
