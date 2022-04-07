@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 16 Mar 2022
+    <b>Version</b>: 7 Apr 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -501,26 +501,26 @@ pre.example {
     </tr>
 -->
   
-<tr id="core-profile-identifier-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-identifier-1">core-profile-identifier-1</a></td>
+<tr id="http-baseline-profile-identifier-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-identifier-1">http-baseline-profile-identifier-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
         In order to denote that a given
         Web Thing
-        conforms to the Core Profile, its Thing Description MUST have a
+        conforms to the HTTP Baseline Profile, its Thing Description MUST have a
         
         profile member [[wot-thing-description]] with a value
-        of https://www.w3.org/2022/wot/profile/core/v1.
+        of https://www.w3.org/2022/wot/profile/http-baseline/v1.
       </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-cancelaction-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-cancelaction-1">core-profile-protocol-binding-actions-cancelaction-1</a></td>
+<tr id="http-baseline-profile-protocol-binding-cancelaction-1a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-cancelaction-1a">http-baseline-profile-protocol-binding-cancelaction-1a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -530,6 +530,18 @@ pre.example {
             operation on an Action MAY also support 
             cancelaction operations on 
             that same Action.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-cancelaction-1b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-cancelaction-1b">http-baseline-profile-protocol-binding-cancelaction-1b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
             A Web Thing which only provides 
             Synchronous Action Responses to an invokeaction 
             operation on an Action SHOULD NOT support 
@@ -541,27 +553,17 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-cancelaction-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-cancelaction-3">core-profile-protocol-binding-actions-cancelaction-3</a></td>
+<tr id="http-baseline-profile-protocol-binding-cancelaction-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-cancelaction-3">http-baseline-profile-protocol-binding-cancelaction-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+	  
             In order to cancel an action request, a Consumer MUST send an HTTP 
             request to a Web Thing with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-cancelaction-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-cancelaction-4">core-profile-protocol-binding-actions-cancelaction-4</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-          
+	  
+	  
             Method set to DELETE
             
               URL set to the URL of the ActionStatus resource
@@ -573,28 +575,18 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-cancelaction-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-cancelaction-5">core-profile-protocol-binding-actions-cancelaction-5</a></td>
+<tr id="http-baseline-profile-protocol-binding-cancelaction-5" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-cancelaction-5">http-baseline-profile-protocol-binding-cancelaction-5</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+	  
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to cancel the corresponding
             Action request, then upon successfully cancelling 
             Action it MUST send an HTTP response with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-cancelaction-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-cancelaction-6">core-profile-protocol-binding-actions-cancelaction-6</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+          
           
             Status code set to 204
           
@@ -604,27 +596,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-1">core-profile-protocol-binding-actions-invokeaction-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The URL of an Action resource to be used when invoking
-            an action MUST be obtained from a Thing Description by locating a
-            
-            Form inside the corresponding
-            
-            ActionAffordance
-            for which:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-10" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-10">core-profile-protocol-binding-actions-invokeaction-10</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-10" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-10">http-baseline-profile-protocol-binding-invokeaction-10</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -638,64 +611,140 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-11" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-11">core-profile-protocol-binding-actions-invokeaction-11</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-11a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-11a">http-baseline-profile-protocol-binding-invokeaction-11a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
             Conforming Consumers MUST support all three types of response 
-            to the initial invokeaction request, but 
-            support for subsequent operations on an ActionStatus
-            resource is OPTIONAL.
-	    
-	    FIX: this assertion combines mandatory and optional statements in 
-	    a confusing way.  Should be reworded as two separte assertions.
-	    
+            to the initial invokeaction request.  
 	  </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-12" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-12">core-profile-protocol-binding-actions-invokeaction-12</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-11b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-11b">http-baseline-profile-protocol-binding-invokeaction-11b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-            The status of an action invocation request is represented by an 
-            ActionStatus object which includes the following 
-            members:
-	    
-	   FIX: use table assertions...
-	    
+	    After the initial request,
+            support for subsequent operations on an ActionStatus
+            resource is OPTIONAL.
 	  </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-13" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-13">core-profile-protocol-binding-actions-invokeaction-13</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-12" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            The status of an action invocation request is represented by an 
+            ActionStatus object which includes the following 
+            members:
+	  
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-12_1" class="tabassertion">
+	<td class="tabassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_1</a></td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">Y</td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">status: The status of the action request.
+MUST be included.
+Type: 
+                  
+                  string (one of pending, 
+                  running, completed or 
+                  failed)
+                .</td>
+	<td class="tabassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-12_2" class="tabassertion">
+	<td class="tabassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_2</a></td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">Y</td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">output: 
+                  The output data, if any, of a completed action which
+                  MUST conform with the output data schema of the 
+                  corresponding 
+                  
+                  ActionAffordance.
+                
+MAY be included.
+Type: any type.</td>
+	<td class="tabassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-12_3" class="tabassertion">
+	<td class="tabassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_3</a></td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">Y</td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">error: 
+                  An error message, if any, associated with a failed action 
+                  which MUST use the JSON serialization of the Problem Details 
+                  format [[RFC7807]] (only needed in response to a
+                  queryaction 
+                  operation).
+                
+MAY be included.
+Type: object.</td>
+	<td class="tabassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-12_4" class="tabassertion">
+	<td class="tabassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_4</a></td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">Y</td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">href: 
+                  The [[URL]] of an ActionStatus resource which can
+                  be polled with a queryaction operation to get 
+                  the latest status of the action, the
+                  URI
+                  scheme [[RFC3986]] of which MUST resolve to
+                  http or https (only needed for an 
+                  Asynchronous Action
+                  Response).
+                
+MAY be included.
+Type: string.</td>
+	<td class="tabassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-13" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-13">http-baseline-profile-protocol-binding-invokeaction-13</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+		  
             If providing a Synchronous Action Response, a Web Thing MUST send 
             an HTTP response with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-14" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-14">core-profile-protocol-binding-actions-invokeaction-14</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	  
           
             Status code set to 200
             Content-Type header set to 
@@ -710,30 +759,20 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-15" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-15">core-profile-protocol-binding-actions-invokeaction-15</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-15" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-15">http-baseline-profile-protocol-binding-invokeaction-15</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+	  
             If providing an Asynchronous Action Response, a Web Thing MUST send 
             an HTTP response containing the URL of an ActionStatus
             resource, the
             URI
             scheme [[RFC3986]] of which MUST resolve to http
             or https. The response MUST have:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-16" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-16">core-profile-protocol-binding-actions-invokeaction-16</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	  
 	  
             Status code set to 201
             Content-Type header set to 
@@ -754,33 +793,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-2">core-profile-protocol-binding-actions-invokeaction-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	 
-            id="core-profile-protocol-binding-actions-invokeaction-2"&gt;
-            
-              After defaults have been applied, the value of its 
-              op member is invokeaction
-            
-            
-              After being resolved against a base URL where applicable, the
-              URI
-              scheme [[RFC3986]] of the value of its href
-              member is http or https
-            
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-3">core-profile-protocol-binding-actions-invokeaction-3</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-3">http-baseline-profile-protocol-binding-invokeaction-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -793,26 +807,16 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-4">core-profile-protocol-binding-actions-invokeaction-4</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-4">http-baseline-profile-protocol-binding-invokeaction-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+	  
             In order to invoke an action on a Web Thing, a Consumer MUST send
             an HTTP request to the Web Thing with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-5">core-profile-protocol-binding-actions-invokeaction-5</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	  
 	  
             Method set to POST
             URL set to the URL of the Action resource
@@ -829,26 +833,16 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-6">core-profile-protocol-binding-actions-invokeaction-6</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-6" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-6">http-baseline-profile-protocol-binding-invokeaction-6</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+	  
             If a Web Thing receives an HTTP request following the format
             above then it MUST respond with one of three response formats:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-7" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-7">core-profile-protocol-binding-actions-invokeaction-7</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	  
           
             
               Synchronous Action Response
@@ -866,8 +860,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-8" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-8">core-profile-protocol-binding-actions-invokeaction-8</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-8" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-8">http-baseline-profile-protocol-binding-invokeaction-8</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -886,8 +880,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-invokeaction-9" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-invokeaction-9">core-profile-protocol-binding-actions-invokeaction-9</a></td>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-9" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-9">http-baseline-profile-protocol-binding-invokeaction-9</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -902,8 +896,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryaction-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryaction-1">core-profile-protocol-binding-actions-queryaction-1</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryaction-1a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-1a">http-baseline-profile-protocol-binding-queryaction-1a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -913,6 +907,18 @@ pre.example {
             operation on an Action MUST also support 
             queryaction operations on 
             that same Action.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-queryaction-1b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-1b">http-baseline-profile-protocol-binding-queryaction-1b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
             A Web Thing which only provides 
             Synchronous Action Responses to an invokeaction 
             operation on an Action SHOULD NOT support 
@@ -924,8 +930,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryaction-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryaction-2">core-profile-protocol-binding-actions-queryaction-2</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryaction-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-2">http-baseline-profile-protocol-binding-queryaction-2</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -941,27 +947,17 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryaction-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryaction-3">core-profile-protocol-binding-actions-queryaction-3</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryaction-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-3">http-baseline-profile-protocol-binding-queryaction-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+	  
             In order to query the status of an action request, a Consumer MUST 
             send an HTTP request to a Web Thing with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryaction-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryaction-4">core-profile-protocol-binding-actions-queryaction-4</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
           
+	  
             Method set to GET
             
               URL set to the URL of the ActionStatus resource
@@ -977,29 +973,19 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryaction-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryaction-5">core-profile-protocol-binding-actions-queryaction-5</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryaction-5" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-5">http-baseline-profile-protocol-binding-queryaction-5</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+	  
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to query the corresponding
             ActionStatus resource, then upon successfully reading 
             the status of the action request it MUST send an HTTP response 
             with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryaction-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryaction-6">core-profile-protocol-binding-actions-queryaction-6</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+          
           
             Status code set to 200
             Content-Type header set to application/json
@@ -1014,16 +1000,30 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryaction-7" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryaction-7">core-profile-protocol-binding-actions-queryaction-7</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryaction-7a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-7a">http-baseline-profile-protocol-binding-queryaction-7a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-            If the queried action failed to execute, then the 
-            status member of the ActionStatus object 
-            MUST be set to "failed" and the error
-            member may optionally provide additional error information 
+            If the queried action failed to execute, then  
+            the status member of the ActionStatus object 
+            MUST be set to "failed". 
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-queryaction-7b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-7b">http-baseline-profile-protocol-binding-queryaction-7b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            If the queried action failed to execute, then  
+	    the error
+            member MAY provide additional error information 
             conforming to the Problem Details format [[RFC7807]].
 	  </td>
 	<td class="baseassertion"></td>
@@ -1031,12 +1031,13 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryallactions-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryallactions-1">core-profile-protocol-binding-actions-queryallactions-1</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryallactions-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-1">http-baseline-profile-protocol-binding-queryallactions-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+	  
             The URL of an Actions resource to be used when
             querying the status of all ongoing action requests MUST be obtained
             from a Thing Description by locating a
@@ -1045,18 +1046,7 @@ pre.example {
             
             forms member
             for which:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryallactions-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryallactions-2">core-profile-protocol-binding-actions-queryallactions-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+          
 	  
             
               Its op member contains the value
@@ -1075,8 +1065,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryallactions-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryallactions-3">core-profile-protocol-binding-actions-queryallactions-3</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryallactions-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-3">http-baseline-profile-protocol-binding-queryallactions-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1089,26 +1079,16 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryallactions-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryallactions-4">core-profile-protocol-binding-actions-queryallactions-4</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryallactions-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-4">http-baseline-profile-protocol-binding-queryallactions-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+		  
             In order to query the status of all ongoing action requests, a
             Consumer MUST send an HTTP request to a Web Thing with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryallactions-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryallactions-5">core-profile-protocol-binding-actions-queryallactions-5</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	  
 	  
             Method set to GET
             URL set to the URL of the Actions resource
@@ -1122,28 +1102,18 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryallactions-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryallactions-6">core-profile-protocol-binding-actions-queryallactions-6</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryallactions-6a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-6a">http-baseline-profile-protocol-binding-queryallactions-6a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
+	  
             If a Web Thing receives an HTTP request following the format
             above, then upon successfully retreiving the status of all ongoing 
             action requests to which the Consumer has permission to access, it
             MUST send an HTTP response with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-actions-queryallactions-7" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-actions-queryallactions-7">core-profile-protocol-binding-actions-queryallactions-7</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+          
           
             Status code set to 200
             Content-Type header set to application/json
@@ -1151,7 +1121,7 @@ pre.example {
             A body containing an object, keyed by Action name,
               with the value of each object member being an array of 
               ActionStatus objects 
-              representing the action requests, serialized in JSON.
+              representing the action requests, serialized in JSON. 
             
           
           </td>
@@ -1160,8 +1130,547 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeallevents-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeallevents-1">core-profile-protocol-binding-events-subscribeallevents-1</a></td>
+<tr id="http-baseline-profile-protocol-binding-queryallactions-6b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-6b">http-baseline-profile-protocol-binding-queryallactions-6b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	      Each array in the result object
+              MUST be sorted in reverse chronological order such that the 
+              most recent action request appears first.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-readallproperties-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readallproperties-1">http-baseline-profile-protocol-binding-readallproperties-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            The URL of a Properties resource to be used when
+            reading the value of all properties at once MUST be obtained from a
+            Thing Description by locating a
+            
+            Form inside the top level
+            
+            forms member
+            for which:
+            
+              Its op member contains the value
+              readallproperties
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+              scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-readallproperties-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readallproperties-3">http-baseline-profile-protocol-binding-readallproperties-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The resolved value of the href member MUST then be used
+            as the URL of the Properties resource.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-readallproperties-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readallproperties-4">http-baseline-profile-protocol-binding-readallproperties-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            In order to read the value of all properties, a Consumer MUST send
+            an HTTP request to a Web Thing with:
+	  
+	  
+            Method set to GET
+            URL set to the URL of the Properties resource
+              
+            Accept header set to application/json
+              
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-readallproperties-5" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readallproperties-5">http-baseline-profile-protocol-binding-readallproperties-5</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            If a Web Thing receives an HTTP request following the format
+            above, then upon successfully reading the values of all the
+            readable properties to which the Consumer has permission to
+            access, it MUST send an HTTP response with:
+	  
+	  
+            Status code set to 200
+            Content-Type header set to application/json
+              
+            A body with the values of all readable properties serialized
+              in JSON, as an object keyed by property name
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-readproperty-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readproperty-1">http-baseline-profile-protocol-binding-readproperty-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            The URL of a Property resource to be used when reading
+            the value of a property MUST be obtained from a Thing Description by
+            locating a
+            
+            Form inside the corresponding
+            
+            PropertyAffordance
+            for which:
+	  
+	 
+            
+              After defaults have been applied, its op member 
+              contains the value readproperty.
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+              scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-readproperty-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readproperty-3">http-baseline-profile-protocol-binding-readproperty-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The resolved value of the href member MUST then be used
+            as the URL of the Property resource.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-readproperty-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readproperty-4">http-baseline-profile-protocol-binding-readproperty-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            In order to read the value of a property, a Consumer MUST send
+            an HTTP request to a Web Thing with:
+	  
+	  
+            Method set to GET
+            URL set to the URL of the Property resource
+            Accept header set to application/json
+              
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-readproperty-6" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readproperty-6">http-baseline-profile-protocol-binding-readproperty-6</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to read the corresponding
+            property, then upon successfully reading the value of the property
+            it MUST send an HTTP response with:
+            Status code set to 200
+            Content-Type header set to application/json
+              
+            A body with the value of the property serialized in JSON
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-subscribeevent-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-subscribeevent-1">http-baseline-profile-protocol-binding-subscribeevent-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+		  
+            The URL of an Event resource to be used when 
+            subscribing to an event MUST be obtained from a Thing Description 
+            by locating a 
+            
+            Form inside the corresponding 
+            
+            EventAffordance for which:
+	  
+          
+            
+              After defaults have been applied, its op member 
+              contains the value subscribeevent
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+              scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
+            Its subprotocol member has a value of
+              "sse"
+            
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-writemultipleproperties-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-1">http-baseline-profile-protocol-binding-writemultipleproperties-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            The URL of a Properties resource to be used when 
+            writing the value of multiple properties at once MUST be obtained
+            from a Thing Description by locating a
+            
+            Form inside the top level
+            
+            forms member
+            for which:
+	  
+            
+              Its op member contains the value
+              writemultipleproperties
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+              scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-writemultipleproperties-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-4">http-baseline-profile-protocol-binding-writemultipleproperties-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            In order to write the value of multiple properties at once, a
+            Consumer MUST send an HTTP request to a Web Thing with:
+	  
+	  
+            Method set to PUT
+            URL set to the URL of the Properties resource
+              
+            Content-Type header set to application/json
+              
+            A body with requested new values for the writable properties
+              serialized in JSON, as an object keyed by property name
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-writemultipleproperties-6" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-6">http-baseline-profile-protocol-binding-writemultipleproperties-6</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            If a Web Thing receives an HTTP request following the format
+            above, then upon successfully writing the values of the requested
+            writable properties it MUST send an HTTP response with:
+	  
+            
+              Status code set to 204
+            
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-writeproperty-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writeproperty-1">http-baseline-profile-protocol-binding-writeproperty-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            The URL of a Property resource to be used when writing
+            the value of a property MUST be obtained from a Thing Description by
+            locating a
+            
+            Form inside the corresponding
+            
+            PropertyAffordance
+            for which:
+            
+              After defaults have been applied, its op member 
+              contains the value writeproperty
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+              scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-writeproperty-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writeproperty-3">http-baseline-profile-protocol-binding-writeproperty-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The resolved value of the href member MUST then be used
+            as the URL of the Property resource.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-writeproperty-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writeproperty-4">http-baseline-profile-protocol-binding-writeproperty-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            In order to write the value of a property, a Consumer MUST send
+            an HTTP request to a Web Thing with:
+	  
+	  
+            Method set to PUT
+            URL set to the URL of the Property resource
+            Content-Type header set to application/json
+              
+            A body with a requested new value for the property serialized
+              in JSON
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-writeproperty-6" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writeproperty-6">http-baseline-profile-protocol-binding-writeproperty-6</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to write the corresponding
+            property, then upon successfully writing the value of the
+            property it MUST send an HTTP response with:
+	  
+            Status code set to 204
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-bindings-writemultipleproperties-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-bindings-writemultipleproperties-3">http-baseline-profile-protocol-bindings-writemultipleproperties-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The resolved value of the href member MUST then be used
+            as the URL of the Properties resource.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-security-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-security-1">http-baseline-profile-security-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	      
+        Below is a list of 
+        security schemes [[wot-thing-description]] which conformant Web 
+        Things MAY use and conformant Consumers MUST support:
+      
+      
+        
+          
+            NoSecurityScheme
+          
+        
+        
+          
+            BasicSecurityScheme
+          
+        
+        
+          
+            DigestSecurityScheme
+          
+        
+        
+          
+            BearerSecurityScheme
+          
+        
+        
+          
+            OAuth2SecurityScheme
+          
+        
+      
+      </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-security-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-security-2">http-baseline-profile-security-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+        A Thing MAY implement multiple security schemes.
+      </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-security-3a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-security-3a">http-baseline-profile-security-3a</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+        Security schemes MUST be applied using the top level security
+        member of a 
+        Thing.
+      </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-security-3b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-security-3b">http-baseline-profile-security-3b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+        Security schemes 
+        MUST NOT be applied to individual
+        
+        Forms.
+      </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-1">http-sse-profile-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+        In order to denote that a given
+        Web Thing
+        conforms to the HTTP SSE Profile, its Thing Description MUST have a
+        
+        profile member [[wot-thing-description]] with a value
+        of https://www.w3.org/2022/wot/profile/http-sse/v1.
+      </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-1">http-sse-profile-protocol-binding-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+        A Consumer or Web Thing conforming to the HTTP SSE Profile
+        MUST implement this protocol binding.
+        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-1">http-sse-profile-protocol-binding-subscribeallevents-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1179,8 +1688,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeallevents-2-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeallevents-2-1">core-profile-protocol-binding-events-subscribeallevents-2-1</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-2-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-2-1">http-sse-profile-protocol-binding-subscribeallevents-2-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1206,8 +1715,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeallevents-2-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeallevents-2-2">core-profile-protocol-binding-events-subscribeallevents-2-2</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-2-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-2-2">http-sse-profile-protocol-binding-subscribeallevents-2-2</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1222,8 +1731,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeallevents-3-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeallevents-3-1">core-profile-protocol-binding-events-subscribeallevents-3-1</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-3-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-3-1">http-sse-profile-protocol-binding-subscribeallevents-3-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1236,8 +1745,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeallevents-3-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeallevents-3-2">core-profile-protocol-binding-events-subscribeallevents-3-2</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-3-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-3-2">http-sse-profile-protocol-binding-subscribeallevents-3-2</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1253,8 +1762,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeallevents-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeallevents-4">core-profile-protocol-binding-events-subscribeallevents-4</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-4a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4a">http-sse-profile-protocol-binding-subscribeallevents-4a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1262,24 +1771,61 @@ pre.example {
             Whenever an event occurs while the Web Thing has an open connection
             with a Consumer, the Web Thing MUST send event data to the Consumer 
             using the event stream format in the Server-Sent Events
-            [[EVENTSOURCE]] specification. For each message sent, the Web Thing
-            MUST set the event field to the 
-            name of the EventAffordance and populate the 
-            data field with event data, if any. The 
-            event data MUST follow the data schema specified in the
-            EventAffordance and MUST be serialized in JSON.
-            The id field SHOULD be set to a unique identifier for 
-            the event, for use when re-establishing a dropped connection (see 
-            below).
-	    FIX...
+            [[EVENTSOURCE]] specification. 
 	  </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeallevents-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeallevents-5">core-profile-protocol-binding-events-subscribeallevents-5</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-4b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4b">http-sse-profile-protocol-binding-subscribeallevents-4b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    For each message sent, the Web Thing
+            MUST set the event field to the 
+            name of the EventAffordance and populate the 
+            data field with event data, if any. 
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-4c" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4c">http-sse-profile-protocol-binding-subscribeallevents-4c</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    The 
+            event data MUST follow the data schema specified in the
+            EventAffordance and be serialized in JSON.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-4d" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4d">http-sse-profile-protocol-binding-subscribeallevents-4d</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The id field SHOULD be set to a unique identifier for 
+            the event, for use when re-establishing a dropped connection (see 
+            below).
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-5a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-5a">http-sse-profile-protocol-binding-subscribeallevents-5a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1288,7 +1834,20 @@ pre.example {
             (except as a result of the unsubscribeallevents
             operation defined below), the Consumer MUST re-establish the
             connection following the steps outlined in the Server-Sent Events
-            specification [[EVENTSOURCE]]. Once the connection is re-established
+            specification [[EVENTSOURCE]]. 
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-5b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-5b">http-sse-profile-protocol-binding-subscribeallevents-5b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    Once the connection is re-established
             the Web Thing SHOULD, if possible, send any missed events which
             occured since the last event specified by the Consumer in a 
             Last-Event-ID header.
@@ -1298,54 +1857,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeevent-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeevent-1">core-profile-protocol-binding-events-subscribeevent-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The URL of an Event resource to be used when 
-            subscribing to an event MUST be obtained from a Thing Description 
-            by locating a 
-            
-            Form inside the corresponding 
-            
-            EventAffordance for which:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeevent-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeevent-2">core-profile-protocol-binding-events-subscribeevent-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-          
-            
-              After defaults have been applied, its op member 
-              contains the value subscribeevent
-            
-            
-              After being resolved against a base URL where applicable, the
-              URI
-              scheme [[RFC3986]] of the value of its href
-              member is http or https
-            
-            Its subprotocol member has a value of
-              "sse"
-            
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeevent-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeevent-3">core-profile-protocol-binding-events-subscribeevent-3</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-3">http-sse-profile-protocol-binding-subscribeevent-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1358,8 +1871,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeevent-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeevent-4">core-profile-protocol-binding-events-subscribeevent-4</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-4">http-sse-profile-protocol-binding-subscribeevent-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1374,8 +1887,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeevent-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeevent-5">core-profile-protocol-binding-events-subscribeevent-5</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-5" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-5">http-sse-profile-protocol-binding-subscribeevent-5</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1392,8 +1905,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeevent-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeevent-6">core-profile-protocol-binding-events-subscribeevent-6</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-6a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6a">http-sse-profile-protocol-binding-subscribeevent-6a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1401,27 +1914,62 @@ pre.example {
             Whenever an event of the specified type occurs while the Web Thing 
             has an open connection with a Consumer, the Web Thing MUST 
             send event data to the Consumer using the event stream format in the 
-            Server-Sent Events [[EVENTSOURCE]] specification. For each message 
-            sent, the Web Thing MUST set the event field to the 
-            name of the EventAffordance and populate the 
-            data field with event data, if any. The 
-            event data MUST follow the data schema specified in the
-            EventAffordance and MUST be serialized in JSON.
-            The id field SHOULD be set to a unique identifier for 
-            the event, for use when re-establishing a dropped connection (see 
-            below).
-	    FIX: this includes multiple RFC2119 keywords, mixes
-		    mandatory and optional elements, AND refers to external
-		    content.
-            
+            Server-Sent Events [[EVENTSOURCE]] specification. 
 	  </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-subscribeevent-7" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-subscribeevent-7">core-profile-protocol-binding-events-subscribeevent-7</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-6b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6b">http-sse-profile-protocol-binding-subscribeevent-6b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    For each message 
+            sent, the Web Thing MUST set the event field to the 
+            name of the EventAffordance and populate the 
+            data field with event data, if any. 
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-6c" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6c">http-sse-profile-protocol-binding-subscribeevent-6c</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    The 
+            event data MUST follow the data schema specified in the
+            EventAffordance
+	    and be serialized in JSON.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-6d" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6d">http-sse-profile-protocol-binding-subscribeevent-6d</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The id field SHOULD be set to a unique identifier for 
+            the event, for use when re-establishing a dropped connection (see 
+            below).
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-7a-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7a-1">http-sse-profile-protocol-binding-subscribeevent-7a-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1430,21 +1978,31 @@ pre.example {
             (except as a result of the unsubscribe operation 
             defined below), the Consumer MUST re-establish the connection 
             following the steps outlined in the Server-Sent Events specification
-            [[EVENTSOURCE]]. Once the connection is re-established the Web Thing
-            SHOULD, if possible, send any missed events which occured since
-            the last event specified by the Consumer in a 
-            Last-Event-ID header.
-	    FIX: this includes multiple RFC2119 keywords and mixes
-		    mandatory and optional elements.
-            
+            [[EVENTSOURCE]]. 
 	  </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-unsubscribeallevents-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-unsubscribeallevents-1">core-profile-protocol-binding-events-unsubscribeallevents-1</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-7a-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7a-2">http-sse-profile-protocol-binding-subscribeevent-7a-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    Once the connection is re-established the Web Thing
+            SHOULD, if possible, send any missed events which occured since
+            the last event specified by the Consumer in a 
+            Last-Event-ID header.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-unsubscribeallevents-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-unsubscribeallevents-1">http-sse-profile-protocol-binding-unsubscribeallevents-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1459,8 +2017,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-events-unsubscribeevent-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-events-unsubscribeevent-1">core-profile-protocol-binding-events-unsubscribeevent-1</a></td>
+<tr id="http-sse-profile-protocol-binding-unsubscribeevent-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-unsubscribeevent-1">http-sse-profile-protocol-binding-unsubscribeevent-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1470,541 +2028,6 @@ pre.example {
             as specified in the Server-Sent Events specification
             [[EVENTSOURCE]].
 	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readallproperties-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readallproperties-1">core-profile-protocol-binding-properties-readallproperties-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The URL of a Properties resource to be used when
-            reading the value of all properties at once MUST be obtained from a
-            Thing Description by locating a
-            
-            Form inside the top level
-            
-            forms member
-            for which:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readallproperties-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readallproperties-2">core-profile-protocol-binding-properties-readallproperties-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            
-              Its op member contains the value
-              readallproperties
-            
-            
-              After being resolved against a base URL where applicable, the
-              URI
-              scheme [[RFC3986]] of the value of its href
-              member is http or https
-            
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readallproperties-3-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readallproperties-3-1">core-profile-protocol-binding-properties-readallproperties-3-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The resolved value of the href member MUST then be used
-            as the URL of the Properties resource.
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readallproperties-3-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readallproperties-3-2">core-profile-protocol-binding-properties-readallproperties-3-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            In order to read the value of all properties, a Consumer MUST send
-            an HTTP request to a Web Thing with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readallproperties-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readallproperties-4">core-profile-protocol-binding-properties-readallproperties-4</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            Method set to GET
-            URL set to the URL of the Properties resource
-              
-            Accept header set to application/json
-              
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readallproperties-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readallproperties-5">core-profile-protocol-binding-properties-readallproperties-5</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            If a Web Thing receives an HTTP request following the format
-            above, then upon successfully reading the values of all the
-            readable properties to which the Consumer has permission to
-            access, it MUST send an HTTP response with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readallproperties-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readallproperties-6">core-profile-protocol-binding-properties-readallproperties-6</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            Status code set to 200
-            Content-Type header set to application/json
-              
-            A body with the values of all readable properties serialized
-              in JSON, as an object keyed by property name
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readproperty-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readproperty-1">core-profile-protocol-binding-properties-readproperty-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The URL of a Property resource to be used when reading
-            the value of a property MUST be obtained from a Thing Description by
-            locating a
-            
-            Form inside the corresponding
-            
-            PropertyAffordance
-            for which:
-	  
-	  FIX: this should have sub-assertions, at least.
-	  
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readproperty-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readproperty-2">core-profile-protocol-binding-properties-readproperty-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	 
-            
-              After defaults have been applied, its op member 
-              contains the value readproperty.
-            
-            
-              After being resolved against a base URL where applicable, the
-              URI
-              scheme [[RFC3986]] of the value of its href
-              member is http or https
-            
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readproperty-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readproperty-3">core-profile-protocol-binding-properties-readproperty-3</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The resolved value of the href member MUST then be used
-            as the URL of the Property resource.
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readproperty-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readproperty-4">core-profile-protocol-binding-properties-readproperty-4</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            In order to read the value of a property, a Consumer MUST send
-            an HTTP request to a Web Thing with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readproperty-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readproperty-5">core-profile-protocol-binding-properties-readproperty-5</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            Method set to GET
-            URL set to the URL of the Property resource
-            Accept header set to application/json
-              
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readproperty-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readproperty-6">core-profile-protocol-binding-properties-readproperty-6</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            If a Web Thing receives an HTTP request following the format
-            above and the Consumer has permission to read the corresponding
-            property, then upon successfully reading the value of the property
-            it MUST send an HTTP response with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-readproperty-7" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-readproperty-7">core-profile-protocol-binding-properties-readproperty-7</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            Status code set to 200
-            Content-Type header set to application/json
-              
-            A body with the value of the property serialized in JSON
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writemultipleproperties-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writemultipleproperties-1">core-profile-protocol-binding-properties-writemultipleproperties-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The URL of a Properties resource to be used when 
-            writing the value of multiple properties at once MUST be obtained
-            from a Thing Description by locating a
-            
-            Form inside the top level
-            
-            forms member
-            for which:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writemultipleproperties-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writemultipleproperties-2">core-profile-protocol-binding-properties-writemultipleproperties-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            
-              Its op member contains the value
-              writemultipleproperties
-            
-            
-              After being resolved against a base URL where applicable, the
-              URI
-              scheme [[RFC3986]] of the value of its href
-              member is http or https
-            
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writemultipleproperties-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writemultipleproperties-3">core-profile-protocol-binding-properties-writemultipleproperties-3</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The resolved value of the href member MUST then be used
-            as the URL of the Properties resource.
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writemultipleproperties-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writemultipleproperties-4">core-profile-protocol-binding-properties-writemultipleproperties-4</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            In order to write the value of multiple properties at once, a
-            Consumer MUST send an HTTP request to a Web Thing with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writemultipleproperties-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writemultipleproperties-5">core-profile-protocol-binding-properties-writemultipleproperties-5</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            Method set to PUT
-            URL set to the URL of the Properties resource
-              
-            Content-Type header set to application/json
-              
-            A body with requested new values for the writable properties
-              serialized in JSON, as an object keyed by property name
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writemultipleproperties-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writemultipleproperties-6">core-profile-protocol-binding-properties-writemultipleproperties-6</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            If a Web Thing receives an HTTP request following the format
-            above, then upon successfully writing the values of the requested
-            writable properties it MUST send an HTTP response with:
-            </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writeproperty-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writeproperty-1">core-profile-protocol-binding-properties-writeproperty-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The URL of a Property resource to be used when writing
-            the value of a property MUST be obtained from a Thing Description by
-            locating a
-            
-            Form inside the corresponding
-            
-            PropertyAffordance
-            for which:
-	  
-	  FIX: this should have sub-assertions, at least.
-	  
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writeproperty-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writeproperty-2">core-profile-protocol-binding-properties-writeproperty-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            
-              After defaults have been applied, its op member 
-              contains the value writeproperty
-            
-            
-              After being resolved against a base URL where applicable, the
-              URI
-              scheme [[RFC3986]] of the value of its href
-              member is http or https
-            
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writeproperty-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writeproperty-3">core-profile-protocol-binding-properties-writeproperty-3</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The resolved value of the href member MUST then be used
-            as the URL of the Property resource.
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writeproperty-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writeproperty-4">core-profile-protocol-binding-properties-writeproperty-4</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            In order to write the value of a property, a Consumer MUST send
-            an HTTP request to a Web Thing with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writeproperty-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writeproperty-5">core-profile-protocol-binding-properties-writeproperty-5</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            Method set to PUT
-            URL set to the URL of the Property resource
-            Content-Type header set to application/json
-              
-            A body with a requested new value for the property serialized
-              in JSON
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writeproperty-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writeproperty-6">core-profile-protocol-binding-properties-writeproperty-6</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            If a Web Thing receives an HTTP request following the format
-            above and the Consumer has permission to write the corresponding
-            property, then upon successfully writing the value of the
-            property it MUST send an HTTP response with:
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-protocol-binding-properties-writeproperty-7" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-protocol-binding-properties-writeproperty-7">core-profile-protocol-binding-properties-writeproperty-7</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  
-            Status code set to 204
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-security-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-security-1">core-profile-security-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-        Below is a list of 
-        security schemes [[wot-thing-description]] which conformant Web 
-        Things MAY use and conformant Consumers MUST support:
-	FIX... incomplete.
-      </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-security-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-security-2">core-profile-security-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-        A Thing MAY implement multiple security schemes.
-      </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="core-profile-security-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#core-profile-security-3">core-profile-security-3</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-        Security schemes MUST be applied using the top level security
-        member of a 
-        Thing
-        and MUST NOT be applied to individual
-        
-        Forms.
-        FIX: multiple RFC2119 keywords used.  Split up.
-      </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -2055,7 +2078,8 @@ pre.example {
 <tr id="profile-5.1.7.2-thing-forms-additional-constraints-2" class="baseassertion"></tr>
 <tr id="profile-5.1.7.2-thing-forms-additional-constraints-3" class="baseassertion"></tr>
 <tr id="profile-5.2-thing-protocol-binding-1" class="baseassertion"></tr>
-<tr id="profile-5.2.4-thing-protocol-binding-error-responses-1" class="baseassertion"></tr>
+<tr id="profile-5.2.4-thing-protocol-binding-error-responses-1a" class="baseassertion"></tr>
+<tr id="profile-5.2.4-thing-protocol-binding-error-responses-1b" class="baseassertion"></tr>
 <tr id="profile-5.2.4-thing-protocol-binding-error-responses-2" class="baseassertion"></tr>
 <tr id="profile-5.2.4-thing-protocol-binding-error-responses-3" class="baseassertion"></tr>
 <tr id="profile-5.2.4-thing-protocol-binding-error-responses-5" class="baseassertion"></tr>
