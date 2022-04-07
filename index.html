@@ -2493,7 +2493,7 @@
           Accept: application/json
           </pre>
 	  <span class="rfc2119-assertion" 
-            id="http-baseline-profile-protocol-binding-queryallactions-6">
+            id="http-baseline-profile-protocol-binding-queryallactions-6a">
 	  <p>
             If a Web Thing receives an HTTP request following the format
             above, then upon successfully retreiving the status of all ongoing 
@@ -2507,11 +2507,15 @@
             <li>A body containing an object, keyed by <code>Action</code> name,
               with the value of each object member being an array of 
               <a href="#ActionStatus"><code>ActionStatus</code></a> objects 
-              representing the action requests, serialized in JSON. Each array 
-              MUST be sorted in reverse chronological order such that the 
-              most recent action request appears first.
+              representing the action requests, serialized in JSON. 
             </li>
           </ul>
+          </span>
+	  <p><span class="rfc2119-assertion" 
+            id="http-baseline-profile-protocol-binding-queryallactions-6b">
+	      Each array in the result object
+              MUST be sorted in reverse chronological order such that the 
+              most recent action request appears first.
           </span>
           <pre class="example">
           HTTP/1.1 200 OK
@@ -2610,11 +2614,12 @@
       This assertion has two keywords and needs to be broken into two
       statements.  The question is how to do it without repeating the list.
       </p>
-      <p><span class="rfc2119-assertion" id="http-baseline-profile-security-1">
+      <span class="rfc2119-assertion" id="http-baseline-profile-security-1">
+	      <p>
         Below is a list of <a href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
         security schemes</a> [[wot-thing-description]] which conformant Web 
         Things MAY use and conformant Consumers MUST support:
-      </span></p>
+      </p>
       <ul>
         <li>
           <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
@@ -2642,6 +2647,7 @@
           </a>
         </li>
       </ul>
+      </span>
       <p class="ednote">
         The list of security schemes to include in the HTTP Baseline Profile is
         still <a href="https://github.com/w3c/wot-profile/issues/6">under 
@@ -2721,8 +2727,9 @@
         </p>
         <section id="http-sse-profile-protocol-binding-subscribeevent">
           <h5><code>subscribeevent</code></h5>
-	  <p><span class="rfc2119-assertion" 
+	  <span class="rfc2119-assertion" 
             id="http-baseline-profile-protocol-binding-subscribeevent-1">
+		  <p>
             The URL of an <code>Event</code> resource to be used when 
             subscribing to an event MUST be obtained from a Thing Description 
             by locating a 
@@ -2730,9 +2737,7 @@
             <code>Form</code></a> inside the corresponding 
             <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">
             <code>EventAffordance</code></a> for which:
-	  </span></p>
-          <span class="rfc2119-assertion" 
-            id="http-sse-profile-protocol-binding-subscribeevent-2">
+	  </p>
           <ul>
             <li>
               After defaults have been applied, its <code>op</code> member 
@@ -2748,6 +2753,7 @@
               <code>"sse"</code>
             </li>
           </ul>
+	  </span>
 	  <p><span class="rfc2119-assertion" 
             id="http-sse-profile-protocol-binding-subscribeevent-3">
             The resolved value of the <code>href</code> member MUST then be used
