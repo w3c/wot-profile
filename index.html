@@ -2307,7 +2307,7 @@
                   (see <a href="#date-format">Date format</a> for additional 
                   constraints).
                 </td>
-                <td>mandatory</td>
+                <td>optional</td>
                 <td><code>string</code></td>
               </tr>
               <tr class="rfc2119-table-assertion">
@@ -2324,6 +2324,15 @@
               </tr>
             </tbody>
           </table>
+
+          <p class="note">
+            It is possible that a Thing's clock may not be set to the correct 
+            time. If timings are important then a Consumer may therefore choose
+            to treat the <code>timeEnded</code> member of an 
+            <code>ActionStatus</code> object as being relative to the
+            <code>timeRequested</code> member, but not necessarily as relative
+            to its own internal clock, or the clocks of other Things.
+          </p>
 
           <h6 id="sync-action-response">Synchronous Action Response</h6>
 	  <p><span class="rfc2119-assertion" 
