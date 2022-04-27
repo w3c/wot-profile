@@ -723,7 +723,8 @@
     for reading and writing properties and invoking, querying and cancelling
     actions.</p>
     <p>This profile may be used in conjunction with the
-    <a href="#http-sse-profile">HTTP SSE Profile</a> in order to provide 
+    <a href="#http-sse-profile">HTTP SSE Profile</a> or the 
+    <a href="#http-webhook-profile">HTTP Webhook Profile</a> in order to provide 
     operations for observing properties and listening for events.</p>
 
     <!-- Identifier -->
@@ -2942,6 +2943,229 @@
       </section>
     </section>
   </section>
+
+  <!---------------------------------------------------------------->
+
+  <section>
+    <h1>HTTP Webhook Profile</h1>
+    <p>This section defines the <em>HTTP Webhook Profile</em>, including a 
+      <a href="#http-webhook-profile-protocol-binding">Protocol Binding</a>
+      for observing properties and listening for events using WebHooks
+      [[FIXME: add reference]].</p>
+      <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-general-1">
+      The <em>HTTP Webhook profile</em> MAY be used in conjunction with the
+      <a href="#http-baseline-profile">HTTP Baseline Profile</a> in order to
+      provide operations to read and write properties and invoke, query and
+      cancel actions.</p>
+      <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-general-2">
+        The <em>HTTP Webhook profile</em> MAY be used as an alternative event mechanism 
+        to the HTTP SEE Profile.</p>
+    <!-- Identifier -->
+    <section id="http-webhook-profile-identifier">
+      <h2>Identifier</h2>
+      <p class="rfc2119-assertion" id="http-webhook-profile-1">
+        In order to denote that a given
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        conforms to the HTTP Webhook Profile, its Thing Description MUST have a
+        <a href="https://w3c.github.io/wot-thing-description/#thing">
+        <code>profile</code></a> member [[wot-thing-description]] with a value
+        of <code>https://www.w3.org/2022/wot/profile/http-webhook/v1</code>.
+      </p>
+    </section>
+
+
+    <section id="http-webhook-profile-protocol-binding">
+      <h2>Protocol Binding</h2>
+      <p>
+        This section defines a protocol binding which describes how a
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
+        communicates with a
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        [[wot-architecture11]] using Webhook Events [[FIXME: Reference]].
+      </p>
+      <p>
+        <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-1">
+        A Consumer or Web Thing conforming to the HTTP Webhook Profile
+        MUST implement this protocol binding.
+        </span>
+      </p>
+
+      <section id="webhook-example">
+        <h3>Webhook-Example</h3>
+  
+        <p>The following sequence diagram illustrates the operation and message flow from subscription to an event via notification on a state change to unsubscription.
+        </p>
+  
+        <figure id="sequence-diagram-webhook">
+          <img src="images/Sequence Diagram - WebHook.png" class="wot-profiles" alt="Webhook example - sequence diagram" />
+          <figcaption>HTTP Webhook Profile - Sequence of operations and notifications</figcaption>
+        </figure>
+  
+  
+        <p>The following example contains a snippet from a TD that illustrates how a Webhook event can be described.</p>
+        <pre class="example">
+        ...
+  
+        {
+            "events": {
+                "fireAlarm": {
+                    "description": "Fire!",
+                    "subscription": {
+                        "type": "object",
+                        "properties": {
+                               ...
+                               listener: uri,
+                               ...
+                            }
+                        }
+                    },
+                   "data": {
+                        "type": "boolean",
+                        "description": "true, if the alert button has been pushed, false, if the button was armed again."
+                    },
+                    "dataResponse": {
+                        "type": "string",
+                        "description": "acknowledged by operator named: "
+                    },
+        
+                    "cancellation": {
+                        "type": "object",
+                         "properties": {
+                               listener: uri
+                            }
+                        }
+                    },
+                    "forms": [
+                        {
+                            "op": "subscribeevent",
+                            "href": "http://192.168.0.124:8080/events/fireAlarm",
+                            "contentType": "application/json",
+                            "htv:methodName": "POST"
+                        },
+                        {
+                            "op": "unsubscribeevent",
+                            "href": "http://192.168.0.124:8080/events/fireAlarm/unsubscribe",
+                            "htv:methodName": "DELETE"
+                        }
+                    ]
+                },
+                "batteryLow": {
+                    ...
+                }
+            }
+        }
+        </pre>
+    
+  
+      </section>
+  
+
+      <section id="http-webhook-profile-protocol-binding-events">
+        <h3>Events</h3>
+        <p>
+          The HTTP Webhook Profile uses Webhooks as a
+          mechanism for Consumers to subscribe to events emitted by a Web Thing.
+        </p>
+        <p class="note">
+          The mechanism is scalable and supports Consumers that receive events from
+          multiple Things. Consumers implement a Webhook listener that is handling the event 
+          streams generated by Things. 
+          Depending on the use case, a single listener for multiple things and multiple 
+          event types may be used.
+        </p>
+        <section id="http-webhook-profile-protocol-binding-subscribeevent">
+          <h5><code>subscribeevent</code></h5>
+          <p class="rfc2119-assertion" 
+            id="http-baseline-profile-protocol-binding-subscribeevent-1">
+            The URL of an <code>Event</code> resource to be used when 
+            subscribing to an event MUST be obtained from a Thing Description 
+            by locating a 
+            <a href="https://www.w3.org/TR/wot-thing-description/#form">
+            <code>Form</code></a> inside the corresponding 
+            <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">
+            <code>EventAffordance</code></a> for which:
+          </p>
+          <ul class="rfc2119-assertion" 
+            id="http-webhook-profile-protocol-binding-subscribeevent-2">
+            <li>
+              After defaults have been applied, its <code>op</code> member 
+              contains the value <code>subscribeevent</code>
+            </li>
+            <li>
+              After being resolved against a base URL where applicable, the
+              <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+              scheme</a> [[RFC3986]] of the value of its <code>href</code>
+              member is <code>http</code> or <code>https</code>
+            </li>
+            <li>Its <code>subprotocol</code> member has a value of
+              <code>"webhook"</code>
+            </li>
+          </ul>
+          <p class="rfc2119-assertion" 
+            id="http-webhook-profile-protocol-binding-subscribeevent-3">
+            The resolved value of the <code>href</code> member MUST then be used
+            as the URL of the <code>Event</code> resource.
+          </p>
+          <p class="rfc2119-assertion" 
+            id="http-webhook-profile-protocol-binding-subscribeevent-4">
+            In order to subscribe to an event, a Consumer MUST  
+            provide the listener URL in the data payload of the 
+            subscribe operation of the <code>Event</code> resource.
+          </p>
+          <p>
+            This involves the Consumer sending an HTTP request to
+            the Web Thing with:
+          </p>
+          <ul>
+            <li>Method set to <code>POST</code></li>
+            <li>URL set to the URL of the <code>Event</code> resource</li>
+            <li>
+              <code>Accept</code> header set to <code>application/json</code>
+            </li>
+            <li>
+              <code>Request Payload</code> contains a <code>JSON</code> 
+              object with a subscription payload.
+            </li>
+
+            <!-- FIXME: define subscription payload -->
+
+          </ul>
+          <pre class="example">
+          POST /things/lamp/events/overheated HTTP/1.1
+          Host: mythingserver.com
+          Accept: application/json
+          
+          {
+            "properties": {
+              ...
+              listener: uri,
+              ...
+            }
+          }
+          </pre>
+
+          <p class="rfc2119-assertion" 
+            id="http-webhook-profile-protocol-binding-subscribeevent-5">
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to subscribe to the 
+            corresponding event, then it MUST send <em>event messsages</em> 
+            to the Consumer as events of the specified type are emitted.
+          </p>
+
+          <!-- FIXME: define event payload format-->
+
+          <section class="ednote">
+            This chapter needs more work and will have to specify unsubscribe, 
+            notify operations and message data formats.
+          </section>
+        </section>
+        </section>
+     </section>
+  </section>
+
+
+<!---------------------------------------------------------------->
+
 
   <section id="core-profile-json-schema" class="appendix normative">
     <h1>JSON Schema of the Core Profile</h1>
