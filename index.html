@@ -2507,11 +2507,20 @@
           <li><code>500 Internal Server Error</code></li>
         </ul>
         <p>
-          <span class="rfc2119-assertion" id="profile-5.2.4-thing-protocol-binding-error-responses-2">
+          <span class="rfc2119-assertion" id="profile-5.2.4-thing-protocol-binding-error-responses-2">	      
+	      A Web Thing MUST NOT issue any 3xx status codes.
+	  </span>
+          <span class="rfc2119-assertion" id="profile-5.2.4-thing-protocol-binding-error-responses-3">	      
+	      A Consumer MAY treat all 3xx codes as errors that do not change the status or behavior 
+	      of the consumer.
+	  </span> 
+	</p>
+        <p>
+          <span class="rfc2119-assertion" id="profile-5.2.4-thing-protocol-binding-error-responses-3">
           Web Things MAY respond with other valid HTTP error codes
           (e.g. <code>418 I'm a teapot</code>),
           </span>
-          <span class="rfc2119-assertion" id="profile-5.2.4-thing-protocol-binding-error-responses-3">
+          <span class="rfc2119-assertion" id="profile-5.2.4-thing-protocol-binding-error-responses-4">
           but Consumers MAY interpret those error codes as a generic <code>4xx</code> or <code>5xx</code>
           error with no special defined behaviour.
           </span>
