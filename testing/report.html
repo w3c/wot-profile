@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 7 Apr 2022
+    <b>Version</b>: 27 Apr 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -589,6 +589,39 @@ pre.example {
           
           
             Status code set to 204
+          
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-invokeaction-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-1">http-baseline-profile-protocol-binding-invokeaction-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  
+            The URL of an Action resource to be used when invoking
+            an action MUST be obtained from a Thing Description by locating a
+            
+            Form inside the corresponding
+            
+            ActionAffordance
+            for which:
+	  
+	 
+            
+              After defaults have been applied, the value of its 
+              op member is invokeaction
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+              scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
           
 	  </td>
 	<td class="baseassertion"></td>
@@ -1160,6 +1193,8 @@ Type: string.</td>
             
             forms member
             for which:
+	  
+	  
             
               Its op member contains the value
               readallproperties
@@ -1331,42 +1366,6 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="http-baseline-profile-protocol-binding-subscribeevent-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-subscribeevent-1">http-baseline-profile-protocol-binding-subscribeevent-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-		  
-            The URL of an Event resource to be used when 
-            subscribing to an event MUST be obtained from a Thing Description 
-            by locating a 
-            
-            Form inside the corresponding 
-            
-            EventAffordance for which:
-	  
-          
-            
-              After defaults have been applied, its op member 
-              contains the value subscribeevent
-            
-            
-              After being resolved against a base URL where applicable, the
-              URI
-              scheme [[RFC3986]] of the value of its href
-              member is http or https
-            
-            Its subprotocol member has a value of
-              "sse"
-            
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-writemultipleproperties-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-1">http-baseline-profile-protocol-binding-writemultipleproperties-1</a></td>
 	<td class="baseassertion"></td>
@@ -1460,6 +1459,8 @@ Type: string.</td>
             
             PropertyAffordance
             for which:
+	  
+	  
             
               After defaults have been applied, its op member 
               contains the value writeproperty
@@ -1688,49 +1689,6 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="http-sse-profile-protocol-binding-subscribeallevents-2-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-2-1">http-sse-profile-protocol-binding-subscribeallevents-2-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-          
-            
-              Its op member contains the value 
-              subscribeallevents
-            
-            
-              After being resolved against a base URL where applicable, the
-              URI
-              scheme [[RFC3986]] of the value of its href
-              member is http or https
-            
-            Its subprotocol member has a value of
-              "sse"
-            
-          
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="http-sse-profile-protocol-binding-subscribeallevents-2-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-2-2">http-sse-profile-protocol-binding-subscribeallevents-2-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            In order to subscribe to all events emitted by a Web Thing, a
-            Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
-            specification to open a connection with the Web Thing at the URL of
-            the events resource.
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-3-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-3-1">http-sse-profile-protocol-binding-subscribeallevents-3-1</a></td>
 	<td class="baseassertion"></td>
@@ -1756,6 +1714,22 @@ Type: string.</td>
             [[EVENTSOURCE]] specification to maintain an open connection with 
             the Consumer and push event data to the Consumer for all event 
             types for which it has permission to subscribe.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4">http-sse-profile-protocol-binding-subscribeallevents-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            In order to subscribe to all events emitted by a Web Thing, a
+            Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
+            specification to open a connection with the Web Thing at the URL of
+            the events resource.
 	  </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -1851,6 +1825,42 @@ Type: string.</td>
             the Web Thing SHOULD, if possible, send any missed events which
             occured since the last event specified by the Consumer in a 
             Last-Event-ID header.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-1">http-sse-profile-protocol-binding-subscribeevent-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+		  
+            The URL of an Event resource to be used when 
+            subscribing to an event MUST be obtained from a Thing Description 
+            by locating a 
+            
+            Form inside the corresponding 
+            
+            EventAffordance for which:
+	  
+          
+            
+              After defaults have been applied, its op member 
+              contains the value subscribeevent
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+              scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
+            Its subprotocol member has a value of
+              "sse"
+            
+          
 	  </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -1968,8 +1978,8 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="http-sse-profile-protocol-binding-subscribeevent-7a-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7a-1">http-sse-profile-protocol-binding-subscribeevent-7a-1</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-7a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7a">http-sse-profile-protocol-binding-subscribeevent-7a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1985,8 +1995,8 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="http-sse-profile-protocol-binding-subscribeevent-7a-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7a-2">http-sse-profile-protocol-binding-subscribeevent-7a-2</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeevent-7b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7b">http-sse-profile-protocol-binding-subscribeevent-7b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -2041,10 +2051,20 @@ Type: string.</td>
 <tr id="profile-5.1.1.2-wot-core-data-model-length-and-value-Limits-4" class="baseassertion"></tr>
 <tr id="profile-5.1.1.2-wot-core-data-model-length-and-value-Limits-5" class="baseassertion"></tr>
 <tr id="profile-5.1.2.1-thing-mandatory-fields-1" class="baseassertion"></tr>
+<tr id="profile-5.1.2.1-thing-mandatory-fields-1--created" class="tabassertion"></tr>
+<tr id="profile-5.1.2.1-thing-mandatory-fields-1--description" class="tabassertion"></tr>
+<tr id="profile-5.1.2.1-thing-mandatory-fields-1--id" class="tabassertion"></tr>
+<tr id="profile-5.1.2.1-thing-mandatory-fields-1--modified" class="tabassertion"></tr>
+<tr id="profile-5.1.2.1-thing-mandatory-fields-1--security" class="tabassertion"></tr>
+<tr id="profile-5.1.2.1-thing-mandatory-fields-1--support" class="tabassertion"></tr>
+<tr id="profile-5.1.2.1-thing-mandatory-fields-1--title" class="tabassertion"></tr>
+<tr id="profile-5.1.2.1-thing-mandatory-fields-1--version" class="tabassertion"></tr>
 <tr id="profile-5.1.2.1-thing-mandatory-fields-2" class="baseassertion"></tr>
 <tr id="profile-5.1.2.1-thing-mandatory-fields-3" class="baseassertion"></tr>
 <tr id="profile-5.1.3-thing-data-schema-1" class="baseassertion"></tr>
 <tr id="profile-5.1.3-thing-data-schema-3" class="baseassertion"></tr>
+<tr id="profile-5.1.3-thing-data-schema-3--description" class="tabassertion"></tr>
+<tr id="profile-5.1.3-thing-data-schema-3--type" class="tabassertion"></tr>
 <tr id="profile-5.1.3-thing-data-schema-4" class="baseassertion"></tr>
 <tr id="profile-5.1.3-thing-data-schema-5" class="baseassertion"></tr>
 <tr id="profile-5.1.4.1-thing-property-affordance-mandatory-fields-1" class="baseassertion"></tr>
@@ -2060,13 +2080,16 @@ Type: string.</td>
 <tr id="profile-5.1.4.2-thing-property-affordance-dditional-constraints-2" class="baseassertion"></tr>
 <tr id="profile-5.1.4.3-thing-properties-recommended-practice-2" class="baseassertion"></tr>
 <tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1" class="baseassertion"></tr>
+<tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--input" class="tabassertion"></tr>
+<tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--output" class="tabassertion"></tr>
+<tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--title" class="tabassertion"></tr>
 <tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-2" class="baseassertion"></tr>
 <tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-3" class="baseassertion"></tr>
 <tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1" class="baseassertion"></tr>
-<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-2" class="baseassertion"></tr>
-<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-3" class="baseassertion"></tr>
-<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-4" class="baseassertion"></tr>
-<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-5" class="baseassertion"></tr>
+<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_format" class="baseassertion"></tr>
+<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_forms" class="baseassertion"></tr>
+<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_oneOf" class="baseassertion"></tr>
+<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_uriVariables" class="baseassertion"></tr>
 <tr id="profile-5.1.6-thing-event-affordance-1" class="baseassertion"></tr>
 <tr id="profile-5.1.6.1-thing-event-affordance-mandatory-fields-1" class="baseassertion"></tr>
 <tr id="profile-5.1.6.2-thing-event-affordance-additional-constrains-1" class="baseassertion"></tr>
@@ -2074,9 +2097,12 @@ Type: string.</td>
 <tr id="profile-5.1.6.2-thing-event-affordance-additional-constrains-3" class="baseassertion"></tr>
 <tr id="profile-5.1.7-thing-forms-1" class="baseassertion"></tr>
 <tr id="profile-5.1.7.1-thing-forms-mandatory-fields-1" class="baseassertion"></tr>
+<tr id="profile-5.1.7.1-thing-forms-mandatory-fields-1--data" class="tabassertion"></tr>
+<tr id="profile-5.1.7.1-thing-forms-mandatory-fields-1--description" class="tabassertion"></tr>
+<tr id="profile-5.1.7.1-thing-forms-mandatory-fields-1--title" class="tabassertion"></tr>
 <tr id="profile-5.1.7.2-thing-forms-additional-constraints-1" class="baseassertion"></tr>
-<tr id="profile-5.1.7.2-thing-forms-additional-constraints-2" class="baseassertion"></tr>
-<tr id="profile-5.1.7.2-thing-forms-additional-constraints-3" class="baseassertion"></tr>
+<tr id="profile-5.1.7.2-thing-forms-additional-constraints-1_scopes" class="baseassertion"></tr>
+<tr id="profile-5.1.7.2-thing-forms-additional-constraints-1_security" class="baseassertion"></tr>
 <tr id="profile-5.2-thing-protocol-binding-1" class="baseassertion"></tr>
 <tr id="profile-5.2.4-thing-protocol-binding-error-responses-1a" class="baseassertion"></tr>
 <tr id="profile-5.2.4-thing-protocol-binding-error-responses-1b" class="baseassertion"></tr>
