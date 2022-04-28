@@ -894,10 +894,6 @@
             To provide minimum interoperability, the
             following metadata fields of a <a>Thing</a> MUST
             be contained in a compliant Thing Description:
-	    <em>
-	    FIX: this should have an table assertion per row, and this should be informative
-	    or a parent assertion.
-	    </em>
             </span>
           </p>
           <table class="def">
@@ -909,43 +905,43 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--title">
                 <td>title</td>
                 <td>string</td>
                 <td>human readable documentation</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--id">
                 <td>id</td>
                 <td>urn_type</td>
                 <td>a globally unique urn of the
                   thing</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--description">
                 <td>description</td>
                 <td>string</td>
                 <td>human readable documentation</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--created">
                 <td>created</td>
                 <td>date</td>
                 <td>human readable documentation</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--modified">
                 <td>modified</td>
                 <td>date</td>
                 <td>human readable documentation</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--support">
                 <td>support</td>
                 <td>urn_type</td>
                 <td>human readable documentation</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--security">
                 <td>security</td>
                 <td>array of string</td>
                 <td>simplified handling</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--version">
                 <td>version</td>
                 <td>VersionInfo</td>
                 <td>clear versioning, easy to
@@ -1057,10 +1053,6 @@
           <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-3">
           The following fields MUST be contained in a
           DataSchema:
-	  <em>
-	  FIX: this should have an table assertion per row, and this should be informative
-	  or a parent assertion.
-	  </em>
           </span>
         </p>
         <table class="def">
@@ -1072,11 +1064,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr class="rfc2119-table-assertion" id="profile-5.1.3-thing-data-schema-3--description">
               <td>description</td>
               <td>human readable description</td>
             </tr>
-            <tr>
+            <tr class="rfc2119-table-assertion" id="profile-5.1.3-thing-data-schema-3--type">
               <td>type</td>
               <td>string</td>
               <td>one of boolean, integer, number,
@@ -1272,15 +1264,14 @@
         <section>
           <h4>Recommended Practice</h4>
           <p>
-            It is highly RECOMMENDED to always specify a
-            <code>unit</code>
-            , if a value has a metric.
             <span id="profile-5.1.4.3-thing-properties-recommended-practice-1">
+            It is highly RECOMMENDED to always specify a
+            <code>unit</code> if a value has a metric.
+            </span>
             Authors of <em>Thing Descriptions</em> should be aware that units
             that are common in their geographic region are
             not globally applicable and may lead to
             misinterpretation with drastic consequences.
-            </span>
           </p>
           <p>
             The field
@@ -1328,10 +1319,6 @@
             <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1">
             The following fields MUST be contained in an
             action element of an <a>Core Profile</a> compliant TD:
-	     <em>
-	     FIX: this should have an table assertion per row, and this should be informative
-	     or a parent assertion.
-	     </em>
             </span>
           </p>
           <table class="def">
@@ -1343,35 +1330,38 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--title">
                 <td>title</td>
                 <td>string</td>
                 <td>unique name among all actions</td>
               </tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--input">
               <tr>
                 <td>input</td>
                 <td>array of DataSchema</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-2">
-                  all elements of the subclasses
-                  objectSchema and dataSchema MUST
-                  only contain simple types.
-                  </span>
-                </td>
+                <td>schemas describing the input to an action
+		</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--output">
                 <td>output</td>
                 <td>array of DataSchema</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-3">
-                  all elements of the subclasses
-                  objectSchema and dataSchema MUST
-                  only contain simple types.
-                  </span>
+                <td>schemas describing the output of an action
                 </td>
               </tr>
             </tbody>
           </table>
+                  <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-2">
+		  In the <code>input</code> field,
+                  all elements of the subclasses
+                  objectSchema and dataSchema MUST
+                  only contain simple types.
+                  </span>
+                  <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-3">
+		  In the <code>output</code> field,
+                  all elements of the subclasses
+                  objectSchema and dataSchema MUST
+                  only contain simple types.
+                  </span>
         </section>
 
         <section>
@@ -1394,30 +1384,17 @@
           <p>
             <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1">
             The following additional constraints MUST be
-            applied to the Interaction Affordances of a <a>Thing
+            applied to the indicated fields of the Interaction Affordances of a <a>Thing
               Description</a> conforming to the <a>Core
               Data Model</a>:
-	     <em>
-	     FIX: this should have an table assertion per row, and this should be informative
-	     or a parent assertion.
-	     </em>
             </span>
           </p>
-          <table class="def">
-            <thead>
-              <tr>
-                <th>keyword</th>
-                <th>type</th>
-                <th>constraint</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
                 <td>forms</td>
                 <td>array of Forms</td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-2">
-                  The <code>Array of Form</code>
+                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_forms">
+		  In the <code>forms</code> field,
+                  the <code>Array of Form</code>
                   of each action MUST contain only a <em>single</em>
                   endpoint.
                   </span>
@@ -1427,7 +1404,7 @@
                 <td>format</td>
                 <td>string</td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-3">
+                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_format">
                   If the field <code>format</code>
                   is used, formats defined in
                   section 7.3.1-7.3.6 of
@@ -1439,7 +1416,7 @@
                 <td>oneOf</td>
                 <td>string</td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-4">
+                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_oneOf">
                   The DataSchema field <code>oneOf</code>
                   does not make sense for properties
                   and MUST NOT be used.
@@ -1450,9 +1427,8 @@
                 <td>uriVariables</td>
                 <td>Map of DataSchema</td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-5">
-                  <code>uriVariables</code> MUST
-                  NOT be used.
+                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_uriVariables">
+                  The <code>uriVariables</code> field MUST NOT be used.
                   </span>
                 </td>
               </tr>
@@ -1598,10 +1574,6 @@
             <span class="rfc2119-assertion" id="profile-5.1.7.1-thing-forms-mandatory-fields-1">
             The following fields MUST be present in a form
             element of a <em>Core TD</em>:
-	  <em>
-	  FIX: this should have an table assertion per row, and this should be informative
-	  or a parent assertion.
-	  </em>
           </span>
           </p>
           <table class="def">
@@ -1613,22 +1585,23 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.7.1-thing-forms-mandatory-fields-1--title">
                 <td>title</td>
                 <td>string</td>
                 <td>unique name among all events</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.7.1-thing-forms-mandatory-fields-1--description">
                 <td>description</td>
                 <td>string</td>
                 <td>human readable description</td>
               </tr>
-              <tr>
+              <tr class="rfc2119-table-assertion" id="profile-5.1.7.1-thing-forms-mandatory-fields-1--data">
                 <td>data</td>
                 <td>set of DataSchema instances in
                   a JSON object</td>
-                <td>only the DataSchema subclasses
-                  booleanSchema, IntegerSchema,
+                <td>
+	  	  only the DataSchema subclasses
+                  BooleanSchema, IntegerSchema,
                   NumberSchema, StringSchema are
                   permitted</td>
               </tr>
@@ -1643,10 +1616,6 @@
             applied to the Form elements of a <a>WoT Thing
               Description</a> conforming to the <a>Core
               profile</a>:
-	  <em>
-	  FIX: this should have an table assertion per row, and this should be informative
-	  or a parent assertion.
-	  </em>
             </span>
           </p>
           <table class="def">
@@ -1662,8 +1631,8 @@
                 <td>security</td>
                 <td>string or Array of string</td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.7.2-thing-forms-additional-constraints-2">
-                  <code>security</code> at form
+                  <span class="rfc2119-assertion" id="profile-5.1.7.2-thing-forms-additional-constraints-1_security">
+                  A <code>security</code> field at the form
                   level MUST NOT be used.
                   </span>
                 </td>
@@ -1672,8 +1641,8 @@
                 <td>scopes</td>
                 <td>string or Array of string</td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.7.2-thing-forms-additional-constraints-3">
-                  <code>scopes</code> MUST NOT be
+                  <span class="rfc2119-assertion" id="profile-5.1.7.2-thing-forms-additional-constraints-1_scopes">
+                  A <code>scopes</code> field MUST NOT be
                   used.
                   </span>
                 </td>
@@ -1801,6 +1770,8 @@
             <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
             <code>PropertyAffordance</code></a>
             for which:
+	  </p>
+	  <ul>
             <li>
               After defaults have been applied, its <code>op</code> member 
               contains the value <code>writeproperty</code>
@@ -1867,6 +1838,8 @@
             <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
             <code>forms</code></a> member
             for which:
+	  </p>
+	  <ul>
             <li>
               Its <code>op</code> member contains the value
               <code>readallproperties</code>
@@ -2025,8 +1998,8 @@
         <section id="http-baseline-profile-protocol-binding-invokeaction">
           <h5><code>invokeaction</code></h5>
 	  <span class="rfc2119-assertion"
-	  <p>
             id="http-baseline-profile-protocol-binding-invokeaction-1">
+	  <p>
             The URL of an <code>Action</code> resource to be used when invoking
             an action MUST be obtained from a Thing Description by locating a
             <a href="https://www.w3.org/TR/wot-thing-description/#form">
@@ -2213,7 +2186,7 @@
             If providing a Synchronous Action Response, a Web Thing MUST send 
             an HTTP response with:
 	  </p>
-          </ul>
+          <ul>
             <li>Status code set to <code>200</code></li>
             <li><code>Content-Type</code> header set to 
               <code>application/json</code></li>
@@ -2728,7 +2701,7 @@
         <section id="http-sse-profile-protocol-binding-subscribeevent">
           <h5><code>subscribeevent</code></h5>
 	  <span class="rfc2119-assertion" 
-            id="http-baseline-profile-protocol-binding-subscribeevent-1">
+            id="http-sse-profile-protocol-binding-subscribeevent-1">
 		  <p>
             The URL of an <code>Event</code> resource to be used when 
             subscribing to an event MUST be obtained from a Thing Description 
@@ -2862,7 +2835,7 @@
             [[EVENTSOURCE]]. 
 	  </span>
 	  <span class="rfc2119-assertion" 
-            id="http-sse-profile-protocol-binding-subscribeevent-7a">
+            id="http-sse-profile-protocol-binding-subscribeevent-7b">
 	    Once the connection is re-established the Web Thing
             SHOULD, if possible, send any missed events which occured since
             the last event specified by the Consumer in a 
@@ -2879,14 +2852,14 @@
             as specified in the Server-Sent Events specification
             [[EVENTSOURCE]].
 	  </span></p>
-	  <p><span class="note" title="Terminating a connection using JavaScript">
+	  <p class="note" title="Terminating a connection using JavaScript">
             For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
             in a runtime which exposes the
             <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
             <code>EventSource</code></a> interface, a Server-Sent Events 
             connection can be terminated using the <code>close()</code> method 
             on an <code>EventSource</code> [[EVENTSOURCE]] object.
-	  </span></p>
+	  </p>
             <pre class="example">
               overheatedEventSource.close();
             </pre>
@@ -2903,9 +2876,7 @@
             <code>Form</code></a> inside the top level 
             <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
             member of a Thing Description for which:
-	  </span></p>
-          <span class="rfc2119-assertion" 
-            id="http-sse-profile-protocol-binding-subscribeallevents-2">
+	  </p>
           <ul>
             <li>
               Its <code>op</code> member contains the value 
@@ -2929,7 +2900,7 @@
 	  </span>
           </p>
 	  <p><span class="rfc2119-assertion" 
-            id="http-sse-profile-protocol-binding-subscribeallevents-2">
+            id="http-sse-profile-protocol-binding-subscribeallevents-4">
             In order to subscribe to all events emitted by a Web Thing, a
             Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
             specification to open a connection with the Web Thing at the URL of
@@ -3046,7 +3017,7 @@
             endpoint of the Web Thing, following the steps specified in the 
             Server-Sent Events specification [[EVENTSOURCE]].
 	  </span></p>
-	  <p><span class="note" title="Terminating a connection using JavaScript">
+	  <p class="note" title="Terminating a connection using JavaScript">
             For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
             in a runtime which exposes the
             <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
@@ -3056,7 +3027,7 @@
             <pre class="example">
               lampEventsSource.close();
             </pre>
-	  </span></p>
+	  </p>
         </section>
       </section>
     </section>

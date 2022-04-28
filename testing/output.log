@@ -43,44 +43,130 @@ test should also be provided.
 
 
 </body></html>
-WARNING: rfc2119-table-assertion without id: 
-                <td><code>status</code></td>
-                <td>The status of the action request.</td>
-                <td>mandatory</td>
-                <td>
+TTTTABLE human readable documentation
+table assertion profile-5.1.2.1-thing-mandatory-fields-1--title added
+  text: <span class="rfc2119-table-assertion">title: string<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE a globally unique urn of the
+                  thing
+table assertion profile-5.1.2.1-thing-mandatory-fields-1--id added
+  text: <span class="rfc2119-table-assertion">id: urn_type<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE human readable documentation
+table assertion profile-5.1.2.1-thing-mandatory-fields-1--description added
+  text: <span class="rfc2119-table-assertion">description: string<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE human readable documentation
+table assertion profile-5.1.2.1-thing-mandatory-fields-1--created added
+  text: <span class="rfc2119-table-assertion">created: date<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE human readable documentation
+table assertion profile-5.1.2.1-thing-mandatory-fields-1--modified added
+  text: <span class="rfc2119-table-assertion">modified: date<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE human readable documentation
+table assertion profile-5.1.2.1-thing-mandatory-fields-1--support added
+  text: <span class="rfc2119-table-assertion">support: urn_type<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE simplified handling
+table assertion profile-5.1.2.1-thing-mandatory-fields-1--security added
+  text: <span class="rfc2119-table-assertion">security: array of string<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE clear versioning, easy to
+                  compare different TDs
+table assertion profile-5.1.2.1-thing-mandatory-fields-1--version added
+  text: <span class="rfc2119-table-assertion">version: VersionInfo<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE undefined
+table assertion profile-5.1.3-thing-data-schema-3--description added
+  text: <span class="rfc2119-table-assertion">description: human readable description<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE one of boolean, integer, number,
+                string, array or object
+table assertion profile-5.1.3-thing-data-schema-3--type added
+  text: <span class="rfc2119-table-assertion">type: string<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE unique name among all actions
+table assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--title added
+  text: <span class="rfc2119-table-assertion">title: string<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE undefined
+table assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--input added
+  text: <span class="rfc2119-table-assertion">undefined: undefined<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE schemas describing the output of an action
+                
+table assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--output added
+  text: <span class="rfc2119-table-assertion">output: array of DataSchema<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE unique name among all events
+table assertion profile-5.1.7.1-thing-forms-mandatory-fields-1--title added
+  text: <span class="rfc2119-table-assertion">title: string<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE human readable description
+table assertion profile-5.1.7.1-thing-forms-mandatory-fields-1--description added
+  text: <span class="rfc2119-table-assertion">description: string<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE 
+	  	  only the DataSchema subclasses
+                  BooleanSchema, IntegerSchema,
+                  NumberSchema, StringSchema are
+                  permitted
+table assertion profile-5.1.7.1-thing-forms-mandatory-fields-1--data added
+  text: <span class="rfc2119-table-assertion">data: set of DataSchema instances in
+                  a JSON object<hr/>
+MAY be included.
+Type: undefined.</span>
+TTTTABLE mandatory
+table assertion http-baseline-profile-protocol-binding-invokeaction-12_1 added
+  text: <span class="rfc2119-table-assertion"><code>status</code>: The status of the action request.<hr/>
+MUST be included.
+Type: 
                   <a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#string">
                   <code>string</code></a> (one of <code>pending</code>, 
                   <code>running</code>, <code>completed</code> or 
                   <code>failed</code>)
-                </td>
-              
-WARNING: rfc2119-table-assertion without id: 
-                <td><code>output</code></td>
-                <td>
+                .</span>
+TTTTABLE optional
+table assertion http-baseline-profile-protocol-binding-invokeaction-12_2 added
+  text: <span class="rfc2119-table-assertion"><code>output</code>: 
                   The output data, if any, of a completed action which
                   MUST conform with the <code>output</code> data schema of the 
                   corresponding 
                   <a href="https://www.w3.org/TR/wot-thing-description/#actionaffordance">
                   <code>ActionAffordance</code></a>.
-                </td>
-                <td>optional</td>
-                <td>any type</td>
-              
-WARNING: rfc2119-table-assertion without id: 
-                <td><code>error</code></td>
-                <td>
+                <hr/>
+MAY be included.
+Type: any type.</span>
+TTTTABLE optional
+table assertion http-baseline-profile-protocol-binding-invokeaction-12_3 added
+  text: <span class="rfc2119-table-assertion"><code>error</code>: 
                   An error message, if any, associated with a failed action 
                   which MUST use the JSON serialization of the Problem Details 
                   format [[RFC7807]] (only needed in response to a
                   <a href="#queryaction"><code>queryaction</code></a> 
                   operation).
-                </td>
-                <td>optional</td>
-                <td><code>object</code></td>
-              
-WARNING: rfc2119-table-assertion without id: 
-                <td><code>href</code></td>
-                <td>
+                <hr/>
+MAY be included.
+Type: <code>object</code>.</span>
+TTTTABLE optional
+table assertion http-baseline-profile-protocol-binding-invokeaction-12_4 added
+  text: <span class="rfc2119-table-assertion"><code>href</code>: 
                   The [[URL]] of an <code>ActionStatus</code> resource which can
                   be polled with a <code>queryaction</code> operation to get 
                   the latest status of the action, the
@@ -89,10 +175,9 @@ WARNING: rfc2119-table-assertion without id:
                   <code>http</code> or <code>https</code> (only needed for an 
                   <a href="#async-action-response">Asynchronous Action
                   Response</a>).
-                </td>
-                <td>optional</td>
-                <td><code>string</code></td>
-              
+                <hr/>
+MAY be included.
+Type: <code>string</code>.</span>
 Results: {
 
 }
@@ -117,7 +202,7 @@ interop consumers:  Set(0) {}
 interop table:  Map(0) {}
 Processing assertion profile-abstract-1
 Processing assertion profile-1.2-why-a-core-profile-1
-Processing assertion core-profile-identifier-1
+Processing assertion http-baseline-profile-identifier-1
 Processing assertion profile-5.1-wot-core-data-model-1
 Processing assertion profile-date-format-1
 Processing assertion profile-date-format-2
@@ -150,10 +235,10 @@ Processing assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1
 Processing assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-2
 Processing assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-3
 Processing assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1
-Processing assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-2
-Processing assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-3
-Processing assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-4
-Processing assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-5
+Processing assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1_forms
+Processing assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1_format
+Processing assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1_oneOf
+Processing assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1_uriVariables
 Processing assertion profile-5.1.6-thing-event-affordance-1
 Processing assertion profile-5.1.6.1-thing-event-affordance-mandatory-fields-1
 Processing assertion profile-5.1.6.2-thing-event-affordance-additional-constrains-1
@@ -162,203 +247,189 @@ Processing assertion profile-5.1.6.2-thing-event-affordance-additional-constrain
 Processing assertion profile-5.1.7-thing-forms-1
 Processing assertion profile-5.1.7.1-thing-forms-mandatory-fields-1
 Processing assertion profile-5.1.7.2-thing-forms-additional-constraints-1
-Processing assertion profile-5.1.7.2-thing-forms-additional-constraints-2
-Processing assertion profile-5.1.7.2-thing-forms-additional-constraints-3
+Processing assertion profile-5.1.7.2-thing-forms-additional-constraints-1_security
+Processing assertion profile-5.1.7.2-thing-forms-additional-constraints-1_scopes
 Processing assertion profile-5.2-thing-protocol-binding-1
-Processing assertion core-profile-protocol-binding-properties-readproperty-1
-Processing assertion core-profile-protocol-binding-properties-readproperty-2
-Processing assertion core-profile-protocol-binding-properties-readproperty-3
-Processing assertion core-profile-protocol-binding-properties-readproperty-4
-Processing assertion core-profile-protocol-binding-properties-readproperty-5
-Processing assertion core-profile-protocol-binding-properties-readproperty-6
-Processing assertion core-profile-protocol-binding-properties-readproperty-7
-Processing assertion core-profile-protocol-binding-properties-writeproperty-1
-Processing assertion core-profile-protocol-binding-properties-writeproperty-2
-Processing assertion core-profile-protocol-binding-properties-writeproperty-3
-Processing assertion core-profile-protocol-binding-properties-writeproperty-4
-Processing assertion core-profile-protocol-binding-properties-writeproperty-5
-Processing assertion core-profile-protocol-binding-properties-writeproperty-6
-Processing assertion core-profile-protocol-binding-properties-writeproperty-7
-Processing assertion core-profile-protocol-binding-properties-readallproperties-1
-Processing assertion core-profile-protocol-binding-properties-readallproperties-2
-Processing assertion core-profile-protocol-binding-properties-readallproperties-3-1
-Processing assertion core-profile-protocol-binding-properties-readallproperties-3-2
-Processing assertion core-profile-protocol-binding-properties-readallproperties-4
-Processing assertion core-profile-protocol-binding-properties-readallproperties-5
-Processing assertion core-profile-protocol-binding-properties-readallproperties-6
-Processing assertion core-profile-protocol-binding-properties-writemultipleproperties-1
-Processing assertion core-profile-protocol-binding-properties-writemultipleproperties-2
-Processing assertion core-profile-protocol-binding-properties-writemultipleproperties-3
-Processing assertion core-profile-protocol-binding-properties-writemultipleproperties-4
-Processing assertion core-profile-protocol-binding-properties-writemultipleproperties-5
-Processing assertion core-profile-protocol-binding-properties-writemultipleproperties-6
-Processing assertion core-profile-protocol-binding-actions-invokeaction-1
-Processing assertion core-profile-protocol-binding-actions-invokeaction-2
-Processing assertion core-profile-protocol-binding-actions-invokeaction-3
-Processing assertion core-profile-protocol-binding-actions-invokeaction-4
-Processing assertion core-profile-protocol-binding-actions-invokeaction-5
-Processing assertion core-profile-protocol-binding-actions-invokeaction-6
-Processing assertion core-profile-protocol-binding-actions-invokeaction-7
-Processing assertion core-profile-protocol-binding-actions-invokeaction-8
-Processing assertion core-profile-protocol-binding-actions-invokeaction-9
-Processing assertion core-profile-protocol-binding-actions-invokeaction-10
-Processing assertion core-profile-protocol-binding-actions-invokeaction-11
-Processing assertion core-profile-protocol-binding-actions-invokeaction-12
-Processing assertion core-profile-protocol-binding-actions-invokeaction-13
-Processing assertion core-profile-protocol-binding-actions-invokeaction-14
-Processing assertion core-profile-protocol-binding-actions-invokeaction-15
-Processing assertion core-profile-protocol-binding-actions-invokeaction-16
-Processing assertion core-profile-protocol-binding-actions-queryaction-1
-Processing assertion core-profile-protocol-binding-actions-queryaction-2
-Processing assertion core-profile-protocol-binding-actions-queryaction-3
-Processing assertion core-profile-protocol-binding-actions-queryaction-4
-Processing assertion core-profile-protocol-binding-actions-queryaction-5
-Processing assertion core-profile-protocol-binding-actions-queryaction-6
-Processing assertion core-profile-protocol-binding-actions-queryaction-7
-Processing assertion core-profile-protocol-binding-actions-cancelaction-1
-Processing assertion core-profile-protocol-binding-actions-cancelaction-3
-Processing assertion core-profile-protocol-binding-actions-cancelaction-4
-Processing assertion core-profile-protocol-binding-actions-cancelaction-5
-Processing assertion core-profile-protocol-binding-actions-cancelaction-6
-Processing assertion core-profile-protocol-binding-actions-queryallactions-1
-Processing assertion core-profile-protocol-binding-actions-queryallactions-2
-Processing assertion core-profile-protocol-binding-actions-queryallactions-3
-Processing assertion core-profile-protocol-binding-actions-queryallactions-4
-Processing assertion core-profile-protocol-binding-actions-queryallactions-5
-Processing assertion core-profile-protocol-binding-actions-queryallactions-6
-Processing assertion core-profile-protocol-binding-actions-queryallactions-7
-Processing assertion core-profile-protocol-binding-events-subscribeevent-1
-Processing assertion core-profile-protocol-binding-events-subscribeevent-2
-Processing assertion core-profile-protocol-binding-events-subscribeevent-3
-Processing assertion core-profile-protocol-binding-events-subscribeevent-4
-Processing assertion core-profile-protocol-binding-events-subscribeevent-5
-Processing assertion core-profile-protocol-binding-events-subscribeevent-6
-Processing assertion core-profile-protocol-binding-events-subscribeevent-7
-Processing assertion core-profile-protocol-binding-events-unsubscribeevent-1
-Processing assertion core-profile-protocol-binding-events-subscribeallevents-1
-Processing assertion core-profile-protocol-binding-events-subscribeallevents-2-1
-Processing assertion core-profile-protocol-binding-events-subscribeallevents-2-2
-Processing assertion core-profile-protocol-binding-events-subscribeallevents-3-1
-Processing assertion core-profile-protocol-binding-events-subscribeallevents-3-2
-Processing assertion core-profile-protocol-binding-events-subscribeallevents-4
-Processing assertion core-profile-protocol-binding-events-subscribeallevents-5
-Processing assertion core-profile-protocol-binding-events-unsubscribeallevents-1
-Processing assertion profile-5.2.4-thing-protocol-binding-error-responses-1
+Processing assertion http-baseline-profile-protocol-binding-readproperty-1
+Processing assertion http-baseline-profile-protocol-binding-readproperty-3
+Processing assertion http-baseline-profile-protocol-binding-readproperty-4
+Processing assertion http-baseline-profile-protocol-binding-readproperty-6
+Processing assertion http-baseline-profile-protocol-binding-writeproperty-1
+Processing assertion http-baseline-profile-protocol-binding-writeproperty-3
+Processing assertion http-baseline-profile-protocol-binding-writeproperty-4
+Processing assertion http-baseline-profile-protocol-binding-writeproperty-6
+Processing assertion http-baseline-profile-protocol-binding-readallproperties-1
+Processing assertion http-baseline-profile-protocol-binding-readallproperties-3
+Processing assertion http-baseline-profile-protocol-binding-readallproperties-4
+Processing assertion http-baseline-profile-protocol-binding-readallproperties-5
+Processing assertion http-baseline-profile-protocol-binding-writemultipleproperties-1
+Processing assertion http-baseline-profile-protocol-bindings-writemultipleproperties-3
+Processing assertion http-baseline-profile-protocol-binding-writemultipleproperties-4
+Processing assertion http-baseline-profile-protocol-binding-writemultipleproperties-6
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-1
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-3
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-4
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-6
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-8
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-9
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-10
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-11a
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-11b
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-12
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-13
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-15
+Processing assertion http-baseline-profile-protocol-binding-queryaction-1a
+Processing assertion http-baseline-profile-protocol-binding-queryaction-1b
+Processing assertion http-baseline-profile-protocol-binding-queryaction-2
+Processing assertion http-baseline-profile-protocol-binding-queryaction-3
+Processing assertion http-baseline-profile-protocol-binding-queryaction-5
+Processing assertion http-baseline-profile-protocol-binding-queryaction-7a
+Processing assertion http-baseline-profile-protocol-binding-queryaction-7b
+Processing assertion http-baseline-profile-protocol-binding-cancelaction-1a
+Processing assertion http-baseline-profile-protocol-binding-cancelaction-1b
+Processing assertion http-baseline-profile-protocol-binding-cancelaction-3
+Processing assertion http-baseline-profile-protocol-binding-cancelaction-5
+Processing assertion http-baseline-profile-protocol-binding-queryallactions-1
+Processing assertion http-baseline-profile-protocol-binding-queryallactions-3
+Processing assertion http-baseline-profile-protocol-binding-queryallactions-4
+Processing assertion http-baseline-profile-protocol-binding-queryallactions-6a
+Processing assertion http-baseline-profile-protocol-binding-queryallactions-6b
+Processing assertion profile-5.2.4-thing-protocol-binding-error-responses-1a
+Processing assertion profile-5.2.4-thing-protocol-binding-error-responses-1b
 Processing assertion profile-5.2.4-thing-protocol-binding-error-responses-2
 Processing assertion profile-5.2.4-thing-protocol-binding-error-responses-3
 Processing assertion profile-5.2.4-thing-protocol-binding-error-responses-5
-Processing assertion core-profile-security-1
-Processing assertion core-profile-security-2
-Processing assertion core-profile-security-3
-Set(0) {}
-Formatting assertion core-profile-identifier-1
-Formatting assertion core-profile-protocol-binding-actions-cancelaction-1
-Formatting assertion core-profile-protocol-binding-actions-cancelaction-3
-Formatting assertion core-profile-protocol-binding-actions-cancelaction-4
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-cancelaction-4
-Formatting assertion core-profile-protocol-binding-actions-cancelaction-5
-Formatting assertion core-profile-protocol-binding-actions-cancelaction-6
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-cancelaction-6
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-1
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-10
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-11
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-12
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-invokeaction-12
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-13
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-14
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-invokeaction-14
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-15
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-16
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-invokeaction-16
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-2
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-invokeaction-2
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-3
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-4
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-5
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-invokeaction-5
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-6
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-7
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-invokeaction-7
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-8
-Formatting assertion core-profile-protocol-binding-actions-invokeaction-9
-Formatting assertion core-profile-protocol-binding-actions-queryaction-1
-Formatting assertion core-profile-protocol-binding-actions-queryaction-2
-Formatting assertion core-profile-protocol-binding-actions-queryaction-3
-Formatting assertion core-profile-protocol-binding-actions-queryaction-4
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-queryaction-4
-Formatting assertion core-profile-protocol-binding-actions-queryaction-5
-Formatting assertion core-profile-protocol-binding-actions-queryaction-6
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-queryaction-6
-Formatting assertion core-profile-protocol-binding-actions-queryaction-7
-Formatting assertion core-profile-protocol-binding-actions-queryallactions-1
-Formatting assertion core-profile-protocol-binding-actions-queryallactions-2
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-queryallactions-2
-Formatting assertion core-profile-protocol-binding-actions-queryallactions-3
-Formatting assertion core-profile-protocol-binding-actions-queryallactions-4
-Formatting assertion core-profile-protocol-binding-actions-queryallactions-5
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-queryallactions-5
-Formatting assertion core-profile-protocol-binding-actions-queryallactions-6
-Formatting assertion core-profile-protocol-binding-actions-queryallactions-7
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-actions-queryallactions-7
-Formatting assertion core-profile-protocol-binding-events-subscribeallevents-1
-Formatting assertion core-profile-protocol-binding-events-subscribeallevents-2-1
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-events-subscribeallevents-2-1
-Formatting assertion core-profile-protocol-binding-events-subscribeallevents-2-2
-Formatting assertion core-profile-protocol-binding-events-subscribeallevents-3-1
-Formatting assertion core-profile-protocol-binding-events-subscribeallevents-3-2
-Formatting assertion core-profile-protocol-binding-events-subscribeallevents-4
-Formatting assertion core-profile-protocol-binding-events-subscribeallevents-5
-Formatting assertion core-profile-protocol-binding-events-subscribeevent-1
-Formatting assertion core-profile-protocol-binding-events-subscribeevent-2
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-events-subscribeevent-2
-Formatting assertion core-profile-protocol-binding-events-subscribeevent-3
-Formatting assertion core-profile-protocol-binding-events-subscribeevent-4
-Formatting assertion core-profile-protocol-binding-events-subscribeevent-5
-Formatting assertion core-profile-protocol-binding-events-subscribeevent-6
-Formatting assertion core-profile-protocol-binding-events-subscribeevent-7
-Formatting assertion core-profile-protocol-binding-events-unsubscribeallevents-1
-Formatting assertion core-profile-protocol-binding-events-unsubscribeevent-1
-Formatting assertion core-profile-protocol-binding-properties-readallproperties-1
-Formatting assertion core-profile-protocol-binding-properties-readallproperties-2
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-readallproperties-2
-Formatting assertion core-profile-protocol-binding-properties-readallproperties-3-1
-Formatting assertion core-profile-protocol-binding-properties-readallproperties-3-2
-Formatting assertion core-profile-protocol-binding-properties-readallproperties-4
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-readallproperties-4
-Formatting assertion core-profile-protocol-binding-properties-readallproperties-5
-Formatting assertion core-profile-protocol-binding-properties-readallproperties-6
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-readallproperties-6
-Formatting assertion core-profile-protocol-binding-properties-readproperty-1
-Formatting assertion core-profile-protocol-binding-properties-readproperty-2
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-readproperty-2
-Formatting assertion core-profile-protocol-binding-properties-readproperty-3
-Formatting assertion core-profile-protocol-binding-properties-readproperty-4
-Formatting assertion core-profile-protocol-binding-properties-readproperty-5
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-readproperty-5
-Formatting assertion core-profile-protocol-binding-properties-readproperty-6
-Formatting assertion core-profile-protocol-binding-properties-readproperty-7
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-readproperty-7
-Formatting assertion core-profile-protocol-binding-properties-writemultipleproperties-1
-Formatting assertion core-profile-protocol-binding-properties-writemultipleproperties-2
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-writemultipleproperties-2
-Formatting assertion core-profile-protocol-binding-properties-writemultipleproperties-3
-Formatting assertion core-profile-protocol-binding-properties-writemultipleproperties-4
-Formatting assertion core-profile-protocol-binding-properties-writemultipleproperties-5
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-writemultipleproperties-5
-Formatting assertion core-profile-protocol-binding-properties-writemultipleproperties-6
-Formatting assertion core-profile-protocol-binding-properties-writeproperty-1
-Formatting assertion core-profile-protocol-binding-properties-writeproperty-2
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-writeproperty-2
-Formatting assertion core-profile-protocol-binding-properties-writeproperty-3
-Formatting assertion core-profile-protocol-binding-properties-writeproperty-4
-Formatting assertion core-profile-protocol-binding-properties-writeproperty-5
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-writeproperty-5
-Formatting assertion core-profile-protocol-binding-properties-writeproperty-6
-Formatting assertion core-profile-protocol-binding-properties-writeproperty-7
-WARNING: RFC2119 category is not defined for core-profile-protocol-binding-properties-writeproperty-7
-Formatting assertion core-profile-security-1
-Formatting assertion core-profile-security-2
-Formatting assertion core-profile-security-3
+Processing assertion http-baseline-profile-security-1
+Processing assertion http-baseline-profile-security-2
+Processing assertion http-baseline-profile-security-3a
+Processing assertion http-baseline-profile-security-3b
+Processing assertion http-sse-profile-1
+Processing assertion http-sse-profile-protocol-binding-1
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-1
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-3
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-4
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-5
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-6a
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-6b
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-6c
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-6d
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-7a
+Processing assertion http-sse-profile-protocol-binding-subscribeevent-7b
+Processing assertion http-sse-profile-protocol-binding-unsubscribeevent-1
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-1
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-3-1
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-3-2
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-4
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-4a
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-4b
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-4c
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-4d
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-5a
+Processing assertion http-sse-profile-protocol-binding-subscribeallevents-5b
+Processing assertion http-sse-profile-protocol-binding-unsubscribeallevents-1
+Processing assertion profile-5.1.2.1-thing-mandatory-fields-1--title
+Processing assertion profile-5.1.2.1-thing-mandatory-fields-1--id
+Processing assertion profile-5.1.2.1-thing-mandatory-fields-1--description
+Processing assertion profile-5.1.2.1-thing-mandatory-fields-1--created
+Processing assertion profile-5.1.2.1-thing-mandatory-fields-1--modified
+Processing assertion profile-5.1.2.1-thing-mandatory-fields-1--support
+Processing assertion profile-5.1.2.1-thing-mandatory-fields-1--security
+Processing assertion profile-5.1.2.1-thing-mandatory-fields-1--version
+Processing assertion profile-5.1.3-thing-data-schema-3--description
+Processing assertion profile-5.1.3-thing-data-schema-3--type
+Processing assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--title
+Processing assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--input
+Processing assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--output
+Processing assertion profile-5.1.7.1-thing-forms-mandatory-fields-1--title
+Processing assertion profile-5.1.7.1-thing-forms-mandatory-fields-1--description
+Processing assertion profile-5.1.7.1-thing-forms-mandatory-fields-1--data
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-12_1
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-12_2
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-12_3
+Processing assertion http-baseline-profile-protocol-binding-invokeaction-12_4
+Set(3) {
+  'profile-5.1.5.2-thing-action-affordance-additional-constraints-1',
+  'profile-5.1.7.2-thing-forms-additional-constraints-1',
+  'http-baseline-profile-protocol-binding-invokeaction-12'
+}
+Formatting assertion http-baseline-profile-identifier-1
+Formatting assertion http-baseline-profile-protocol-binding-cancelaction-1a
+Formatting assertion http-baseline-profile-protocol-binding-cancelaction-1b
+Formatting assertion http-baseline-profile-protocol-binding-cancelaction-3
+Formatting assertion http-baseline-profile-protocol-binding-cancelaction-5
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-1
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-10
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-11a
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-11b
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-12
+WARNING: RFC2119 category is not defined for http-baseline-profile-protocol-binding-invokeaction-12
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-12_1
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-12_2
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-12_3
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-12_4
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-13
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-15
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-3
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-4
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-6
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-8
+Formatting assertion http-baseline-profile-protocol-binding-invokeaction-9
+Formatting assertion http-baseline-profile-protocol-binding-queryaction-1a
+Formatting assertion http-baseline-profile-protocol-binding-queryaction-1b
+Formatting assertion http-baseline-profile-protocol-binding-queryaction-2
+Formatting assertion http-baseline-profile-protocol-binding-queryaction-3
+Formatting assertion http-baseline-profile-protocol-binding-queryaction-5
+Formatting assertion http-baseline-profile-protocol-binding-queryaction-7a
+Formatting assertion http-baseline-profile-protocol-binding-queryaction-7b
+Formatting assertion http-baseline-profile-protocol-binding-queryallactions-1
+Formatting assertion http-baseline-profile-protocol-binding-queryallactions-3
+Formatting assertion http-baseline-profile-protocol-binding-queryallactions-4
+Formatting assertion http-baseline-profile-protocol-binding-queryallactions-6a
+Formatting assertion http-baseline-profile-protocol-binding-queryallactions-6b
+Formatting assertion http-baseline-profile-protocol-binding-readallproperties-1
+Formatting assertion http-baseline-profile-protocol-binding-readallproperties-3
+Formatting assertion http-baseline-profile-protocol-binding-readallproperties-4
+Formatting assertion http-baseline-profile-protocol-binding-readallproperties-5
+Formatting assertion http-baseline-profile-protocol-binding-readproperty-1
+Formatting assertion http-baseline-profile-protocol-binding-readproperty-3
+Formatting assertion http-baseline-profile-protocol-binding-readproperty-4
+Formatting assertion http-baseline-profile-protocol-binding-readproperty-6
+Formatting assertion http-baseline-profile-protocol-binding-writemultipleproperties-1
+Formatting assertion http-baseline-profile-protocol-binding-writemultipleproperties-4
+Formatting assertion http-baseline-profile-protocol-binding-writemultipleproperties-6
+Formatting assertion http-baseline-profile-protocol-binding-writeproperty-1
+Formatting assertion http-baseline-profile-protocol-binding-writeproperty-3
+Formatting assertion http-baseline-profile-protocol-binding-writeproperty-4
+Formatting assertion http-baseline-profile-protocol-binding-writeproperty-6
+Formatting assertion http-baseline-profile-protocol-bindings-writemultipleproperties-3
+Formatting assertion http-baseline-profile-security-1
+Formatting assertion http-baseline-profile-security-2
+Formatting assertion http-baseline-profile-security-3a
+Formatting assertion http-baseline-profile-security-3b
+Formatting assertion http-sse-profile-1
+Formatting assertion http-sse-profile-protocol-binding-1
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-1
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-3-1
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-3-2
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-4
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-4a
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-4b
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-4c
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-4d
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-5a
+Formatting assertion http-sse-profile-protocol-binding-subscribeallevents-5b
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-1
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-3
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-4
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-5
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-6a
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-6b
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-6c
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-6d
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-7a
+Formatting assertion http-sse-profile-protocol-binding-subscribeevent-7b
+Formatting assertion http-sse-profile-protocol-binding-unsubscribeallevents-1
+Formatting assertion http-sse-profile-protocol-binding-unsubscribeevent-1
 Formatting assertion profile-1.2-why-a-core-profile-1
 Formatting assertion profile-5.1-wot-core-data-model-1
 Formatting assertion profile-5.1.1.2-wot-core-data-model-length-and-value-Limits-1
@@ -367,10 +438,20 @@ Formatting assertion profile-5.1.1.2-wot-core-data-model-length-and-value-Limits
 Formatting assertion profile-5.1.1.2-wot-core-data-model-length-and-value-Limits-4
 Formatting assertion profile-5.1.1.2-wot-core-data-model-length-and-value-Limits-5
 Formatting assertion profile-5.1.2.1-thing-mandatory-fields-1
+Formatting assertion profile-5.1.2.1-thing-mandatory-fields-1--created
+Formatting assertion profile-5.1.2.1-thing-mandatory-fields-1--description
+Formatting assertion profile-5.1.2.1-thing-mandatory-fields-1--id
+Formatting assertion profile-5.1.2.1-thing-mandatory-fields-1--modified
+Formatting assertion profile-5.1.2.1-thing-mandatory-fields-1--security
+Formatting assertion profile-5.1.2.1-thing-mandatory-fields-1--support
+Formatting assertion profile-5.1.2.1-thing-mandatory-fields-1--title
+Formatting assertion profile-5.1.2.1-thing-mandatory-fields-1--version
 Formatting assertion profile-5.1.2.1-thing-mandatory-fields-2
 Formatting assertion profile-5.1.2.1-thing-mandatory-fields-3
 Formatting assertion profile-5.1.3-thing-data-schema-1
 Formatting assertion profile-5.1.3-thing-data-schema-3
+Formatting assertion profile-5.1.3-thing-data-schema-3--description
+Formatting assertion profile-5.1.3-thing-data-schema-3--type
 Formatting assertion profile-5.1.3-thing-data-schema-4
 Formatting assertion profile-5.1.3-thing-data-schema-5
 Formatting assertion profile-5.1.4.1-thing-property-affordance-mandatory-fields-1
@@ -386,13 +467,16 @@ Formatting assertion profile-5.1.4.2-thing-property-affordance-additional-constr
 Formatting assertion profile-5.1.4.2-thing-property-affordance-dditional-constraints-2
 Formatting assertion profile-5.1.4.3-thing-properties-recommended-practice-2
 Formatting assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1
+Formatting assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--input
+Formatting assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--output
+Formatting assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--title
 Formatting assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-2
 Formatting assertion profile-5.1.5.1-thing-action-affordances-mandatory-fields-3
 Formatting assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1
-Formatting assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-2
-Formatting assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-3
-Formatting assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-4
-Formatting assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-5
+Formatting assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1_format
+Formatting assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1_forms
+Formatting assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1_oneOf
+Formatting assertion profile-5.1.5.2-thing-action-affordance-additional-constraints-1_uriVariables
 Formatting assertion profile-5.1.6-thing-event-affordance-1
 Formatting assertion profile-5.1.6.1-thing-event-affordance-mandatory-fields-1
 Formatting assertion profile-5.1.6.2-thing-event-affordance-additional-constrains-1
@@ -400,11 +484,15 @@ Formatting assertion profile-5.1.6.2-thing-event-affordance-additional-constrain
 Formatting assertion profile-5.1.6.2-thing-event-affordance-additional-constrains-3
 Formatting assertion profile-5.1.7-thing-forms-1
 Formatting assertion profile-5.1.7.1-thing-forms-mandatory-fields-1
+Formatting assertion profile-5.1.7.1-thing-forms-mandatory-fields-1--data
+Formatting assertion profile-5.1.7.1-thing-forms-mandatory-fields-1--description
+Formatting assertion profile-5.1.7.1-thing-forms-mandatory-fields-1--title
 Formatting assertion profile-5.1.7.2-thing-forms-additional-constraints-1
-Formatting assertion profile-5.1.7.2-thing-forms-additional-constraints-2
-Formatting assertion profile-5.1.7.2-thing-forms-additional-constraints-3
+Formatting assertion profile-5.1.7.2-thing-forms-additional-constraints-1_scopes
+Formatting assertion profile-5.1.7.2-thing-forms-additional-constraints-1_security
 Formatting assertion profile-5.2-thing-protocol-binding-1
-Formatting assertion profile-5.2.4-thing-protocol-binding-error-responses-1
+Formatting assertion profile-5.2.4-thing-protocol-binding-error-responses-1a
+Formatting assertion profile-5.2.4-thing-protocol-binding-error-responses-1b
 Formatting assertion profile-5.2.4-thing-protocol-binding-error-responses-2
 Formatting assertion profile-5.2.4-thing-protocol-binding-error-responses-3
 Formatting assertion profile-5.2.4-thing-protocol-binding-error-responses-5
