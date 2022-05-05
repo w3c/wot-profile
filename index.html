@@ -2934,7 +2934,7 @@
       to the <a href="#sec-http-sse-profile">HTTP SEE Profile</a>.</p>
 
     <!-- Web Thing Webhooks  -->
-    <section id="sec-http-webhook-profile-definition">
+    <section id="sec-http-webhook-profile-intro">
       <h3>Introduction</h3>
       <p>
         Webhooks are a mechanism for Consumers to subscribe to events emitted by a Web Thing.
@@ -3051,9 +3051,9 @@
       </section>
     </section>
 
-    <section id="sec-http-webhook-profile-protocol-binding-event-message-format">
-      <h4>Message Format</h4>
-      <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-notifications-1">
+    <section id="sec-http-webhook-profile-message-format">
+      <h3>Message Format</h3>
+      <p class="rfc2119-assertion" id="http-webhook-profile-message-format-1">
         Event notification messages MUST comply with the following data schema.
       </p>
 
@@ -3062,15 +3062,15 @@
         TODO: Describe data and dataResponse schemas.
       </p>
 
-      <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-notifications-1">
+      <p class="rfc2119-assertion" id="http-webhook-profile-message-format-2">
         For each notification message, the Web Thing MUST set the <code>event</code> field to the
         name of the <code>EventAffordance</code>.
       </p>
-      <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-notifications-2">
+      <p class="rfc2119-assertion" id="http-webhook-profile-protocol-message-format-3">
         The event <code>data</code> MUST follow the data schema specified in the
         <code>EventAffordance</code> and MUST be serialized in JSON.
       </p>
-      <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-notifications-3">
+      <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-message-format-4">
         The <code>id</code> field MUST be set to a unique identifier for
         the event.
       </p>
@@ -3141,8 +3141,7 @@
               <code>Accept</code> header set to <code>application/json</code>
             </li>
             <li>
-              <code>Request Payload</code> contains a <code>JSON</code>
-              object with a subscription payload.
+              A body with a subscription payload, serialized in JSON.
             </li>
 
             <p class="ednote">
@@ -3167,7 +3166,7 @@
           <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to subscribe to the
-            corresponding event, then it MUST send <em>event messsages</em>
+            corresponding event, then it MUST send <em>event messages</em>
             to the Consumer as events of the specified type are emitted.
           </p>
 
@@ -3222,7 +3221,10 @@
               <code>Request Payload</code> contains a <code>JSON</code>
               object with a valid <code>subscriptionId</code>.
             </li>
-            <!-- FIXME: define subscriptionId format - urn? -->
+            <p class="ednote">
+            <!-- TODO: define subscriptionId format - urn? -->
+            TODO: define subscriptionId format - urn?
+            </p>
           </ul>
         </section>
 
@@ -3287,7 +3289,7 @@
 
           <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-5">
             If a Web Thing receives an HTTP request following the format
-            above, then it MUST send <em>event messsages</em>
+            above, then it MUST send <em>event messages</em>
             to the Consumer for all event
             types for which it has permission to subscribe.
           </p>
@@ -3303,6 +3305,7 @@
             </li>
             <li>Response payload contains a JSON object with a <code>subscriptionId</code>.</li>
           </ul>
+
           <pre class="example">
                 HTTP/1.1 200 OK
                 Content-Type: text/event-stream
@@ -3312,15 +3315,15 @@
                 }
     
               </pre>
+
           <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-6">
             Whenever an event occurs, the Web Thing MUST send event data to the Consumer
-            using the event payload format defined in section [FIXME: ].
+            using the event payload format defined in section <a href="sec-http-webhook-profile-message-format">Message Format</a>.
 
           <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-7">
             If the connection between the Web Thing and the Consumer drops,
             the Web Thing MUST re-establish the connection.
           </p>
-          <!-- FIXME: define retry behavior-->
 
           <p class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-8">
             Once the connection is re-established the Web Thing
