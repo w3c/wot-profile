@@ -1752,7 +1752,7 @@
               "type": "boolean",
               "title": "On/Off",
               "description": "Whether the lamp is turned on",
-              "forms": [{"href": "./properties/on"}]
+              "forms": [{"href": "properties/on"}]
             },
             "level" : {
               "type": "integer",
@@ -1761,7 +1761,7 @@
               "unit": "percent",
               "minimum" : 0,
               "maximum" : 100,
-              "forms": [{"href": "./properties/level"}]
+              "forms": [{"href": "properties/level"}]
             }
           },
           "actions": {
@@ -1784,17 +1784,17 @@
                   }
                 }
               },
-              "forms": [{"href": "./actions/fade"}]
+              "forms": [{"href": "actions/fade"}]
             }
           },
           "forms": [
             {
               "op": ["readallproperties", "writemultipleproperties"],
-              "href": "./properties"
+              "href": "properties"
             },
             {
               "op": "queryallactions",
-              "href": "./actions"
+              "href": "actions"
             }
           ]
         }
@@ -2839,7 +2839,7 @@
               "type": "boolean",
               "title": "On/Off",
               "description": "Whether the lamp is turned on",
-              "forms": [{"href": "./properties/on"}]
+              "forms": [{"href": "properties/on"}]
             },
             "level" : {
               "type": "integer",
@@ -2848,7 +2848,7 @@
               "unit": "percent",
               "minimum" : 0,
               "maximum" : 100,
-              "forms": [{"href": "./properties/level"}]
+              "forms": [{"href": "properties/level"}]
             }
           },
           "actions": {
@@ -2871,7 +2871,7 @@
                   }
                 }
               },
-              "forms": [{"href": "./actions/fade"}]
+              "forms": [{"href": "actions/fade"}]
             }
           },
           "events": {
@@ -2883,7 +2883,7 @@
               },
               "description": "The lamp has exceeded its safe operating temperature",
               "forms": [{
-                "href": "./events/overheated",
+                "href": "events/overheated",
                 "subprotocol": "sse"
               }]
             }
@@ -2891,15 +2891,15 @@
           "forms": [
             {
               "op": ["readallproperties", "writemultipleproperties"],
-              "href": "./properties"
+              "href": "properties"
             },
             {
               "op": "queryallactions",
-              "href": "./actions"
+              "href": "actions"
             },
             {
               "op": ["subscribeallevents", "unsubscribeallevents"],
-              "href": "./events",
+              "href": "events",
               "subprotocol": "sse"
             }
           ]
