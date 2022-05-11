@@ -2089,17 +2089,7 @@
         </section>
         <section class="ednote">
           <p>
-            Other operations under consideration include
-            <code>observeproperty</code>, <code>unobserveproperty</code>,
-            <code>observeallproperties</code> and
-            <code>unobserveallproperties</code>.
-          </p>
-          <p>
-            These operations would require consesus on a default observe
-            mechanism for HTTP (e.g. Server Sent Events or WebSockets).
-          </p>
-          <p>
-            <code>readmultipleproperties</code> is currently excluded due to
+            The <code>readmultipleproperties</code> operation is currently excluded due to
             the complexities of the request payload format and because it
             doesn't add much functionality over <code>readproperty</code> and
             <code>readallproperties</code>.
@@ -2812,7 +2802,8 @@
           MUST implement this protocol binding.
         </span>
       </p>
-      <p>
+      
+            <p>
         The examples provided throughout this section describe how a Consumer
         would communicate with a Web Thing which produces the following Thing
         Description:
@@ -2908,6 +2899,344 @@
           ]
         }
       </pre>
+
+
+      <section id="http-sse-profile-protocol-binding-properties">
+        <h3>Properties</h3>
+
+        <section id="observeproperty">
+          <h5><code>observeproperty</code></h5>
+          <span class="rfc2119-assertion"
+            id="http-sse-profile-protocol-binding-observeproperty-1">
+            <p>
+              The URL of a <code>Property</code> resource to be used when
+              observing the value of a property MUST be obtained from a Thing 
+              Description by locating a
+              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <code>Form</code></a> inside the corresponding
+              <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
+              <code>PropertyAffordance</code></a>
+              for which:
+            </p>
+            <ul>
+              <li>
+                Its <code>op</code> member contains the value 
+                <code>observeproperty</code>
+              </li>
+              <li>
+                After being resolved against a base URL where applicable, the
+                <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+                scheme</a> [[RFC3986]] of the value of its <code>href</code>
+                member is <code>http</code> or <code>https</code>
+              </li>
+              <li>Its <code>subprotocol</code> member has a value of
+                <code>sse</code>
+              </li>
+            </ul>
+          </span>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeproperty-2">
+              The resolved value of the <code>href</code> member MUST then be
+              used as the URL of the <code>Property</code> resource.
+            </span>
+          </p>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeproperty-3">
+              In order to observe a property, a Consumer MUST follow the 
+              Server-Sent Events [[EVENTSOURCE]] specification to open a
+              connection with the Web Thing at the URL of the 
+              <code>Property</code> resource.
+            </span>
+          </p>
+          <p>
+            This involves the Consumer sending an HTTP request to
+            the Web Thing with:
+          </p>
+          <ul>
+            <li>Method set to <code>GET</code></li>
+            <li>URL set to the URL of the <code>Property</code> resource</li>
+            <li>
+              <code>Accept</code> header set to <code>text/event-stream</code>
+            </li>
+            <li>
+              <code>Connection</code> header set to <code>keep-alive</code>
+            </li>
+          </ul>
+          <pre class="example">
+            GET /things/lamp/properties/level HTTP/1.1
+            Host: mythingserver.com
+            Accept: text/event-stream
+            Connection: keep-alive
+          </pre>
+          <p class="note" title="Opening a connection using JavaScript">
+            For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
+            in a runtime which exposes the
+            <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
+            <code>EventSource</code></a> interface, a Server-Sent Events 
+            connection can be initiated using the <code>EventSource</code>
+            constructor.
+            <pre class="example">
+              const levelSource = new EventSource('/things/lamp/properties/level');
+            </pre>
+          </p>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeproperty-4">
+              If a Web Thing receives an HTTP request following the format
+              above and the Consumer has permission to observe the 
+              corresponding property, then it MUST follow the Server-Sent Events 
+              [[EVENTSOURCE]] specification to maintain an open connection with 
+              the Consumer and push a property value to the Consumer each time 
+              the value of the specified property changes.
+            </span>
+          </p>
+          <p>
+            This involves the Web Thing initially sending an HTTP 
+            response to the Consumer with:
+          </p>
+          <ul>
+            <li>Status code set to <code>200</code></li>
+            <li>
+              <code>Content-Type</code> header set to 
+              <code>text/event-stream</code>
+            </li>
+          </ul>
+          <pre class="example">
+            HTTP/1.1 200 OK
+            Content-Type: text/event-stream
+          </pre>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeproperty-5">
+              Whenever the value of the specified property changes while the Web 
+              Thing has an open connection with a Consumer, the Web Thing MUST 
+              send a property value to the Consumer using the event stream
+              format in the Server-Sent Events [[EVENTSOURCE]] specification.
+              For each message sent, the Web Thing MUST set the
+              <code>event</code> field to the name of the
+              <code>PropertyAffordance</code> and populate the <code>data</code>
+              field with the property value, serialized in JSON and following
+              the data schema specified in the <code>PropertyAffordance</code>.
+              The <code>id</code> field SHOULD be set to a unique 
+              identifier for the property change, for use when re-establishing a
+              dropped connection (see below). It is RECOMMENDED that the
+              identifier is a timestamp representing the time at which the
+              property changed, in the &quotdate-time&quot format specified by
+              [[RFC3339]].
+            </span>
+          </p>
+          <pre class="example">
+            event: level\n
+            data: 42\n
+            id: 2021-11-17T15:33:20.827Z\n\n
+          </pre>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeproperty-6">
+              If the connection between the Consumer and Web Thing drops
+              (except as a result of the <code>unobserve</code> operation 
+              defined below), the Consumer MUST re-establish the connection 
+              following the steps outlined in the Server-Sent Events
+              specification [[EVENTSOURCE]]. Once the connection is
+              re-established the Web Thing SHOULD, if possible, send any missed
+              property changes which occured since the last change specified by
+              the Consumer in a <code>Last-Event-ID</code> header.
+            </span>
+          </p>
+        </section>
+
+        <section id="unobserveproperty">
+          <h5><code>unobserveproperty</code></h5>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-unobserveproperty-1">
+              In order to stop observing a property, a Consumer MUST terminate 
+              the corresponding Server-Sent Events connection with the Web Thing 
+              as specified in the Server-Sent Events specification
+              [[EVENTSOURCE]].
+            </span>
+          </p>
+          <p class="note" title="Terminating a connection using JavaScript">
+            For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
+            in a runtime which exposes the
+            <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
+            <code>EventSource</code></a> interface, a Server-Sent Events 
+            connection can be terminated using the <code>close()</code> method 
+            on an <code>EventSource</code> [[EVENTSOURCE]] object.
+            <pre class="example">
+              levelSource.close();
+            </pre>
+          </p>
+        </section>
+
+        <section id="observeallproperties">
+          <h5><code>observeallproperties</code></h5>
+          <span class="rfc2119-assertion" 
+            id="http-sse-profile-protocol-binding-observeallproperties-1">
+            <p>
+                The URL of a properties resource to be used when observing
+                changes to all properties of a Web Thing MUST be obtained from a
+                Thing Description by locating a 
+                <a href="https://www.w3.org/TR/wot-thing-description/#form">
+                <code>Form</code></a> inside the top level 
+                <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
+                member of a Thing Description for which:
+            </p>
+            <ul>
+              <li>
+                Its <code>op</code> member contains the value 
+                <code>observeallproperties</code>
+              </li>
+              <li>
+                After being resolved against a base URL where applicable, the
+                <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
+                scheme</a> [[RFC3986]] of the value of its <code>href</code>
+                member is <code>http</code> or <code>https</code>
+              </li>
+              <li>Its <code>subprotocol</code> member has a value of
+                <code>sse</code>
+              </li>
+            </ul>
+          </span>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeallproperties-2">
+              The resolved value of the <code>href</code> member MUST then be
+              used as the URL of the properties resource.
+            </span>
+          </p>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeallproperties-3">
+              In order to observe changes to all properties of a Web Thing, a
+              Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
+              specification to open a connection with the Web Thing at the URL
+              of the properties resource.
+            </span>
+          </p>
+          <p>
+            This involves the Consumer sending an HTTP request to
+            the Web Thing with:
+          </p>
+          <ul>
+            <li>Method set to <code>GET</code></li>
+            <li>URL set to the URL of the properties resource</li>
+            <li>
+              <code>Accept</code> header set to <code>text/event-stream</code>
+            </li>
+            <li>
+              <code>Connection</code> header set to <code>keep-alive</code>
+            </li>
+          </ul>
+          <pre class="example">
+            GET /things/lamp/properties HTTP/1.1
+            Host: mythingserver.com
+            Accept: text/event-stream
+            Connection: keep-alive
+          </pre>
+          <p class="note" title="Opening a connection using JavaScript">
+            For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
+            in a runtime which exposes the
+            <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
+            <code>EventSource</code></a> interface, a Server-Sent Events 
+            connection can be initiated using the <code>EventSource</code>
+            constructor.
+            <pre class="example">
+              const lampPropertiesSource = new EventSource('/things/lamp/properties');
+            </pre>
+          </p>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeallproperties-4">
+              If a Web Thing receives an HTTP request following the format
+              above then it MUST follow the Server-Sent Events 
+              [[EVENTSOURCE]] specification to maintain an open connection with 
+              the Consumer and push new property values to the Consumer for all 
+              properties for which it has permission to observe.
+            </span>
+          </p>
+          <p>
+            This involves the Web Thing initially sending an HTTP 
+            response to the Consumer with:
+          </p>
+          <ul>
+            <li>Status code set to <code>200</code></li>
+            <li>
+              <code>Content-Type</code> header set to 
+              <code>text/event-stream</code>
+            </li>
+          </ul>
+          <pre class="example">
+            HTTP/1.1 200 OK
+            Content-Type: text/event-stream
+          </pre>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeallproperties-5">
+              Whenever a property changes while the Web Thing has an open 
+              connection with a Consumer, the Web Thing MUST send the new
+              property value to the Consumer using the event stream format in
+              the Server-Sent Events [[EVENTSOURCE]] specification. For each
+              message sent, the Web Thing MUST set the <code>event</code> field
+              to the name of the <code>PropertyAffordance</code> and populate
+              the <code>data</code> field with the new property value. The 
+              property data MUST follow the data schema specified in the
+              <code>PropertyAffordance</code> and MUST be serialized in JSON.
+              The <code>id</code> field SHOULD be set to a unique identifier for 
+              the event, for use when re-establishing a dropped connection (see 
+              below). It is RECOMMENDED that the identifier is a timestamp 
+              representing the time at which the property changed, in the 
+              &quotdate-time&quot format specified by [[RFC3339]].
+            </span>
+          </p>
+          <pre class="example">
+            event: level\n
+            data: 42\n
+            id: 2021-11-17T15:33:20.827Z\n\n
+          </pre>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-observeallproperties-6">
+              If the connection between the Consumer and Web Thing drops
+              (except as a result of the <code>unobserveallproperties</code>
+              operation defined below), the Consumer MUST re-establish the
+              connection following the steps outlined in the Server-Sent Events
+              specification [[EVENTSOURCE]]. Once the connection is
+              re-established the Web Thing SHOULD, if possible, send any missed 
+              property changes which occured since the last change specified by
+              the Consumer in a <code>Last-Event-ID</code> header.
+            </span>
+          </p>
+        </section>
+
+        <section id="unobserveallproperties">
+          <h5><code>unobserveallproperties</code></h5>
+          <p>
+            <span class="rfc2119-assertion" 
+              id="http-sse-profile-protocol-binding-unobserveallproperties-1">
+              In order to unobserve all properties, a Consumer MUST terminate 
+              the corresponding Server-Sent Events connection with the
+              properties endpoint of the Web Thing, following the steps
+              specified in the Server-Sent Events specification [[EVENTSOURCE]].
+            </span>
+          </p>
+          <p class="note" title="Terminating a connection using JavaScript">
+            For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed 
+            in a runtime which exposes the
+            <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
+            <code>EventSource</code></a> interface, a Server-Sent Events 
+            connection can be terminated using the <code>close()</code> method 
+            on an <code>EventSource</code> [[EVENTSOURCE]] object.
+            <pre class="example">
+              lampPropertiesSource.close();
+            </pre>
+          </p>
+        </section>
+      </section>
+
+
       <section id="http-sse-profile-protocol-binding-events">
         <h3>Events</h3>
         <p>
@@ -2947,7 +3276,7 @@
               member is <code>http</code> or <code>https</code>
             </li>
             <li>Its <code>subprotocol</code> member has a value of
-              <code>"sse"</code>
+              <code>sse</code>
             </li>
           </ul>
 	  </span>
@@ -3113,7 +3442,7 @@
               member is <code>http</code> or <code>https</code>
             </li>
             <li>Its <code>subprotocol</code> member has a value of
-              <code>"sse"</code>
+              <code>sse</code>
             </li>
           </ul>
 	  </span>
