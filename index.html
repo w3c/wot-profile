@@ -2281,8 +2281,40 @@
                 <td>optional</td>
                 <td><code>string</code></td>
               </tr>
+              <tr class="rfc2119-table-assertion">
+                <td><code>timeRequested</code></td>
+                <td>
+                  A timestamp indicating the time at which the Thing received 
+                  the request to execute the action, in ISO format [[ISO8601-1]]
+                  (see <a href="#date-format">Date format</a> for additional 
+                  constraints).
+                </td>
+                <td>optional</td>
+                <td><code>string</code></td>
+              </tr>
+              <tr class="rfc2119-table-assertion">
+                <td><code>timeEnded</code></td>
+                <td>
+                  A timestamp indicating the time at which the Thing
+                  successfully completed executing the action, or failed to 
+                  execute the action, in ISO format [[ISO8601-1]]
+                  (see <a href="#date-format">Date format</a> for additional 
+                  constraints).
+                </td>
+                <td>optional</td>
+                <td><code>string</code></td>
+              </tr>
             </tbody>
           </table>
+
+          <p class="note">
+            It is possible that a Thing's clock may not be set to the correct 
+            time. If timings are important then a Consumer may therefore choose
+            to treat the <code>timeEnded</code> member of an 
+            <code>ActionStatus</code> object as being relative to the
+            <code>timeRequested</code> member, but not necessarily as relative
+            to its own internal clock, or the clocks of other Things.
+          </p>
 
           <h6 id="sync-action-response">Synchronous Action Response</h6>
 	  <span class="rfc2119-assertion" 
@@ -2305,7 +2337,9 @@
             HTTP/1.1 200 OK
             Content-Type: application/json
             {
-              "status": "completed"
+              "status": "completed",
+              "timeRequested": "2021-11-10T11:43:20.135Z",
+              "timeEnded": "2021-11-10T11:43:25.135Z"
             }
           </pre>
 
@@ -2342,7 +2376,8 @@
             Location: /things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655
             {
               "status": "pending",
-              "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655"
+              "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655",
+              "timeRequested": "2021-11-10T11:43:19.135Z"
             }
           </pre>
         </section>
@@ -2421,7 +2456,8 @@
             HTTP/1.1 200 OK
             Content-Type: application/json
             {
-              "status": "running"
+              "status": "running",
+              "timeRequested": "2021-11-10T11:43:19.135Z"
             }
           </pre>
 	  <p>
@@ -2449,10 +2485,12 @@
                 "invalid-params": [
                   {
                     "name": "level",
-                    "reason": "Must be a valid number between 0 and 100",
+                    "reason": "Must be a valid number between 0 and 100"
                   }
                 ]
-              }
+              },
+              "timeRequested": "2021-11-10T11:43:19.135Z",
+              "timeEnded": "2021-11-10T11:43:20.513Z"
             }
           </pre>
         </section>
@@ -2604,19 +2642,25 @@
             "fade": [
               {
                 "status": "completed",
-                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655"
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655",
+                "timeRequested": "2021-11-10T11:43:19.135Z",
+                "timeEnded": "2021-11-10T11:43:20.513Z"
               },
               {
                 "status": "failed",
                 "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a456-558329",
+                "timeRequested": "2021-11-10T11:42:15.133Z",
+                "timeEnded": "2021-11-10T11:42:22.524Z"
               },
               {
                 "status": "running",
-                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-434656"
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-434656",
+                "timeRequested": "2021-11-10T11:41:53.351Z"
               },
               {
                 "status": "pending",
-                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-ea9519"
+                "href": "/things/lamp/actions/fade/123e4567-e89b-12d3-a457-ea9519",
+                "timeRequested": "2021-11-10T11:39:53.651Z"
               }
             ]
           }
