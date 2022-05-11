@@ -1724,6 +1724,83 @@
           MUST implement this protocol binding.
         </span>
       </p>
+
+      <p>
+        The examples provided throughout this section describe how a Consumer
+        would communicate with a Web Thing which produces the following Thing
+        Description:
+      </p>
+
+      <pre class="example">
+        {
+          "@context": "https://www.w3.org/2019/wot/td/v1",
+          "id": "https://mywebthingserver.com/things/lamp",
+          "profile": "https://www.w3.org/2022/wot/profile/http-baseline/v1",
+          "base": "https://mywebthingserver.com/things/lamp/",
+          "title": "My Lamp",
+          "description": "A web connected lamp",
+          "securityDefinitions": {
+            "oauth2": {
+              "scheme": "oauth2",
+              "flow": "code",
+              "authorization": "https://mywebthingserver.com/oauth/authorize",
+              "token": "https://mywebthingserver.com/oauth/token"
+            }
+          },
+          "security": "oauth2",
+          "properties": {
+            "on": {
+              "type": "boolean",
+              "title": "On/Off",
+              "description": "Whether the lamp is turned on",
+              "forms": [{"href": "properties/on"}]
+            },
+            "level" : {
+              "type": "integer",
+              "title": "Brightness",
+              "description": "The level of light from 0-100",
+              "unit": "percent",
+              "minimum" : 0,
+              "maximum" : 100,
+              "forms": [{"href": "properties/level"}]
+            }
+          },
+          "actions": {
+            "fade": {
+              "title": "Fade",
+              "description": "Fade the lamp to a given level",
+              "input": {
+                "type": "object",
+                "properties": {
+                  "level": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "unit": "percent"
+                  },
+                  "duration": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "unit": "milliseconds"
+                  }
+                }
+              },
+              "forms": [{"href": "actions/fade"}]
+            }
+          },
+          "forms": [
+            {
+              "op": ["readallproperties", "writemultipleproperties"],
+              "href": "properties"
+            },
+            {
+              "op": "queryallactions",
+              "href": "actions"
+            }
+          ]
+        }
+      </pre>
+
       <section id="http-baseline-profile-protocol-binding-properties">
         <h4>Properties</h4>
         <section id="http-baseline-profile-protocol-binding-readproperty">
@@ -2735,6 +2812,102 @@
           MUST implement this protocol binding.
         </span>
       </p>
+      <p>
+        The examples provided throughout this section describe how a Consumer
+        would communicate with a Web Thing which produces the following Thing
+        Description:
+      </p>
+      <pre class="example">
+        {
+          "@context": "https://www.w3.org/2019/wot/td/v1",
+          "id": "https://mywebthingserver.com/things/lamp",
+          "profile": [
+            "https://www.w3.org/2022/wot/profile/http-baseline/v1",
+            "https://www.w3.org/2022/wot/profile/http-sse/v1",
+          ],
+          "base": "https://mywebthingserver.com/things/lamp/",
+          "title": "My Lamp",
+          "description": "A web connected lamp",
+          "securityDefinitions": {
+            "oauth2": {
+              "scheme": "oauth2",
+              "flow": "code",
+              "authorization": "https://mywebthingserver.com/oauth/authorize",
+              "token": "https://mywebthingserver.com/oauth/token"
+            }
+          },
+          "security": "oauth2",
+          "properties": {
+            "on": {
+              "type": "boolean",
+              "title": "On/Off",
+              "description": "Whether the lamp is turned on",
+              "forms": [{"href": "properties/on"}]
+            },
+            "level" : {
+              "type": "integer",
+              "title": "Brightness",
+              "description": "The level of light from 0-100",
+              "unit": "percent",
+              "minimum" : 0,
+              "maximum" : 100,
+              "forms": [{"href": "properties/level"}]
+            }
+          },
+          "actions": {
+            "fade": {
+              "title": "Fade",
+              "description": "Fade the lamp to a given level",
+              "input": {
+                "type": "object",
+                "properties": {
+                  "level": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "unit": "percent"
+                  },
+                  "duration": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "unit": "milliseconds"
+                  }
+                }
+              },
+              "forms": [{"href": "actions/fade"}]
+            }
+          },
+          "events": {
+            "overheated": {
+              "title": "Overheated",
+              "data": {
+                "type": "number",
+                "unit": "degree celsius"
+              },
+              "description": "The lamp has exceeded its safe operating temperature",
+              "forms": [{
+                "href": "events/overheated",
+                "subprotocol": "sse"
+              }]
+            }
+          },
+          "forms": [
+            {
+              "op": ["readallproperties", "writemultipleproperties"],
+              "href": "properties"
+            },
+            {
+              "op": "queryallactions",
+              "href": "actions"
+            },
+            {
+              "op": ["subscribeallevents", "unsubscribeallevents"],
+              "href": "events",
+              "subprotocol": "sse"
+            }
+          ]
+        }
+      </pre>
       <section id="http-sse-profile-protocol-binding-events">
         <h3>Events</h3>
         <p>
