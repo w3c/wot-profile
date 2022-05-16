@@ -273,7 +273,7 @@
 
     <!-- Use Cases -->
     <section id="profile-use-cases">
-      <h2>Use Cases and Requirements</h2>
+      <h2>Summary of Use Cases and Requirements</h2>
       <p>
         A set of over 30 use cases for the Web of Things were contributed by stakeholders
         from multiple industries for various application domains.
@@ -759,15 +759,15 @@
     </section>
 
     <section id="http-baseline-profile-data-model">
-      <h2>Data Model</h2>
+      <h2>Information Model</h2>
       <p>
-        The core data model incorporates the data model defined by chapter 5 of
+        The information model of the HTTP Profile incorporates the data model defined by chapter 5 of
         the Thing Description specification.
-        The normative rules defined by that data model
-        are the baseline for the definition of the core data model
-        and are normative for the core data model.
+        The normative rules defined by that model
+        are the baseline for the definition of the HTTP Profile data model
+        and are normative for the information model of the profiles defined in this document.
         <span class="rfc2119-assertion" id="profile-5.1-wot-http-baseline-profile-data-model-1">
-          A core profile compliant implementation MUST additionally satisfy the
+          A compliant implementation MUST additionally satisfy the
           requirements of this chapter.
         </span>
       </p>
@@ -784,18 +784,26 @@
         </p>
 
         <section>
-          <h4>Mandatory fields</h4>
+          <h4>Common fields</h4>
+          <!-- TODO: -->
           <p>
-            One of the primary benefits of the <a>WoT Thing
+            One of the  benefits of the <a>WoT Thing
               Description</a> over a typical IoT format is the
-            additional documentation for a human reader.
+            possibility to automatically generate user interfaces that
+            can be used by humans without reading out of band documentation.
           </p>
+
+
           <p>
-            Therefore, the fields
-            <code>title</code>
-            and
-            <code>description</code>
-            are MANDATORY for Things, Property Affordances,
+            <span class="rfc2119-assertion" 
+                   id="profile-mandatory-fields-1">
+                   Therefore it is strongly RECOMMENDED to use  
+                   descriptive values for the fields
+                   <code>title</code>
+                   <code>titles</code>
+                   <code>description</code>            
+            <code>desvriptions</code>
+             for Things, Property Affordances,
             Action Affordances, Event Affordances and Data
             Schemas.
           </p>
