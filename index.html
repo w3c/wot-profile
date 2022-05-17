@@ -142,22 +142,22 @@
       </li>
       <li>In addition, it defines a <strong><a>WoT Baseline
             Profile</a></strong> of the Thing Description, which
-        consists of a core data model and protocol
+        consists of a baseline information model and protocol
         binding rules. The <a>WoT Baseline
           Profile</a> formalizes the results of several PlugFests
         that were conducted by the WoT Interest Group and of
         tests that were conducted as part of the development.
         <p>
-          This document incudes a binding of the core data model to
+          This document incudes a binding of the baseline information model to
           HTTP(S) and selected notification sub-protocols.
-          The core data model can be bound to other protocols -
+          The baseline information model can be bound to other protocols -
           it is expected that bindings to other protocols (e.g. MQTT, CoAP)
           will be defined in the near future.
         </p>
         <p>
           <span class="rfc2119-assertion" id="profile-abstract-1">
-            A TD that is compliant to the <a>core profile</a> MUST adhere to
-            both the constraints on the data model and the protocol binding.
+            A TD that is compliant to the <a>HTTP baseline profile</a> MUST adhere to
+            both the constraints on the information model and the protocol binding.
           </span>
         </p>
       </li>
@@ -167,9 +167,9 @@
       the <a>WoT Baseline Profile</a> can interoperate with each other
       out-of-the-box.
     </p>
-    <p>Note that the core profile is not exclusive. Device implementers are free to adopt
+    <p>Note that the baseline profile is not exclusive. Device implementers are free to adopt
       other features of the thing description that go beyond the constraints
-      of the core profile, however the interoperability guarantees of the core profile
+      of the baseline profile, however the interoperability guarantees of the baseline profile
       hold only for the <a>WoT Baseline Profile</a> subset.
 
 
@@ -312,7 +312,7 @@
     </section>
 
     <section id="why-profile">
-      <h2 id="why-define-a-core-profile">
+      <h2 id="why-define-a-baseline-profile">
         Why a <a>Baseline Profile</a>?
       </h2>
 
@@ -331,7 +331,7 @@
         the implementers of PlugFest devices.
       </p>
       <p>
-        <span class="rfc2119-assertion" id="profile-1.2-why-a-core-profile-1">
+        <span class="rfc2119-assertion" id="profile-1.2-why-a-baseline-profile-1">
           The <a>WoT Baseline Profile</a> contains additional
           normative requirements that MUST be satisfied by devices
           to be compliant to the profile.
@@ -434,7 +434,7 @@
       the normative statements in the present document.
     <p>
       A JSON Schema [[?JSON-SCHEMA]] to validate the compliance of a Thing Description
-      with the core profile is provided in Appendix <a href="#core-profile-json-schema"></a>.
+      with the baseline profile is provided in Appendix <a href="#baseline-profile-json-schema"></a>.
     </p>
   </section>
 
@@ -499,7 +499,7 @@
       <dd>
         A set of constraints and requirements on the Information Model of the Thing
         Description specification as
-        defined in section <a href="#wot-core-information-model"></a>.
+        defined in section <a href="#wot-baseline-information-model"></a>.
       </dd>
     </dl>
   </section>
@@ -760,11 +760,11 @@
         The baseline information model of the HTTP profile incorporates the information model defined by chapter 5 of
         the Thing Description specification.
         The normative rules defined by that model
-        are the baseline for the definition of the core information model
+        are the baseline for the definition of the baseline information model
         and are normative.
       </p>
-        <span class="rfc2119-assertion" id="profile-wot-core-information-model-1">
-        A core profile compliant implementation MUST be compliant to the Thing Description and 
+        <span class="rfc2119-assertion" id="profile-wot-baseline-information-model-1">
+        A baseline profile compliant implementation MUST be compliant to the Thing Description and 
         MUST additionally satisfy the requirements of this chapter.
         </span>
 
@@ -879,6 +879,7 @@
           </p>
           <p>
         </section>
+      -->
 
         <p>
           <span class="rfc2119-assertion"
@@ -892,19 +893,11 @@
             MUST be used.
           </span>
 
-        <section class="ednote">
-          <p>
-            TODO: decide if multiple types and contexts are required.
-          </p>
-
-          <p>In this case the following section could be added:</p>
-          <p>
-            <span class="rfc2119-assertion"
+          <span class="rfc2119-assertion"
               id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-2">
               The only exception to this rule are <code>@context</code> and <code>@type</code> annotations,
               where both <code>string</code> or <code>array of string</code> MAY be used.
             </span>
-          </p>
         </section>
 
         </p>
@@ -941,10 +934,8 @@
         </p>
 
       </section>
-      -->
 
       <!-- Thing -->
-
       <section>
         <h2 id="thing">Thing</h2>
         The <a>Baseline Information Model</a> applies the following
@@ -990,7 +981,7 @@
               <tr>
                 <td>profile</td>
                 <td><code>string</code></td>
-                <td>value: "https://www.w3.org/2021/wot/profile/core-json-http11"</td>
+                <td>value: "https://www.w3.org/2021/wot/profile/baseline-json-http11"</td>
               </tr>
               <tr>
                 <td>version</td>
@@ -1049,7 +1040,18 @@
                 </tr>
               </tbody>
             </table>
-          <p>
+          </section>
+
+          <section>
+            <h5 id="recommended-practice-">Recommended practice</h5>
+         
+            <span class="rfc2119-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1">
+              It is RECOMMENDED to use the value
+              &quot;&quot; for strings, where the
+              value cannot be determined.
+           </span>
+
+            <p>
             <span class="rfc2119-assertion" id="profile-thing-recommended-fields-2">
               If a Thing Description is used solely within
               a company, the email address of the developer
@@ -1060,13 +1062,23 @@
               address SHOULD be used.
             </span>
           </p>
+
+          <section class="note">
+            <p>
+              <span id="profile-thing-mandatory-fields-4">
+                It will be evaluated whether the profile also defines a new context  for 
+                some new TD terms that may be introduced in TD 2.0.
+              </span>
+              Currently the following terms are discussed: serialNumber,
+              hardwareRevision, softwareRevision, loc_latitude, loc_longitude
+              loc_altitude, loc_height, and loc_depth.
+            </p>
+          </section>
         </section>
       </section>
 
 
       <!-- Data Schemas-->
-
-
       <section>
         <h3 id="data-schema">Data Schema</h3>
         <p>
@@ -1232,7 +1244,7 @@
 
         <section>
           <h4>Additional Constraints</h4>
-          <!-- Se also DTDL constraints -->
+          <!--Consider also DTDL constraints -->
           <p>
             The <em>Thing Description</em> permits arbitrary
             object depths for properties. Parsing of a
@@ -1246,7 +1258,7 @@
             <code>object</code>
             elements. 
 	          </span>
-            <span class="rfc2119-assertion" id="profile-5.1.4.2-thing-property-affordance-additional-constraints-1b">
+            <span class="rfc2119-assertion" id="profile-thing-property-affordance-additional-constraints-1b">
 	          It is RECOMMENDED to keep the nesting
 	          of 
             <code>array</code>
@@ -1314,7 +1326,7 @@
                     The value of <code>op</code> MUST be a single value.
                     Arrays with combinations of these values are NOT PERMITTED.
                   </span>
-                </p>
+                <!-- /p>
                 </td>
                 <td><p>If multiple endpoints for the same protocol are present, 
                   a common selection algorithm has to be defined. 
@@ -1325,7 +1337,7 @@
                 <p>
                   Combination of operations are ambiguous and have very
                   complex interaction semantics.
-                </p>
+                </p-->
               </td>
               </tr>
               <tr>
@@ -1364,6 +1376,7 @@
                   <td>The semantic meaning of URI variables cannot be described in a TD in an unambiguous way.</td>
                 </td>
               </tr>
+
             </tbody>
           </table>
           <span class="rfc2119-assertion" id="profile-thing-action-affordance-additional-constraints-7">
@@ -1433,8 +1446,8 @@
               <code>oct</code>
               or
               <code>bin</code>
-              for non-decimal numeric types to achieve interoperability.
-              </span>
+              in the <code>unit</code> for string values with binary or hex data to achieve interoperability.
+            </span>
             </p>
             <!-- TODO: consider how to indicate specific types such as char, signed/unsigned short, ... -->
         </section>
@@ -1541,9 +1554,7 @@
                     For a single protocol the <code>array of Form</code>
                     of each property MUST contain only a
                     <em>single endpoint</em> for each
-                    operation <code>readproperty</code>, 
-                    <code>writeproperty</code>, <code>observeproperty</code>,
-                    <code>unobserveproperty</code>.
+                    operation.
                     </span>
                   </p><p>
                     <span class="rfc2119-assertion" id="profile-thing-action-affordance-form-constraints-2">
@@ -1552,7 +1563,7 @@
                     </span>
                     </p>
                 </td>
-                <td>
+                <!--td>
                   <p>If multiple endpoints for the same protocol would be present, 
                   a common selection algorithm has to be defined. 
                   This may imply invoking form elements in sequence with 
@@ -1563,7 +1574,7 @@
                     Combination of operations are ambiguous and have very 
                     complex interaction semantics.
                   </p>
-                </td>              
+                </td-->              
                 </tr>
                 <tr>
                   <td>format</td>
@@ -1619,11 +1630,11 @@
           </table>
         </section>
 
-        <span class="rfc2119-assertion" id="profile-thing-action-affordance-additional-constraints-7">
+        <!-- TODO: span class="rfc2119-assertion" id="profile-thing-action-affordance-additional-constraints-7">
           The DataSchema fields <code>const</code>, <code>default</code>, 
                <code>unit</code>, <code>oneOf</code> and <code>enum</code>
               are undefined for actions and MUST NOT be used.
-          </span>
+          </span-->
            </section>
 
 
@@ -1649,14 +1660,14 @@
           </span>
         </p>
 
-        <p>
+        <!-- TODO: discuss
           The "type" relationship as defined in chapter 6 of
           [[RFC6903]] is reserved for indicating an instance
           relationship between a thing and a thing template.
           The <a>Baseline Data Model</a> does not put additional
           constraints or requirements on links. The
           interpretation of a link is out of scope.
-        </p>
+        </p-->
       </section>
 
         <section>
@@ -1856,7 +1867,7 @@
           interpretation of a link is out of scope.
         </p>
         <section>
-          <!-- TODO -->
+          <!-- TODO 
           <h3 id="links-ednote">TODO</h3>THIS SECTION STILL NEEDS TO BE REWORKED.</section>
           <p>
           <span class="rfc2119-assertion" id="profile-thing-security-1">
@@ -1897,7 +1908,7 @@
           <p>When using the "no security" or "Basic Auth"
             security schemes it is strongly recommended to
             use transport layer encryption.</p>
-        </section>
+        </section-->
       </section>
     </section>
 
@@ -4308,16 +4319,16 @@
         </p>
       </section>
     </section>
-  </section>
+  </section> 
 
   <!---------------------------------------------------------------->
 
 
-  <section id="core-profile-json-schema" class="appendix normative">
+  <section id="baseline-profile-json-schema" class="appendix normative">
     <h1>JSON Schema of the Baseline Profile</h1>
     <p>
       A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance with
-      the core profile.
+      the baseline profile.
     </p>
     <p class="ednote">
       <!-- TODO --> TODO: Define a JSON-SCHEMA.
