@@ -112,7 +112,7 @@
 <body>
   <section id="abstract">
     <p>
-      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and a <em>WoT Baseline Profile</em>,
+      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and a <em>HTTP Baseline Profile</em>,
       which enables <em>out of the box interoperability</em>
       among things and devices. <em>Out of the box interoperability</em> implies,
       that devices can be integrated into various application scenarios without
@@ -121,7 +121,7 @@
       to use the device in a certain scenario.
       These actions can be done by anyone without specific training.
     </p>
-    The <a>WoT Baseline Profile</a> defines a set of <em>constraints
+    The <a>HTTP Baseline Profile</a> defines a set of <em>constraints
       and rules</em>, which compliant thing descriptions have to adopt
     to guarantee interoperability.
     </p>
@@ -140,10 +140,10 @@
         profile in an unambiguous way. This mechanism can be
         used to define additional profiles.
       </li>
-      <li>In addition, it defines a <strong><a>WoT Baseline
+      <li>In addition, it defines a <strong><a>HTTP Baseline
             Profile</a></strong> of the Thing Description, which
         consists of a baseline information model and protocol
-        binding rules. The <a>WoT Baseline
+        binding rules. The <a>HTTP Baseline
           Profile</a> formalizes the results of several PlugFests
         that were conducted by the WoT Interest Group and of
         tests that were conducted as part of the development.
@@ -164,13 +164,13 @@
     </ul>
     <p>
       Devices that constrain their use of the Thing Description to
-      the <a>WoT Baseline Profile</a> can interoperate with each other
+      the <a>HTTP Baseline Profile</a> can interoperate with each other
       out-of-the-box.
     </p>
     <p>Note that the baseline profile is not exclusive. Device implementers are free to adopt
       other features of the thing description that go beyond the constraints
       of the baseline profile, however the interoperability guarantees of the baseline profile
-      hold only for the <a>WoT Baseline Profile</a> subset.
+      hold only for the <a>HTTP Baseline Profile</a> subset.
 
 
 
@@ -292,7 +292,7 @@
         the range of such choices needs to be limited to a finite set so that a consumer
         of a Thing Description can be sure it will be able to interact with any possible Thing.
         A finite set of customization choices is also important for implementing devices with a fixed code base.
-        Defining such constraints leads to the profile mechanism and the WoT Baseline profile.
+        Defining such constraints leads to the profile mechanism and the HTTP Baseline profile.
       </p>
       <p>
         In addition to multiple vertical use cases that will use HTTP(S) for their implementations,
@@ -326,28 +326,28 @@
       </p>
       <p>
         The aim of this specification is to formalize these
-        agreements by defining a <strong><a>WoT Baseline
+        agreements by defining a <strong><a>HTTP Baseline
             Profile</a></strong> based on the choices that were made by
         the implementers of PlugFest devices.
       </p>
       <p>
         <span class="rfc2119-assertion" id="profile-1.2-why-a-baseline-profile-1">
-          The <a>WoT Baseline Profile</a> contains additional
+          The <a>HTTP Baseline Profile</a> contains additional
           normative requirements that MUST be satisfied by devices
           to be compliant to the profile.
         </span>
       </p>
-      <figure id="WoT-Baseline-Profile-figure">
-        <img src="images/WoT Baseline Profile.png" class="wot-profiles" alt="WoT-Baseline-Profile-Picture" />
+      <figure id="http-baseline-Profile-figure">
+        <img src="images/WoT Baseline Profile.png" class="wot-profiles" alt="http-baseline-Profile-Picture" />
         <figcaption>WoT Baseline Profile - A Subset of Affordances</figcaption>
       </figure>
       <p>
-        Adoption of the <a>WoT Baseline Profile</a> will
+        Adoption of the <a>HTTP Baseline Profile</a> will
         significantly limit the implementation burden of device
         and cloud implementors.
       </p>
       <p>
-        The <a>WoT Baseline Profile</a> was defined with the
+        The <a>HTTP Baseline Profile</a> was defined with the
         following main goals:
       </p>
       <ul>
@@ -483,7 +483,7 @@
         guarantees that are implied by them.
       </dd>
       <dt>
-        <dfn>WoT Baseline Profile</dfn>
+        <dfn>HTTP Baseline Profile</dfn>
       </dt>
       <dd>The subset of the Thing Description
         defined by the present document.</dd>
@@ -491,7 +491,7 @@
         <dfn>Baseline Profile</dfn>
       </dt>
       <dd>
-        Synonym for <a>WoT HTTP Baseline Profile</a>.
+        Synonym for <a>HTTP Baseline Profile</a>.
       </dd>
 
       <dfn>Baseline Information Model</dfn>
@@ -499,7 +499,7 @@
       <dd>
         A set of constraints and requirements on the Information Model of the Thing
         Description specification as
-        defined in section <a href="#wot-baseline-information-model"></a>.
+        defined in section <a href="#http-baseline-information-model"></a>.
       </dd>
     </dl>
   </section>
@@ -528,7 +528,7 @@
     </ul>
 
     <section class="note">
-      Note: The WoT HTTP profile does not prevent a TD to have forms for additional protocols,
+      Note: The WoT HTTP baseline profile does not prevent a TD to have forms for additional protocols,
       but these can be ignored by compliant consumers, and could be removed without
       affecting profile comformance and compatibility.
       This may be useful for consumers that support multiple profiles.
@@ -730,7 +730,7 @@
   <section id="http-baseline-profile">
     <h2>HTTP Baseline Profile</h2>
     <p>This section defines the HTTP Baseline Profile, which includes a
-      <a href="#http-baseline-profile-data-model">Data Model</a>
+      <a href="#http-baseline-information-model">Information Model</a>
       and a <a href="#http-baseline-profile-protocol-binding">Protocol Binding</a>
       for reading and writing properties and invoking, querying and cancelling
       actions.
@@ -754,7 +754,7 @@
       </p>
     </section>
 
-    <section id="http-baseline-profile-data-model">
+    <section id="http-baseline-information-model">
       <h2>Baseline Information Model</h2>
       <p>
         The baseline information model of the HTTP profile incorporates the information model defined by chapter 5 of
@@ -763,7 +763,7 @@
         are the baseline for the definition of the baseline information model
         and are normative.
       </p>
-        <span class="rfc2119-assertion" id="profile-wot-baseline-information-model-1">
+        <span class="rfc2119-assertion" id="profile-http-baseline-information-model-1">
         A baseline profile compliant implementation MUST be compliant to the Thing Description and 
         MUST additionally satisfy the requirements of this chapter.
         </span>
@@ -834,20 +834,22 @@
           <p>- charset constraints for UI elements</p>
         </section>
 
-        <!-- TODO: later -->
           <h4>Date format</h4>
-          <p class="rfc2119-assertion" id="profile-date-format-1">
-            All date and time values MUST use the canonical dateTime representation format defined in section 3.2.7 of
-            [xmlschema-2].
-          </p>
-          As described by this section the following constraints must be observed:
-          <p class="rfc2119-assertion" id="profile-date-format-2">
+	        <p>
+            <span class="rfc2119-assertion" 
+                   id="profile-date-format-1">
+            All date and time values MUST use the canonical dateTime representation format defined in section 3.2.7 of [xmlschema-2].
+	        </span>
+	        As described by this section the following constraints must be observed:
+	        <span class="rfc2119-assertion" 
+          id="profile-date-format-2">
             All dateTime values MUST use UTC as the time zone and use the 'Z' identifier.
-          </p>
-          <p class="rfc2119-assertion" id="profile-date-format-3">
-            A time value of 24:00 is NOT PERMITTED, the value 00:00 MUST be used instead.
-          </p>
-        </section>
+          </span>
+	        <span class="rfc2119-assertion" 
+                id="profile-date-format-3">
+	          A time value of 24:00 is not permitted; the value 00:00 MUST be used instead.
+	        </span>
+        </p>		
 
         <section>
           <h4>Length and Value Limits</h4>
@@ -866,7 +868,7 @@
             values MUST NOT exceed to 512 characters.
           </span>
         </section>
-      </section>
+
       <!-- TODO: later 
           <p>
             The length of
@@ -1095,7 +1097,7 @@
         </section>
 
         <p>
-        The <a>Baseline Data Model</a> applies the following
+        The <a>Baseline Information Model</a> applies the following
         constraints and rules to the
         <code>DataSchema</code>
         class of the <a>WoT Thing Description</a>
@@ -1106,7 +1108,7 @@
         <h4 id="constraints-against-the-td-specification">Data
           Schema Constraints</h4>
         <p>
-          The <a>Baseline Data Model</a> restricts the use of
+          The <a>Baseline Information Model</a> restricts the use of
           arrays and objects to the <strong>top level</strong>
           of Data Schemas, i.e. only a one-level hierarchy is
           permitted.
@@ -1190,7 +1192,7 @@
 
       <section>
         <h3 id="x5-property-affordance">Property Affordance</h3>
-        The <a>Baseline Data Model</a> applies the following
+        The <a>Baseline Information Model</a> applies the following
         constraints and rules to the
         <code>PropertyAffordance</code>
         class of the <a>WoT Thing Description</a> Specification.
@@ -1455,7 +1457,7 @@
       <!-- Actions -->
       <section>
         <h3 id="x5-action-affordances">Action Affordances</h3>
-        The <a>Baseline Data Model</a> applies the following
+        The <a>Baseline Information Model</a> applies the following
         constraints and rules to the
         <code>ActionAffordance</code>
         class of the <a>WoT Thing Description</a> Specification.
@@ -1529,7 +1531,7 @@
             <code>output</code>
             are restricted to simple types in a <a>Thing
               Description</a> conforming to the <a>Baseline
-              Data Model</a>. Without this limitation a higher
+              Information Model</a>. Without this limitation a higher
             implementation burden would be put on resource
             constrained devices (arbitrary cascaded arrays
             and multi-level objects) which cannot be
@@ -1542,7 +1544,7 @@
             The following additional constraints MUST be
             applied to the indicated fields of the Interaction Affordances of a <a>Thing
               Description</a> conforming to the <a>Baseline
-              Data Model</a>:
+              Information Model</a>:
             </span>
           </p>
                 <td>forms</td>
@@ -1626,8 +1628,7 @@
               </tr>
             </tbody>
           </table>
-        </section>
-
+   
         <!-- TODO: span class="rfc2119-assertion" id="profile-thing-action-affordance-additional-constraints-7">
           The DataSchema fields <code>const</code>, <code>default</code>, 
                <code>unit</code>, <code>oneOf</code> and <code>enum</code>
@@ -1646,7 +1647,7 @@
       <!-- Events -->
       <section>
         <h3 id="x5-event-affordance">Event Affordance</h3>
-        The <a>Baseline Data Model</a> applies the following
+        The <a>Baseline Information Model</a> applies the following
         constraints and rules to the
         <code>EventAffordance</code>
         class of the <a>WoT Thing Description</a> Specification.
@@ -1662,11 +1663,10 @@
           The "type" relationship as defined in chapter 6 of
           [[RFC6903]] is reserved for indicating an instance
           relationship between a thing and a thing template.
-          The <a>Baseline Data Model</a> does not put additional
+          The <a>Baseline Information Model</a> does not put additional
           constraints or requirements on links. The
           interpretation of a link is out of scope.
         </p-->
-      </section>
 
         <section>
           <h4>Mandatory fields</h4>
@@ -1860,16 +1860,16 @@
           The "type" relationship as defined in chapter 6 of
           [[RFC6903]] is reserved for indicating an instance
           relationship between a thing and a thing template.
-          The <a>Baseline Data Model</a> does not put additional
+          The <a>Baseline Information Model</a> does not put additional
           constraints or requirements on links. The
           interpretation of a link is out of scope.
         </p>
-        <section>
+
           <!-- TODO 
           <h3 id="links-ednote">TODO</h3>THIS SECTION STILL NEEDS TO BE REWORKED.</section>
           <p>
           <span class="rfc2119-assertion" id="profile-thing-security-1">
-          The <a>Baseline Data Model</a> defines a subset of the
+          The <a>Baseline Information Model</a> defines a subset of the
           security schemes that MAY be implemented on resource
           constrained devices.
           </span>
@@ -1885,10 +1885,10 @@
         </p>
         <p>
           The set of security schemes supported in the <a>Baseline
-            Data Model</a> is based on the PlugFest results.
+            Information Model</a> is based on the PlugFest results.
             <span class="rfc2119-assertion" id="profile-thing-security-4">
               To ensure interoperability, a TD consumer, which
-              compliant with the <a>Baseline Data Model</a> MUST
+              compliant with the <a>Baseline Information Model</a> MUST
               support <strong>all</strong> of the following security schemes:
             </span>
         </p>
@@ -3018,6 +3018,7 @@
         WoT Security Best Practices</a> for implementation advice.
       </p>
     </section>
+  </section>
   </section>
 
   <section>
