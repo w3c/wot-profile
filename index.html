@@ -828,7 +828,6 @@
           <p>TODO:</p>
           <p>define constraints for</p>
           <p>- id</p>
-          <p>- date and time values</p>
           <p>- units</p>
           <p>- geolocation</p>
           <p>- charset constraints for UI elements</p>
@@ -868,18 +867,6 @@
             values MUST NOT exceed to 512 characters.
           </span>
         </section>
-
-      <!-- TODO: later 
-          <p>
-            The length of
-            <code>title</code>
-            and
-            <code>titles</code>
-            values is limited to 64 characters.
-          </p>
-          <p>
-        </section>
-      -->
 
         <p>
           <span class="rfc2119-assertion"
@@ -1103,90 +1090,7 @@
         class of the <a>WoT Thing Description</a>
         Specification</a>.
         </p>
-
-        <!-- TODO: cleanup
-        <h4 id="constraints-against-the-td-specification">Data
-          Schema Constraints</h4>
-        <p>
-          The <a>Baseline Information Model</a> restricts the use of
-          arrays and objects to the <strong>top level</strong>
-          of Data Schemas, i.e. only a one-level hierarchy is
-          permitted.
-          <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-1">
-            The members of a top level
-            <code>object</code>
-            or
-            <code>array</code>
-            MUST NOT be array or object types.
-          </span>
-        </p>
-        <section class="note" title="RATIONALE">
-          <p>
-            <span id="profile-5.1.3-thing-data-schema-2">
-              This may appear as a severe limitation,
-              however it is motivated by integrating with
-              multiple cloud services.
-            </span>
-            Many enterprise services and applications are based on
-            (relational) databases, where individual
-            property values are stored. Of course databases
-            can also store objects (e.g. encoded as a JSON
-            string), however this will prevent processing by
-            other enterprise applications.
-          </p>
-          <p>
-            If a property conceptually has a deeper
-            structure, such as grid of lamps with RGB
-            colors, the structure can be represented in the
-            keyword of the property, i.e. lamp1_color_r,
-            lamp1_color_g and lamp1_color_b. A similar
-            mapping can be done for arrays and hierarchical
-            objects. This constraint leads to simpler Thing
-            Descriptions that can be handled by very
-            limited devices.
-          </p>
-        </section>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-3">
-          The following fields MUST be contained in a
-          DataSchema:
-          </span>
-        </p>
-        <table class="def">
-          <thead>
-            <tr>
-              <th>keyword</th>
-              <th>type</th>
-              <th>constraints</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="rfc2119-table-assertion" id="profile-5.1.3-thing-data-schema-3--description">
-              <td>description</td>
-              <td>human readable description</td>
-            </tr>
-            <tr class="rfc2119-table-assertion" id="profile-5.1.3-thing-data-schema-3--type">
-              <td>type</td>
-              <td>string</td>
-              <td>one of boolean, integer, number,
-                string, array or object</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-4">
-            The values
-            <code> object </code>
-            ,
-            <code> array </code> MAY only be used at the top level of a Data Schema.
-          </span>
-          <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-5">
-            The type value MUST NOT be <code> null </code>.
-          </span>
-        </p>
-      -->
       </section>
-
 
       <!-- Properties -->
 
@@ -1487,58 +1391,12 @@
                 <td>unique name among all actions</td>
                 <td>unambigous UI labels</td>
                </tr>
-               <!-- TODO: revisit 
-               <tr class="rfc2119-table-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1-input">
-              <tr>
-                <td>input</td>
-                <td>array of DataSchema</td>
-                <td>schemas describing the input to an action
-		</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1-output">
-                <td>output</td>
-                <td>array of DataSchema</td>
-                <td>schemas describing the output of an action
-                </td>
-              </tr>
-            -->
             </tbody>
           </table>
-          <!-- TODO: revisit
-                  <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-2">
-		  In the <code>input</code> field,
-                  all elements of the subclasses
-                  objectSchema and dataSchema MUST
-                  only contain simple types.
-                  </span>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-3">
-		  In the <code>output</code> field,
-                  all elements of the subclasses
-                  objectSchema and dataSchema MUST
-                  only contain simple types.
-                  </span>
-                -->
         </section>
 
         <section>
           <h4>Additional Constraints</h4>
-          <!-- TODO: REVISIT 
-          <p>
-            The elements of the DataSchema subclasses
-            ArraySchema and ObjectSchema for the fields
-            <code>input</code>
-            and
-            <code>output</code>
-            are restricted to simple types in a <a>Thing
-              Description</a> conforming to the <a>Baseline
-              Information Model</a>. Without this limitation a higher
-            implementation burden would be put on resource
-            constrained devices (arbitrary cascaded arrays
-            and multi-level objects) which cannot be
-            satisfied by all consuming devices.
-          </p>
-        -->
-
           <p>
             <span class="rfc2119-assertion" id="profile-thing-action-affordance-additional-constraints-1">
             The following additional constraints MUST be
@@ -1563,18 +1421,6 @@
                     </span>
                     </p>
                 </td>
-                <!--td>
-                  <p>If multiple endpoints for the same protocol would be present, 
-                  a common selection algorithm has to be defined. 
-                  This may imply invoking form elements in sequence with 
-                  a trial and error method that can lead to significant 
-                  delays due to timeout handling obligations. 
-                  </p>
-                  <p>
-                    Combination of operations are ambiguous and have very 
-                    complex interaction semantics.
-                  </p>
-                </td-->              
                 </tr>
                 <tr>
                   <td>format</td>
@@ -1588,32 +1434,6 @@
                     </span>
                   </td>
                   <td>Predictive finite set of choices.</td>
-                  <!-- TODO: revisit
-                </td>
-              </tr>
-              <tr>
-                <td>format</td>
-                <td>string</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_format">
-                  If the field <code>format</code>
-                  is used, formats defined in
-                  section 7.3.1-7.3.6 of
-                  [[JSON-SCHEMA]] MUST be used.
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>oneOf</td>
-                <td>string</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_oneOf">
-                  The DataSchema field <code>oneOf</code>
-                  does not make sense for properties
-                  and MUST NOT be used.
-                  </span>
-                </td>
-              -->
               </tr>
               <tr>
                 <td>uriVariables</td>
@@ -1628,13 +1448,7 @@
               </tr>
             </tbody>
           </table>
-   
-        <!-- TODO: span class="rfc2119-assertion" id="profile-thing-action-affordance-additional-constraints-7">
-          The DataSchema fields <code>const</code>, <code>default</code>, 
-               <code>unit</code>, <code>oneOf</code> and <code>enum</code>
-              are undefined for actions and MUST NOT be used.
-          </span-->
-           </section>
+        </section>
 
 
         <section>
@@ -1658,16 +1472,6 @@
             mechanism to enable a variety of consumers.
           </span>
         </p>
-
-        <!-- TODO: discuss
-          The "type" relationship as defined in chapter 6 of
-          [[RFC6903]] is reserved for indicating an instance
-          relationship between a thing and a thing template.
-          The <a>Baseline Information Model</a> does not put additional
-          constraints or requirements on links. The
-          interpretation of a link is out of scope.
-        </p-->
-
         <section>
           <h4>Mandatory fields</h4>
           <p>
@@ -1676,40 +1480,6 @@
               element of a <em>Baseline TD</em>:
             </span>
           </p>
-          <!-- TODO: add rationale
-          <table class="def">
-            <thead>
-              <tr>
-                <th>keyword</th>
-                <th>type</th>
-                <th>constraints</th>
-
-                <th>rationale</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>title</td>
-                <td>string</td>
-                <td>unique name among all events</td>
-              </tr>
-              <tr>
-                <td>description</td>
-                <td>string</td>
-                <td>human readable description</td>
-              </tr>
-              <tr>
-                <td>data</td>
-                <td>set of DataSchema instances in
-                  a JSON object</td>
-                <td>only the DataSchema subclasses
-                  booleanSchema, IntegerSchema,
-                  NumberSchema, StringSchema are
-                  permitted</td>
-              </tr>
-            </tbody>
-          </table>
-        -->
         </section>
         <section>
           <h4>Additional Constraints</h4>
