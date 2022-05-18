@@ -1519,11 +1519,7 @@
       <section>
         <h3 id="forms">Forms</h3>
         <p>
-          <span class="rfc2119-assertion" id="profile-thing-forms-1">
-            A <a>Thing</a> MAY provide more than one event
-            mechanism to enable a variety of consumers.
-          </span>
-        </p>
+       </p>
         <section>
           <h4>Mandatory fields</h4>
           <p>
@@ -1541,26 +1537,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="rfc2119-table-assertion" id="profile-thing-forms-mandatory-fields-1-title">
-                <td>title</td>
-                <td>string</td>
-                <td>unique name among all events</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-thing-forms-mandatory-fields-1-description">
-                <td>description</td>
-                <td>string</td>
-                <td>human readable description</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-thing-forms-mandatory-fields-1-data">
-                <td>data</td>
-                <td>set of DataSchema instances in
-                  a JSON object</td>
-                <td>
-	  	  only the DataSchema subclasses
-                  BooleanSchema, IntegerSchema,
-                  NumberSchema, StringSchema are
-                  permitted</td>
-              </tr>
             </tbody>
           </table>
         </section>
@@ -1583,26 +1559,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>security</td>
-                <td>string or Array of string</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.7.2-thing-forms-additional-constraints-1_security">
-                  A <code>security</code> field at the form
-                  level MUST NOT be used.
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>scopes</td>
-                <td>string or Array of string</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.7.2-thing-forms-additional-constraints-1_scopes">
-                  A <code>scopes</code> field MUST NOT be
-                  used.
-                  </span>
-                </td>
-              </tr>
             </tbody>
           </table>
         </section>
