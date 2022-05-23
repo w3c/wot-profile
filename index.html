@@ -725,6 +725,108 @@
     </pre>
   </section>
 
+  <!-- HTTP Profiles -->
+  <section id="http-profiles">
+    <h2>HTTP Profiles</h2>
+    <p>
+      The HTTP Profile specificiation defines several profiles that can be used for dedicated use cases.
+
+    </p>
+  <!--  Common -->
+  <section id="sec-http-common-rules">
+    <h3>Common Rules</h3>
+    <p>
+      The following sections are applicable for all profiles defined by this document.
+    </p>
+
+    <section id="sec-security-considerations">
+    <h4>Security Considerations</h4>
+    <span class="rfc2119-assertion" id="arch-security-consideration-separate-security-data">
+      The security considerations of the 
+      <a href="https://w3c.github.io/wot-architecture/#sec-security-consideration">WoT Architecture</a>
+      and 
+      <a href="https://w3c.github.io/wot-thing-description/#sec-security-considerations">WoT Thing Description</a>
+      MUST be adopted by compliant implementations.
+    </span>
+  </section>
+    <!--  Security -->
+    <section id="sec-http-security-schemes">
+      <h4>Security Schemes</h3>
+        <p class="ednote" title="Restructure Assertion">
+          This assertion has two keywords and needs to be broken into two
+          statements. The question is how to do it without repeating the list.
+        </p>
+        <span class="rfc2119-assertion" id="http-baseline-profile-security-1">
+          <p>
+            Below is a list of <a href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
+              security schemes</a> [[wot-thing-description]] which conformant Web
+            Things MAY use and conformant Consumers MUST support:
+          </p>
+          <ul>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
+                <code>NoSecurityScheme</code>
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#basicsecurityscheme">
+                <code>BasicSecurityScheme</code>
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#digestsecurityscheme">
+                <code>DigestSecurityScheme</code>
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#bearersecurityscheme">
+                <code>BearerSecurityScheme</code>
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#oauth2securityscheme">
+                <code>OAuth2SecurityScheme</code>
+              </a>
+            </li>
+          </ul>
+        </span>
+        <p class="ednote">
+          The list of security schemes to include in the HTTP Baseline Profile is
+          still <a href="https://github.com/w3c/wot-profile/issues/6">under
+            discussion</a>.
+        </p>
+        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-2">
+            A Thing MAY implement multiple security schemes.
+          </span></p>
+        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-3a">
+            Security schemes MUST be applied using the top level <code>security</code>
+            member of a
+            <a href="https://w3c.github.io/wot-thing-description/#thing">Thing</a>.
+          </span></p>
+        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-3b">
+            Security schemes
+            MUST NOT be applied to individual
+            <a href="https://w3c.github.io/wot-thing-description/#form"></a><code>
+          Form</code>s.
+          </span></p>
+        <p class="note">
+          Please see <a href="https://w3c.github.io/wot-security-best-practices/">
+            WoT Security Best Practices</a> for implementation advice.
+        </p>
+    </section>
+    <section id="sec-privacy-considerations">
+      <h4>Privacy Considerations</h4>
+      <span class="rfc2119-assertion" id="profile-privacy-consideration">
+        The privacy considerations of the 
+        <a href="https://w3c.github.io/wot-architecture/#sec-privacy-considerations">WoT Architecture</a>
+        and 
+        <a href="https://w3c.github.io/wot-thing-description/#sec-privacy-consideration">WoT Thing Description</a>
+        MUST be adopted by compliant implementations.
+      </span>
+  
+    </section>
+  </section>
+
   <!-- HTTP Baseline Protocol -->
   <section id="http-baseline-profile">
     <h2>HTTP Baseline Profile</h2>
@@ -1061,8 +1163,8 @@
 
 
       <!-- Data Schemas-->
-      <section>
-        <h3 id="data-schema">Data Schema</h3>
+      <section id="data-schema">
+        <h3>Data Schema</h3>
         <p>
           Data Schemas are used for the values of Properties,
           Action input and output parameters and Event message
@@ -1521,8 +1623,8 @@
       </section>
 
       <!-- Forms -->
-      <section>
-        <h3 id="forms">Forms</h3>
+      <section id="forms">
+        <h3>Forms</h3>
         <p>
        </p>
         <section>
@@ -1570,8 +1672,8 @@
       </section>
 
       <!-- Links -->
-      <section>
-        <h3 id="links">Links</h3>
+      <section id="links">
+        <h3>Links</h3>
         <section class="ednote">
           <!-- TODO --> TODO: Consider
           selecting a defined set from [[RFC8288]].
