@@ -1077,13 +1077,11 @@
         </section>
 
         <section>
-          <h3 id="recommended-fields-thing">Recommended fields</h3>
-            <p>
-              <span class="rfc2119-assertion" id="profile-thing-recommended-fields-1">
-              The following metadata fields of a <a>Thing</a> SHOULD be contained in a compliant
-              Thing Description:
-              </span>
-            </p>
+          <h5 id="recommended-practice">Recommended
+            practice</h5>
+          <p>It is RECOMMENDED to use the value
+            &quot;&quot; for strings, where the
+            value cannot be determined.</p>
 
             <table class="def">
               <thead>
@@ -1368,9 +1366,10 @@
                 <td>uriVariables</td>
                 <td>Map of DataSchema</td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-thing-property-affordance-additional-constraints-8">
-                  <code>uriVariables</code> MUST
-                  NOT be used.
+                  <span class="rfc2119-assertion"
+                    id="profile-thing-property-affordance-additional-constraints-8">
+                    <code>uriVariables</code> MUST
+                    NOT be used.
                   </span>
                   <td>The semantic meaning of URI variables cannot be described in a TD in an unambiguous way.</td>
                 </td>
@@ -1388,36 +1387,12 @@
         <section>
           <h4>Recommended Practice</h4>
           <p>
-            <span class="rfc2119-assertion" id="profile-property-recommended-practice">
-              The following property fields SHOULD be contained in the <code>properties</code>
-              element of a <em>Profile compliant TD</em>:
-              </span>
-            </p>
-            <table class="def">
-              <thead>
-                <tr>
-                  <th>Keyword</th>
-                  <th>Type</th>
-                  <th>Constraints</th>
-                  <th>Rationale</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>description</td>
-                  <td><code>string</code></td>
-                  <td>max length</td>
-                  <td>generated UI, maintenance, developer documentation</td>
-                </tr>
-              </tbody>
-            </table>
-            <p>
-              <span class="rfc2119-assertion" id="profile-thing-property-recommended-fields-2">
-                It is highly RECOMMENDED to always specify a
-                <code>unit</code>, if a value has a metric.
-              </span>
-                Authors of <em>Thing Descriptions</em> should be aware, that units
-                that are common in their geographic region are
+            <span id="profile-thing-properties-recommended-practice-1">
+            It is highly RECOMMENDED to always specify a
+            <code>unit</code> if a value has a metric.
+            </span>
+            Authors of <em>Thing Descriptions</em> should be aware that units
+            that are common in their geographic region are
             not globally applicable and may lead to
             misinterpretation with drastic consequences.
           </p>
@@ -1438,8 +1413,7 @@
             to indicate how the value should be
             interpreted. 
             <span class="rfc2119-assertion" id="profile-thing-properties-recommended-practice-2">
-              It is strongly RECOMMENDED to use
-              the values
+              It is strongly RECOMMENDED to use the values
               <code>hex</code>
               ,
               <code>oct</code>
@@ -1447,9 +1421,8 @@
               <code>bin</code>
               in the <code>unit</code> for string values with binary or hex data to achieve interoperability.
             </span>
-            </p>
-            <!-- TODO: consider how to indicate specific types such as char, signed/unsigned short, ... -->
-        </section>
+            </p>      
+          </section>
       </section>
 
 
