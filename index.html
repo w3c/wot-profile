@@ -1078,7 +1078,7 @@
         </section>
 
         <section>
-          <h5 id="recommended-practice-">Recommended
+          <h5 id="recommended-practice">Recommended
             practice</h5>
           <p>It is RECOMMENDED to use the value
             &quot;&quot; for strings, where the
@@ -1383,7 +1383,7 @@
                 <td>Map of DataSchema</td>
                 <td>
                   <span class="rfc2119-assertion"
-                    id="profile-5.1.4.2-thing-property-affordance-additional-constraints-8">
+                    id="profile-thing-property-affordance-additional-constraints-8">
                     <code>uriVariables</code> MUST
                     NOT be used.
                   </span>
@@ -1397,7 +1397,7 @@
         <section>
           <h4>Recommended Practice</h4>
           <p>
-            <span id="profile-5.1.4.3-thing-properties-recommended-practice-1">
+            <span id="profile-thing-properties-recommended-practice-1">
             It is highly RECOMMENDED to always specify a
             <code>unit</code> if a value has a metric.
             </span>
@@ -1422,17 +1422,17 @@
             ,
             to indicate how the value should be
             interpreted. 
-            <span class="rfc2119-assertion" id="profile-5.1.4.3-thing-properties-recommended-practice-2">
-	          It is strongly RECOMMENDED to use the values
+            <span class="rfc2119-assertion" id="profile-thing-properties-recommended-practice-2">
+              It is strongly RECOMMENDED to use the values
+              <code>hex</code>
+              ,
+              <code>oct</code>
+              or
+              <code>bin</code>
+              in the <code>unit</code> for string values with binary or hex data to achieve interoperability.
             </span>
-            <code>hex</code>
-            ,
-            <code>oct</code>
-            or
-            <code>bin</code>
-	    in the <code>unit</code> for string values with binary or hex data to achieve interoperability.
-          </p>
-        </section>
+            </p>      
+          </section>
       </section>
 
 
@@ -2838,6 +2838,72 @@
           </span>
         </p>
       </section>
+    </section>
+
+    <!--  Security -->
+    <section>
+      <h2 id="http-baseline-profile-security">Security</h3>
+      <p class="ednote" title="Restructure Assertion">
+      This assertion has two keywords and needs to be broken into two
+      statements. The question is how to do it without repeating the list.
+    </p>
+    <span class="rfc2119-assertion" id="http-baseline-profile-security-1">
+      <p>
+        Below is a list of <a href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
+          security schemes</a> [[wot-thing-description]] which conformant Web
+        Things MAY use and conformant Consumers MUST support:
+      </p>
+      <ul>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
+            <code>NoSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#basicsecurityscheme">
+            <code>BasicSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#digestsecurityscheme">
+            <code>DigestSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#bearersecurityscheme">
+            <code>BearerSecurityScheme</code>
+          </a>
+        </li>
+        <li>
+          <a href="https://w3c.github.io/wot-thing-description/#oauth2securityscheme">
+            <code>OAuth2SecurityScheme</code>
+          </a>
+        </li>
+      </ul>
+      </span>
+      <p class="ednote">
+        The list of security schemes to include in the HTTP Baseline Profile is
+        still <a href="https://github.com/w3c/wot-profile/issues/6">under 
+        discussion</a>.
+      </p>
+      <p><span class="rfc2119-assertion" id="http-baseline-profile-security-2">
+        A Thing MAY implement multiple security schemes.
+      </span></p>
+      <p><span class="rfc2119-assertion" id="http-baseline-profile-security-3a">
+        Security schemes MUST be applied using the top level <code>security</code>
+        member of a 
+        <a href="https://w3c.github.io/wot-thing-description/#thing">Thing</a>.
+      </span></p>
+      <p><span class="rfc2119-assertion" id="http-baseline-profile-security-3b">
+        Security schemes 
+        MUST NOT be applied to individual
+        <a href="https://w3c.github.io/wot-thing-description/#form"></a><code>
+        Form</code>s.
+      </span></p>
+      <p class="note">
+        Please see <a href="https://w3c.github.io/wot-security-best-practices/">
+        WoT Security Best Practices</a> for implementation advice.
+      </p>
     </section>
   </section>
 
