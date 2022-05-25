@@ -1,0 +1,49 @@
+@startuml
+hide footbox
+
+box "WoT Consumer (Webhook)"
+participant "Application" as AP
+participant "Webhook Listener" as WL
+end box
+
+box "WoT Thing"
+participant "Event Affordance" as WS
+participant "Application" as DC
+end box
+
+activate AP
+activate DC
+
+activate WS
+
+== subscribe ==
+
+AP  -> WS: subscription operation:\nsends a POST message\n to href of event form\n with op=subscribeevent\nand URI of notify Form
+
+WS  -> WS: stores notification listener URI\nassigns Subscription id
+WS  -> AP: returns Subscription id
+WS  -> DC: start reporting state changes
+AP  -> WL: create listener
+activate WL
+
+== notify ==
+
+DC  -> WS: change detected\ninvoke notify
+WS  -> WL: send message payload \nto registered listener URI\nthrough HTTP POST message
+WL  -> AP: notify(event, data)
+AP  -> AP: process event
+AP  -> WL: return(dataResponse)
+WL  -> WS: returns dataResponse payload\n and 200 OK
+WS  -> DC: notify successful (dataResponse)
+
+
+== unsubscribe ==
+
+AP  -> WS: cancellation operation:\n sends a DELETE message\n to href of event form\n with op=unsubscribeevent\nand URI of notification listener
+WS  -> DC: stop reporting state changes
+AP  -> WL: delete listener
+deactivate WL
+
+deactivate WS
+
+@enduml
