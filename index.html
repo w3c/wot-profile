@@ -112,7 +112,7 @@
 <body>
   <section id="abstract">
     <p>
-      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and a <em>WoT Core Profile</em>,
+      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and a <em>HTTP Baseline Profile</em>,
       which enables <em>out of the box interoperability</em>
       among things and devices. <em>Out of the box interoperability</em> implies,
       that devices can be integrated into various application scenarios without
@@ -121,7 +121,7 @@
       to use the device in a certain scenario.
       These actions can be done by anyone without specific training.
     </p>
-    The <a>WoT Core Profile</a> defines a set of <em>constraints
+    The <a>HTTP Baseline Profile</a> defines a set of <em>constraints
       and rules</em>, which compliant thing descriptions have to adopt
     to guarantee interoperability.
     </p>
@@ -140,60 +140,55 @@
         profile in an unambiguous way. This mechanism can be
         used to define additional profiles.
       </li>
-      <li>In addition, it defines a <strong><a>WoT Core
+      <li>In addition, it defines a <strong><a>HTTP Baseline
             Profile</a></strong> of the Thing Description, which
-        consists of a core data model and protocol
-        binding rules. The <a>WoT Core
+        consists of a baseline information model and protocol
+        binding rules. The <a>HTTP Baseline
           Profile</a> formalizes the results of several PlugFests
         that were conducted by the WoT Interest Group and of
         tests that were conducted as part of the development.
         <p>
-          This document incudes a binding of the core data model to
+          This document incudes a binding of the baseline information model to
           HTTP(S) and selected notification sub-protocols.
-          The core data model can be bound to other protocols -
+          The baseline information model can be bound to other protocols -
           it is expected that bindings to other protocols (e.g. MQTT, CoAP)
           will be defined in the near future.
         </p>
         <p>
           <span class="rfc2119-assertion" id="profile-abstract-1">
-            A TD that is compliant to the <a>core profile</a> MUST adhere to
-            both the constraints on the data model and the protocol binding.
+            A TD that is compliant to the <a>HTTP baseline profile</a> MUST adhere to
+            both the constraints on the information model and the protocol binding.
           </span>
         </p>
       </li>
     </ul>
     <p>
       Devices that constrain their use of the Thing Description to
-      the <a>WoT Core Profile</a> can interoperate with each other
+      the <a>HTTP Baseline Profile</a> can interoperate with each other
       out-of-the-box.
     </p>
-    <p>Note that the core profile is not exclusive. Device implementers are free to adopt
+    <p>Note that the baseline profile is not exclusive. Device implementers are free to adopt
       other features of the thing description that go beyond the constraints
-      of the core profile, however the interoperability guarantees of the core profile
-      hold only for the <a>WoT Core Profile</a> subset.
+      of the baseline profile, however the interoperability guarantees of the baseline profile
+      hold only for the <a>HTTP Baseline Profile</a> subset.
 
-    <section class="ednote">
-      The name <em>WoT Core Profile</em> is still under discussion in the group and is used as a working title.
-      It is subject to change after the profile specification has reached a certain level of maturity.
-    </section>
+
 
     <section>
       <h3>Motivation for a Profile</h3>
     </section>
 
     <p>
-      <span id="profile-abstract-2">
+      <p id="profile-abstract-2">
         The W3C WoT Thing Architecture [[wot-architecture11]] and
         WoT Thing Description [[wot-thing-description11]] define a
         powerful description mechanism and a format to describe
         myriads of very different devices, which may be connected
         over various protocols.
-      </span>
-      The format is very flexible and open
-      and puts very few normative requirements on devices that
-      implement it.
-    </p>
-
+        The format is very flexible and open
+        and puts very few normative requirements on devices that
+        implement it.</p>
+  
     <p>
       However, this flexibility de-facto prevents
       interoperability, since, without additional <strong>rules</strong>,
@@ -249,7 +244,7 @@
         For green field deployments, where the implementations
         are being carried out and corresponding thing
         descriptions are being created, it is easier to achieve
-        full interoperability by using a small, extensible <a>Core
+        full interoperability by using a small, extensible <a>Baseline
           Profile</a>.
       </p>
 
@@ -261,13 +256,13 @@
         and domain-specific thing consumer implementations.</p>
 
       <p>
-        The WoT <a>Core Profile</a> can be used by green field
+        The WoT <a>Baseline Profile</a> can be used by green field
         deployments and gives guidance to new implementers of
         the WoT specifications. It has already proved in
         brown-field scenarios in the PlugFests, where existing
         devices, that already existed as products, prototypes or
         demonstrators, were described with Thing Descriptions
-        that are constrained to the <a>Core Profile</a>.
+        that are constrained to the <a>Baseline Profile</a>.
       </p>
     </section>
 
@@ -296,7 +291,7 @@
         the range of such choices needs to be limited to a finite set so that a consumer
         of a Thing Description can be sure it will be able to interact with any possible Thing.
         A finite set of customization choices is also important for implementing devices with a fixed code base.
-        Defining such constraints leads to the profile mechanism and the WoT Core profile.
+        Defining such constraints leads to the profile mechanism and the HTTP Baseline profile.
       </p>
       <p>
         In addition to multiple vertical use cases that will use HTTP(S) for their implementations,
@@ -316,8 +311,8 @@
     </section>
 
     <section id="why-profile">
-      <h2 id="why-define-a-core-profile">
-        Why a <a>Core Profile</a>?
+      <h2 id="why-define-a-baseline-profile">
+        Why a <a>Baseline Profile</a>?
       </h2>
 
       <p>
@@ -330,28 +325,28 @@
       </p>
       <p>
         The aim of this specification is to formalize these
-        agreements by defining a <strong><a>WoT Core
+        agreements by defining a <strong><a>HTTP Baseline
             Profile</a></strong> based on the choices that were made by
         the implementers of PlugFest devices.
       </p>
       <p>
-        <span class="rfc2119-assertion" id="profile-1.2-why-a-core-profile-1">
-          The <a>WoT Core Profile</a> contains additional
+        <span class="rfc2119-assertion" id="profile-1.2-why-a-baseline-profile-1">
+          The <a>HTTP Baseline Profile</a> contains additional
           normative requirements that MUST be satisfied by devices
           to be compliant to the profile.
         </span>
       </p>
-      <figure id="WoT-Core-Profile-figure">
-        <img src="images/WoT Core Profile.png" class="wot-profiles" alt="WoT-Core-Profile-Picture" />
-        <figcaption>WoT Core Profile - A Subset of Affordances</figcaption>
+      <figure id="http-baseline-Profile-figure">
+        <img src="images/WoT Baseline Profile.png" class="wot-profiles" alt="http-baseline-Profile-Picture" />
+        <figcaption>WoT Baseline Profile - A Subset of Affordances</figcaption>
       </figure>
       <p>
-        Adoption of the <a>WoT Core Profile</a> will
+        Adoption of the <a>HTTP Baseline Profile</a> will
         significantly limit the implementation burden of device
         and cloud implementors.
       </p>
       <p>
-        The <a>WoT Core Profile</a> was defined with the
+        The <a>HTTP Baseline Profile</a> was defined with the
         following main goals:
       </p>
       <ul>
@@ -373,9 +368,9 @@
       <h2 id="out-of-the-box-interoperability">Out-of-the-box
         interoperability</h2>
       <p>
-        Devices, which implement the <a>Core Profile</a>, are <strong>out-of-the-box
-          interoperable</strong> with other <a>Core Profile</a>
-        compliant devices. Furthermore, the <a>Core Profile</a>
+        Devices, which implement the <a>Baseline Profile</a>, are <strong>out-of-the-box
+          interoperable</strong> with other <a>Baseline Profile</a>
+        compliant devices. Furthermore, the <a>Baseline Profile</a>
         simplifies device validation and compliance testing
         since a corresponding conformance test suite can be
         defined.
@@ -438,7 +433,7 @@
       the normative statements in the present document.
     <p>
       A JSON Schema [[?JSON-SCHEMA]] to validate the compliance of a Thing Description
-      with the core profile is provided in Appendix <a href="#profile-json-schemas"></a>.
+      with the baseline profile is provided in Appendix <a href="#baseline-profile-json-schema"></a>.
     </p>
   </section>
 
@@ -487,23 +482,23 @@
         guarantees that are implied by them.
       </dd>
       <dt>
-        <dfn>WoT Core Profile</dfn>
+        <dfn>HTTP Baseline Profile</dfn>
       </dt>
       <dd>The subset of the Thing Description
         defined by the present document.</dd>
       <dt>
-        <dfn>Core Profile</dfn>
+        <dfn>Baseline Profile</dfn>
       </dt>
       <dd>
-        Synonym for <a>WoT Core Profile</a>.
+        Synonym for <a>HTTP Baseline Profile</a>.
       </dd>
 
-      <dfn>Core Data Model</dfn>
+      <dfn>Baseline Information Model</dfn>
       </dt>
       <dd>
-        A Data Model that conforms to the subset of the Thing
+        A set of constraints and requirements on the Information Model of the Thing
         Description specification as
-        defined in section <a href="#http-baseline-profile-data-model"></a>.
+        defined in section <a href="#http-baseline-information-model"></a>.
       </dd>
     </dl>
   </section>
@@ -532,7 +527,7 @@
     </ul>
 
     <section class="note">
-      Note: The WoT HTTP profile does not prevent a TD to have forms for additional protocols,
+      Note: The WoT HTTP baseline profile does not prevent a TD to have forms for additional protocols,
       but these can be ignored by compliant consumers, and could be removed without
       affecting profile comformance and compatibility.
       This may be useful for consumers that support multiple profiles.
@@ -834,7 +829,7 @@
   <section id="http-baseline-profile">
     <h2>HTTP Baseline Profile</h2>
     <p>This section defines the HTTP Baseline Profile, which includes a
-      <a href="#http-baseline-profile-data-model">Data Model</a>
+      <a href="#http-baseline-information-model">Information Model</a>
       and a <a href="#http-baseline-profile-protocol-binding">Protocol Binding</a>
       for reading and writing properties and invoking, querying and cancelling
       actions.
@@ -858,65 +853,85 @@
       </p>
     </section>
 
-    <section id="http-baseline-profile-data-model">
-      <h2>Information Model</h2>
+    <section id="http-baseline-information-model">
+      <h2>Baseline Information Model</h2>
       <p>
-        The information model of the HTTP Profile incorporates the data model defined by chapter 5 of
+        The baseline information model of the HTTP profile incorporates the information model defined by chapter 5 of
         the Thing Description specification.
         The normative rules defined by that model
-        are the baseline for the definition of the HTTP Profile data model
-        and are normative for the information model of the profiles defined in this document.
-        <span class="rfc2119-assertion" id="profile-5.1-wot-http-baseline-profile-data-model-1">
-          A compliant implementation MUST additionally satisfy the
-          requirements of this chapter.
-        </span>
+        are the baseline for the definition of the baseline information model
+        and are normative.
       </p>
+      <span class="rfc2119-assertion" id="profile-http-baseline-information-model-1">
+        A baseline profile compliant implementation MUST be compliant to the Thing Description and 
+        MUST additionally satisfy the requirements of this chapter.
+      </span>
+
+      <section class="ednote" At RISK>
+        This section is at risk and needs to be further discussed in 
+        https://github.com/w3c/wot-profile/issues/10.
+      </section>
 
       <section id="general">
         <h3 id="x5-general">General</h3>
-
         <p>
-          The following rules are applicable to multiple
+          The profile enables to create generic consumers that can present a common UI
+          from the data of the Thing Description without further out of band information.
+          For this purpose a minimum set of information is required to be present in all <a>Thing Descriptions</a>.
+          A common way to display IoT device data are dashboards that are constructed from various UI widgets.
+          Typical elements are gauges, graphs, labels, histograms and labeled text fileds that display a value of properties.
+          Actions are typically triggered by labeled buttons.            
+        </p>
+        <p>
+        It is common for UIs to have an information button or a hovering text box on fields, 
+        that shows the human user an additional description, when needed.
+      </p>
+        <p>
+          The profile contains a few length limitations on fields to ensure that automaticall generated UIs 
+          are possible. 
+          For numeric values the range (minimum, maximum) should be provided to enable the display of graphs and gauges.
+          Values with have a metric unit should contain a unit field to ensure a common interpretation by consumers.
+        </p>
+        <p>
+          The following constraints and rules are applicable to multiple
           classes of the <a>WoT Thing Description</a> Specification, as they
-          provide clearer semantics, improved readability and
-          simplified processing on resource constrained
-          devices.
+          define interaction semantics and enable common processing of Web Things
+          that are created by different manufacturers and authors.
         </p>
 
         <section>
           <h4>Common fields</h4>
           <!-- TODO: -->
           <p>
-            One of the  benefits of the <a>WoT Thing
-              Description</a> over a typical IoT format is the
-            possibility to automatically generate user interfaces that
-            can be used by humans without reading out of band documentation.
-          </p>
-
-
-          <p>
-            <span class="rfc2119-assertion" 
-                   id="profile-mandatory-fields-1">
-                   Therefore it is strongly RECOMMENDED to use  
-                   descriptive values for the fields
-                   <code>title</code>
-                   <code>titles</code>
-                   <code>description</code>            
-            <code>desvriptions</code>
-             for Things, Property Affordances,
+            <span class="rfc2119-assertion" id="profile-title-mandatory"></span>
+            The field
+            <code>title</code> is 
+            MANDATORY for Things, Property Affordances,
             Action Affordances, Event Affordances and Data
             Schemas.
           </p>
-          <p>It is possible to have empty values for these
-            fields, if, for specific purposes it is not
-            desired to provide documentation, however this
-            is NOT RECOMMENDED and the conscious decision is
-            obvious from the TD.</p>
         </section>
 
         <section>
+          <h4>Recommended fields</h4>
+          <span class="rfc2119-assertion" id="profile-description-recommended">
+          The field
+          <code>description</code> is 
+          RECOMMENDED for Things, Property Affordances,
+          Action Affordances, Event Affordances and Data
+          Schemas.
+        </span>
+        <p>
+          This recommendation enables generic UIs and provides additional 
+          documentation for development and maintenance activities.
+        </p>
+      </section>
+
+      <section>
+        <h4>Type and Value Constraints</h4>
           <h4>Date format</h4>
-	        <p><span class="rfc2119-assertion" 
+	        <p>
+            <span class="rfc2119-assertion" 
                    id="profile-date-format-1">
             All date and time values MUST use the canonical dateTime representation format defined in section 3.2.7 of [xmlschema-2].
 	        </span>
@@ -928,34 +943,30 @@
 	        <span class="rfc2119-assertion" 
                 id="profile-date-format-3">
 	          A time value of 24:00 is not permitted; the value 00:00 MUST be used instead.
-	        </span></p>		
-        </section>
-
+	        </span>
+        </p>		
 
         <section>
           <h4>Length and Value Limits</h4>
-          <p>
-            The length of
-            <code>id</code>
-            ,
-            <code>description</code>
-            and
-            <code>descriptions</code>
-            values is limited to 512 characters.
-          </p>
-          <p>
+          <span class="rfc2119-assertion" id="profile-title-max-length">
             The length of
             <code>title</code>
             and
             <code>titles</code>
             values is limited to 64 characters.
-          </p>
-          <p>
+          </span>
+
+          <span class="rfc2119-assertion" id="profile-description-max-length">
+            The length of
+            <code>id</code>, <code>description</code> and
+            <code>descriptions</code>
+            values MUST NOT exceed to 512 characters.
+          </span>
         </section>
 
         <p>
           <span class="rfc2119-assertion"
-            id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-1">
+            id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-1">
             Where a type permits using an
             <code>array of string</code>
             or a
@@ -965,26 +976,18 @@
             MUST be used.
           </span>
 
-        <section class="ednote">
-          <p>
-            <!-- TODO --> TODO: decide if multiple types and contexts are required.
-          </p>
-
-          <p>In this case the following section could be added:</p>
-          <p>
-            <span class="rfc2119-assertion"
-              id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-2">
+          <span class="rfc2119-assertion"
+              id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-2">
               The only exception to this rule are <code>@context</code> and <code>@type</code> annotations,
               where both <code>string</code> or <code>array of string</code> MAY be used.
             </span>
-          </p>
         </section>
 
         </p>
 
         <p>
           <span class="rfc2119-assertion"
-            id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-3">
+            id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-3">
             Where a type permits using an
             <code>array of DataSchema</code>
             or a
@@ -996,7 +999,7 @@
         </p>
         <p>
           <span class="rfc2119-assertion"
-            id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-4">
+            id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-4">
             All elements of an
             <code>enum</code>
             MUST be either
@@ -1006,7 +1009,7 @@
             .
           </span>
           <span class="rfc2119-assertion"
-            id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-5">
+            id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-5">
             Different types in a single
             <code>enum</code>
             MUST NOT be used.
@@ -1016,15 +1019,14 @@
       </section>
 
       <!-- Thing -->
-      <section  id="thing">
-        <h2>Thing</h2>
-        The <a>Core Data Model</a> applies the following
-        constraints and rules to the Thing class of section
-        5.3.1.1 of the <a>WoT Thing Description</a> specification.
+      <section>
+        <h2 id="thing">Thing</h2>
+        The <a>Baseline Information Model</a> applies the following
+        constraints and rules to the Thing class of the <a>WoT Thing Description</a> specification.
         <section>
           <h3>Mandatory fields</h3>
           <p>
-            <span class="rfc2119-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1">
+            <span class="rfc2119-assertion" id="profile-thing-mandatory-fields-1">
               To provide minimum interoperability, the
               following metadata fields of a <a>Thing</a> MUST
               be contained in a compliant Thing Description:
@@ -1033,72 +1035,112 @@
           <table class="def">
             <thead>
               <tr>
-                <th>keyword</th>
-                <th>type</th>
-                <th>remarks</th>
+                <th>Keyword</th>
+                <th>Type</th>
+                <th>Constraints</th>
+                <th>Rationale</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--title">
+              <tr>
                 <td>title</td>
-                <td>string</td>
-                <td>human readable documentation</td>
+                <td><code>string</code></td>
+                <td></td>
+                <td>generic UI</td>
               </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--id">
+              <tr>
+                <td>base</td>
+                <td><code>anyURI</code></td>
+                <td></td>
+                  <td>discovery</td>
+              </tr>
+              <tr>
                 <td>id</td>
-                <td>urn_type</td>
-                <td>a globally unique urn of the
+                <td><code>urn_type</code></td>
+                <td>a Globally unique urn of the
                   thing</td>
+                  <td>large scale deployments</td>
               </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--description">
-                <td>description</td>
-                <td>string</td>
-                <td>human readable documentation</td>
+              <tr>
+                <td>profile</td>
+                <td><code>string</code></td>
+                <td>value: "https://www.w3.org/2022/wot/profile/http-baseline/v1"</td>
               </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--created">
-                <td>created</td>
-                <td>date</td>
-                <td>human readable documentation</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--modified">
-                <td>modified</td>
-                <td>date</td>
-                <td>human readable documentation</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--support">
-                <td>support</td>
-                <td>urn_type</td>
-                <td>human readable documentation</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--security">
-                <td>security</td>
-                <td>array of string</td>
-                <td>simplified handling</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1--version">
+              <tr>
                 <td>version</td>
-                <td>VersionInfo</td>
-                <td>clear versioning, easy to
-                  compare different TDs</td>
+                <td><code>VersionInfo</code></td>
+                <td>semantic versioning as defined by [SEMVER]</td>
+                <td>enforce versioning, easy to
+                  distinguish different versions of the same TD</td>
               </tr>
             </tbody>
           </table>
         </section>
 
         <section>
-          <h5 id="recommended-practice">Recommended
-            practice</h5>
-          <p>It is RECOMMENDED to use the value
-            &quot;&quot; for strings, where the
-            value cannot be determined.</p>
+          <h3 id="recommended-fields-thing">Recommended fields</h3>
+            <p>
+              <span class="rfc2119-assertion" id="profile-thing-recommended-fields-1">
+              The following metadata fields of a <a>Thing</a> SHOULD be contained in a compliant
+              Thing Description:
+              </span>
+            </p>
 
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.1.2.1-thing-mandatory-fields-2">
+            <table class="def">
+              <thead>
+                <tr>
+                  <th>Keyword</th>
+                  <th>Type</th>
+                  <th>Constraints</th>
+                  <th>Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>description</td>
+                  <td><code>string</code></td>
+                  <td>Descriptive text that explains the title.</td>
+                  <td>generated UI, maintenance, developer documentation</td>
+                </tr>
+                <tr>
+                  <td>created</td>
+                  <td><code>date</code></td>
+                  <td>Creation date of the TD</td>
+                  <td>maintenance and developer documentation</td>
+                </tr>
+                <tr>
+                  <td>modified</td>
+                  <td><code>date</code></td>
+                  <td>Date when the TD was last modified</td>
+                  <td>maintenance and developer documentation</td>
+                </tr>
+                <tr>
+                  <td>support</td>
+                  <td><code>anyURI</code></td>
+                  <td>Contact information to obtain further help on the TD. 
+                    This could be a company website or an email address of customer support.</td>
+                  <td>maintenance and developer documentation</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <h5 id="recommended-practice-">Recommended practice</h5>
+         
+            <span class="rfc2119-assertion" id="profile-5.1.2.1-thing-mandatory-fields-1">
+              It is RECOMMENDED to use the value
+              &quot;&quot; for strings, where the
+              value cannot be determined.
+           </span>
+
+            <p>
+            <span class="rfc2119-assertion" id="profile-thing-recommended-fields-2">
               If a Thing Description is used solely within
               a company, the email address of the developer
               SHOULD be used in the support field,
             </span>
-            <span class="rfc2119-assertion" id="profile-5.1.2.1-thing-mandatory-fields-3">
+            <span class="rfc2119-assertion" id="profile-thing-recommended-fields-3">
               if the Thing Description is provided externally, a support email
               address SHOULD be used.
             </span>
@@ -1106,17 +1148,13 @@
 
           <section class="note">
             <p>
-              <span id="profile-5.1.2.1-thing-mandatory-fields-4">
-                It will be evaluated whether the profile also recommends some new TD terms that may be
-                introduced in TD 1.1.
+              <span id="profile-thing-mandatory-fields-4">
+                It will be evaluated whether the profile also defines a new context  for 
+                some new TD terms that may be introduced in TD 2.0.
               </span>
               Currently the following terms are discussed: serialNumber,
               hardwareRevision, softwareRevision, loc_latitude, loc_longitude
               loc_altitude, loc_height, and loc_depth.
-              <span id="profile-5.1.2.1-mandatory-fields-5">
-                If these, or some of them, are defined in the TD
-                1.1 model, they may be recommended here in one of the next draft updates.
-              </span>
             </p>
           </section>
         </section>
@@ -1133,109 +1171,35 @@
           a simple type (boolean, integer, number, string) or
           an instance of a structured type (array and object).
         </p>
-        The <a>Core Data Model</a> applies the following
+
+        <section class="ednote" TODO>
+          The <code>format</code> field permits to define new schema types.
+          The profile needs to define, how mismatching types 
+          that are passed in as parameters or returned objects
+          are handled, i.e. specify an error behavior.
+        </section>
+
+        <p>
+        The <a>Baseline Information Model</a> applies the following
         constraints and rules to the
         <code>DataSchema</code>
-        class of section 5.3.2.1 of the <a>WoT Thing Description</a>
+        class of the <a>WoT Thing Description</a>
         Specification</a>.
-        <p>
-          This section defines a subset of the class
-          <code>DataSchema</code>
-          that can be processed on resource-constrained
-          devices.
-        <h4 id="constraints-against-the-td-specification">Data
-          Schema Constraints</h4>
-        <p>
-          The <a>Core Data Model</a> restricts the use of
-          arrays and objects to the <strong>top level</strong>
-          of Data Schemas, i.e. only a one-level hierarchy is
-          permitted.
-          <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-1">
-            The members of a top level
-            <code>object</code>
-            or
-            <code>array</code>
-            MUST NOT be array or object types.
-          </span>
-        </p>
-        <section class="note" title="RATIONALE">
-          <p>
-            <span id="profile-5.1.3-thing-data-schema-2">
-              This may appear as a severe limitation,
-              however it is motivated by integrating with
-              multiple cloud services.
-            </span>
-            Many enterprise services and applications are based on
-            (relational) databases, where individual
-            property values are stored. Of course databases
-            can also store objects (e.g. encoded as a JSON
-            string), however this will prevent processing by
-            other enterprise applications.
-          </p>
-          <p>
-            If a property conceptually has a deeper
-            structure, such as grid of lamps with RGB
-            colors, the structure can be represented in the
-            keyword of the property, i.e. lamp1_color_r,
-            lamp1_color_g and lamp1_color_b. A similar
-            mapping can be done for arrays and hierarchical
-            objects. This constraint leads to simpler Thing
-            Descriptions that can be handled by very
-            limited devices.
-          </p>
-        </section>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-3">
-            The following fields MUST be contained in a
-            DataSchema:
-          </span>
-        </p>
-        <table class="def">
-          <thead>
-            <tr>
-              <th>keyword</th>
-              <th>type</th>
-              <th>constraints</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="rfc2119-table-assertion" id="profile-5.1.3-thing-data-schema-3--description">
-              <td>description</td>
-              <td>human readable description</td>
-            </tr>
-            <tr class="rfc2119-table-assertion" id="profile-5.1.3-thing-data-schema-3--type">
-              <td>type</td>
-              <td>string</td>
-              <td>one of boolean, integer, number,
-                string, array or object</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-4">
-            The values
-            <code> object </code>
-            ,
-            <code> array </code> MAY only be used at the top level of a Data Schema.
-          </span>
-          <span class="rfc2119-assertion" id="profile-5.1.3-thing-data-schema-5">
-            The type value MUST NOT be <code> null </code>.
-          </span>
         </p>
       </section>
 
-
       <!-- Properties -->
-      <section id="x5-property-affordance">
-        <h3>Property Affordance</h3>
-        The <a>Core Data Model</a> applies the following
+
+      <section>
+        <h3 id="x5-property-affordance">Property Affordance</h3>
+        The <a>Baseline Information Model</a> applies the following
         constraints and rules to the
         <code>PropertyAffordance</code>
-        class of section 5.3.1.3 of the <a>WoT Thing Description</a> Specification.
+        class of the <a>WoT Thing Description</a> Specification.
         <section>
           <h4>Mandatory fields</h4>
           <p>
-            <span class="rfc2119-assertion" id="profile-5.1.4.1-thing-property-affordance-mandatory-fields-1">
+            <span class="rfc2119-assertion" id="profile-thing-property-affordance-mandatory-fields-1">
               The following property fields MUST be contained
               in the
               <code>properties</code>
@@ -1245,36 +1209,34 @@
           <table class="def">
             <thead>
               <tr>
-                <th>keyword</th>
-                <th>type</th>
-                <th>constraints</th>
+                <th>Keyword</th>
+                <th>Type</th>
+                <th>Constraints</th>
+                <th>Rationale</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>title</td>
-                <td>string</td>
+                <td><code>string</code></td>
                 <td>unique name among all
                   properties</td>
-              </tr>
-              <tr>
-                <td>description</td>
-                <td>string</td>
-                <td>human readable description</td>
-              </tr>
-              <tr>
+                  <td>unambigous UI labels</td>
+                  </tr>
+               <tr>
                 <td>type</td>
-                <td>string</td>
+                <td><code>string</code></td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.4.1-thing-property-affordance-mandatory-fields-2">
-                    one of <code> boolean </code> ,
-                    <code> string </code> , <code>
-                                        number </code> , <code> integer
-                                    </code> , <code> object </code> or <code>
-                                        array </code> . The type value <code>
-                                        null </code> MUST NOT be used.
-                  </span>
+                  <span class="rfc2119-assertion" id="profile-thing-property-affordance-mandatory-fields-2">
+                    one of <code>boolean</code>,
+                    <code> string </code>, <code>
+                                          number </code>, <code> integer
+                                      </code>, <code> object </code> or <code>
+                                          array </code>. The type value <code>
+                                          null </code> MUST NOT be used.
+                    </span>
                 </td>
+                <td>well defined types</td>
               </tr>
             </tbody>
           </table>
@@ -1282,12 +1244,12 @@
 
         <section>
           <h4>Additional Constraints</h4>
+          <!--Consider also DTDL constraints -->
           <p>
             The <em>Thing Description</em> permits arbitrary
             object depths for properties. Parsing of a
-            deeply nested structure is not possible on
-            resource constrained devices.
-            <span class="rfc2119-assertion" id="profile-5.1.4.2-thing-property-affordance-additional-constraints-1">
+            deeply nested structure may cause significant implementation complexity.
+            <span class="rfc2119-assertion" id="profile-thing-property-affordance-additional-constraints-1">
             Therefore each
             property MUST NOT exceed a maximum depth
 	          of 5 levels of nested
@@ -1296,7 +1258,7 @@
             <code>object</code>
             elements. 
 	          </span>
-            <span class="rfc2119-assertion" id="profile-5.1.4.2-thing-property-affordance-additional-constraints-1b">
+            <span class="rfc2119-assertion" id="profile-thing-property-affordance-additional-constraints-1b">
 	          It is RECOMMENDED to keep the nesting
 	          of 
             <code>array</code>
@@ -1307,19 +1269,20 @@
           </p>
 
           <p>
-            <span class="rfc2119-assertion" id="profile-5.1.4.2-thing-property-affordance-dditional-constraints-2">
+              <span class="rfc2119-assertion" id="profile-thing-property-affordance-additional-constraints-2">
               The following additional constraints MUST be
               applied to the Property Affordances of a <em>Thing
-                Description</em> conforming to the <a>Core
+                Description</em> conforming to the <a>Baseline
                 Profile</a>:
             </span>
           </p>
           <table class="def">
             <thead>
               <tr>
-                <th>keyword</th>
-                <th>type</th>
-                <th>constraint</th>
+                <th>Keyword</th>
+                <th>Type</th>
+                <th>Constraint</th>
+                <th>Rationale</th>
               </tr>
             </thead>
             <tbody>
@@ -1346,33 +1309,49 @@
                   </span>
                 </td>
               </tr>
-              <tr>
                 <td>forms</td>
-                <td>array of Forms</td>
+                <td><code>array</code> of Forms</td>
                 <td>
-                  <span class="rfc2119-assertion"
-                    id="profile-5.1.4.2-thing-property-affordance-additional-constraints-5">
-                    The <code>Array of Form</code>
-                    of each property MUST contain only a
-                    <em>single endpoint</em> for each
-                    operation <code>readproperty</code>
-                    , <code>writeproperty</code> , <code>observeproperty</code>
-                    , <code>unobserveproperty</code>.
+                  <p>
+                  <span class="rfc2119-assertion" id="profile-thing-property-affordance-additional-constraints-5">
+                  For a single protocol the <code>Array of Form</code>
+                  of each property MUST contain only a
+                  <em>single endpoint</em> for each
+                  operation <code>readproperty</code>, 
+                  <code>writeproperty</code>, <code>observeproperty</code>,
+                  <code>unobserveproperty</code>.
                   </span>
+                  </p><p>                  
+                  <span class="rfc2119-assertion" id="profile-thing-action-affordance-form-constraints-2">
+                    The value of <code>op</code> MUST be a single value.
+                    Arrays with combinations of these values are NOT PERMITTED.
+                  </span>
+                <!-- /p>
                 </td>
+                <td><p>If multiple endpoints for the same protocol are present, 
+                  a common selection algorithm has to be defined. 
+                  This may imply invoking form elements in sequence with 
+                  a trial and error method that can lead to significant 
+                  delays due to timeout handling obligations. 
+                </p>
+                <p>
+                  Combination of operations are ambiguous and have very
+                  complex interaction semantics.
+                </p-->
+              </td>
               </tr>
               <tr>
                 <td>format</td>
-                <td>string</td>
+                <td><code>string</code></td>
                 <td>
-                  <span class="rfc2119-assertion"
-                    id="profile-5.1.4.2-thing-property-affordance-additional-constraints-6">
-                    If the field <code>format</code>
-                    is used, formats defined in
-                    section 7.3.1-7.3.6 of
-                    [[JSON-SCHEMA]] MUST be used.
+                  <span class="rfc2119-assertion" id="profile-thing-property-affordance-additional-constraints-6">
+                  If the field <code>format</code>
+                  is used, only formats defined in
+                  section 7.3.1-7.3.6 of
+                  [[JSON-SCHEMA]] MUST be used.
                   </span>
                 </td>
+                <td>Predictive finite set of choices.</td>
               </tr>
               <tr>
                 <td>oneOf</td>
@@ -1390,27 +1369,56 @@
                 <td>uriVariables</td>
                 <td>Map of DataSchema</td>
                 <td>
-                  <span class="rfc2119-assertion"
-                    id="profile-thing-property-affordance-additional-constraints-8">
-                    <code>uriVariables</code> MUST
-                    NOT be used.
+                  <span class="rfc2119-assertion" id="profile-thing-property-affordance-additional-constraints-8">
+                  <code>uriVariables</code> MUST
+                  NOT be used.
                   </span>
+                  <td>The semantic meaning of URI variables cannot be described in a TD in an unambiguous way.</td>
                 </td>
               </tr>
 
             </tbody>
           </table>
-        </section>
+          <span class="rfc2119-assertion" id="profile-thing-action-affordance-additional-constraints-7">
+            The DataSchema fields <code>default</code> and
+            <code>oneOf</code>
+            are undefined for properties and MUST NOT be used.
+          </span>
+          </section>
 
         <section>
           <h4>Recommended Practice</h4>
           <p>
-            <span id="profile-thing-properties-recommended-practice-1">
-            It is highly RECOMMENDED to always specify a
-            <code>unit</code> if a value has a metric.
-            </span>
-            Authors of <em>Thing Descriptions</em> should be aware that units
-            that are common in their geographic region are
+            <span class="rfc2119-assertion" id="profile-property-recommended-practice">
+              The following property fields SHOULD be contained in the <code>properties</code>
+              element of a <em>Profile compliant TD</em>:
+              </span>
+            </p>
+            <table class="def">
+              <thead>
+                <tr>
+                  <th>Keyword</th>
+                  <th>Type</th>
+                  <th>Constraints</th>
+                  <th>Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>description</td>
+                  <td><code>string</code></td>
+                  <td>max length</td>
+                  <td>generated UI, maintenance, developer documentation</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              <span class="rfc2119-assertion" id="profile-thing-property-recommended-fields-2">
+                It is highly RECOMMENDED to always specify a
+                <code>unit</code>, if a value has a metric.
+              </span>
+                Authors of <em>Thing Descriptions</em> should be aware, that units
+                that are common in their geographic region are
             not globally applicable and may lead to
             misinterpretation with drastic consequences.
           </p>
@@ -1431,7 +1439,8 @@
             to indicate how the value should be
             interpreted. 
             <span class="rfc2119-assertion" id="profile-thing-properties-recommended-practice-2">
-              It is strongly RECOMMENDED to use the values
+              It is strongly RECOMMENDED to use
+              the values
               <code>hex</code>
               ,
               <code>oct</code>
@@ -1439,225 +1448,134 @@
               <code>bin</code>
               in the <code>unit</code> for string values with binary or hex data to achieve interoperability.
             </span>
-            </p>      
-          </section>
+            </p>
+            <!-- TODO: consider how to indicate specific types such as char, signed/unsigned short, ... -->
+        </section>
       </section>
 
 
       <!-- Actions -->
-      <section id="x5-action-affordances">
-        <h3>Action Affordances</h3>
-        The <a>Core Data Model</a> applies the following
+      <section>
+        <h3 id="x5-action-affordances">Action Affordances</h3>
+        The <a>Baseline Information Model</a> applies the following
         constraints and rules to the
         <code>ActionAffordance</code>
-        class of section 5.3.1.4 of the <a>WoT Thing Description</a> Specification.
+        class of the <a>WoT Thing Description</a> Specification.
 
         <section>
           <h4>Mandatory fields</h4>
 
           <p>
-            <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1">
+            <span class="rfc2119-assertion" id="profile-thing-action-affordances-mandatory-fields-1">
               The following fields MUST be contained in an
-              action element of an <a>Core Profile</a> compliant TD:
+              action element of an <a>Baseline Profile</a> compliant TD:
             </span>
           </p>
           <table class="def">
             <thead>
               <tr>
-                <th>keyword</th>
-                <th>type</th>
-                <th>constraints</th>
+                <th>Keyword</th>
+                <th>Type</th>
+                <th>Constraints</th>
+                <th>Rationale</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--title">
-                <td>title</td>
-                <td>string</td>
-                <td>unique name among all actions</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--input">
               <tr>
-                <td>input</td>
-                <td>array of DataSchema</td>
-                <td>schemas describing the input to an action
-		</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--output">
-                <td>output</td>
-                <td>array of DataSchema</td>
-                <td>schemas describing the output of an action
-                </td>
-              </tr>
+                <td>title</td>
+                <td><code>string</code></td>
+                <td>unique name among all actions</td>
+                <td>unambigous UI labels</td>
+               </tr>
             </tbody>
           </table>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-2">
-		  In the <code>input</code> field,
-                  all elements of the subclasses
-                  objectSchema and dataSchema MUST
-                  only contain simple types.
-                  </span>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-3">
-		  In the <code>output</code> field,
-                  all elements of the subclasses
-                  objectSchema and dataSchema MUST
-                  only contain simple types.
-                  </span>
         </section>
 
         <section>
           <h4>Additional Constraints</h4>
           <p>
-            The elements of the DataSchema subclasses
-            ArraySchema and ObjectSchema for the fields
-            <code>input</code>
-            and
-            <code>output</code>
-            are restricted to simple types in a <a>Thing
-              Description</a> conforming to the <a>Core
-              Data Model</a>. Without this limitation a higher
-            implementation burden would be put on resource
-            constrained devices (arbitrary cascaded arrays
-            and multi-level objects) which cannot be
-            satisfied by all consuming devices.
-          </p>
-
-          <p>
-            <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1">
+            <span class="rfc2119-assertion" id="profile-thing-action-affordance-additional-constraints-1">
             The following additional constraints MUST be
             applied to the indicated fields of the Interaction Affordances of a <a>Thing
-              Description</a> conforming to the <a>Core
-              Data Model</a>:
+              Description</a> conforming to the <a>Baseline
+              Information Model</a>:
             </span>
           </p>
                 <td>forms</td>
                 <td>array of Forms</td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_forms">
-		  In the <code>forms</code> field,
-                  the <code>Array of Form</code>
-                  of each action MUST contain only a <em>single</em>
-                  endpoint.
-                  </span>
+                  <p><span class="rfc2119-assertion" id="profile-thing-action-affordance-form-constraints-1">
+                    For a single protocol the <code>array of Form</code>
+                    of each property MUST contain only a
+                    <em>single endpoint</em> for each
+                    operation.
+                    </span>
+                  </p><p>
+                    <span class="rfc2119-assertion" id="profile-thing-action-affordance-form-constraints-2">
+                      The value of <code>op</code> MUST be a single value.
+                      Arrays with combinations of these values are NOT PERMITTED.
+                    </span>
+                    </p>
                 </td>
-              </tr>
-              <tr>
-                <td>format</td>
-                <td>string</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_format">
-                  If the field <code>format</code>
-                  is used, formats defined in
-                  section 7.3.1-7.3.6 of
-                  [[JSON-SCHEMA]] MUST be used.
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>oneOf</td>
-                <td>string</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_oneOf">
-                  The DataSchema field <code>oneOf</code>
-                  does not make sense for properties
-                  and MUST NOT be used.
-                  </span>
-                </td>
+                </tr>
+                <tr>
+                  <td>format</td>
+                  <td><code>string</code></td>
+                  <td>
+                    <span class="rfc2119-assertion" id="profile-thing-action-affordance-format-constraints">
+                    If the field <code>format</code>
+                    is used, only formats defined in
+                    section 7.3.1-7.3.6 of
+                    [[JSON-SCHEMA]] MUST be used.
+                    </span>
+                  </td>
+                  <td>Predictive finite set of choices.</td>
               </tr>
               <tr>
                 <td>uriVariables</td>
                 <td>Map of DataSchema</td>
                 <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_uriVariables">
-                  The <code>uriVariables</code> field MUST NOT be used.
-                  </span>
-                </td>
+                  <span class="rfc2119-assertion" id="profile-thing-action-affordance-uri-variables">
+                    <code>uriVariables</code> MUST
+                    NOT be used.
+                    </span>
+                    <td>The semantic meaning of URI variables cannot be described in a TD in an unambiguous way.</td>
+                  </td>
               </tr>
             </tbody>
           </table>
-        </section>
-
-        <section class="ednote">
-          <p>
-            <!-- TODO --> TODO:
-          </p>
-          <p>- no optional parameters</p>
-          <p>- timeout</p>
         </section>
 
 
         <section>
           <h4>Recommended Practice</h4>
+          <!-- TODO -->
         </section>
       </section>
 
 
       <!-- Events -->
-      <section id="x5-event-affordance">
-        <h3>Event Affordance</h3>
-        The <a>Core Data Model</a> applies the following
+      <section>
+        <h3 id="x5-event-affordance">Event Affordance</h3>
+        The <a>Baseline Information Model</a> applies the following
         constraints and rules to the
         <code>EventAffordance</code>
-        class of section 5.3.1.5 of the <a>WoT Thing Description</a> Specification.
+        class of the <a>WoT Thing Description</a> Specification.
 
         <p>
-          <span class="rfc2119-assertion" id="profile-5.1.6-thing-event-affordance-1">
-            A <a>Thing</a> MAY provide more than one event
+          <span class="rfc2119-assertion" id="profile-thing-event-affordance-1">
+            A <a>Thing</a> MAY define more than one event
             mechanism to enable a variety of consumers.
           </span>
         </p>
-
-        <section class="ednote">
-          <p>
-            <!-- TODO --> TODO:
-          </p>
-          <p>The events section needs to be signifcantly extended and define addtional constraints to ensure OOTBI.
-            LongPoll, WebSockets and WebHooks can be considered as initial candidates for supported protocols for the
-            event mechanism
-            to identify appropriate <em>data model</em> constraints.
-          </p>
-          <p>
-            The individual <em>protocol constraints</em> need to be defined in a respective
-            protocol binding chapter after they have been identified/evaluated in plugfests.</p>
-        </section>
-
         <section>
           <h4>Mandatory fields</h4>
           <p>
             <span class="rfc2119-assertion" id="profile-5.1.6.1-thing-event-affordance-mandatory-fields-1">
               The following fields MUST be present in an event
-              element of a <em>Core TD</em>:
+              element of a <em>Baseline TD</em>:
             </span>
           </p>
-          <table class="def">
-            <thead>
-              <tr>
-                <th>keyword</th>
-                <th>type</th>
-                <th>constraints</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>title</td>
-                <td>string</td>
-                <td>unique name among all events</td>
-              </tr>
-              <tr>
-                <td>description</td>
-                <td>string</td>
-                <td>human readable description</td>
-              </tr>
-              <tr>
-                <td>data</td>
-                <td>set of DataSchema instances in
-                  a JSON object</td>
-                <td>only the DataSchema subclasses
-                  booleanSchema, IntegerSchema,
-                  NumberSchema, StringSchema are
-                  permitted</td>
-              </tr>
-            </tbody>
-          </table>
         </section>
         <section>
           <h4>Additional Constraints</h4>
@@ -1707,17 +1625,13 @@
       <section id="forms">
         <h3>Forms</h3>
         <p>
-          <span class="rfc2119-assertion" id="profile-5.1.7-thing-forms-1">
-            A <a>Thing</a> MAY provide more than one event
-            mechanism to enable a variety of consumers.
-          </span>
-        </p>
+       </p>
         <section>
           <h4>Mandatory fields</h4>
           <p>
-            <span class="rfc2119-assertion" id="profile-5.1.7.1-thing-forms-mandatory-fields-1">
+            <span class="rfc2119-assertion" id="profile-thing-forms-mandatory-fields-1">
               The following fields MUST be present in a form
-              element of a <em>Core TD</em>:
+              element of a <em>Baseline TD</em>:
             </span>
           </p>
           <table class="def">
@@ -1729,26 +1643,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.7.1-thing-forms-mandatory-fields-1--title">
-                <td>title</td>
-                <td>string</td>
-                <td>unique name among all events</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.7.1-thing-forms-mandatory-fields-1--description">
-                <td>description</td>
-                <td>string</td>
-                <td>human readable description</td>
-              </tr>
-              <tr class="rfc2119-table-assertion" id="profile-5.1.7.1-thing-forms-mandatory-fields-1--data">
-                <td>data</td>
-                <td>set of DataSchema instances in
-                  a JSON object</td>
-                <td>
-	  	  only the DataSchema subclasses
-                  BooleanSchema, IntegerSchema,
-                  NumberSchema, StringSchema are
-                  permitted</td>
-              </tr>
             </tbody>
           </table>
         </section>
@@ -1758,7 +1652,7 @@
             <span class="rfc2119-assertion" id="profile-5.1.7.2-thing-forms-additional-constraints-1">
               The following additional constraints MUST be
               applied to the Form elements of a <a>WoT Thing
-                Description</a> conforming to the <a>Core
+                Description</a> conforming to the <a>Baseline
                 profile</a>:
             </span>
           </p>
@@ -1771,26 +1665,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>security</td>
-                <td>string or Array of string</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.7.2-thing-forms-additional-constraints-1_security">
-                  A <code>security</code> field at the form
-                  level MUST NOT be used.
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>scopes</td>
-                <td>string or Array of string</td>
-                <td>
-                  <span class="rfc2119-assertion" id="profile-5.1.7.2-thing-forms-additional-constraints-1_scopes">
-                  A <code>scopes</code> field MUST NOT be
-                  used.
-                  </span>
-                </td>
-              </tr>
             </tbody>
           </table>
         </section>
@@ -1808,10 +1682,53 @@
           The "type" relationship as defined in chapter 6 of
           [[RFC6903]] is reserved for indicating an instance
           relationship between a thing and a thing template.
-          The <a>Core Data Model</a> does not put additional
+          The <a>Baseline Information Model</a> does not put additional
           constraints or requirements on links. The
           interpretation of a link is out of scope.
         </p>
+
+          <!-- TODO 
+          <h3 id="links-ednote">TODO</h3>THIS SECTION STILL NEEDS TO BE REWORKED.</section>
+          <p>
+          <span class="rfc2119-assertion" id="profile-thing-security-1">
+          The <a>Baseline Information Model</a> defines a subset of the
+          security schemes that MAY be implemented on resource
+          constrained devices.
+          </span>
+          <span class="rfc2119-assertion" id="profile-thing-security-2">
+          A security scheme MUST be
+          defined at the thing level.
+          </span>
+          <span class="rfc2119-assertion" id="profile-thing-security-3">
+          The security scheme is
+          applied to the thing as a whole, a thing may adopt
+          multiple security schemes.
+          </span>
+        </p>
+        <p>
+          The set of security schemes supported in the <a>Baseline
+            Information Model</a> is based on the PlugFest results.
+            <span class="rfc2119-assertion" id="profile-thing-security-4">
+              To ensure interoperability, a TD consumer, which
+              compliant with the <a>Baseline Information Model</a> MUST
+              support <strong>all</strong> of the following security schemes:
+            </span>
+        </p>
+
+        <ul>
+          <li>no security</li>
+          <li>Basic Auth</li>
+          <li>Digest</li>
+          <li>Bearer Token</li>
+          <li>Oauth2</li>
+        </ul>
+
+        <section>
+          <h4>Recommended Practice</h4>
+          <p>When using the "no security" or "Basic Auth"
+            security schemes it is strongly recommended to
+            use transport layer encryption.</p>
+        </section-->
       </section>
     </section>
 
@@ -2913,6 +2830,7 @@
         WoT Security Best Practices</a> for implementation advice.
       </p>
     </section>
+  </section>
   </section>
 
   <section id="sec-http-sse-profile">
@@ -4222,17 +4140,16 @@
         </p>
       </section>
     </section>
-  </section>
-</section>
+  </section> 
 
   <!---------------------------------------------------------------->
 
 
-  <section id="profile-json-schemas" class="appendix normative">
-    <h1>JSON Schema for HTTP Profiles</h1>
+  <section id="baseline-profile-json-schema" class="appendix normative">
+    <h1>JSON Schema of the Baseline Profile</h1>
     <p>
       A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance with
-      the HTTP profiles.
+      the baseline profile.
     </p>
     <p class="ednote">
       <!-- TODO --> TODO: Define a JSON-SCHEMA.
