@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 11 May 2022
+    <b>Version</b>: 17 Jun 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -501,64 +501,93 @@ pre.example {
     </tr>
 -->
   
-<tr id="http-baseline-profile-identifier-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-identifier-1">http-baseline-profile-identifier-1</a></td>
+<tr id="arch-security-consideration-separate-security-data" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#arch-security-consideration-separate-security-data">arch-security-consideration-separate-security-data</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
+      The security considerations of the 
+      WoT Architecture
+      and 
+      WoT Thing Description
+      MUST be adopted by compliant implementations.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-identifier-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-identifier-1">http-baseline-profile-identifier-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
         In order to denote that a given
         Web Thing
         conforms to the HTTP Baseline Profile, its Thing Description MUST have a
         
           profile member [[wot-thing-description]] with a value
-        of https://www.w3.org/2022/wot/profile/http-baseline/v1.
-      </td>
+        of https://www.w3.org/2022/wot/profile/http-baseline/v1.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-cancelaction-1a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-cancelaction-1a">http-baseline-profile-protocol-binding-cancelaction-1a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-cancelaction-1a">http-baseline-profile-protocol-binding-cancelaction-1a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             A Web Thing which provides 
               Asynchronous Action Responses to an invokeaction
             operation on an Action MAY also support
             cancelaction operations on
-            that same Action.
-	  </td>
+            that same Action.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-cancelaction-1b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-cancelaction-1b">http-baseline-profile-protocol-binding-cancelaction-1b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-cancelaction-1b">http-baseline-profile-protocol-binding-cancelaction-1b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             A Web Thing which only provides 
               Synchronous Action Responses to an invokeaction
             operation on an Action SHOULD NOT support
             cancelaction operations on that same
-            Action.
-	  </td>
+            Action.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-cancelaction-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-cancelaction-2">http-baseline-profile-protocol-binding-cancelaction-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The URL of an ActionStatus resource to be used in a 
+            cancelaction operation MUST be obtained from the 
+            Location header of an 
+              Asynchronous Action Response, or the href member of
+            the ActionStatus object in its body.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-cancelaction-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-cancelaction-3">http-baseline-profile-protocol-binding-cancelaction-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-cancelaction-3">http-baseline-profile-protocol-binding-cancelaction-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             In order to cancel an action request, a Consumer MUST send an HTTP 
             request to a Web Thing with:
@@ -576,11 +605,11 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-cancelaction-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-cancelaction-5">http-baseline-profile-protocol-binding-cancelaction-5</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-cancelaction-5">http-baseline-profile-protocol-binding-cancelaction-5</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to cancel the corresponding
@@ -597,11 +626,11 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-1">http-baseline-profile-protocol-binding-invokeaction-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-1">http-baseline-profile-protocol-binding-invokeaction-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             The URL of an Action resource to be used when invoking
             an action MUST be obtained from a Thing Description by locating a
@@ -630,72 +659,154 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-10" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-10">http-baseline-profile-protocol-binding-invokeaction-10</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-10">http-baseline-profile-protocol-binding-invokeaction-10</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If a Web Thing encounters an error in attempting to execute an
             action before responding to the invokeaction request,
-            then it MUST send an Error Response.
-	  </td>
+            then it MUST send an Error Response.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-11a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-11a">http-baseline-profile-protocol-binding-invokeaction-11a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-11a">http-baseline-profile-protocol-binding-invokeaction-11a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Conforming Consumers MUST support all three types of response 
-            to the initial invokeaction request.  
-	  </td>
+            to the initial invokeaction request.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-11b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-11b">http-baseline-profile-protocol-binding-invokeaction-11b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-11b">http-baseline-profile-protocol-binding-invokeaction-11b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    After the initial request,
             support for subsequent operations on an ActionStatus
-            resource is OPTIONAL.
-	  </td>
+            resource is OPTIONAL.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-12" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12</a></td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
+	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             The status of an action invocation request is represented by an 
             ActionStatus object which includes the following 
             members:
 	  
-	  </td>
+          
+            
+              
+                Member
+                Description
+                Assignment
+                Type
+              
+            
+            
+              
+                status
+                The status of the action request.
+                mandatory
+                
+                  
+                    string (one of pending,
+                  running, completed or
+                  failed)
+                
+              
+              
+                output
+                
+                  The output data, if any, of a completed action which
+                  MUST conform with the output data schema of the
+                  corresponding
+                  
+                    ActionAffordance.
+                
+                optional
+                any type
+              
+              
+                error
+                
+                  An error message, if any, associated with a failed action
+                  which MUST use the JSON serialization of the Problem Details
+                  format [[RFC7807]] (only needed in response to a
+                  queryaction
+                  operation).
+                
+                optional
+                object
+              
+              
+                href
+                
+                  The [[URL]] of an ActionStatus resource which can
+                  be polled with a queryaction operation to get
+                  the latest status of the action, the
+                  URI
+                    scheme [[RFC3986]] of which MUST resolve to
+                  http or https (only needed for an
+                  Asynchronous Action
+                    Response).
+                
+                optional
+                string
+              
+              
+                timeRequested
+                
+                  A timestamp indicating the time at which the Thing received 
+                  the request to execute the action, in ISO format [[ISO8601-1]]
+                  (see Date format for additional 
+                  constraints).
+                
+                optional
+                string
+              
+              
+                timeEnded
+                
+                  A timestamp indicating the time at which the Thing
+                  successfully completed executing the action, or failed to 
+                  execute the action, in ISO format [[ISO8601-1]]
+                  (see Date format for additional 
+                  constraints).
+                
+                optional
+                string
+              
+            
+          
+	        </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-12_1" class="tabassertion">
-	<td class="tabassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_1</a></td>
+	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_1</a></td>
 	<td class="tabassertion"></td>
 	<td class="tabassertion">Y</td>
 	<td class="tabassertion"></td>
-	<td class="tabassertion">status: The status of the action request.
+	<td class="atrisk">status: The status of the action request.
 MUST be included.
 Type: 
                   
@@ -709,11 +820,11 @@ Type:
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-12_2" class="tabassertion">
-	<td class="tabassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_2</a></td>
+	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_2</a></td>
 	<td class="tabassertion"></td>
 	<td class="tabassertion">Y</td>
 	<td class="tabassertion"></td>
-	<td class="tabassertion">output: 
+	<td class="atrisk">output: 
                   The output data, if any, of a completed action which
                   MUST conform with the output data schema of the
                   corresponding
@@ -728,11 +839,11 @@ Type: any type.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-12_3" class="tabassertion">
-	<td class="tabassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_3</a></td>
+	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_3</a></td>
 	<td class="tabassertion"></td>
 	<td class="tabassertion">Y</td>
 	<td class="tabassertion"></td>
-	<td class="tabassertion">error: 
+	<td class="atrisk">error: 
                   An error message, if any, associated with a failed action
                   which MUST use the JSON serialization of the Problem Details
                   format [[RFC7807]] (only needed in response to a
@@ -747,11 +858,11 @@ Type: object.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-12_4" class="tabassertion">
-	<td class="tabassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_4</a></td>
+	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-12">http-baseline-profile-protocol-binding-invokeaction-12_4</a></td>
 	<td class="tabassertion"></td>
 	<td class="tabassertion">Y</td>
 	<td class="tabassertion"></td>
-	<td class="tabassertion">href: 
+	<td class="atrisk">href: 
                   The [[URL]] of an ActionStatus resource which can
                   be polled with a queryaction operation to get
                   the latest status of the action, the
@@ -769,11 +880,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-13" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-13">http-baseline-profile-protocol-binding-invokeaction-13</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-13">http-baseline-profile-protocol-binding-invokeaction-13</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 		  
             If providing a Synchronous Action Response, a Web Thing MUST send 
             an HTTP response with:
@@ -794,11 +905,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-15" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-15">http-baseline-profile-protocol-binding-invokeaction-15</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-15">http-baseline-profile-protocol-binding-invokeaction-15</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             If providing an Asynchronous Action Response, a Web Thing MUST send 
             an HTTP response containing the URL of an ActionStatus
@@ -829,25 +940,24 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-3">http-baseline-profile-protocol-binding-invokeaction-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-3">http-baseline-profile-protocol-binding-invokeaction-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The resolved value of the href member MUST then be used
-            as the URL of the Action resource.
-	  </td>
+            as the URL of the Action resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-4">http-baseline-profile-protocol-binding-invokeaction-4</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-4">http-baseline-profile-protocol-binding-invokeaction-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             In order to invoke an action on a Web Thing, a Consumer MUST send
             an HTTP request to the Web Thing with:
@@ -869,11 +979,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-6">http-baseline-profile-protocol-binding-invokeaction-6</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-6">http-baseline-profile-protocol-binding-invokeaction-6</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             If a Web Thing receives an HTTP request following the format
             above then it MUST respond with one of three response formats:
@@ -896,11 +1006,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-8" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-8">http-baseline-profile-protocol-binding-invokeaction-8</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-8">http-baseline-profile-protocol-binding-invokeaction-8</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             For long-running actions which are not expected to finish executing
             within the timeout period of an HTTP request (e.g. 30 to 120
             seconds), it is RECOMMENDED that a Web Thing respond with an
@@ -908,86 +1018,81 @@ Type: string.</td>
             monitor the status of an action request with a
             queryaction operation on a dynamically created
             ActionStatus resource, after the initial
-            invokeaction response.
-	  </td>
+            invokeaction response.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-invokeaction-9" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-invokeaction-9">http-baseline-profile-protocol-binding-invokeaction-9</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-invokeaction-9">http-baseline-profile-protocol-binding-invokeaction-9</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             For short-lived actions which are expected to finish executing
             within the timeout period of an HTTP request, a Web Thing MAY wait
             until the action has completed to send a Synchronous Action
-            Response.
-	  </td>
+            Response.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryaction-1a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-1a">http-baseline-profile-protocol-binding-queryaction-1a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryaction-1a">http-baseline-profile-protocol-binding-queryaction-1a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             A Web Thing which provides 
               Asynchronous Action Responses to an invokeaction
             operation on an Action MUST also support
             queryaction operations on
-            that same Action.
-	  </td>
+            that same Action.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryaction-1b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-1b">http-baseline-profile-protocol-binding-queryaction-1b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryaction-1b">http-baseline-profile-protocol-binding-queryaction-1b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             A Web Thing which only provides 
               Synchronous Action Responses to an invokeaction
             operation on an Action SHOULD NOT support
             queryaction operations on that same
-            Action.
-	  </td>
+            Action.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryaction-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-2">http-baseline-profile-protocol-binding-queryaction-2</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryaction-2">http-baseline-profile-protocol-binding-queryaction-2</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The URL of an ActionStatus resource to be used in a 
             queryaction operation MUST be obtained from the 
             Location header of an 
               Asynchronous Action Response, or the href member of
-            the ActionStatus object in its body.
-	  </td>
+            the ActionStatus object in its body.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryaction-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-3">http-baseline-profile-protocol-binding-queryaction-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryaction-3">http-baseline-profile-protocol-binding-queryaction-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             In order to query the status of an action request, a Consumer MUST 
             send an HTTP request to a Web Thing with:
@@ -1009,11 +1114,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryaction-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-5">http-baseline-profile-protocol-binding-queryaction-5</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryaction-5">http-baseline-profile-protocol-binding-queryaction-5</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to query the corresponding
@@ -1036,42 +1141,40 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryaction-7a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-7a">http-baseline-profile-protocol-binding-queryaction-7a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryaction-7a">http-baseline-profile-protocol-binding-queryaction-7a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If the queried action failed to execute, then  
             the status member of the ActionStatus object 
-            MUST be set to "failed". 
-	  </td>
+            MUST be set to "failed".</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryaction-7b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryaction-7b">http-baseline-profile-protocol-binding-queryaction-7b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryaction-7b">http-baseline-profile-protocol-binding-queryaction-7b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If the queried action failed to execute, then  
 	    the error
             member MAY provide additional error information 
-            conforming to the Problem Details format [[RFC7807]].
-	  </td>
+            conforming to the Problem Details format [[RFC7807]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryallactions-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-1">http-baseline-profile-protocol-binding-queryallactions-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryallactions-1">http-baseline-profile-protocol-binding-queryallactions-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             The URL of an Actions resource to be used when
             querying the status of all ongoing action requests MUST be obtained
@@ -1101,25 +1204,24 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryallactions-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-3">http-baseline-profile-protocol-binding-queryallactions-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryallactions-3">http-baseline-profile-protocol-binding-queryallactions-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The resolved value of the href member MUST then be used
-            as the URL of the Actions resource.
-	  </td>
+            as the URL of the Actions resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryallactions-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-4">http-baseline-profile-protocol-binding-queryallactions-4</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryallactions-4">http-baseline-profile-protocol-binding-queryallactions-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 		  
             In order to query the status of all ongoing action requests, a
             Consumer MUST send an HTTP request to a Web Thing with:
@@ -1138,11 +1240,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryallactions-6a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-6a">http-baseline-profile-protocol-binding-queryallactions-6a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryallactions-6a">http-baseline-profile-protocol-binding-queryallactions-6a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             If a Web Thing receives an HTTP request following the format
             above, then upon successfully retreiving the status of all ongoing
@@ -1166,26 +1268,25 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-queryallactions-6b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-queryallactions-6b">http-baseline-profile-protocol-binding-queryallactions-6b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-queryallactions-6b">http-baseline-profile-protocol-binding-queryallactions-6b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	      Each array in the result object
               MUST be sorted in reverse chronological order such that the 
-              most recent action request appears first.
-          </td>
+              most recent action request appears first.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-readallproperties-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readallproperties-1">http-baseline-profile-protocol-binding-readallproperties-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-readallproperties-1">http-baseline-profile-protocol-binding-readallproperties-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             The URL of a Properties resource to be used when
             reading the value of all properties at once MUST be obtained from a
@@ -1215,25 +1316,24 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-readallproperties-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readallproperties-3">http-baseline-profile-protocol-binding-readallproperties-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-readallproperties-3">http-baseline-profile-protocol-binding-readallproperties-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The resolved value of the href member MUST then be used
-            as the URL of the Properties resource.
-	  </td>
+            as the URL of the Properties resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-readallproperties-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readallproperties-4">http-baseline-profile-protocol-binding-readallproperties-4</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-readallproperties-4">http-baseline-profile-protocol-binding-readallproperties-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             In order to read the value of all properties, a Consumer MUST send
             an HTTP request to a Web Thing with:
@@ -1252,11 +1352,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-readallproperties-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readallproperties-5">http-baseline-profile-protocol-binding-readallproperties-5</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-readallproperties-5">http-baseline-profile-protocol-binding-readallproperties-5</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             If a Web Thing receives an HTTP request following the format
             above, then upon successfully reading the values of all the
@@ -1277,11 +1377,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-readproperty-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readproperty-1">http-baseline-profile-protocol-binding-readproperty-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-readproperty-1">http-baseline-profile-protocol-binding-readproperty-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             The URL of a Property resource to be used when reading
             the value of a property MUST be obtained from a Thing Description by
@@ -1311,25 +1411,24 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-readproperty-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readproperty-3">http-baseline-profile-protocol-binding-readproperty-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-readproperty-3">http-baseline-profile-protocol-binding-readproperty-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The resolved value of the href member MUST then be used
-            as the URL of the Property resource.
-	  </td>
+            as the URL of the Property resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-readproperty-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readproperty-4">http-baseline-profile-protocol-binding-readproperty-4</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-readproperty-4">http-baseline-profile-protocol-binding-readproperty-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             In order to read the value of a property, a Consumer MUST send
             an HTTP request to a Web Thing with:
@@ -1347,16 +1446,17 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-readproperty-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-readproperty-6">http-baseline-profile-protocol-binding-readproperty-6</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-readproperty-6">http-baseline-profile-protocol-binding-readproperty-6</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to read the corresponding
             property, then upon successfully reading the value of the property
             it MUST send an HTTP response with:
+          
             Status code set to 200
             Content-Type header set to application/json
               
@@ -1368,12 +1468,48 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="http-baseline-profile-protocol-binding-writemultipleproperties-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-1">http-baseline-profile-protocol-binding-writemultipleproperties-1</a></td>
+<tr id="http-baseline-profile-protocol-binding-subscribeevent-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-subscribeevent-1">http-baseline-profile-protocol-binding-subscribeevent-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
+          
+            The URL of an Event resource to be used when
+            subscribing to an event MUST be obtained from a Thing Description
+            by locating a
+            
+              Form inside the corresponding
+            
+              EventAffordance for which:
+          
+          
+            
+              After defaults have been applied, its op member
+              contains the value subscribeevent
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+                scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
+            Its subprotocol member has a value of
+              "webhook"
+            
+          
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-protocol-binding-writemultipleproperties-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-1">http-baseline-profile-protocol-binding-writemultipleproperties-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
 	  
             The URL of a Properties resource to be used when 
             writing the value of multiple properties at once MUST be obtained
@@ -1384,6 +1520,7 @@ Type: string.</td>
               forms member
             for which:
 	  
+         
             
               Its op member contains the value
               writemultipleproperties
@@ -1402,11 +1539,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-writemultipleproperties-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-4">http-baseline-profile-protocol-binding-writemultipleproperties-4</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-4">http-baseline-profile-protocol-binding-writemultipleproperties-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             In order to write the value of multiple properties at once, a
             Consumer MUST send an HTTP request to a Web Thing with:
@@ -1427,11 +1564,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-writemultipleproperties-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-6">http-baseline-profile-protocol-binding-writemultipleproperties-6</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-writemultipleproperties-6">http-baseline-profile-protocol-binding-writemultipleproperties-6</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             If a Web Thing receives an HTTP request following the format
             above, then upon successfully writing the values of the requested
@@ -1447,11 +1584,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-writeproperty-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writeproperty-1">http-baseline-profile-protocol-binding-writeproperty-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-writeproperty-1">http-baseline-profile-protocol-binding-writeproperty-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             The URL of a Property resource to be used when writing
             the value of a property MUST be obtained from a Thing Description by
@@ -1481,25 +1618,24 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-writeproperty-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writeproperty-3">http-baseline-profile-protocol-binding-writeproperty-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-writeproperty-3">http-baseline-profile-protocol-binding-writeproperty-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The resolved value of the href member MUST then be used
-            as the URL of the Property resource.
-	  </td>
+            as the URL of the Property resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-writeproperty-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writeproperty-4">http-baseline-profile-protocol-binding-writeproperty-4</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-writeproperty-4">http-baseline-profile-protocol-binding-writeproperty-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             In order to write the value of a property, a Consumer MUST send
             an HTTP request to a Web Thing with:
@@ -1519,11 +1655,11 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-binding-writeproperty-6" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-binding-writeproperty-6">http-baseline-profile-protocol-binding-writeproperty-6</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-binding-writeproperty-6">http-baseline-profile-protocol-binding-writeproperty-6</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to write the corresponding
@@ -1539,28 +1675,71 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-protocol-bindings-writemultipleproperties-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-protocol-bindings-writemultipleproperties-3">http-baseline-profile-protocol-bindings-writemultipleproperties-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-protocol-bindings-writemultipleproperties-3">http-baseline-profile-protocol-bindings-writemultipleproperties-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The resolved value of the href member MUST then be used
-            as the URL of the Properties resource.
-	  </td>
+            as the URL of the Properties resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-security-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-security-1">http-baseline-profile-security-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-security-1">http-baseline-profile-security-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+            Below is a list of 
+              security schemes [[wot-thing-description]] which conformant Web
+            Things MAY use:
+          
+          
+            
+              
+                NoSecurityScheme
+              
+            
+            
+              
+                BasicSecurityScheme
+              
+            
+            
+              
+                DigestSecurityScheme
+              
+            
+            
+              
+                BearerSecurityScheme
+              
+            
+            
+              
+                OAuth2SecurityScheme
+              
+            
+          
+        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-security-1-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-security-1-x">http-baseline-profile-security-1-x</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	      
+	<td class="atrisk">
+      
         Below is a list of 
-        security schemes [[wot-thing-description]] which conformant Web 
+          security schemes [[wot-thing-description]] which conformant Web
         Things MAY use and conformant Consumers MUST support:
       
       
@@ -1596,88 +1775,491 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-security-1a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-security-1a">http-baseline-profile-security-1a</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            Conformant Consumers MUST support all of these security schemes.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-security-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-security-2">http-baseline-profile-security-2</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-security-2">http-baseline-profile-security-2</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-        A Thing MAY implement multiple security schemes.
-      </td>
+	<td class="atrisk">
+            A Thing MAY implement multiple security schemes.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-security-2-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-security-2-x">http-baseline-profile-security-2-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+        A Thing MAY implement multiple security schemes.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-security-3a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-security-3a">http-baseline-profile-security-3a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-security-3a">http-baseline-profile-security-3a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
+            Security schemes MUST be applied using the top level security
+            member of a
+            Thing.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-security-3a-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-security-3a-x">http-baseline-profile-security-3a-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
         Security schemes MUST be applied using the top level security
         member of a 
-        Thing.
-      </td>
+        Thing.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-baseline-profile-security-3b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-baseline-profile-security-3b">http-baseline-profile-security-3b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-security-3b">http-baseline-profile-security-3b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
+            Security schemes
+            MUST NOT be applied to individual
+            
+              Forms.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-baseline-profile-security-3b-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-baseline-profile-security-3b-x">http-baseline-profile-security-3b-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
         Security schemes 
         MUST NOT be applied to individual
         
-        Forms.
-      </td>
+        Forms.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-1">http-sse-profile-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-1">http-sse-profile-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
         In order to denote that a given
         Web Thing
         conforms to the HTTP SSE Profile, its Thing Description MUST have a
         
           profile member [[wot-thing-description]] with a value
-        of https://www.w3.org/2022/wot/profile/http-sse/v1.
-      </td>
+        of https://www.w3.org/2022/wot/profile/http-sse/v1.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-1">http-sse-profile-protocol-binding-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-1">http-sse-profile-protocol-binding-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
           A Consumer or Web Thing conforming to the HTTP SSE Profile
-          MUST implement this protocol binding.
-        </td>
+          MUST implement this protocol binding.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-1">http-sse-profile-protocol-binding-observeallproperties-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            
+                The URL of a properties resource to be used when observing
+                changes to all properties of a Web Thing MUST be obtained from a
+                Thing Description by locating a 
+                
+                Form inside the top level 
+                forms
+                member of a Thing Description for which:
+            
+            
+              
+                Its op member contains the value 
+                observeallproperties
+              
+              
+                After being resolved against a base URL where applicable, the
+                URI
+                scheme [[RFC3986]] of the value of its href
+                member is http or https
+              
+              Its subprotocol member has a value of
+                sse
+              
+            
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-2">http-sse-profile-protocol-binding-observeallproperties-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              The resolved value of the href member MUST then be
+              used as the URL of the properties resource.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-3">http-sse-profile-protocol-binding-observeallproperties-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              In order to observe changes to all properties of a Web Thing, a
+              Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
+              specification to open a connection with the Web Thing at the URL
+              of the properties resource.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-4">http-sse-profile-protocol-binding-observeallproperties-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              If a Web Thing receives an HTTP request following the format
+              above then it MUST follow the Server-Sent Events 
+              [[EVENTSOURCE]] specification to maintain an open connection with 
+              the Consumer and push new property values to the Consumer for all 
+              properties for which it has permission to observe.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-5a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5a">http-sse-profile-protocol-binding-observeallproperties-5a</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              Whenever a property changes while the Web Thing has an open 
+              connection with a Consumer, the Web Thing MUST send the new
+              property value to the Consumer using the event stream format in
+              the Server-Sent Events [[EVENTSOURCE]] specification.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-5b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5b">http-sse-profile-protocol-binding-observeallproperties-5b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              For each message sent, the Web Thing MUST set the event field
+              to the name of the PropertyAffordance and populate
+              the data field with the new property value.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-5c" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5c">http-sse-profile-protocol-binding-observeallproperties-5c</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              The property data MUST follow the data schema specified in the
+              PropertyAffordance and MUST be serialized in JSON.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-5d" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5d">http-sse-profile-protocol-binding-observeallproperties-5d</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              The id field SHOULD be set to a unique identifier for 
+              the event, for use when re-establishing a dropped connection (see 
+              below).</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-5e" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5e">http-sse-profile-protocol-binding-observeallproperties-5e</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              It is RECOMMENDED that the identifier is a timestamp 
+              representing the time at which the property changed, in the 
+              "date-time" format specified by [[RFC3339]].</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-6a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-6a">http-sse-profile-protocol-binding-observeallproperties-6a</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              If the connection between the Consumer and Web Thing drops
+              (except as a result of the unobserveallproperties
+              operation defined below), the Consumer MUST re-establish the
+              connection following the steps outlined in the Server-Sent Events
+              specification [[EVENTSOURCE]].</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeallproperties-6b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-6b">http-sse-profile-protocol-binding-observeallproperties-6b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              Once the connection is
+              re-established the Web Thing SHOULD, if possible, send any missed 
+              property changes which occured since the last change specified by
+              the Consumer in a Last-Event-ID header.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-1">http-sse-profile-protocol-binding-observeproperty-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            
+              The URL of a Property resource to be used when
+              observing the value of a property MUST be obtained from a Thing 
+              Description by locating a
+              
+              Form inside the corresponding
+              
+              PropertyAffordance
+              for which:
+            
+            
+              
+                Its op member contains the value 
+                observeproperty
+              
+              
+                After being resolved against a base URL where applicable, the
+                URI
+                scheme [[RFC3986]] of the value of its href
+                member is http or https
+              
+              Its subprotocol member has a value of
+                sse
+              
+            
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-2">http-sse-profile-protocol-binding-observeproperty-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              The resolved value of the href member MUST then be
+              used as the URL of the Property resource.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-3">http-sse-profile-protocol-binding-observeproperty-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              In order to observe a property, a Consumer MUST follow the 
+              Server-Sent Events [[EVENTSOURCE]] specification to open a
+              connection with the Web Thing at the URL of the 
+              Property resource.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-4">http-sse-profile-protocol-binding-observeproperty-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              If a Web Thing receives an HTTP request following the format
+              above and the Consumer has permission to observe the 
+              corresponding property, then it MUST follow the Server-Sent Events 
+              [[EVENTSOURCE]] specification to maintain an open connection with 
+              the Consumer and push a property value to the Consumer each time 
+              the value of the specified property changes.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-5a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-5a">http-sse-profile-protocol-binding-observeproperty-5a</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              Whenever the value of the specified property changes while the Web 
+              Thing has an open connection with a Consumer, the Web Thing MUST 
+              send a property value to the Consumer using the event stream
+              format in the Server-Sent Events [[EVENTSOURCE]] specification.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-5b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-5b">http-sse-profile-protocol-binding-observeproperty-5b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              For each message sent, the Web Thing MUST set the
+              event field to the name of the
+              PropertyAffordance and populate the data
+              field with the property value, serialized in JSON and following
+              the data schema specified in the PropertyAffordance.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-5c" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-5c">http-sse-profile-protocol-binding-observeproperty-5c</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              The id field SHOULD be set to a unique 
+              identifier for the property change, for use when re-establishing a
+              dropped connection (see below).</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-5d" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-5d">http-sse-profile-protocol-binding-observeproperty-5d</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              It is RECOMMENDED that the
+              identifier is a timestamp representing the time at which the
+              property changed, in the "date-time" format specified by
+              [[RFC3339]].</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-6a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-6a">http-sse-profile-protocol-binding-observeproperty-6a</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              If the connection between the Consumer and Web Thing drops
+              (except as a result of the unobserve operation 
+              defined below), the Consumer MUST re-establish the connection 
+              following the steps outlined in the Server-Sent Events
+              specification [[EVENTSOURCE]].</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-observeproperty-6b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-6b">http-sse-profile-protocol-binding-observeproperty-6b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              Once the connection is
+              re-established the Web Thing SHOULD, if possible, send any missed
+              property changes which occured since the last change specified by
+              the Consumer in a Last-Event-ID header.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-1">http-sse-profile-protocol-binding-subscribeallevents-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-1">http-sse-profile-protocol-binding-subscribeallevents-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
+    
             The URL of an events resource to be used when subscribing to all
             events emitted by a Web Thing MUST be obtained from a Thing
             Description by locating a
@@ -1685,160 +2267,166 @@ Type: string.</td>
               Form inside the top level
             forms
             member of a Thing Description for which:
+	  
+          
+            
+              Its op member contains the value
+              subscribeallevents
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+                scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
+            Its subprotocol member has a value of
+              sse
+            
+          
 	  </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="http-sse-profile-protocol-binding-subscribeallevents-3-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-3-1">http-sse-profile-protocol-binding-subscribeallevents-3-1</a></td>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-3">http-sse-profile-protocol-binding-subscribeallevents-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The resolved value of the href member MUST then be used
-            as the URL of the events resource.
-	  </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="http-sse-profile-protocol-binding-subscribeallevents-3-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-3-2">http-sse-profile-protocol-binding-subscribeallevents-3-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If a Web Thing receives an HTTP request following the format
             above then it MUST follow the Server-Sent Events
             [[EVENTSOURCE]] specification to maintain an open connection with
             the Consumer and push event data to the Consumer for all event
-            types for which it has permission to subscribe.
-	  </td>
+            types for which it has permission to subscribe.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-subscribeallevents-3b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-3b">http-sse-profile-protocol-binding-subscribeallevents-3b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The resolved value of the href member MUST then be used
+            as the URL of the events resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4">http-sse-profile-protocol-binding-subscribeallevents-4</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4">http-sse-profile-protocol-binding-subscribeallevents-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             In order to subscribe to all events emitted by a Web Thing, a
             Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
             specification to open a connection with the Web Thing at the URL of
-            the events resource.
-	  </td>
+            the events resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4a">http-sse-profile-protocol-binding-subscribeallevents-4a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4a">http-sse-profile-protocol-binding-subscribeallevents-4a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Whenever an event occurs while the Web Thing has an open connection
             with a Consumer, the Web Thing MUST send event data to the Consumer
             using the event stream format in the Server-Sent Events
-            [[EVENTSOURCE]] specification. 
-	  </td>
+            [[EVENTSOURCE]] specification.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4b">http-sse-profile-protocol-binding-subscribeallevents-4b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4b">http-sse-profile-protocol-binding-subscribeallevents-4b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    For each message sent, the Web Thing
             MUST set the event field to the 
             name of the EventAffordance and populate the 
-            data field with event data, if any. 
-	  </td>
+            data field with event data, if any.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4c" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4c">http-sse-profile-protocol-binding-subscribeallevents-4c</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4c">http-sse-profile-protocol-binding-subscribeallevents-4c</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    The 
             event data MUST follow the data schema specified in the
-            EventAffordance and be serialized in JSON.
-	  </td>
+            EventAffordance and be serialized in JSON.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4d" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4d">http-sse-profile-protocol-binding-subscribeallevents-4d</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4d">http-sse-profile-protocol-binding-subscribeallevents-4d</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The id field SHOULD be set to a unique identifier for 
-            the event, for use when re-establishing a dropped connection (see 
-            below).
-	  </td>
+            the event, for use when re-establishing a dropped connection.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-5a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-5a">http-sse-profile-protocol-binding-subscribeallevents-5a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-5a">http-sse-profile-protocol-binding-subscribeallevents-5a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If the connection between the Consumer and Web Thing drops
             (except as a result of the unsubscribeallevents
             operation defined below), the Consumer MUST re-establish the
             connection following the steps outlined in the Server-Sent Events
-            specification [[EVENTSOURCE]]. 
-	  </td>
+            specification [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-5b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-5b">http-sse-profile-protocol-binding-subscribeallevents-5b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-5b">http-sse-profile-protocol-binding-subscribeallevents-5b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    Once the connection is re-established
             the Web Thing SHOULD, if possible, send any missed events which
             occured since the last event specified by the Consumer in a
-            Last-Event-ID header.
-	  </td>
+            Last-Event-ID header.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-1">http-sse-profile-protocol-binding-subscribeevent-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-1">http-sse-profile-protocol-binding-subscribeevent-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 		  
             The URL of an Event resource to be used when 
             subscribing to an event MUST be obtained from a Thing Description 
@@ -1860,7 +2448,7 @@ Type: string.</td>
               member is http or https
             
             Its subprotocol member has a value of
-              "sse"
+              sse
             
           
 	  </td>
@@ -1870,311 +2458,1817 @@ Type: string.</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-3">http-sse-profile-protocol-binding-subscribeevent-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-3">http-sse-profile-protocol-binding-subscribeevent-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The resolved value of the href member MUST then be used
-            as the URL of the Event resource.
-	  </td>
+            as the URL of the Event resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-4" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-4">http-sse-profile-protocol-binding-subscribeevent-4</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-4">http-sse-profile-protocol-binding-subscribeevent-4</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             In order to subscribe to an event, a Consumer MUST follow the 
             Server-Sent Events [[EVENTSOURCE]] specification to open a
             connection with the Web Thing at the URL of the Event
-            resource.
-	  </td>
+            resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-5" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-5">http-sse-profile-protocol-binding-subscribeevent-5</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-5">http-sse-profile-protocol-binding-subscribeevent-5</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has permission to subscribe to the
             corresponding event, then it MUST follow the Server-Sent Events
             [[EVENTSOURCE]] specification to maintain an open connection with
             the Consumer and push event data to the Consumer as events of the
-            specified type are emitted.
-	  </td>
+            specified type are emitted.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-6a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6a">http-sse-profile-protocol-binding-subscribeevent-6a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6a">http-sse-profile-protocol-binding-subscribeevent-6a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Whenever an event of the specified type occurs while the Web Thing 
             has an open connection with a Consumer, the Web Thing MUST 
             send event data to the Consumer using the event stream format in the 
-            Server-Sent Events [[EVENTSOURCE]] specification. 
-	  </td>
+            Server-Sent Events [[EVENTSOURCE]] specification.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-6b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6b">http-sse-profile-protocol-binding-subscribeevent-6b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6b">http-sse-profile-protocol-binding-subscribeevent-6b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    For each message 
             sent, the Web Thing MUST set the event field to the 
             name of the EventAffordance and populate the 
-            data field with event data, if any. 
-	  </td>
+            data field with event data, if any.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-6c" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6c">http-sse-profile-protocol-binding-subscribeevent-6c</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6c">http-sse-profile-protocol-binding-subscribeevent-6c</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    The 
             event data MUST follow the data schema specified in the
             EventAffordance
-	    and be serialized in JSON.
-	  </td>
+	    and be serialized in JSON.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-6d" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6d">http-sse-profile-protocol-binding-subscribeevent-6d</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6d">http-sse-profile-protocol-binding-subscribeevent-6d</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The id field SHOULD be set to a unique identifier for 
-            the event, for use when re-establishing a dropped connection (see 
-            below).
-	  </td>
+            the event, for use when re-establishing a dropped connection.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-7a" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7a">http-sse-profile-protocol-binding-subscribeevent-7a</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7a">http-sse-profile-protocol-binding-subscribeevent-7a</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If the connection between the Consumer and Web Thing drops
             (except as a result of the unsubscribe operation
             defined below), the Consumer MUST re-establish the connection
             following the steps outlined in the Server-Sent Events specification
-            [[EVENTSOURCE]]. 
-	  </td>
+            [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-7b" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7b">http-sse-profile-protocol-binding-subscribeevent-7b</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7b">http-sse-profile-protocol-binding-subscribeevent-7b</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    Once the connection is re-established the Web Thing
             SHOULD, if possible, send any missed events which occured since
             the last event specified by the Consumer in a
-            Last-Event-ID header.
-	  </td>
+            Last-Event-ID header.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-unobserveallproperties-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-unobserveallproperties-1">http-sse-profile-protocol-binding-unobserveallproperties-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              In order to unobserve all properties, a Consumer MUST terminate 
+              the corresponding Server-Sent Events connection with the
+              properties endpoint of the Web Thing, following the steps
+              specified in the Server-Sent Events specification [[EVENTSOURCE]].</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-sse-profile-protocol-binding-unobserveproperty-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-unobserveproperty-1">http-sse-profile-protocol-binding-unobserveproperty-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              In order to stop observing a property, a Consumer MUST terminate 
+              the corresponding Server-Sent Events connection with the Web Thing 
+              as specified in the Server-Sent Events specification
+              [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-unsubscribeallevents-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-unsubscribeallevents-1">http-sse-profile-protocol-binding-unsubscribeallevents-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-unsubscribeallevents-1">http-sse-profile-protocol-binding-unsubscribeallevents-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             In order to unsubscribe from all events, a Consumer MUST terminate 
             the corresponding Server-Sent Events connection with the events 
             endpoint of the Web Thing, following the steps specified in the 
-            Server-Sent Events specification [[EVENTSOURCE]].
-	  </td>
+            Server-Sent Events specification [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-unsubscribeevent-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-sse-profile-protocol-binding-unsubscribeevent-1">http-sse-profile-protocol-binding-unsubscribeevent-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-unsubscribeevent-1">http-sse-profile-protocol-binding-unsubscribeevent-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             In order to unsubscribe from an event, a Consumer MUST terminate 
             the corresponding Server-Sent Events connection with the Web Thing 
             as specified in the Server-Sent Events specification
-            [[EVENTSOURCE]].
-	  </td>
+            [[EVENTSOURCE]].</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-1">http-webhook-profile-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+        In order to denote that a given
+        Web Thing
+        conforms to the HTTP Webhook Profile, its Thing Description MUST have a
+        
+          profile member [[wot-thing-description]] with a value
+        of https://www.w3.org/2022/wot/profile/http-webhook/v1.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-message-format-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-message-format-1">http-webhook-profile-message-format-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+        Event notification messages MUST comply with the following data schema.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-message-format-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-message-format-2">http-webhook-profile-message-format-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+        For each notification message, the Web Thing MUST set the event field to the
+        name of the EventAffordance.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding--event-connections-5" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding--event-connections-5">http-webhook-profile-protocol-binding--event-connections-5</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          If the connection between the Web Thing and the Consumer drops,
+          the Web Thing MUST attempt to re-establish the connection.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding--event-connections-8" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding--event-connections-8">http-webhook-profile-protocol-binding--event-connections-8</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          When an event message has been received, the Consumer MUST respond with a "HTTP 200 OK" message.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-webhook-profile-protocol-binding-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#http-webhook-profile-protocol-binding-1">http-webhook-profile-protocol-binding-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-1">http-webhook-profile-protocol-binding-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
           A Consumer or Web Thing conforming to the HTTP Webhook Profile
-          MUST implement this protocol binding.
-        </td>
+          MUST implement this protocol binding.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="profile-1.2-why-a-core-profile-1" class="baseassertion"></tr>
-<tr id="profile-5.1-wot-http-baseline-profile-data-model-1" class="baseassertion"></tr>
-<tr id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-1" class="baseassertion"></tr>
-<tr id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-2" class="baseassertion"></tr>
-<tr id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-3" class="baseassertion"></tr>
-<tr id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-4" class="baseassertion"></tr>
-<tr id="profile-5.1.1.2-wot-http-baseline-profile-data-model-length-and-value-Limits-5" class="baseassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-1" class="baseassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-1--created" class="tabassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-1--description" class="tabassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-1--id" class="tabassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-1--modified" class="tabassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-1--security" class="tabassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-1--support" class="tabassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-1--title" class="tabassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-1--version" class="tabassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-2" class="baseassertion"></tr>
-<tr id="profile-5.1.2.1-thing-mandatory-fields-3" class="baseassertion"></tr>
-<tr id="profile-5.1.3-thing-data-schema-1" class="baseassertion"></tr>
-<tr id="profile-5.1.3-thing-data-schema-3" class="baseassertion"></tr>
-<tr id="profile-5.1.3-thing-data-schema-3--description" class="tabassertion"></tr>
-<tr id="profile-5.1.3-thing-data-schema-3--type" class="tabassertion"></tr>
-<tr id="profile-5.1.3-thing-data-schema-4" class="baseassertion"></tr>
-<tr id="profile-5.1.3-thing-data-schema-5" class="baseassertion"></tr>
-<tr id="profile-5.1.4.1-thing-property-affordance-mandatory-fields-1" class="baseassertion"></tr>
-<tr id="profile-5.1.4.1-thing-property-affordance-mandatory-fields-2" class="baseassertion"></tr>
-<tr id="profile-5.1.4.2-thing-property-affordance-additional-constraints-1" class="baseassertion"></tr>
-<tr id="profile-5.1.4.2-thing-property-affordance-additional-constraints-1b" class="baseassertion"></tr>
-<tr id="profile-5.1.4.2-thing-property-affordance-additional-constraints-3" class="baseassertion"></tr>
-<tr id="profile-5.1.4.2-thing-property-affordance-additional-constraints-4" class="baseassertion"></tr>
-<tr id="profile-5.1.4.2-thing-property-affordance-additional-constraints-5" class="baseassertion"></tr>
-<tr id="profile-5.1.4.2-thing-property-affordance-additional-constraints-6" class="baseassertion"></tr>
-<tr id="profile-5.1.4.2-thing-property-affordance-additional-constraints-7" class="baseassertion"></tr>
-<tr id="profile-5.1.4.2-thing-property-affordance-additional-constraints-8" class="baseassertion"></tr>
-<tr id="profile-5.1.4.2-thing-property-affordance-dditional-constraints-2" class="baseassertion"></tr>
-<tr id="profile-5.1.4.3-thing-properties-recommended-practice-2" class="baseassertion"></tr>
-<tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1" class="baseassertion"></tr>
-<tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--input" class="tabassertion"></tr>
-<tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--output" class="tabassertion"></tr>
-<tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-1--title" class="tabassertion"></tr>
-<tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-2" class="baseassertion"></tr>
-<tr id="profile-5.1.5.1-thing-action-affordances-mandatory-fields-3" class="baseassertion"></tr>
-<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1" class="baseassertion"></tr>
-<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_format" class="baseassertion"></tr>
-<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_forms" class="baseassertion"></tr>
-<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_oneOf" class="baseassertion"></tr>
-<tr id="profile-5.1.5.2-thing-action-affordance-additional-constraints-1_uriVariables" class="baseassertion"></tr>
-<tr id="profile-5.1.6-thing-event-affordance-1" class="baseassertion"></tr>
-<tr id="profile-5.1.6.1-thing-event-affordance-mandatory-fields-1" class="baseassertion"></tr>
-<tr id="profile-5.1.6.2-thing-event-affordance-additional-constrains-1" class="baseassertion"></tr>
-<tr id="profile-5.1.6.2-thing-event-affordance-additional-constrains-2" class="baseassertion"></tr>
-<tr id="profile-5.1.6.2-thing-event-affordance-additional-constrains-3" class="baseassertion"></tr>
-<tr id="profile-5.1.7-thing-forms-1" class="baseassertion"></tr>
-<tr id="profile-5.1.7.1-thing-forms-mandatory-fields-1" class="baseassertion"></tr>
-<tr id="profile-5.1.7.1-thing-forms-mandatory-fields-1--data" class="tabassertion"></tr>
-<tr id="profile-5.1.7.1-thing-forms-mandatory-fields-1--description" class="tabassertion"></tr>
-<tr id="profile-5.1.7.1-thing-forms-mandatory-fields-1--title" class="tabassertion"></tr>
-<tr id="profile-5.1.7.2-thing-forms-additional-constraints-1" class="baseassertion"></tr>
-<tr id="profile-5.1.7.2-thing-forms-additional-constraints-1_scopes" class="baseassertion"></tr>
-<tr id="profile-5.1.7.2-thing-forms-additional-constraints-1_security" class="baseassertion"></tr>
-<tr id="profile-5.2-thing-protocol-binding-1" class="baseassertion"></tr>
-<tr id="profile-5.2.4-thing-protocol-binding-error-responses-1a" class="baseassertion"></tr>
-<tr id="profile-5.2.4-thing-protocol-binding-error-responses-1b" class="baseassertion"></tr>
-<tr id="profile-5.2.4-thing-protocol-binding-error-responses-2" class="baseassertion"></tr>
-<tr id="profile-5.2.4-thing-protocol-binding-error-responses-3-1" class="baseassertion"></tr>
-<tr id="profile-5.2.4-thing-protocol-binding-error-responses-3-2" class="baseassertion"></tr>
-<tr id="profile-5.2.4-thing-protocol-binding-error-responses-4" class="baseassertion"></tr>
-<tr id="profile-5.2.4-thing-protocol-binding-error-responses-7" class="baseassertion"></tr>
-<tr id="profile-abstract-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#profile-abstract-1">profile-abstract-1</a></td>
+<tr id="http-webhook-profile-protocol-binding-event-connections-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-1">http-webhook-profile-protocol-binding-event-connections-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            A TD that is compliant to the core profile MUST adhere to
-            both the constraints on the data model and the protocol binding.
+	<td class="atrisk">
+          A HTTP(s) connection to the event listener of a Consumer MUST be initiated and managed by the Web Thing.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-event-connections-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-2">http-webhook-profile-protocol-binding-event-connections-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          A Consumer MUST terminate the subscription with the events endpoint of the Web Thing.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-event-connections-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-3">http-webhook-profile-protocol-binding-event-connections-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          If a Consumer becomes unavailable and the Web Thing cannot successfully transmit
+          event messages to the consumer, it SHOULD attempt several retries at increasing intervals.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-event-connections-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-4">http-webhook-profile-protocol-binding-event-connections-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          After the maximum number of retries was reached, the Web Thing MAY terminate the subscription
+          without having received an unsubscribe or unsubscribeall operation.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-event-connections-6" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-6">http-webhook-profile-protocol-binding-event-connections-6</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          Once the connection is re-established, the Web Thing
+          SHOULD, if possible, send any missed events which occured since
+          the last succesful event notification.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-event-connections-7" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-7">http-webhook-profile-protocol-binding-event-connections-7</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          The Web Thing MAY reuse an existing connection to a listener for subsequent message traffic,
+          or it MAY establish a new connection for each message.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-event-connections-9" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-9">http-webhook-profile-protocol-binding-event-connections-9</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          An (optional) JSON payload MAY be provided to return a response back to the Web Thing
+          via the same communication channel.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-events-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-events-1">http-webhook-profile-protocol-binding-events-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+        Depending on the use case, a single listener for multiple things and multiple
+        event types MAY be used.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-general-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-general-1">http-webhook-profile-protocol-binding-general-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+      The HTTP Webhook profile MAY be used in conjunction with the
+      HTTP Baseline Profile in order to
+      provide operations to read and write properties and invoke, query and
+      cancel actions.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-general-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-general-2">http-webhook-profile-protocol-binding-general-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+      The HTTP Webhook profile MAY be used as an alternative event mechanism
+      to the HTTP SSE Profile.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-message-format-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-message-format-4">http-webhook-profile-protocol-binding-message-format-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+        The id field MUST be set to a unique identifier for
+        the event.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeallevents-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-1">http-webhook-profile-protocol-binding-subscribeallevents-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+            The URL of an Events resource to be used when subscribing to all
+            events emitted by a Web Thing MUST be obtained from a Thing
+            Description by locating a
+            
+              Form inside the top level
+            forms
+            member of a Thing Description for which:
+          
+          
+            
+              Its op member contains the value
+              subscribeallevents
+            
+            
+              After being resolved against a base URL where applicable, the
+              URI
+                scheme [[RFC3986]] of the value of its href
+              member is http or https
+            
+            Its subprotocol member has a value of
+              "sse"
+            
+          
           </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeallevents-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-3">http-webhook-profile-protocol-binding-subscribeallevents-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The resolved value of the href member MUST then be used
+            as the URL of the events resource.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeallevents-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-4">http-webhook-profile-protocol-binding-subscribeallevents-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+            In order to subscribe to all events emitted by a Web Thing, a
+            Consumer MUST send an HTTP request to the Web Thing with:
+          
+          
+            Method set to POST
+            URL set to the URL of the events resource
+            
+              Accept header set to text/event-stream
+            
+            
+              Request Payload contains a JSON
+              object with a subscription payload.
+            
+          
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeallevents-5" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-5">http-webhook-profile-protocol-binding-subscribeallevents-5</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            If a Web Thing receives an HTTP request following the format
+            above, then it MUST send event messages
+            to the Consumer for all event
+            types for which it has permission to subscribe.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeallevents-6" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-6">http-webhook-profile-protocol-binding-subscribeallevents-6</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            Whenever an event occurs, the Web Thing MUST send event data to the Consumer
+            using the event payload format defined in section Message Format.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeallevents-7" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-7">http-webhook-profile-protocol-binding-subscribeallevents-7</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            If the connection between the Web Thing and the Consumer drops,
+            the Web Thing MUST re-establish the connection.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeallevents-8" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-8">http-webhook-profile-protocol-binding-subscribeallevents-8</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            Once the connection is re-established the Web Thing
+            SHOULD, if possible, send any missed events which occured since
+            the last succesful event notification.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeevent-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-3">http-webhook-profile-protocol-binding-subscribeevent-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The resolved value of the href member MUST then be used
+            as the URL of the Event resource.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeevent-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-4">http-webhook-profile-protocol-binding-subscribeevent-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            In order to subscribe to an event, a Consumer MUST
+            provide the listener URL in the data payload of the
+            subscribe operation of the Event resource.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeevent-4b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-4b">http-webhook-profile-protocol-binding-subscribeevent-4b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            In order to unsubscribe to an event, a Consumer MUST
+            provide the subscriptionID in the data payload of the
+            unsubscribe operation of the Event resource.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeevent-5" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-5">http-webhook-profile-protocol-binding-subscribeevent-5</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            If a Web Thing receives an HTTP request following the format
+            above and the Consumer has permission to subscribe to the
+            corresponding event, then it MUST send event messages
+            to the Consumer as events of the specified type are emitted.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-subscribeevent-6" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-6">http-webhook-profile-protocol-binding-subscribeevent-6</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            Whenever an event of the specified type occurs, the Web Thing MUST
+            send event data to the Consumer using the event payload format defined in section
+            ["#sec-http-webhook-profile-protocol-binding-events-notification"].</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-binding-unsubscribeallevents-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-unsubscribeallevents-1">http-webhook-profile-protocol-binding-unsubscribeallevents-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            In order to unsubscribe from all events, a Consumer MUST invoke the
+            unsubscribe operation of the Event resource.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="http-webhook-profile-protocol-message-format-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-message-format-3">http-webhook-profile-protocol-message-format-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+        The event data MUST follow the data schema specified in the
+        EventAffordance and MUST be serialized in JSON.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-1-2-1-thing-mandatory-fields-1-z" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-1-2-1-thing-mandatory-fields-1-z">profile-5-1-2-1-thing-mandatory-fields-1-z</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              It is RECOMMENDED to use the value
+              "" for strings, where the
+              value cannot be determined.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-1-4-2-thing-property-affordance-additional-constraints-3-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-1-4-2-thing-property-affordance-additional-constraints-3-x">profile-5-1-4-2-thing-property-affordance-additional-constraints-3-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    MUST NOT be used
+                  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-1-4-2-thing-property-affordance-additional-constraints-4-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-1-4-2-thing-property-affordance-additional-constraints-4-x">profile-5-1-4-2-thing-property-affordance-additional-constraints-4-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    Values of enums MAY
+                    only be simple types. Handling of any
+                      type is too complex to implement
+                    on resource constrained devices
+                  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-1-4-2-thing-property-affordance-additional-constraints-7-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-1-4-2-thing-property-affordance-additional-constraints-7-x">profile-5-1-4-2-thing-property-affordance-additional-constraints-7-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    The DataSchema field oneOf
+                    does not make sense for properties
+                    and MUST NOT be used.
+                  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-1-6-1-thing-event-affordance-mandatory-fields-1-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-1-6-1-thing-event-affordance-mandatory-fields-1-x">profile-5-1-6-1-thing-event-affordance-mandatory-fields-1-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              The following fields MUST be present in an event
+              element of a Baseline TD:
+            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-1-6-2-thing-event-affordance-additional-constrains-1-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-1-6-2-thing-event-affordance-additional-constrains-1-x">profile-5-1-6-2-thing-event-affordance-additional-constrains-1-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+              The following additional constraints MUST be
+              applied to the Event Affordances of a WoT Thing
+                Description conforming to the profile:
+          
+          
+            
+              
+                keyword
+                type
+                constraint
+              
+            
+            
+              
+                forms
+                array of Forms
+                
+                  
+                    The Array of Form
+                    of each event MUST contain only a single
+                    endpoint.
+                  
+                
+              
+              
+                uriVariables
+                Map of DataSchema
+                
+                  
+                    uriVariables MUST
+                    NOT be used.
+                  
+                
+              
+            
+          
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-1-6-2-thing-event-affordance-additional-constrains-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-1-6-2-thing-event-affordance-additional-constrains-2">profile-5-1-6-2-thing-event-affordance-additional-constrains-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    The Array of Form
+                    of each event MUST contain only a single
+                    endpoint.
+                  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-1-6-2-thing-event-affordance-additional-constrains-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-1-6-2-thing-event-affordance-additional-constrains-3">profile-5-1-6-2-thing-event-affordance-additional-constrains-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    uriVariables MUST
+                    NOT be used.
+                  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-1-7-2-thing-forms-additional-constraints-1-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-1-7-2-thing-forms-additional-constraints-1-x">profile-5-1-7-2-thing-forms-additional-constraints-1-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+              The following additional constraints MUST be
+              applied to the Form elements of a WoT Thing
+                Description conforming to the Baseline
+                profile:
+          
+          
+            
+              
+                keyword
+                type
+                constraint
+              
+            
+            
+            
+          
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-2-4x-thing-protocol-binding-error-responses-1a" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-2-4x-thing-protocol-binding-error-responses-1a">profile-5-2-4x-thing-protocol-binding-error-responses-1a</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          If any of the operations defined above are unsuccessful then
+          the Web Thing MUST send an HTTP response with an HTTP error code which
+          describes the reason for the failure.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-2-4x-thing-protocol-binding-error-responses-1b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-2-4x-thing-protocol-binding-error-responses-1b">profile-5-2-4x-thing-protocol-binding-error-responses-1b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+	
+	  It is RECOMMENDED that error
+          responses use one of the following HTTP error codes:
+        
+        
+          400 Bad Request
+          401 Unauthorized
+          403 Forbidden
+          404 Not Found
+          500 Internal Server Error
+        
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-2-4x-thing-protocol-binding-error-responses-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-2-4x-thing-protocol-binding-error-responses-2">profile-5-2-4x-thing-protocol-binding-error-responses-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">	      
+	      A Web Thing MUST NOT issue any 3xx status codes.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-2-4x-thing-protocol-binding-error-responses-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-2-4x-thing-protocol-binding-error-responses-3">profile-5-2-4x-thing-protocol-binding-error-responses-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">	      
+	      A Consumer MAY treat all 3xx codes as errors that do not change the status or behavior 
+	      of the consumer.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-2-4x-thing-protocol-binding-error-responses-3b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-2-4x-thing-protocol-binding-error-responses-3b">profile-5-2-4x-thing-protocol-binding-error-responses-3b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          Consumers MAY interpret other valid HTTP error codes as a generic 4xx or 5xx
+          error with no special defined behaviour.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-2-4x-thing-protocol-binding-error-responses-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-2-4x-thing-protocol-binding-error-responses-4">profile-5-2-4x-thing-protocol-binding-error-responses-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          Web Things MAY respond with other valid HTTP error codes
+          (e.g. 418 I'm a teapot).</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-2-4x-thing-protocol-binding-error-responses-7" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-2-4x-thing-protocol-binding-error-responses-7">profile-5-2-4x-thing-protocol-binding-error-responses-7</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          If an HTTP error response contains a body, the content of that body
+          MUST conform with with the Problem Details format [[RFC7807]].</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-5-2-thing-protocol-binding-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-2-thing-protocol-binding-1">profile-5-2-thing-protocol-binding-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          A Consumer or Web Thing conforming to the HTTP Baseline Profile
+          MUST implement this protocol binding.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-abstract-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-abstract-1">profile-abstract-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            A TD that is compliant to the HTTP baseline profile MUST adhere to
+            both the constraints on the information model and the protocol binding.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="profile-date-format-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#profile-date-format-1">profile-date-format-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-date-format-1">profile-date-format-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            All date and time values MUST use the canonical dateTime representation format defined in section 3.2.7 of [xmlschema-2].
-	        </td>
+	<td class="atrisk">
+            All date and time values MUST use the canonical dateTime representation format defined in section 3.2.7 of [xmlschema-2].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="profile-date-format-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#profile-date-format-2">profile-date-format-2</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-date-format-2">profile-date-format-2</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            All dateTime values MUST use UTC as the time zone and use the 'Z' identifier.
-          </td>
+	<td class="atrisk">
+            All dateTime values MUST use UTC as the time zone and use the 'Z' identifier.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="profile-date-format-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-profile#profile-date-format-3">profile-date-format-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-date-format-3">profile-date-format-3</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	          A time value of 24:00 is not permitted; the value 00:00 MUST be used instead.
-	        </td>
+	<td class="atrisk">
+	          A time value of 24:00 is not permitted; the value 00:00 MUST be used instead.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-description-max-length" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-description-max-length">profile-description-max-length</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The length of
+            id, description and
+            descriptions
+            values MUST NOT exceed to 512 characters.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-description-recommended" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-description-recommended">profile-description-recommended</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          The field
+          description is 
+          RECOMMENDED for Things, Property Affordances,
+          Action Affordances, Event Affordances and Data
+          Schemas.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-http-baseline-information-model-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-http-baseline-information-model-1">profile-http-baseline-information-model-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+        A baseline profile compliant implementation MUST be compliant to the Thing Description and 
+        MUST additionally satisfy the requirements of this chapter.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-privacy-consideration" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-privacy-consideration">profile-privacy-consideration</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+        The privacy considerations of the 
+        WoT Architecture
+        and 
+        WoT Thing Description
+        MUST be adopted by compliant implementations.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-property-recommended-practice" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-property-recommended-practice">profile-property-recommended-practice</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+              The following property fields SHOULD be contained in the properties
+              element of a Profile compliant TD:
+            
+            
+              
+                
+                  Keyword
+                  Type
+                  Constraints
+                  Rationale
+                
+              
+              
+                
+                  description
+                  string
+                  max length
+                  generated UI, maintenance, developer documentation
+                
+              
+            
+            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-action-affordance-additional-constraints-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-action-affordance-additional-constraints-1">profile-thing-action-affordance-additional-constraints-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The following additional constraints MUST be
+            applied to the indicated fields of the Interaction Affordances of a Thing
+              Description conforming to the Baseline
+              Information Model:
+            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-action-affordance-additional-constraints-7" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-action-affordance-additional-constraints-7">profile-thing-action-affordance-additional-constraints-7</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The DataSchema fields default and
+            oneOf
+            are undefined for properties and MUST NOT be used.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-action-affordance-form-constraints-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-action-affordance-form-constraints-1">profile-thing-action-affordance-form-constraints-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    For a single protocol the array of Form
+                    of each property MUST contain only a
+                    single endpoint for each
+                    operation.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-action-affordance-form-constraints-2-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-action-affordance-form-constraints-2-x">profile-thing-action-affordance-form-constraints-2-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                      The value of op MUST be a single value.
+                      Arrays with combinations of these values are NOT PERMITTED.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-action-affordance-form-constraints-2-y" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-action-affordance-form-constraints-2-y">profile-thing-action-affordance-form-constraints-2-y</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    The value of op MUST be a single value.
+                    Arrays with combinations of these values are NOT PERMITTED.
+                  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-action-affordance-format-constraints" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-action-affordance-format-constraints">profile-thing-action-affordance-format-constraints</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    If the field format
+                    is used, only formats defined in
+                    section 7.3.1-7.3.6 of
+                    [[JSON-SCHEMA]] MUST be used.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-action-affordance-uri-variables" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-action-affordance-uri-variables">profile-thing-action-affordance-uri-variables</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    uriVariables MUST
+                    NOT be used.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-action-affordances-mandatory-fields-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-action-affordances-mandatory-fields-1">profile-thing-action-affordances-mandatory-fields-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+              The following fields MUST be contained in an
+              action element of an Baseline Profile compliant TD:
+          
+          
+            
+              
+                Keyword
+                Type
+                Constraints
+                Rationale
+              
+            
+            
+              
+                title
+                string
+                unique name among all actions
+                unambigous UI labels
+               
+            
+          
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-event-affordance-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-event-affordance-1">profile-thing-event-affordance-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            A Thing MAY define more than one event
+            mechanism to enable a variety of consumers.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-forms-mandatory-fields-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-forms-mandatory-fields-1">profile-thing-forms-mandatory-fields-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+              The following fields MUST be present in a form
+              element of a Baseline TD:
+          
+          
+            
+              
+                keyword
+                type
+                constraints
+              
+            
+            
+            
+          
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-mandatory-fields-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-mandatory-fields-1">profile-thing-mandatory-fields-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+              To provide minimum interoperability, the
+              following metadata fields of a Thing MUST
+              be contained in a compliant Thing Description:
+          
+          
+            
+              
+                Keyword
+                Type
+                Constraints
+                Rationale
+              
+            
+            
+              
+                title
+                string
+                
+                generic UI
+              
+              
+                base
+                anyURI
+                
+                  discovery
+              
+              
+                id
+                urn_type
+                a Globally unique urn of the
+                  thing
+                  large scale deployments
+              
+              
+                profile
+                string
+                value: "https://www.w3.org/2022/wot/profile/http-baseline/v1"
+              
+              
+                version
+                VersionInfo
+                semantic versioning as defined by [SEMVER]
+                enforce versioning, easy to
+                  distinguish different versions of the same TD
+              
+            
+          
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-properties-recommended-practice-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-properties-recommended-practice-2">profile-thing-properties-recommended-practice-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              It is strongly RECOMMENDED to use
+              the values
+              hex
+              ,
+              oct
+              or
+              bin
+              in the unit for string values with binary or hex data to achieve interoperability.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-property-affordance-additional-constraints-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-property-affordance-additional-constraints-1">profile-thing-property-affordance-additional-constraints-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            Therefore each
+            property MUST NOT exceed a maximum depth
+	          of 5 levels of nested
+            array
+            or
+            object
+            elements.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-property-affordance-additional-constraints-1b" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-property-affordance-additional-constraints-1b">profile-thing-property-affordance-additional-constraints-1b</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+	          It is RECOMMENDED to keep the nesting
+	          of 
+            array
+            or
+            object
+		        elements below 4.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-property-affordance-additional-constraints-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-property-affordance-additional-constraints-2">profile-thing-property-affordance-additional-constraints-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+              The following additional constraints MUST be
+              applied to the Property Affordances of a Thing
+                Description conforming to the Baseline
+                Profile:
+          
+          
+            
+              
+                Keyword
+                Type
+                Constraint
+                Rationale
+              
+            
+            
+              
+                const
+                anyType
+                
+                  
+                    MUST NOT be used
+                  
+                
+              
+              
+                enum
+                array of simple type
+                
+                  
+                    Values of enums MAY
+                    only be simple types. Handling of any
+                      type is too complex to implement
+                    on resource constrained devices
+                  
+                
+              
+                forms
+                array of Forms
+                
+                  
+                  
+                  For a single protocol the Array of Form
+                  of each property MUST contain only a
+                  single endpoint for each
+                  operation readproperty, 
+                  writeproperty, observeproperty,
+                  unobserveproperty.
+                  
+                                    
+                  
+                    The value of op MUST be a single value.
+                    Arrays with combinations of these values are NOT PERMITTED.
+                  
+                
+              
+              
+              
+                format
+                string
+                
+                  
+                  If the field format
+                  is used, only formats defined in
+                  section 7.3.1-7.3.6 of
+                  [[JSON-SCHEMA]] MUST be used.
+                  
+                
+                Predictive finite set of choices.
+              
+              
+                oneOf
+                string
+                
+                  
+                    The DataSchema field oneOf
+                    does not make sense for properties
+                    and MUST NOT be used.
+                  
+                
+              
+              
+                uriVariables
+                Map of DataSchema
+                
+                  
+                  uriVariables MUST
+                  NOT be used.
+                  
+                  The semantic meaning of URI variables cannot be described in a TD in an unambiguous way.
+                
+              
+
+            
+          
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-property-affordance-additional-constraints-5" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-property-affordance-additional-constraints-5">profile-thing-property-affordance-additional-constraints-5</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                  For a single protocol the Array of Form
+                  of each property MUST contain only a
+                  single endpoint for each
+                  operation readproperty, 
+                  writeproperty, observeproperty,
+                  unobserveproperty.
+                  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-property-affordance-additional-constraints-6" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-property-affordance-additional-constraints-6">profile-thing-property-affordance-additional-constraints-6</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                  If the field format
+                  is used, only formats defined in
+                  section 7.3.1-7.3.6 of
+                  [[JSON-SCHEMA]] MUST be used.
+                  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-property-affordance-additional-constraints-8" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-property-affordance-additional-constraints-8">profile-thing-property-affordance-additional-constraints-8</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                  uriVariables MUST
+                  NOT be used.
+                  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-property-affordance-mandatory-fields-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-property-affordance-mandatory-fields-1">profile-thing-property-affordance-mandatory-fields-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          
+              The following property fields MUST be contained
+              in the
+              properties
+              element of a Profile compliant TD:
+          
+          
+            
+              
+                Keyword
+                Type
+                Constraints
+                Rationale
+              
+            
+            
+              
+                title
+                string
+                unique name among all
+                  properties
+                  unambigous UI labels
+                  
+               
+                type
+                string
+                
+                  
+                    one of boolean,
+                     string , 
+                                          number ,  integer
+                                      ,  object  or 
+                                          array . The type value 
+                                          null  MUST NOT be used.
+                    
+                
+                well defined types
+              
+            
+          
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-property-affordance-mandatory-fields-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-property-affordance-mandatory-fields-2">profile-thing-property-affordance-mandatory-fields-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    one of boolean,
+                     string , 
+                                          number ,  integer
+                                      ,  object  or 
+                                          array . The type value 
+                                          null  MUST NOT be used.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-property-recommended-fields-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-property-recommended-fields-2">profile-thing-property-recommended-fields-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                It is highly RECOMMENDED to always specify a
+                unit, if a value has a metric.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-recommended-fields-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-recommended-fields-1">profile-thing-recommended-fields-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            
+              The following metadata fields of a Thing SHOULD be contained in a compliant
+              Thing Description:
+            
+            
+              
+                
+                  Keyword
+                  Type
+                  Constraints
+                  Rationale
+                
+              
+              
+                
+                  description
+                  string
+                  Descriptive text that explains the title.
+                  generated UI, maintenance, developer documentation
+                
+                
+                  created
+                  date
+                  Creation date of the TD
+                  maintenance and developer documentation
+                
+                
+                  modified
+                  date
+                  Date when the TD was last modified
+                  maintenance and developer documentation
+                
+                
+                  support
+                  anyURI
+                  Contact information to obtain further help on the TD. 
+                    This could be a company website or an email address of customer support.
+                  maintenance and developer documentation
+                
+              
+            
+            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-recommended-fields-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-recommended-fields-2">profile-thing-recommended-fields-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              If a Thing Description is used solely within
+              a company, the email address of the developer
+              SHOULD be used in the support field.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-thing-recommended-fields-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-thing-recommended-fields-3">profile-thing-recommended-fields-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              If a Thing Description is provided externally, a support email
+              address SHOULD be used.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-title-mandatory" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-title-mandatory">profile-title-mandatory</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The field
+            title  
+            MUST be included for Things, Property Affordances,
+            Action Affordances, Event Affordances and Data
+            Schemas.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-title-max-length" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-title-max-length">profile-title-max-length</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The length of
+            title
+            and
+            titles
+            values is limited to 64 characters.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-why-a-baseline-profile-1-x" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-why-a-baseline-profile-1-x">profile-why-a-baseline-profile-1-x</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+          The HTTP Baseline Profile contains additional
+          normative requirements that MUST be satisfied by devices
+          to be compliant to the profile.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-wot-http-baseline-profile-data-model-length-and-value-Limits-1">profile-wot-http-baseline-profile-data-model-length-and-value-Limits-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            Where a type permits using an
+            array of string
+            or a
+            string
+            , an
+            array of string
+            MUST be used.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-wot-http-baseline-profile-data-model-length-and-value-Limits-2">profile-wot-http-baseline-profile-data-model-length-and-value-Limits-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+              The only exception to this rule are @context and @type annotations,
+              where both string or array of string MAY be used.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-3" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-wot-http-baseline-profile-data-model-length-and-value-Limits-3">profile-wot-http-baseline-profile-data-model-length-and-value-Limits-3</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            Where a type permits using an
+            array of DataSchema
+            or a
+            DataSchema
+            , an
+            array of DataSchema
+            MUST be used.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-4" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-wot-http-baseline-profile-data-model-length-and-value-Limits-4">profile-wot-http-baseline-profile-data-model-length-and-value-Limits-4</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            All elements of an
+            enum
+            MUST be either
+            string
+            or
+            number.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="profile-wot-http-baseline-profile-data-model-length-and-value-Limits-5" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-wot-http-baseline-profile-data-model-length-and-value-Limits-5">profile-wot-http-baseline-profile-data-model-length-and-value-Limits-5</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            Different types in a single
+            enum
+            MUST NOT be used.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
