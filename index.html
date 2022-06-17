@@ -167,9 +167,9 @@
       the <a>HTTP Baseline Profile</a> can interoperate with each other
       out-of-the-box.
     </p>
-    <p>Note that the baseline profile is not exclusive. Device implementers are free to adopt
-      other features of the thing description that go beyond the constraints
-      of the baseline profile, however the interoperability guarantees of the baseline profile
+    <p>Note that the HTTP baseline profile is not exclusive. Device implementers are free to adopt
+      other features of the Thing Description that go beyond the constraints
+      of the HTTP baseline profile, however the interoperability guarantees of the HTTP baseline profile
       hold only for the <a>HTTP Baseline Profile</a> subset.
 
 
@@ -256,13 +256,13 @@
         and domain-specific thing consumer implementations.</p>
 
       <p>
-        The WoT <a>Baseline Profile</a> can be used by green field
+        The WoT <a>HTTP Baseline Profile</a> can be used by green field
         deployments and gives guidance to new implementers of
-        the WoT specifications. It has already proved in
-        brown-field scenarios in the PlugFests, where existing
-        devices, that already existed as products, prototypes or
+        the WoT specifications. It has already demonstrated in
+        brown-field scenarios in the Plugfests, where existing
+        devices that already existed as products, prototypes or
         demonstrators, were described with Thing Descriptions
-        that are constrained to the <a>Baseline Profile</a>.
+        that are constrained to the <a>HTTP Baseline Profile</a>.
       </p>
     </section>
 
@@ -311,12 +311,12 @@
     </section>
 
     <section id="why-profile">
-      <h2 id="why-define-a-baseline-profile">
-        Why a <a>Baseline Profile</a>?
+      <h2 id="why-define-a-profile">
+        Why a <a>Profile</a>?
       </h2>
 
       <p>
-        During the recent WoT PlugFests there were many
+        During the recent WoT Plugfests there were many
         de-facto agreements on the use of a small constrained
         subset of interaction patterns and protocol choices.
         These de-facto agreements select a common subset of the
@@ -325,9 +325,9 @@
       </p>
       <p>
         The aim of this specification is to formalize these
-        agreements by defining a <strong><a>HTTP Baseline
-            Profile</a></strong> based on the choices that were made by
-        the implementers of PlugFest devices.
+        agreements by defining <strong><a>HTTP
+            Profiles</a></strong> based on the choices that were made by
+        the implementers of Plugfest devices.
       </p>
       <p>
         <span class="rfc2119-assertion" id="profile-why-a-baseline-profile-1-x">
@@ -337,7 +337,7 @@
       </p>
       <figure id="http-baseline-Profile-figure">
         <img src="images/WoT Baseline Profile.png" class="wot-profiles" alt="http-baseline-Profile-Picture" />
-        <figcaption>WoT Baseline Profile - A Subset of Affordances</figcaption>
+        <figcaption>WoT HTTP Baseline Profile - A Subset of Affordances</figcaption>
       </figure>
       <p>
         Adoption of the <a>HTTP Baseline Profile</a> will
@@ -367,9 +367,9 @@
       <h2 id="out-of-the-box-interoperability">Out-of-the-box
         interoperability</h2>
       <p>
-        Devices, which implement the <a>Baseline Profile</a>, are <strong>out-of-the-box
-          interoperable</strong> with other <a>Baseline Profile</a>
-        compliant devices. Furthermore, the <a>Baseline Profile</a>
+        Devices, which implement the <a>HTTP Baseline Profile</a>, are <strong>out-of-the-box
+          interoperable</strong> with other <a>HTTP Baseline Profile</a>
+        compliant devices. Furthermore, the <a>HTTP Baseline Profile</a>
         simplifies device validation and compliance testing
         since a corresponding conformance test suite can be
         defined.
@@ -432,7 +432,7 @@
       the normative statements in the present document.
     <p>
       A JSON Schema [[?JSON-SCHEMA]] to validate the compliance of a Thing Description
-      with the baseline profile is provided in Appendix <a href="#baseline-profile-json-schema"></a>.
+      with the HTTP Baseline Profile is provided in Appendix <a href="#baseline-profile-json-schema"></a>.
     </p>
   </section>
 
@@ -485,14 +485,8 @@
       </dt>
       <dd>The subset of the Thing Description
         defined by the present document.</dd>
-      <dt>
-        <dfn>Baseline Profile</dfn>
-      </dt>
-      <dd>
-        Synonym for <a>HTTP Baseline Profile</a>.
-      </dd>
 
-      <dfn>Baseline Information Model</dfn>
+      <dfn>HTTP Baseline Information Model</dfn>
       </dt>
       <dd>
         A set of constraints and requirements on the Information Model of the Thing
@@ -526,7 +520,7 @@
     </ul>
 
     <section class="note">
-      Note: The WoT HTTP baseline profile does not prevent a TD to have forms for additional protocols,
+      Note: The WoT HTTP Baseline Profile does not prevent a TD to have forms for additional protocols,
       but these can be ignored by compliant consumers, and could be removed without
       affecting profile comformance and compatibility.
       This may be useful for consumers that support multiple profiles.
@@ -857,10 +851,10 @@
         are the baseline for the definition of the baseline information model
         and are normative.
       </p>
-      <p><span class="rfc2119-assertion" id="profile-http-baseline-information-model-1">
-        A baseline profile compliant implementation MUST be compliant to the Thing Description and 
-        MUST additionally satisfy the requirements of this chapter.</span>
-      </p>
+      <span class="rfc2119-assertion" id="profile-http-baseline-information-model-1">
+        A HTTP Baseline Profile compliant implementation MUST be compliant to the Thing Description and 
+        MUST additionally satisfy the requirements of this chapter.
+      </span>
 
       <section class="ednote" At RISK>
         This section is at risk and needs to be further discussed in 
@@ -1436,7 +1430,8 @@
           <div class="rfc2119-assertion" id="profile-thing-action-affordances-mandatory-fields-1">
           <p>
               The following fields MUST be contained in an
-              action element of an <a>Baseline Profile</a> compliant TD:
+              action element of an <a>HTTP Baseline Profile</a> compliant TD:
+            </span>
           </p>
           <table class="def">
             <thead>
@@ -4198,10 +4193,10 @@
 
 
   <section id="baseline-profile-json-schema" class="appendix normative">
-    <h1>JSON Schema of the Baseline Profile</h1>
+    <h1>JSON Schema of the HTTP Baseline Profile</h1>
     <p>
       A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance with
-      the baseline profile.
+      the HTTP Baseline profile.
     </p>
     <p class="ednote">
       <!-- TODO --> TODO: Define a JSON-SCHEMA.
