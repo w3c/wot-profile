@@ -3766,16 +3766,106 @@
 
     <section id="sec-http-webhook-profile-message-format">
       <h3>Message Format</h3>
-      <p><span class="rfc2119-assertion" id="http-webhook-profile-message-format-1">
-        Event notification messages MUST comply with the following data schema.</span>
+      <p>
+        This section defines a JSON object format for events.
+      </p>
+    <p class="rfc2119-assertion" id="http-webhook-profile-message-format-1">
+        Event notification messages MUST comply with the following data schema.
       </p>
 
-      <p class="ednote">
-        <!-- TODO -->
-        TODO: Describe data and dataResponse schemas.
-      </p>
-
-      <p><span class="rfc2119-assertion" id="http-webhook-profile-message-format-2">
+        <p>
+          The format is aligned with the <a href="https://cloudevents.io/">cloud events specification</a> 
+          to ensure interoperability with cloud systems that adopt that specification.
+        </p>
+        <p class="note">
+          This event format is currently only used for event affordances, however it could be used for 
+          observable properties as well.
+        </p>
+        <p>
+          An event message contains a set of metadata properties and an optional data payload.
+          The metadata fields allow to determine the type and source of the event as well as
+          a timestamp indicating when the event occured and an optional data payload.
+        </p>
+        <p>
+          <span class="rfc2119-assertion" id="profile-json-event-payload">
+            The following constraints MUST be
+            applied to the event payload:
+          </span>
+        </p>
+        <table class="def">
+          <thead>
+            <tr>
+              <th>keyword</th>
+              <th>type</th>
+              <th>type constraints</th>
+              <th>value constraints</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>specversion</td>
+              <td>string</td>
+              <td>mandatory, non-empty</td>
+              <td>The <code>specversion</code> MUST have the value "1.0"</td>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>string</td>
+              <td>mandatory, non-empty</td>
+              <td>For each distinct event the combination of <code>source</code> + <code>id</code> MUST be unique. 
+                A WebThing MAY resend the same event with the same <code>id</code>. 
+                If an event is resent with the same <code>id</code>, a consumer SHOULD treat it as
+                duplicate.</td>
+            </tr>
+            <tr>
+              <td>source</td>
+              <td>uri</td>
+              <td>mandatory, non-empty</td>
+              <td>The combination of <code>source</code> + <code>id</code> MUST be unique for each distinct event. 
+                The source MUST be set to the <code>baseURI</code> of the WebThing.</td>
+            </tr>
+            <tr>
+              <td>subject</td>
+              <td>string</td>
+              <td>optional</td>
+              <td>When this field is used, it MUST be set to the <code>title</code> of the event or property
+                affordance.</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>string</td>
+              <td>mandatory, non-empty</td>
+              <td>For event affordances the source MUST be set to the string "/events/<code>eventName</code>" of the
+                event affordance.</br>
+                For property affordances the source MUST be set to the string "/properties/<code>propertyName</code>" of
+                the property affordance.
+              </td>
+            </tr>
+            <tr>
+              <td>time</td>
+              <td>string</td>
+              <td>optional, compliant with [[RFC3339]]</td>
+              <td>time when the event occurred. If the WebThing does not have a clock, it MUST use the same
+                algorithm on all event affordances to determine the value of this field.
+            </tr>
+            <tr>
+              <td>datacontenttype</td>
+              <td>string</td>
+              <td>optional, [[RFC2046]] compliant MIME type, when set the value MUST be "<code>application/json</code>"</td>
+              <td>If a WebThing contains a <code>data member</code>, this field MUST be present.</td>
+            </tr>
+            <tr>
+              <td>data</td>
+              <td>string</td>
+              <td>optional</td>
+              <td>JSON encoded <code>data</code> object of the event affordance.</td>
+            </tr>
+          </tbody>
+        </table>
+        <span class="rfc2119-assertion" id="profile-event-payload-size">
+          The size of an event object MUST NOT exceed 64KB, to ensure interoperability with all kinds of consumers.
+        </span>
+      <p class="rfc2119-assertion" id="http-webhook-profile-message-format-2">
         For each notification message, the Web Thing MUST set the <code>event</code> field to the
         name of the <code>EventAffordance</code>.</span>
       </p>
@@ -3789,14 +3879,6 @@
       </p>
     </section>
 
-    <section id="http-webhook-profile-protocol-binding">
-      <h2>Protocol Binding</h2>
-      <p>
-        This section defines a protocol binding which describes how a
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
-        and a
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-        communicate using Webhook Events.
       </p>
       <p>
         <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-1">
