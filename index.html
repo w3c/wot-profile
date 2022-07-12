@@ -1650,13 +1650,15 @@
             and interoperability between things and consumers.</p>
 
         <p>
-          <span class="rfc2119-assertion" id="profile-thing-links-1">The following link relation names from
-            [?IANA-RELATIONS] are defined for the HTTP profiles and MUST be supported by all consumers.</span>
+          <span class="rfc2119-assertion" id="profile-thing-links-1">The following keywords are defined for the 
+            HTTP profiles and MUST be supported by all consumers.</span>
         </p>
         <p>
-          <span class="rfc2119-assertion" id="profile-thing-links-2">Other link relation names MAY be present in a TD,
-            however their interpretation is undefined
-            in the context of the HTTP profile and they MAY be ignored by all profile-compliant consumers.</span>
+          <span class="rfc2119-assertion" id="profile-thing-links-2">Other keywords MAY 
+            be present in a TD, however their interpretation is undefined
+            in the context of the HTTP profile</span>
+            <span class="rfc2119-assertion" id="profile-thing-links-3">These keywords MAY 
+              be ignored by all profile-compliant consumers.</span>
         </p>
         <!-- TD 5.3.4.1 -->
         <table class="def">
@@ -1669,30 +1671,30 @@
           </thead>
           <tbody>
             <tr>
-              <td>href</td>
+              <td><code>href</code></td>
               <td>IRI of the link target</td>
               <td>mandatory</td>
             </tr>
             <tr>
-              <td>type</td>
+              <td><code>type</code></td>
               <td>media type [RFC2046] of the link target</td>
               <td>mandatory, the supported set of media types is defined in 
                 <a href="#sec-link-relation-types">Media Types for Link Targets</a> below.</td>
             </tr>
             <tr>
-              <td>rel</td>
+              <td><code>rel</code></td>
               <td>link relation type <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA Link Relations</a></td>
               <td>mandatory, the supported subset of relation types is described in
                 <a href="#sec-link-relation-types">Link Relation Types</a> below.</td>
             </tr>
             <tr>
-              <td>sizes</td>
+              <td><code>sizes</code></td>
               <td>string with icon dimensions</td>
               <td>mandatory for <code>icon</code> link targets, forbidden otherwise.</td>
             </tr>
             <tr>
-              <td>hreflang</td>
-              <td>array of strings with valid language tages according to [BCP47]</td>
+              <td><code>hreflang</code></td>
+              <td><code>array of string</code> with valid language tags according to [BCP47]</td>
               <td>mandatory.</td>
             </tr>
           </tbody>
@@ -1712,7 +1714,7 @@
             <tr>
               <td><code>icon</code></td>
               <td>supported media types: <code>image/png</code>, <code>image/jpeg</code>. </td>
-              <td>sizes tbd.</td>
+              <td><strong>TODO:</strong> sizes tbd., quadratig icons only?.</td>
             </tr>
             <tr>
               <td><code>type</code></td>
