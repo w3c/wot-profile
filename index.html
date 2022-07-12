@@ -1645,21 +1645,144 @@
       <!-- Links -->
       <section id="links">
         <h3>Links</h3>
-        <section class="ednote">
-          <!-- TODO --> TODO: Consider
-          selecting a defined set from [[RFC8288]].
+
+        <span class="rfc2119-assertion" id="profile-thing-links-1">The following link relation names from https://www.iana.org/assignments/link-relations/link-relations.xhtml
+        are defined for the HTTP profiles and MUST be supported by all consumers.</span>
+        <span class="rfc2119-assertion" id="profile-thing-links-2">Other link relation names MAY be present in a TD. </span>
+        <span class="rfc2119-assertion" id="profile-thing-links-3">Their interpretation is undefined
+        in the context of the HTTP profile and they MAY be ignored by all profile-compliant consumers.</span>
+        <!-- TD 5.3.4.1 -->
+        <table class="def">
+          <thead>
+            <tr>
+              <th>Keyword</th>
+              <th>Type</th>
+              <th>Constraint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>href</td>
+              <td>IRI of the link target</td>
+              <td>mandatory</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>media type [RFC2046] of the link target</td>
+              <td>mandatory, the supported set of media types is defined below.</td>
+            </tr>
+            <tr>
+              <td>rel</td>
+              <td>link relation type [https://www.iana.org/assignments/link-relations/link-relations.xhtml]</td>
+              <td>mandatory,  the supported subset of relation types is described below.</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <section id="sec-media-types">
+          <h3>Media Types</h3>
+        <table class="def">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Constraint</th>
+              <th>Rationale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>text/plain</code></td>
+              <td>charset=UTF-8</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>text/html</code></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <tr>
+                <td><code>text/markdown</code></td>
+                <td>charset=UTF-8</td>
+                <td></td>
+              </tr> 
+              <tr>
+                <td><code>text/pdf</code></td>
+                <td></td>
+                <td></td>
+              </tr> 
+            <td><code>application/json</code></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>application/ld+json</code></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code> application/octet-stream</code></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>image/jpeg</code></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>image/png</code></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+          </tbody>
+        </table>
         </section>
 
-        <p>
-          The "type" relationship as defined in chapter 6 of
-          [[RFC6903]] is reserved for indicating an instance
-          relationship between a thing and a thing template.
-          The <a>Baseline Information Model</a> does not put additional
-          constraints or requirements on links. The
-          interpretation of a link is out of scope.
-        </p>
+        <section id="sec-media-types">
+          <h3>Link Relation Types</h3>
+        <table class="def">
+          <thead>
+            <tr>
+              <th>Relation Type</th>
+              <th>Constraint</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>icon</code></td>
+              <td>supported media types: <code>image/png</code>, <code>image/jpeg</code>. </td>
+              <td>sizes tbd.</td>
+            </tr>
+            <tr>
+              <td><code>type</code></td>
+              <td>link target MUST be a profile-compliant <a>Thing Model</a></td>
+              <td>No other types are defined in the Profile.</td>
+            </tr>
+            <tr>
+              <td><code>service-doc</code></td>
+              <td>human readable documentation, supported formats are Unicode Text, markdown, HTML and PDF.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>collection</code></td>
+              <td>link target is a collection of things or thing models.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>item</code></td>
+              <td>link target is a collection member of the thing or thing model.</td>
+              <td></td>
+            </tr>
 
-          <!-- TODO 
+          </tbody>
+        </table>
+        </section>
+
+           <!-- TODO 
           <h3 id="links-ednote">TODO</h3>THIS SECTION STILL NEEDS TO BE REWORKED.</section>
           <p>
           <span class="rfc2119-assertion" id="profile-thing-security-1">
