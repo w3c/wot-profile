@@ -750,6 +750,207 @@
       The following sections are applicable for all profiles defined by this document.
     </p>
 
+          <!-- Links -->
+          <section id="links">
+            <h3>Links</h3>
+    
+              <p>Hypermedia links in the HTTP Profiles are significantly contrained to ensure a common interpretation 
+                and interoperability between things and consumers.</p>
+    
+            <p>
+              <span class="rfc2119-assertion" id="profile-thing-links-1">The following keywords are defined for the 
+                HTTP profiles and MUST be supported by all consumers.</span>
+            </p>
+            <p>
+              <span class="rfc2119-assertion" id="profile-thing-links-2">Other keywords for links MAY 
+                be present in a TD, however their interpretation is undefined
+                in the context of the HTTP profile</span>
+                <span class="rfc2119-assertion" id="profile-thing-links-3">These keywords MAY 
+                  be ignored by all profile-compliant consumers.</span>
+            </p>
+            <!-- TD 5.3.4.1 -->
+            <table class="def">
+              <thead>
+                <tr>
+                  <th>Keyword</th>
+                  <th>Type</th>
+                  <th>Constraint</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>href</code></td>
+                  <td>IRI of the link target</td>
+                  <td>mandatory,<code>anyURI</code></td>
+                </tr>
+                <tr>
+                  <td><code>type</code></td>
+                  <td>media type [RFC2046] of the link target</td>
+                  <td>mandatory, the supported set of media types is defined in 
+                    <a href="#sec-link-relation-types">Media Types for Link Targets</a> below.</td>
+                </tr>
+                <tr>
+                  <td><code>rel</code></td>
+                  <td>link relation type <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA Link Relations</a></td>
+                  <td>mandatory, the supported subset of relation types is described in
+                    <a href="#sec-link-relation-types">Link Relation Types</a> below.</td>
+                </tr>
+                <tr>
+                  <td><code>sizes</code></td>
+                  <td>string with icon dimensions</td>
+                  <td>mandatory for <code>icon</code> link targets, forbidden otherwise.</td>
+                </tr>
+                <tr>
+                  <td><code>hreflang</code></td>
+                  <td><code>array of string</code> with valid language tags according to [BCP47]</td>
+                  <td>mandatory.</td>
+                </tr>
+              </tbody>
+            </table>
+    
+            <section id="sec-link-relation-types">
+              <h3>Link Relation Types</h3>
+            <table class="def">
+              <thead>
+                <tr>
+                  <th>Relation Type</th>
+                  <th>Constraint</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>icon</code></td>
+                  <td>supported media types: <code>image/png</code>, <code>image/jpeg</code>. </td>
+                  <td><strong>TODO:</strong> sizes tbd., quadratig icons only?.</td>
+                </tr>
+                <tr>
+                  <td><code>type</code></td>
+                  <td>link target MUST be a profile-compliant <a>Thing Model</a></td>
+                  <td>No other types are defined in the Profile.</td>
+                </tr>
+                <tr>
+                  <td><code>service-doc</code></td>
+                  <td>human readable documentation, supported formats are Unicode Text, markdown, HTML and PDF.</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><code>collection</code></td>
+                  <td>link target is a collection of things or thing models.</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><code>item</code></td>
+                  <td>link target is a collection member of the thing or thing model.</td>
+                  <td></td>
+                </tr>
+    
+              </tbody>
+            </table>
+            </section>
+    
+            <section id="sec-link-media-types">
+              <h3>Media Types for Link Targets</h3>
+    
+              <span class="rfc2119-assertion" id="profile-thing-links-media-types-1">The following media types from <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA</a>
+                are defined for the link targets of compliant TDs. They MUST be supported by all consumers.</span>
+              <span class="rfc2119-assertion" id="profile-thing-links-2">Other media types MAY be present in a TD. </span>
+              <span class="rfc2119-assertion" id="profile-thing-links-3">Their interpretation is undefined
+              in the context of the HTTP profile and they MAY be ignored by all profile-compliant consumers.</span>
+            <table class="def">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Constraint</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>text/plain</code></td>
+                  <td>charset=UTF-8</td>
+                </tr>
+                <tr>
+                  <td><code>text/html</code></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <tr>
+                    <td><code>text/markdown</code></td>
+                    <td>charset=UTF-8</td>
+                  </tr> 
+                  <tr>
+                    <td><code>text/pdf</code></td>
+                    <td></td>
+                  </tr> 
+                <td><code>application/json</code></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><code>application/ld+json</code></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><code> application/octet-stream</code></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><code>image/jpeg</code></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><code>image/png</code></td>
+                  <td></td>
+                </tr>
+    
+              </tbody>
+            </table>
+            </section>
+    
+               <!-- TODO 
+              <h3 id="links-ednote">TODO</h3>THIS SECTION STILL NEEDS TO BE REWORKED.</section>
+              <p>
+              <span class="rfc2119-assertion" id="profile-thing-security-1">
+              The <a>Baseline Information Model</a> defines a subset of the
+              security schemes that MAY be implemented on resource
+              constrained devices.
+              </span>
+              <span class="rfc2119-assertion" id="profile-thing-security-2">
+              A security scheme MUST be
+              defined at the thing level.
+              </span>
+              <span class="rfc2119-assertion" id="profile-thing-security-3">
+              The security scheme is
+              applied to the thing as a whole, a thing may adopt
+              multiple security schemes.
+              </span>
+            </p>
+            <p>
+              The set of security schemes supported in the <a>Baseline
+                Information Model</a> is based on the PlugFest results.
+                <span class="rfc2119-assertion" id="profile-thing-security-4">
+                  To ensure interoperability, a TD consumer, which
+                  compliant with the <a>Baseline Information Model</a> MUST
+                  support <strong>all</strong> of the following security schemes:
+                </span>
+            </p>
+    
+            <ul>
+              <li>no security</li>
+              <li>Basic Auth</li>
+              <li>Digest</li>
+              <li>Bearer Token</li>
+              <li>Oauth2</li>
+            </ul>
+    
+            <section>
+              <h4>Recommended Practice</h4>
+              <p>When using the "no security" or "Basic Auth"
+                security schemes it is strongly recommended to
+                use transport layer encryption.</p>
+            </section-->
+          </section>
+        </section>
+
     <section id="sec-security-considerations">
     <h4>Security Considerations</h4>
     <p><span class="rfc2119-assertion" id="arch-security-consideration-separate-security-data">
@@ -1659,68 +1860,6 @@
           </div>
         </section>
       </section>
-
-      <!-- Links -->
-      <section id="links">
-        <h3>Links</h3>
-        <section class="ednote">
-          <!-- TODO --> TODO: Consider
-          selecting a defined set from [[RFC8288]].
-        </section>
-
-        <p>
-          The "type" relationship as defined in chapter 6 of
-          [[RFC6903]] is reserved for indicating an instance
-          relationship between a thing and a thing template.
-          The <a>Baseline Information Model</a> does not put additional
-          constraints or requirements on links. The
-          interpretation of a link is out of scope.
-        </p>
-
-          <!-- TODO 
-          <h3 id="links-ednote">TODO</h3>THIS SECTION STILL NEEDS TO BE REWORKED.</section>
-          <p>
-          <span class="rfc2119-assertion" id="profile-thing-security-1">
-          The <a>Baseline Information Model</a> defines a subset of the
-          security schemes that MAY be implemented on resource
-          constrained devices.
-          </span>
-          <span class="rfc2119-assertion" id="profile-thing-security-2">
-          A security scheme MUST be
-          defined at the thing level.
-          </span>
-          <span class="rfc2119-assertion" id="profile-thing-security-3">
-          The security scheme is
-          applied to the thing as a whole, a thing may adopt
-          multiple security schemes.
-          </span>
-        </p>
-        <p>
-          The set of security schemes supported in the <a>Baseline
-            Information Model</a> is based on the PlugFest results.
-            <span class="rfc2119-assertion" id="profile-thing-security-4">
-              To ensure interoperability, a TD consumer, which
-              compliant with the <a>Baseline Information Model</a> MUST
-              support <strong>all</strong> of the following security schemes:
-            </span>
-        </p>
-
-        <ul>
-          <li>no security</li>
-          <li>Basic Auth</li>
-          <li>Digest</li>
-          <li>Bearer Token</li>
-          <li>Oauth2</li>
-        </ul>
-
-        <section>
-          <h4>Recommended Practice</h4>
-          <p>When using the "no security" or "Basic Auth"
-            security schemes it is strongly recommended to
-            use transport layer encryption.</p>
-        </section-->
-      </section>
-    </section>
 
     <!-- Protocol Binding -->
     <section id="http-baseline-profile-protocol-binding">
