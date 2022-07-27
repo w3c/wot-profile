@@ -3587,13 +3587,18 @@
 	  <span class="rfc2119-assertion" 
             id="http-sse-profile-protocol-binding-subscribeevent-6d">
             The <code>id</code> field SHOULD be set to a unique identifier for 
-            the event, for use when re-establishing a dropped connection.</span>  
-            See below.
+            the event, for use when re-establishing a dropped connection (see 
+            below).</span>
+    <span class="rfc2119-assertion" 
+            id="http-sse-profile-protocol-binding-subscribeevent-6e">
+            It is RECOMMENDED that the identifier is a timestamp 
+            representing the time at which the event ocurred, in the 
+            &quot;date-time&quot; format specified by [[RFC3339]].</span>
           </p>
           <pre class="example">
             event: overheated\n
             data: 90\n
-            id: 12345\n\n
+            id: 2021-11-16T16:53:50.817Z\n\n
           </pre>
 	  <p><span class="rfc2119-assertion" 
             id="http-sse-profile-protocol-binding-subscribeevent-7a">
@@ -3748,13 +3753,18 @@
 	  <span class="rfc2119-assertion" 
             id="http-sse-profile-protocol-binding-subscribeallevents-4d">
             The <code>id</code> field SHOULD be set to a unique identifier for 
-            the event, for use when re-establishing a dropped connection.</span>
-         See below.
+            the event, for use when re-establishing a dropped connection (see 
+            below).</span>
+    <span class="rfc2119-assertion" 
+            id="http-sse-profile-protocol-binding-subscribeallevents-4e">
+            It is RECOMMENDED that the identifier is a timestamp 
+            representing the time at which the event ocurred, in the 
+            &quot;date-time&quot; format specified by [[RFC3339]].</span>
       </p>
           <pre class="example">
             event: overheated\n
             data: 90\n
-            id: 12345\n\n
+            id: 2021-11-16T16:53:50.817Z\n\n
           </pre>
 	  <p><span class="rfc2119-assertion" 
             id="http-sse-profile-protocol-binding-subscribeallevents-5a">
