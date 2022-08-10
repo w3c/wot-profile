@@ -736,359 +736,23 @@
     </pre>
   </section>
 
-  <!-- HTTP Profiles -->
-  <section id="http-profiles">
-    <h2>HTTP Profile</h2>
+  <!--  Common -->
+  <section id="common-constraints">
+    <h1>Common Constraints</h1>
     <p>
-      The HTTP Profile specification defines several profiles that can be used for dedicated use cases.
-
+      The following sections are applicable for all of the HTTP profiles defined by this document.
     </p>
-    <!--  Common -->
-    <section id="sec-http-common-rules">
-      <h3>Common Rules</h3>
+
+    <section id="http-profiles-information-model">
+      <h2>Information Model</h2>
       <p>
-        The following sections are applicable for all profiles defined by this document.
-      </p>
-
-
-
-      <section id="sec-default-language">
-        <h4>Default Language</h4>
-        <p><span class="rfc2119-assertion" id="common-rules-default-language">
-            One Map contained in an <code>@context Array</code> MUST contain a name-value pair
-            that defines the default language for the Thing Description,
-            where the name is the Term <code>@language</code> and the value
-            is a well-formed language tag as defined by [BCP47]
-            (e.g., en, de-AT, gsw-CH, zh-Hans, zh-Hant-HK, sl-nedis).</span>
-          </span>
-      </section>
-
-      <!-- Links -->
-      <section id="links">
-        <h3>Links</h3>
-
-        <p>Hypermedia links in the HTTP Profiles are significantly contrained to ensure a common interpretation
-          and interoperability between things and consumers.</p>
-
-        <p>
-          <span class="rfc2119-assertion" id="profile-thing-links-1">The following keywords are defined for the
-            HTTP profiles and MUST be supported by all consumers.</span>
-        </p>
-        <p>
-          <span class="rfc2119-assertion" id="profile-thing-links-2">Other keywords for links MAY
-            be present in a TD, however their interpretation is undefined
-            in the context of the HTTP profile</span>
-          <span class="rfc2119-assertion" id="profile-thing-links-3">These keywords MAY
-            be ignored by all profile-compliant consumers.</span>
-        </p>
-        <!-- TD 5.3.4.1 -->
-        <table class="def">
-          <thead>
-            <tr>
-              <th>Keyword</th>
-              <th>Type</th>
-              <th>Constraint</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>href</code></td>
-              <td>IRI of the link target</td>
-              <td>mandatory,<code>anyURI</code></td>
-            </tr>
-            <tr>
-              <td><code>type</code></td>
-              <td>media type [RFC2046] of the link target</td>
-              <td>mandatory, the supported set of media types is defined in
-                <a href="#sec-link-relation-types">Media Types for Link Targets</a> below.
-              </td>
-            </tr>
-            <tr>
-              <td><code>rel</code></td>
-              <td>link relation type <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA
-                  Link Relations</a></td>
-              <td>mandatory, the supported subset of relation types is described in
-                <a href="#sec-link-relation-types">Link Relation Types</a> below.
-              </td>
-            </tr>
-            <tr>
-              <td><code>sizes</code></td>
-              <td>string with icon dimensions</td>
-              <td>mandatory for <code>icon</code> link targets, forbidden otherwise.</td>
-            </tr>
-            <tr>
-              <td><code>hreflang</code></td>
-              <td><code>array of string</code> with valid language tags according to [BCP47]</td>
-              <td>mandatory.</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <section id="sec-link-relation-types">
-          <h3>Link Relation Types</h3>
-          <table class="def">
-            <thead>
-              <tr>
-                <th>Relation Type</th>
-                <th>Constraint</th>
-                <th>Remarks</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>icon</code></td>
-                <td>supported media types: <code>image/png</code>, <code>image/jpeg</code>. </td>
-                <td><strong>TODO:</strong> sizes tbd., quadratig icons only?.</td>
-              </tr>
-              <tr>
-                <td><code>type</code></td>
-                <td>link target MUST be a profile-compliant <a>Thing Model</a></td>
-                <td>No other types are defined in the Profile.</td>
-              </tr>
-              <tr>
-                <td><code>service-doc</code></td>
-                <td>human readable documentation, supported formats are Unicode Text, markdown, HTML and PDF.</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td><code>collection</code></td>
-                <td>link target is a collection of things or thing models.</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td><code>item</code></td>
-                <td>link target is a collection member of the thing or thing model.</td>
-                <td></td>
-              </tr>
-
-            </tbody>
-          </table>
-        </section>
-
-        <section id="sec-link-media-types">
-          <h3>Media Types for Link Targets</h3>
-
-          <span class="rfc2119-assertion" id="profile-thing-links-media-types-1">The following media types from <a
-              href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA</a>
-            are defined for the link targets of compliant TDs. They MUST be supported by all consumers.</span>
-          <span class="rfc2119-assertion" id="profile-thing-links-2">Other media types MAY be present in a TD. </span>
-          <span class="rfc2119-assertion" id="profile-thing-links-3">Their interpretation is undefined
-            in the context of the HTTP profile and they MAY be ignored by all profile-compliant consumers.</span>
-          <table class="def">
-            <thead>
-              <tr>
-                <th>Type</th>
-                <th>Constraint</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>text/plain</code></td>
-                <td>charset=UTF-8</td>
-              </tr>
-              <tr>
-                <td><code>text/html</code></td>
-                <td></td>
-              </tr>
-              <tr>
-              <tr>
-                <td><code>text/markdown</code></td>
-                <td>charset=UTF-8</td>
-              </tr>
-              <tr>
-                <td><code>text/pdf</code></td>
-                <td></td>
-              </tr>
-              <td><code>application/json</code></td>
-              <td></td>
-              </tr>
-              <tr>
-                <td><code>application/ld+json</code></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td><code> application/octet-stream</code></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td><code>image/jpeg</code></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td><code>image/png</code></td>
-                <td></td>
-              </tr>
-
-            </tbody>
-          </table>
-        </section>
-
-        <!-- TODO
-              <h3 id="links-ednote">TODO</h3>THIS SECTION STILL NEEDS TO BE REWORKED.</section>
-              <p>
-              <span class="rfc2119-assertion" id="profile-thing-security-1">
-              The <a>Baseline Information Model</a> defines a subset of the
-              security schemes that MAY be implemented on resource
-              constrained devices.
-              </span>
-              <span class="rfc2119-assertion" id="profile-thing-security-2">
-              A security scheme MUST be
-              defined at the thing level.
-              </span>
-              <span class="rfc2119-assertion" id="profile-thing-security-3">
-              The security scheme is
-              applied to the thing as a whole, a thing may adopt
-              multiple security schemes.
-              </span>
-            </p>
-            <p>
-              The set of security schemes supported in the <a>Baseline
-                Information Model</a> is based on the PlugFest results.
-                <span class="rfc2119-assertion" id="profile-thing-security-4">
-                  To ensure interoperability, a TD consumer, which
-                  compliant with the <a>Baseline Information Model</a> MUST
-                  support <strong>all</strong> of the following security schemes:
-                </span>
-            </p>
-
-            <ul>
-              <li>no security</li>
-              <li>Basic Auth</li>
-              <li>Digest</li>
-              <li>Bearer Token</li>
-              <li>Oauth2</li>
-            </ul>
-
-            <section>
-              <h4>Recommended Practice</h4>
-              <p>When using the "no security" or "Basic Auth"
-                security schemes it is strongly recommended to
-                use transport layer encryption.</p>
-            </section-->
-      </section>
-    </section>
-
-    <section id="sec-security-considerations">
-      <h4>Security Considerations</h4>
-      <p><span class="rfc2119-assertion" id="arch-security-consideration-separate-security-data">
-          The security considerations of the
-          <a href="https://w3c.github.io/wot-architecture/#sec-security-consideration">WoT Architecture</a>
-          and
-          <a href="https://w3c.github.io/wot-thing-description/#sec-security-considerations">WoT Thing Description</a>
-          MUST be adopted by compliant implementations.</span>
-      </p>
-    </section>
-    <!--  Security -->
-    <section id="sec-http-security-schemes">
-      <h4>Security Schemes</h3>
-        <div class="rfc2119-assertion" id="http-baseline-profile-security-1">
-          <p>
-            Below is a list of <a
-              href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
-              security schemes</a> [[wot-thing-description]] which conformant Web
-            Things MAY use:
-          </p>
-          <ul>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
-                <code>NoSecurityScheme</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#basicsecurityscheme">
-                <code>BasicSecurityScheme</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#digestsecurityscheme">
-                <code>DigestSecurityScheme</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#bearersecurityscheme">
-                <code>BearerSecurityScheme</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#oauth2securityscheme">
-                <code>OAuth2SecurityScheme</code>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-1a">
-            Conformant Consumers MUST support all of these security schemes.</span>
-        </p>
-        <p class="ednote">
-          The list of security schemes to include in the HTTP Baseline Profile is
-          still <a href="https://github.com/w3c/wot-profile/issues/6">under
-            discussion</a>.
-        </p>
-        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-2">
-            A Thing MAY implement multiple security schemes.</span>
-        </p>
-        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-3a">
-            Security schemes MUST be applied using the top level <code>security</code>
-            member of a
-            <a href="https://w3c.github.io/wot-thing-description/#thing">Thing</a>.</span>
-        </p>
-        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-3b">
-            Security schemes
-            MUST NOT be applied to individual
-            <a href="https://w3c.github.io/wot-thing-description/#form"></a><code>
-              Form</code>s.</span>
-        </p>
-    </section>
-    <section id="sec-privacy-considerations">
-      <h4>Privacy Considerations</h4>
-      <p><span class="rfc2119-assertion" id="profile-privacy-consideration">
-          The privacy considerations of the
-          <a href="https://w3c.github.io/wot-architecture/#sec-privacy-considerations">WoT Architecture</a>
-          and
-          <a href="https://w3c.github.io/wot-thing-description/#sec-privacy-consideration">WoT Thing Description</a>
-          MUST be adopted by compliant implementations.</span>
-      </p>
-    </section>
-  </section>
-
-  <!-- HTTP Baseline Protocol -->
-  <section id="http-baseline-profile">
-    <h2>HTTP Baseline Profile</h2>
-    <p>This section defines the HTTP Baseline Profile, which includes a
-      <a href="#http-baseline-information-model">Information Model</a>
-      and a <a href="#http-baseline-profile-protocol-binding">Protocol Binding</a>
-      for reading and writing properties and invoking, querying and cancelling
-      actions.
-    </p>
-    <p>This profile may be used in conjunction with the
-      <a href="#sec-http-sse-profile">HTTP SSE Profile</a> or the
-      <a href="#sec-http-webhook-profile">HTTP Webhook Profile</a> in order to provide
-      operations for observing properties and listening for events.
-    </p>
-
-    <!-- Identifier -->
-    <section id="http-baseline-profile-identifier">
-      <h2>Identifier</h2>
-      <p><span class="rfc2119-assertion" id="http-baseline-profile-identifier-1">
-          In order to denote that a given
-          <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-          conforms to the HTTP Baseline Profile, its Thing Description MUST have a
-          <a href="https://w3c.github.io/wot-thing-description/#thing">
-            <code>profile</code></a> member [[wot-thing-description]] with a value
-          of <code>https://www.w3.org/2022/wot/profile/http-baseline/v1</code>.</span>
-      </p>
-    </section>
-
-    <section id="http-baseline-information-model">
-      <h2>Baseline Information Model</h2>
-      <p>
-        The baseline information model of the HTTP profile incorporates the information model defined by chapter 5 of
+        The information model of the HTTP profiles incorporates the information model defined by chapter 5 of
         the Thing Description specification.
         The normative rules defined by that model
-        are the baseline for the definition of the baseline information model
+        are the baseline for the definition of this information model
         and are normative.
       </p>
-      <p><span class="rfc2119-assertion" id="profile-http-baseline-information-model-1">
+      <p><span class="rfc2119-assertion" id="http-profiles-information-model-1">
           A baseline profile compliant implementation MUST be compliant to the Thing Description and
           MUST additionally satisfy the requirements of this chapter.</span>
       </p>
@@ -1116,7 +780,8 @@
         <p>
           The profile contains a few length limitations on fields to ensure that automaticall generated UIs
           are possible.
-          For numeric values the range (minimum, maximum) should be provided to enable the display of graphs and gauges.
+          For numeric values the range (minimum, maximum) should be provided to enable the display of graphs and
+          gauges.
           Values with have a metric unit should contain a unit field to ensure a common interpretation by consumers.
         </p>
         <p>
@@ -1158,7 +823,8 @@
           <h4>Date format</h4>
           <p>
             <span class="rfc2119-assertion" id="profile-date-format-1">
-              All date and time values MUST use the canonical dateTime representation format defined in section 3.2.7 of
+              All date and time values MUST use the canonical dateTime representation format defined in section 3.2.7
+              of
               [xmlschema-2].</span>
             As described by this section the following constraints must be observed:
             <span class="rfc2119-assertion" id="profile-date-format-2">
@@ -1420,10 +1086,10 @@
                     <span class="rfc2119-assertion" id="profile-thing-property-affordance-mandatory-fields-2">
                       one of <code>boolean</code>,
                       <code> string </code>, <code>
-                                          number </code>, <code> integer
-                                      </code>, <code> object </code> or <code>
-                                          array </code>. The type value <code>
-                                          null </code> MUST NOT be used.
+                                            number </code>, <code> integer
+                                        </code>, <code> object </code> or <code>
+                                            array </code>. The type value <code>
+                                            null </code> MUST NOT be used.
                     </span>
                   </td>
                   <td>well defined types</td>
@@ -1516,17 +1182,17 @@
                       Arrays with combinations of these values are NOT PERMITTED.
                     </span>
                     <!-- /p>
-                </td>
-                <td><p>If multiple endpoints for the same protocol are present,
-                  a common selection algorithm has to be defined.
-                  This may imply invoking form elements in sequence with
-                  a trial and error method that can lead to significant
-                  delays due to timeout handling obligations.
-                </p>
-                <p>
-                  Combination of operations are ambiguous and have very
-                  complex interaction semantics.
-                </p-->
+                  </td>
+                  <td><p>If multiple endpoints for the same protocol are present,
+                    a common selection algorithm has to be defined.
+                    This may imply invoking form elements in sequence with
+                    a trial and error method that can lead to significant
+                    delays due to timeout handling obligations.
+                  </p>
+                  <p>
+                    Combination of operations are ambiguous and have very
+                    complex interaction semantics.
+                  </p-->
                 </td>
                 </tr>
                 <tr>
@@ -1867,6 +1533,358 @@
           </div>
         </section>
       </section>
+    </section>
+
+    <!--  Security -->
+    <section id="common-constraints-security">
+      <h2>Security</h2>
+        <div class="rfc2119-assertion" id="common-constraints-security-1">
+          <p>
+            Below is a list of <a
+              href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
+              security schemes</a> [[wot-thing-description]] which conformant Web
+            Things MAY use:
+          </p>
+          <ul>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
+                <code>NoSecurityScheme</code>
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#basicsecurityscheme">
+                <code>BasicSecurityScheme</code>
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#digestsecurityscheme">
+                <code>DigestSecurityScheme</code>
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#bearersecurityscheme">
+                <code>BearerSecurityScheme</code>
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/wot-thing-description/#oauth2securityscheme">
+                <code>OAuth2SecurityScheme</code>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <p><span class="rfc2119-assertion" id="common-constraints-security-2">
+            Conformant Consumers MUST support all of these security schemes.</span>
+        </p>
+        <p class="ednote">
+          The list of security schemes to include is
+          still <a href="https://github.com/w3c/wot-profile/issues/6">under
+            discussion</a>.
+        </p>
+        <p><span class="rfc2119-assertion" id="common-constraints-security-3">
+            A Thing MAY implement multiple security schemes.</span>
+        </p>
+        <p><span class="rfc2119-assertion" id="common-constraints-security-4">
+            Security schemes MUST be applied using the top level <code>security</code>
+            member of a
+            <a href="https://w3c.github.io/wot-thing-description/#thing">Thing</a>.</span>
+        </p>
+        <p><span class="rfc2119-assertion" id="common-constraints-security-5">
+            Security schemes
+            MUST NOT be applied to individual
+            <a href="https://w3c.github.io/wot-thing-description/#form"></a><code>
+                Form</code>s.</span>
+        </p>
+    </section>
+
+    <!-- Discovery -->
+    <section>
+      <h2 id="common-constraints-discovery">Discovery</h2>
+      <p class="rfc2119-assertion" id="common-constraints-discovery-1">
+        A Web Thing's Thing Description [[wot-thing-description]] MUST be 
+        retrievable from a
+        <a href="https://w3c.github.io/wot-architecture/#dfn-wot-thing-description-server">
+          Thing Description Server</a> [[wot-architecture11]] using an HTTP
+        [[HTTP11]] URL provided by a
+        <a href="https://w3c.github.io/wot-discovery/#introduction-mech">
+          Direct Introduction Mechanism</a> [[wot-discovery]].
+      </p>
+    </section>
+
+
+    <!-- Links -->
+    <section id="common-constraints-links">
+      <h2>Links</h2>
+
+      <p>Hypermedia links in the HTTP Profiles are significantly contrained to ensure a common interpretation
+        and interoperability between things and consumers.</p>
+
+      <p>
+        <span class="rfc2119-assertion" id="common-constraints-links-1">The following keywords are defined for the
+          HTTP profiles and MUST be supported by all consumers.</span>
+      </p>
+      <p>
+        <span class="rfc2119-assertion" id="common-constraints-links-2">Other keywords for links MAY
+          be present in a TD, however their interpretation is undefined
+          in the context of the HTTP profile</span>
+        <span class="rfc2119-assertion" id="common-constraints-links-3">These keywords MAY
+          be ignored by all profile-compliant consumers.</span>
+      </p>
+      <!-- TD 5.3.4.1 -->
+      <table class="def">
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Type</th>
+            <th>Constraint</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>href</code></td>
+            <td>IRI of the link target</td>
+            <td>mandatory,<code>anyURI</code></td>
+          </tr>
+          <tr>
+            <td><code>type</code></td>
+            <td>media type [RFC2046] of the link target</td>
+            <td>mandatory, the supported set of media types is defined in
+              <a href="#sec-link-relation-types">Media Types for Link Targets</a> below.
+            </td>
+          </tr>
+          <tr>
+            <td><code>rel</code></td>
+            <td>link relation type <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA
+                Link Relations</a></td>
+            <td>mandatory, the supported subset of relation types is described in
+              <a href="#sec-link-relation-types">Link Relation Types</a> below.
+            </td>
+          </tr>
+          <tr>
+            <td><code>sizes</code></td>
+            <td>string with icon dimensions</td>
+            <td>mandatory for <code>icon</code> link targets, forbidden otherwise.</td>
+          </tr>
+          <tr>
+            <td><code>hreflang</code></td>
+            <td><code>array of string</code> with valid language tags according to [BCP47]</td>
+            <td>mandatory.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section id="sec-link-relation-types">
+        <h3>Link Relation Types</h3>
+        <table class="def">
+          <thead>
+            <tr>
+              <th>Relation Type</th>
+              <th>Constraint</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>icon</code></td>
+              <td>supported media types: <code>image/png</code>, <code>image/jpeg</code>. </td>
+              <td><strong>TODO:</strong> sizes tbd., quadratig icons only?.</td>
+            </tr>
+            <tr>
+              <td><code>type</code></td>
+              <td>link target MUST be a profile-compliant <a>Thing Model</a></td>
+              <td>No other types are defined in the Profile.</td>
+            </tr>
+            <tr>
+              <td><code>service-doc</code></td>
+              <td>human readable documentation, supported formats are Unicode Text, markdown, HTML and PDF.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>collection</code></td>
+              <td>link target is a collection of things or thing models.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>item</code></td>
+              <td>link target is a collection member of the thing or thing model.</td>
+              <td></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </section>
+
+      <section id="sec-link-media-types">
+        <h3>Media Types for Link Targets</h3>
+
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-1">The following media types from <a
+            href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA</a>
+          are defined for the link targets of compliant TDs. They MUST be supported by all consumers.</span>
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-2">Other media types MAY be present in a TD. </span>
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-3">Their interpretation is undefined
+          in the context of the HTTP profile and they MAY be ignored by all profile-compliant consumers.</span>
+        <table class="def">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Constraint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>text/plain</code></td>
+              <td>charset=UTF-8</td>
+            </tr>
+            <tr>
+              <td><code>text/html</code></td>
+              <td></td>
+            </tr>
+            <tr>
+            <tr>
+              <td><code>text/markdown</code></td>
+              <td>charset=UTF-8</td>
+            </tr>
+            <tr>
+              <td><code>text/pdf</code></td>
+              <td></td>
+            </tr>
+            <td><code>application/json</code></td>
+            <td></td>
+            </tr>
+            <tr>
+              <td><code>application/ld+json</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code> application/octet-stream</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>image/jpeg</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>image/png</code></td>
+              <td></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </section>
+    </section>
+
+    <section id="common-constraints-errors">
+      <h2>Errors</h2>
+      <p>
+        <span class="rfc2119-assertion" id="common-constraints-errors-1">
+          If any of the operations defined in the protocol bindings of HTTP
+          profiles are unsuccessful then the Web Thing MUST send an HTTP
+          response with an HTTP error code which describes the reason for the
+          failure.</span>
+      </p>
+      <div class="rfc2119-assertion" id="common-constraints-errors-2">
+        <p>
+          It is RECOMMENDED that error
+          responses use one of the following HTTP error codes:
+        </p>
+        <ul>
+          <li><code>400 Bad Request</code></li>
+          <li><code>401 Unauthorized</code></li>
+          <li><code>403 Forbidden</code></li>
+          <li><code>404 Not Found</code></li>
+          <li><code>500 Internal Server Error</code></li>
+        </ul>
+      </div>
+      <p>
+        <span class="rfc2119-assertion" id="common-constraints-errors-3">
+          A Web Thing MUST NOT issue any 3xx status codes.</span>
+        <span class="rfc2119-assertion" id="common-constraints-errors-4">
+          A Consumer MAY treat all 3xx codes as errors that do not change the status or behavior
+          of the consumer.</span>
+      </p>
+      <p>
+        <span class="rfc2119-assertion" id="common-constraints-errors-5">
+          Web Things MAY respond with other valid HTTP error codes
+          (e.g. <code>418 I'm a teapot</code>).</span>
+        <span class="rfc2119-assertion" id="common-constraints-errors-6">
+          Consumers MAY interpret other valid HTTP error codes as a generic <code>4xx</code> or <code>5xx</code>
+          error with no special defined behaviour.</span>
+      </p>
+      <p class="ednote">
+        <!-- <span id="profile-5-2-4-thing-protocol-binding-error-responses-6"> -->
+        TODO: If we define the finite set of error responses as above then we
+        should also define what a Consumer should do if it receives a 3xx
+        redirect type response.
+        <!-- </span> -->
+      <p class="ednote">
+        It turns out 3xx redirection codes are used as part of some OAuth2 flows, so it may be
+        in appropriate to disallow them generally. See the "Security Bootstrapping" section of
+        WoT Discovery.
+      </p>
+      </p>
+      <p>
+        <span class="rfc2119-assertion" id="common-constraints-errors-7">
+          If an HTTP error response contains a body, the content of that body
+          MUST conform with with the Problem Details format [[RFC7807]].</span>
+      </p>
+    </section>
+
+    <section id="common-constraints-semantic-annotations">
+      <h2>Semantic Annotations</h2>
+      <p class="ednote">
+        TODO: Define a set of recommended semantic ontologies for common
+        vocabulary such as
+        <a href="https://github.com/w3c/wot-profile/issues/137">geolocation</a>
+        and <a href="https://github.com/w3c/wot-profile/issues/29">units</a>.
+      </p>
+    </section>
+
+    <section id="sec-default-language">
+      <h2>Default Language</h2>
+      <p><span class="rfc2119-assertion" id="common-constraints-default-language">
+          One Map contained in an <code>@context Array</code> MUST contain a name-value pair
+          that defines the default language for the Thing Description,
+          where the name is the Term <code>@language</code> and the value
+          is a well-formed language tag as defined by [BCP47]
+          (e.g., en, de-AT, gsw-CH, zh-Hans, zh-Hant-HK, sl-nedis).</span>
+        </span>
+    </section>
+  </section>
+
+
+  <!-- HTTP Baseline Protocol -->
+  <section id="http-baseline-profile">
+    <h2>HTTP Baseline Profile</h2>
+    <p>This section defines the HTTP Baseline Profile, which includes a
+      <a href="#http-baseline-profile-protocol-binding">Protocol Binding</a>
+      for reading and writing properties and invoking, querying and cancelling
+      actions.
+    </p>
+    <p>This profile may be used in conjunction with the
+      <a href="#sec-http-sse-profile">HTTP SSE Profile</a> or the
+      <a href="#sec-http-webhook-profile">HTTP Webhook Profile</a> in order to provide
+      operations for observing properties and listening for events.
+    </p>
+    <p>
+      <span class="rfc2119-assertion" id="http-baseline-profile-1">
+        In order to conform with the HTTP Baseline Profile, Web Things and
+        Consumers MUST also conform with all of the assertions in the
+        <a href="#common-constraints">Common Constraints</a> 
+        section.
+      </span>
+    </p>
+
+    <!-- Identifier -->
+    <section id="http-baseline-profile-identifier">
+      <h2>Identifier</h2>
+      <p><span class="rfc2119-assertion" id="http-baseline-profile-identifier-1">
+          In order to denote that a given
+          <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+          conforms to the HTTP Baseline Profile, its Thing Description MUST have a
+          <a href="https://w3c.github.io/wot-thing-description/#thing">
+            <code>profile</code></a> member [[wot-thing-description]] with a value
+          of <code>https://www.w3.org/2022/wot/profile/http-baseline/v1</code>.</span>
+      </p>
     </section>
 
     <!-- Protocol Binding -->
@@ -2797,152 +2815,6 @@
           application-specific requirements or resource constraints.
         </section>
       </section>
-
-      <section id="http-baseline-profile-error-responses">
-        <h4 id="error-responses">Error Responses</h4>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5-2-4x-thing-protocol-binding-error-responses-1a">
-            If any of the operations defined above are unsuccessful then
-            the Web Thing MUST send an HTTP response with an HTTP error code which
-            describes the reason for the failure.</span>
-        </p>
-        <div class="rfc2119-assertion" id="profile-5-2-4x-thing-protocol-binding-error-responses-1b">
-          <p>
-            It is RECOMMENDED that error
-            responses use one of the following HTTP error codes:
-          </p>
-          <ul>
-            <li><code>400 Bad Request</code></li>
-            <li><code>401 Unauthorized</code></li>
-            <li><code>403 Forbidden</code></li>
-            <li><code>404 Not Found</code></li>
-            <li><code>500 Internal Server Error</code></li>
-          </ul>
-        </div>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5-2-4x-thing-protocol-binding-error-responses-2">
-            A Web Thing MUST NOT issue any 3xx status codes.</span>
-          <span class="rfc2119-assertion" id="profile-5-2-4x-thing-protocol-binding-error-responses-3">
-            A Consumer MAY treat all 3xx codes as errors that do not change the status or behavior
-            of the consumer.</span>
-        </p>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5-2-4x-thing-protocol-binding-error-responses-4">
-            Web Things MAY respond with other valid HTTP error codes
-            (e.g. <code>418 I'm a teapot</code>).</span>
-          <span class="rfc2119-assertion" id="profile-5-2-4x-thing-protocol-binding-error-responses-3b">
-            Consumers MAY interpret other valid HTTP error codes as a generic <code>4xx</code> or <code>5xx</code>
-            error with no special defined behaviour.</span>
-        </p>
-        <p class="ednote">
-          <!-- <span id="profile-5-2-4-thing-protocol-binding-error-responses-6"> -->
-          TODO: If we define the finite set of error responses as above then we
-          should also define what a Consumer should do if it receives a 3xx
-          redirect type response.
-          <!-- </span> -->
-        <p class="ednote">
-          It turns out 3xx redirection codes are used as part of some OAuth2 flows, so it may be
-          in appropriate to disallow them generally. See the "Security Bootstrapping" section of
-          WoT Discovery.
-        </p>
-        </p>
-        <p>
-          <span class="rfc2119-assertion" id="profile-5-2-4x-thing-protocol-binding-error-responses-7">
-            If an HTTP error response contains a body, the content of that body
-            MUST conform with with the Problem Details format [[RFC7807]].</span>
-        </p>
-      </section>
-
-      <section id="security">
-        <h4 id="security">Transport security</h4>
-        </p>
-        <p class="ednote">
-          Consider mandating HTTPs, at least for things that are used outside of a closed network.
-          Some other standards, such as Echonet use HTTPS only.
-        </p>
-      </section>
-
-    </section>
-
-    <!--  Security -->
-    <section>
-      <h2 id="http-baseline-profile-security">Security</h3>
-        <p class="ednote" title="Restructure Assertion">
-          This assertion has two keywords, one optional and one mandatory, and needs to be broken into two
-          statements. The question is how to do it without repeating the list.
-        </p>
-        <div class="rfc2119-assertion" id="http-baseline-profile-security-1-x">
-          <p>
-            Below is a list of <a
-              href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
-              security schemes</a> [[wot-thing-description]] which conformant Web
-            Things MAY use and conformant Consumers MUST support:
-          </p>
-          <ul>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
-                <code>NoSecurityScheme</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#basicsecurityscheme">
-                <code>BasicSecurityScheme</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#digestsecurityscheme">
-                <code>DigestSecurityScheme</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#bearersecurityscheme">
-                <code>BearerSecurityScheme</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://w3c.github.io/wot-thing-description/#oauth2securityscheme">
-                <code>OAuth2SecurityScheme</code>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <p class="ednote">
-          The list of security schemes to include in the HTTP Baseline Profile is
-          still <a href="https://github.com/w3c/wot-profile/issues/6">under
-            discussion</a>.
-        </p>
-        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-2-x">
-            A Thing MAY implement multiple security schemes.</span>
-        </p>
-        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-3a-x">
-            Security schemes MUST be applied using the top level <code>security</code>
-            member of a
-            <a href="https://w3c.github.io/wot-thing-description/#thing">Thing</a>.</span>
-        </p>
-        <p><span class="rfc2119-assertion" id="http-baseline-profile-security-3b-x">
-            Security schemes
-            MUST NOT be applied to individual
-            <a href="https://w3c.github.io/wot-thing-description/#form"></a><code>
-        Form</code>s.</span>
-        </p>
-        <p class="note">
-          Please see <a href="https://w3c.github.io/wot-security-best-practices/">
-            WoT Security Best Practices</a> for implementation advice.
-        </p>
-    </section>
-
-    <!-- Discovery -->
-    <section>
-      <h2 id="http-baseline-profile-discovery">Discovery</h2>
-      <p class="rfc2119-assertion" id="http-baseline-profile-discovery-1">
-        In order to conform with the HTTP Baseline Profile, a Web Thing's Thing
-        Description [[wot-thing-description]] MUST be retrievable from a
-        <a href="https://w3c.github.io/wot-architecture/#dfn-wot-thing-description-server">
-          Thing Description Server</a> [[wot-architecture11]] using an HTTP
-        [[HTTP11]] URL provided by a
-        <a href="https://w3c.github.io/wot-discovery/#introduction-mech">
-          Direct Introduction Mechanism</a> [[wot-discovery]].
-      </p>
     </section>
   </section>
   </section>
@@ -2959,10 +2831,19 @@
       provide operations to read and write properties and invoke, query and
       cancel actions.
     </p>
+    <p>
+      <span class="rfc2119-assertion" id="http-sse-profile-1">
+        In order to conform with the HTTP SSE Profile, Web Things and
+        Consumers MUST also conform with all of the assertions in the
+        <a href="#common-constraints">Common Constraints</a>
+        section.
+      </span>
+    </p>
+
     <!-- Identifier -->
     <section id="http-sse-profile-identifier">
       <h2>Identifier</h2>
-      <p><span class="rfc2119-assertion" id="http-sse-profile-1">
+      <p><span class="rfc2119-assertion" id="http-sse-profile-identifier-1">
           In order to denote that a given
           <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
           conforms to the HTTP SSE Profile, its Thing Description MUST have a
@@ -3753,6 +3634,14 @@
         The <em>HTTP Webhook profile</em> MAY be used as an alternative event mechanism
         to the <a href="#sec-http-sse-profile">HTTP SSE Profile</a>.</span>
     </p>
+    <p>
+      <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-general-3">
+        In order to conform with the HTTP Webhook Profile, Web Things and
+        Consumers MUST also conform with all of the assertions in the
+        <a href="#common-constraints">Common Constraints</a>
+        section.
+      </span>
+    </p>
     <!-- Web Thing Webhooks  -->
     <section id="sec-http-webhook-profile-intro">
       <h3>Introduction</h3>
@@ -4316,6 +4205,32 @@
         </p>
       </section>
     </section>
+  </section>
+
+  <section id="privacy-considerations">
+    <h4>Privacy Considerations</h4>
+    <p><span class="rfc2119-assertion" id="privacy-considerations-1">
+        The privacy considerations of the
+        <a href="https://w3c.github.io/wot-architecture/#sec-privacy-considerations">WoT Architecture</a>
+        and
+        <a href="https://w3c.github.io/wot-thing-description/#sec-privacy-consideration">WoT Thing Description</a>
+        MUST be adopted by compliant implementations.</span>
+    </p>
+  </section>
+
+  <section id="security-considerations">
+    <h4>Security Considerations</h4>
+    <p><span class="rfc2119-assertion" id="security-considerations-1">
+        The security considerations of the
+        <a href="https://w3c.github.io/wot-architecture/#sec-security-consideration">WoT Architecture</a>
+        and
+        <a href="https://w3c.github.io/wot-thing-description/#sec-security-considerations">WoT Thing Description</a>
+        MUST be adopted by compliant implementations.</span>
+    </p>
+    <p class="note">
+      Please see <a href="https://w3c.github.io/wot-security-best-practices/">
+        WoT Security Best Practices</a> for implementation advice.
+    </p>
   </section>
 
   <!---------------------------------------------------------------->
