@@ -697,23 +697,39 @@
   <section id="profiling-mechanism">
     <h2>Profiling Mechanism</h2>
     <p>
-      In order to conform with a profile, a
-      <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-      MUST conform with all the normative statements in the profile's specification.
+      <span class="rfc2119-assertion" id="profiling-mechanism-1">
+        In order to conform with a profile, a
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        MUST conform with all the normative statements in the profile's
+        specification.
+      </span>
     </p>
     <p>
-      In order to denote that a given
-      <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-      conforms to one or more profiles, its Thing Description MUST include a
-      <a href="https://w3c.github.io/wot-thing-description/#thing">
-        <code>profile</code></a> member [[wot-thing-description11]]. The value of
-      the <code>profile</code> member MUST be set to either a valid URI
-      [[RFC3986]] identifying a single profile, or an array of valid URIs
-      identifying multiple profiles.
+      <span class="rfc2119-assertion" id="profiling-mechanism-2">
+        In order to denote that a given
+        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        conforms to one or more profiles, its Thing Description MUST include a
+        <a href="https://w3c.github.io/wot-thing-description/#thing">
+          <code>profile</code></a> member [[wot-thing-description11]].
+      </span>
+      <span class="rfc2119-assertion" id="profiling-mechanism-3">
+        The value of the <code>profile</code> member MUST be set to either a
+        valid URI [[RFC3986]] identifying a single profile, or an array of valid
+        URIs identifying multiple profiles.
+      </span>
+    </p>
+    <p>
+      <span class="rfc2119-assertion" id="profiling-mechanism-4">
+        In order to use a <code>profile</code> member in a Thing Description,
+        the <code>@context</code> member MUST contain the anyURI
+        <code>https://www.w3.org/2022/wot/td/v1.1</code> in order to denote that
+        the document is using version 1.1 of the Thing Description
+        specification. [[wot-thing-description11]].
+      </span>
     </p>
     <pre class="example">
     {
-      "@context": "https://www.w3.org/2019/wot/td/v1",
+      "@context": "https://www.w3.org/2022/wot/td/v1.1",
       "id": "urn:dev:ops:32473-WoTLamp-1234",
       "profile": "https://www.w3.org/2022/wot/profile/http-baseline/v1",
       "title": "My Lamp",
@@ -723,7 +739,7 @@
     </pre>
     <pre class="example">
     {
-      "@context": "https://www.w3.org/2019/wot/td/v1",
+      "@context": "https://www.w3.org/2022/wot/td/v1.1",
       "id": "urn:dev:ops:32473-WoTLamp-1234",
       "profile": [
         "https://www.w3.org/2022/wot/profile/http-baseline/v1",
@@ -2876,7 +2892,7 @@
       </p>
       <pre class="example">
         {
-          "@context": "https://www.w3.org/2019/wot/td/v1",
+          "@context": "https://www.w3.org/2022/wot/td/v1.1",
           "id": "https://mywebthingserver.com/things/lamp",
           "profile": [
             "https://www.w3.org/2022/wot/profile/http-baseline/v1",
