@@ -1813,10 +1813,11 @@
       </div>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-errors-3">
-          A Web Thing MUST NOT issue any 3xx status codes.</span>
+          A Web Thing MAY respond with 3xx status codes for the purposes of
+          redirection, caching or authentication.</span>
         <span class="rfc2119-assertion" id="common-constraints-errors-4">
-          A Consumer MAY treat all 3xx codes as errors that do not change the status or behavior
-          of the consumer.</span>
+          A Web Thing MUST NOT respond with a <code>300 Multiple Choices</code>
+          status code.</span>
       </p>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-errors-5">
@@ -1825,18 +1826,6 @@
         <span class="rfc2119-assertion" id="common-constraints-errors-6">
           Consumers MAY interpret other valid HTTP error codes as a generic <code>4xx</code> or <code>5xx</code>
           error with no special defined behaviour.</span>
-      </p>
-      <p class="ednote">
-        <!-- <span id="profile-5-2-4-thing-protocol-binding-error-responses-6"> -->
-        TODO: If we define the finite set of error responses as above then we
-        should also define what a Consumer should do if it receives a 3xx
-        redirect type response.
-        <!-- </span> -->
-      <p class="ednote">
-        It turns out 3xx redirection codes are used as part of some OAuth2 flows, so it may be
-        in appropriate to disallow them generally. See the "Security Bootstrapping" section of
-        WoT Discovery.
-      </p>
       </p>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-errors-7">
