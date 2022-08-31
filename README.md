@@ -14,14 +14,14 @@ This specification serves two purposes:
 provides a mechanism to describe a profile in an unambiguous way.
 This mechanism can be used to define additional profiles.
 
-- In addition it defines a **Core Profile** of the Thing Description 
-for use with selected protocols. The <a>Core Profile</a> formalizes
+- In addition it defines a **Base Profile** of the Thing Description 
+for use with selected protocols. The <a>Base Profile</a> formalizes
 the results of several plug-fests that were conducted by the WoT
 Interest Group and of tests that were conducted as part of the
 development. It is expected that additional profiles for thing
 templates and other protocols will be defined in the near future.
 
-Devices that constrain their use of the Thing Description to the **WoT Core Profile** can **interoperate other out-of-the-box**.
+Devices that constrain their use of the Thing Description to the **WoT Profiles** can **interoperate other out-of-the-box**.
 
 A rendered version of the profile specification is available at: [WoT Profile](http://w3c.github.io/wot-profile/)
 
