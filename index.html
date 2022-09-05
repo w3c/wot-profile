@@ -678,23 +678,35 @@
       The following sections are applicable for all of the HTTP profiles defined by this document.
     </p>
 
-  <!--  TODO: Identifiers -->
+    <!-- Identifiers -->
 
-    <!--  TODO: Units -->
 
+
+    <!-- Units -->
+
+    <section id="common-constraints-units">
+      <h2 id="units">Date format</h2>
+      <span class="rfc2119-assertion" id="common-constraints-units">
+        It is highly RECOMMENDED to always specify a
+        <code>unit</code>, if a value has a metric.</span>
+      Authors of <em>Thing Descriptions</em> should be aware that units
+      that are common in their geographic region are
+      not globally applicable and may lead to
+      misinterpretation with drastic consequences.
+      </p>
+    </section>
     <!--  Date Format -->
 
     <section id="common-constraints-date-format">
     <h2 id="date-format">Date format</h2>
     <p>
-      <span class="rfc2119-assertion" id="profile-date-format-1">
-        All date and time values MUST use the canonical dateTime representation format defined in section 3.2.7
-        of
-        [xmlschema-2].</span>
+      <span class="rfc2119-assertion" id="common-constraints-date-format-1">
+        All date and time values MUST use the canonical dateTime representation format 
+        defined in section 3.2.7 of [xmlschema-2].</span>
       As described by this section the following constraints must be observed:
-      <span class="rfc2119-assertion" id="profile-date-format-2">
-        All dateTime values MUST use UTC as the time zone and use the 'Z' identifier.</span>
-      <span class="rfc2119-assertion" id="profile-date-format-3">
+      <span class="rfc2119-assertion" id="common-constraints-date-format-2">
+        All dateTime values SHOULD use UTC as the time zone and use the 'Z' identifier.</span>
+      <span class="rfc2119-assertion" id="common-constraints-date-format-3">
         A time value of 24:00 is not permitted; the value 00:00 MUST be used instead.</span>
     </p>
     </section>
