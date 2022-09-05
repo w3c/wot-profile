@@ -683,13 +683,18 @@
     <!-- Units -->
 
     <section id="common-constraints-units">
-      <h2 id="units">Date format</h2>
+      <h2 id="units">Units</h2>
       <p>Authors of <em>Thing Descriptions</em> should be aware that units
       that are common in their geographic region are not globally applicable 
       and may lead to misinterpretation with drastic consequences.
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-units">
-        It is highly RECOMMENDED to specify a <code>unit</code>, if a value has a metric.</span>
+        It is highly RECOMMENDED to provide a <code>unit</code>, 
+        if a value has a physical quantity.</span>
+      </p>
+      <p><span class="rfc2119-assertion" id="common-constraints-units-metric">
+        It is highly RECOMMENDED to use the metric system (SI units) 
+        for devices that are used in global deployments.</span>
       </p>
     </section>
     <!--  Date Format -->
