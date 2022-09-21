@@ -700,20 +700,20 @@
     <!--  Date Format -->
 
     <section id="common-constraints-date-format">
-      <h2 id="date-format">Date format</h2>
+      <h2 id="date-format">Date Format</h2>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-date-format-1">
-          All date and time values MUST use the canonical dateTime representation format
-          defined in section 3.2.7 of [xmlschema-2].</span>
+          All date and time values MUST use the <code>date-time</code> format 
+          defined in [[RFC3339]].</span>
       </p>
-      <p>
-        As described by this section the following constraints must be observed:
-        <span class="rfc2119-assertion" id="common-constraints-date-format-2">
-          All dateTime values SHOULD use UTC as the time zone and use the 'Z' identifier.</span>
-      </p>
-      <p>
-        <span class="rfc2119-assertion" id="common-constraints-date-format-3">
-          A time value of 24:00 is not permitted; the value 00:00 MUST be used instead.</span>
+      <pre class="example">
+        <code>2022-09-21T23:20:50.52Z</code>
+      </pre>
+      <p class="note">
+        In order to reduce ambiguity, RFC 3339 only permits an hour with a value
+        between 00 and 23 (not 24), and time zones expressed as a numerical
+        offset relative to UTC. The suffix "Z" when applied to a time denotes a
+        UTC offset of 00:00.
       </p>
     </section>
 
@@ -1616,8 +1616,8 @@
                   <td><code>timeRequested</code></td>
                   <td>
                     A timestamp indicating the time at which the Thing received
-                    the request to execute the action, in ISO format [[ISO8601-1]]
-                    (see <a href="#date-format">Date format</a> for additional
+                    the request to execute the action. (See 
+                    <a href="#date-format">Date Format</a> for date format 
                     constraints).
                   </td>
                   <td>optional</td>
@@ -1628,8 +1628,8 @@
                   <td>
                     A timestamp indicating the time at which the Thing
                     successfully completed executing the action, or failed to
-                    execute the action, in ISO format [[ISO8601-1]]
-                    (see <a href="#date-format">Date format</a> for additional
+                    execute the action. (See 
+                    <a href="#date-format">Date Format</a> for date format 
                     constraints).
                   </td>
                   <td>optional</td>
@@ -2266,8 +2266,9 @@
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5d">
               It is RECOMMENDED that the
               identifier is a timestamp representing the time at which the
-              property changed, in the &quotdate-time&quot format specified by
-              [[RFC3339]].</span>
+              property changed</span> (see 
+              <a href="#date-format">Date Format</a> for date format 
+              constraints).
           </p>
           <pre class="example">
             event: level\n
@@ -2424,8 +2425,9 @@
               below).</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5e">
               It is RECOMMENDED that the identifier is a timestamp
-              representing the time at which the property changed, in the
-              &quot;date-time&quot; format specified by [[RFC3339]].</span>
+              representing the time at which the property changed</span> (see 
+              <a href="#date-format">Date Format</a> for date format 
+              constraints).
           </p>
           <pre class="example">
             event: level\n
@@ -2598,8 +2600,9 @@
               below).</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6e">
               It is RECOMMENDED that the identifier is a timestamp
-              representing the time at which the event ocurred, in the
-              &quot;date-time&quot; format specified by [[RFC3339]].</span>
+              representing the time at which the event ocurred</span> (see 
+              <a href="#date-format">Date Format</a> for date format 
+              constraints).
           </p>
           <pre class="example">
             event: overheated\n
@@ -2752,8 +2755,9 @@
               below).</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4e">
               It is RECOMMENDED that the identifier is a timestamp
-              representing the time at which the event ocurred, in the
-              &quot;date-time&quot; format specified by [[RFC3339]].</span>
+              representing the time at which the event ocurred</span>
+              (see <a href="#date-format">Date Format</a> for date format
+              constraints).
           </p>
           <pre class="example">
             event: overheated\n
