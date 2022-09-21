@@ -14,7 +14,7 @@ This specification serves two purposes:
 provides a mechanism to describe a profile in an unambiguous way.
 This mechanism can be used to define additional profiles.
 
-- In addition it defines a **Cset of profiles** of the Thing Description 
+- In addition it defines a **set of profiles** of the Thing Description 
 for use with selected protocols. The <a>WoT Profile Specification</a> formalizes
 the results of several plug-fests that were conducted by the WoT
 Interest Group and of tests that were conducted as part of the
