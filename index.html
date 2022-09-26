@@ -1982,6 +1982,8 @@
   </section>
   </section>
 
+  <!--- ---------------------------------------------->
+
   <section id="sec-http-sse-profile" class="informative">
     <h1>HTTP SSE Profile</h1>
     <p>This section defines the HTTP SSE Profile, including a
@@ -1995,9 +1997,9 @@
       cancel actions.
     </p>
     <p>
-      <span class="rfc2119-assertion" id="http-sse-profile-1">
+      <span class="rfc2119-informative-assertion" id="http-sse-profile-1">
         In order to conform with the HTTP SSE Profile, Web Things and
-        Consumers MUST also conform with all of the assertions in the
+        Consumers must also conform with all of the assertions in the
         <a href="#common-constraints">Common Constraints</a>
         section.
       </span>
@@ -2006,10 +2008,10 @@
     <!-- Identifier -->
     <section id="http-sse-profile-identifier">
       <h2>Identifier</h2>
-      <p><span class="rfc2119-assertion" id="http-sse-profile-identifier-1">
+      <p><span class="rfc2119-informative-assertion" id="http-sse-profile-identifier-1">
           In order to denote that a given
           <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-          conforms to the HTTP SSE Profile, its Thing Description MUST have a
+          conforms to the HTTP SSE Profile, its Thing Description must have a
           <a href="https://w3c.github.io/wot-thing-description/#thing">
             <code>profile</code></a> member [[wot-thing-description]] with a value
           of <code>https://www.w3.org/2022/wot/profile/http-sse/v1</code>.</span>
@@ -2025,9 +2027,9 @@
         [[wot-architecture11]] using Server-Sent Events [[EVENTSOURCE]].
       </p>
       <p>
-        <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-1">
+        <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-1">
           A Consumer or Web Thing conforming to the HTTP SSE Profile
-          MUST implement this protocol binding.</span>
+          must implement this protocol binding.</span>
       </p>
 
       <p>
@@ -2140,10 +2142,10 @@
 
         <section id="observeproperty">
           <h5><code>observeproperty</code></h5>
-          <div class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-1">
+          <div class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-1">
             <p>
               The URL of a <code>Property</code> resource to be used when
-              observing the value of a property MUST be obtained from a Thing
+              observing the value of a property must be obtained from a Thing
               Description by locating a
               <a href="https://www.w3.org/TR/wot-thing-description/#form">
                 <code>Form</code></a> inside the corresponding
@@ -2168,13 +2170,13 @@
             </ul>
           </div>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-2">
-              The resolved value of the <code>href</code> member MUST then be
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-2">
+              The resolved value of the <code>href</code> member must then be
               used as the URL of the <code>Property</code> resource.</span>
           </p>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-3">
-              In order to observe a property, a Consumer MUST follow the
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-3">
+              In order to observe a property, a Consumer must follow the
               Server-Sent Events [[EVENTSOURCE]] specification to open a
               connection with the Web Thing at the URL of the
               <code>Property</code> resource.</span>
@@ -2211,10 +2213,10 @@
             </pre>
           </p>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-4">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-4">
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to observe the
-              corresponding property, then it MUST follow the Server-Sent Events
+              corresponding property, then it must follow the Server-Sent Events
               [[EVENTSOURCE]] specification to maintain an open connection with
               the Consumer and push a property value to the Consumer each time
               the value of the specified property changes.</span>
@@ -2235,23 +2237,23 @@
             Content-Type: text/event-stream
           </pre>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5a">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-5a">
               Whenever the value of the specified property changes while the Web
-              Thing has an open connection with a Consumer, the Web Thing MUST
+              Thing has an open connection with a Consumer, the Web Thing must
               send a property value to the Consumer using the event stream
               format in the Server-Sent Events [[EVENTSOURCE]] specification.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5b">
-              For each message sent, the Web Thing MUST set the
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-5b">
+              For each message sent, the Web Thing must set the
               <code>event</code> field to the name of the
               <code>PropertyAffordance</code> and populate the <code>data</code>
               field with the property value, serialized in JSON and following
               the data schema specified in the <code>PropertyAffordance</code>.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5c">
-              The <code>id</code> field SHOULD be set to a unique
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-5c">
+              The <code>id</code> field should be set to a unique
               identifier for the property change, for use when re-establishing a
               dropped connection (see below).</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5d">
-              It is RECOMMENDED that the
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-5d">
+              It is recommended that the
               identifier is a timestamp representing the time at which the
               property changed, in the &quotdate-time&quot format specified by
               [[RFC3339]].</span>
@@ -2262,15 +2264,15 @@
             id: 2021-11-17T15:33:20.827Z\n\n
           </pre>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-6a">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-6a">
               If the connection between the Consumer and Web Thing drops
               (except as a result of the <code>unobserve</code> operation
-              defined below), the Consumer MUST re-establish the connection
+              defined below), the Consumer must re-establish the connection
               following the steps outlined in the Server-Sent Events
               specification [[EVENTSOURCE]].</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-6b">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeproperty-6b">
               Once the connection is
-              re-established the Web Thing SHOULD, if possible, send any missed
+              re-established the Web Thing should, if possible, send any missed
               property changes which occurred since the last change specified by
               the Consumer in a <code>Last-Event-ID</code> header.</span>
           </p>
@@ -2279,8 +2281,8 @@
         <section id="unobserveproperty">
           <h5><code>unobserveproperty</code></h5>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-unobserveproperty-1">
-              In order to stop observing a property, a Consumer MUST terminate
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-unobserveproperty-1">
+              In order to stop observing a property, a Consumer must terminate
               the corresponding Server-Sent Events connection with the Web Thing
               as specified in the Server-Sent Events specification
               [[EVENTSOURCE]].</span>
@@ -2300,10 +2302,10 @@
 
         <section id="observeallproperties">
           <h5><code>observeallproperties</code></h5>
-          <div class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-1">
+          <div class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-1">
             <p>
               The URL of a properties resource to be used when observing
-              changes to all properties of a Web Thing MUST be obtained from a
+              changes to all properties of a Web Thing must be obtained from a
               Thing Description by locating a
               <a href="https://www.w3.org/TR/wot-thing-description/#form">
                 <code>Form</code></a> inside the top level
@@ -2327,14 +2329,14 @@
             </ul>
           </div>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-2">
-              The resolved value of the <code>href</code> member MUST then be
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-2">
+              The resolved value of the <code>href</code> member must then be
               used as the URL of the properties resource.</span>
           </p>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-3">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-3">
               In order to observe changes to all properties of a Web Thing, a
-              Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
+              Consumer must follow the Server-Sent Events [[EVENTSOURCE]]
               specification to open a connection with the Web Thing at the URL
               of the properties resource.</span>
           </p>
@@ -2370,9 +2372,9 @@
             </pre>
           </p>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-4">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-4">
               If a Web Thing receives an HTTP request following the format
-              above then it MUST follow the Server-Sent Events
+              above then it must follow the Server-Sent Events
               [[EVENTSOURCE]] specification to maintain an open connection with
               the Consumer and push new property values to the Consumer for all
               properties for which it has permission to observe.</span>
@@ -2393,24 +2395,24 @@
             Content-Type: text/event-stream
           </pre>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5a">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5a">
               Whenever a property changes while the Web Thing has an open
-              connection with a Consumer, the Web Thing MUST send the new
+              connection with a Consumer, the Web Thing must send the new
               property value to the Consumer using the event stream format in
               the Server-Sent Events [[EVENTSOURCE]] specification.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5b">
-              For each message sent, the Web Thing MUST set the <code>event</code> field
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5b">
+              For each message sent, the Web Thing must set the <code>event</code> field
               to the name of the <code>PropertyAffordance</code> and populate
               the <code>data</code> field with the new property value.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5c">
-              The property data MUST follow the data schema specified in the
-              <code>PropertyAffordance</code> and MUST be serialized in JSON.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5d">
-              The <code>id</code> field SHOULD be set to a unique identifier for
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5c">
+              The property data must follow the data schema specified in the
+              <code>PropertyAffordance</code> and must be serialized in JSON.</span>
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5d">
+              The <code>id</code> field should be set to a unique identifier for
               the event, for use when re-establishing a dropped connection (see
               below).</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5e">
-              It is RECOMMENDED that the identifier is a timestamp
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5e">
+              It is recommended that the identifier is a timestamp
               representing the time at which the property changed, in the
               &quot;date-time&quot; format specified by [[RFC3339]].</span>
           </p>
@@ -2420,15 +2422,15 @@
             id: 2021-11-17T15:33:20.827Z\n\n
           </pre>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-6a">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-6a">
               If the connection between the Consumer and Web Thing drops
               (except as a result of the <code>unobserveallproperties</code>
-              operation defined below), the Consumer MUST re-establish the
+              operation defined below), the Consumer must re-establish the
               connection following the steps outlined in the Server-Sent Events
               specification [[EVENTSOURCE]].</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-6b">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-observeallproperties-6b">
               Once the connection is
-              re-established the Web Thing SHOULD, if possible, send any missed
+              re-established the Web Thing should, if possible, send any missed
               property changes which occurred since the last change specified by
               the Consumer in a <code>Last-Event-ID</code> header.</span>
           </p>
@@ -2437,8 +2439,8 @@
         <section id="unobserveallproperties">
           <h5><code>unobserveallproperties</code></h5>
           <p>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-unobserveallproperties-1">
-              In order to unobserve all properties, a Consumer MUST terminate
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-unobserveallproperties-1">
+              In order to unobserve all properties, a Consumer must terminate
               the corresponding Server-Sent Events connection with the
               properties endpoint of the Web Thing, following the steps
               specified in the Server-Sent Events specification [[EVENTSOURCE]].</span>
@@ -2474,10 +2476,10 @@
         </p>
         <section id="http-sse-profile-protocol-binding-subscribeevent">
           <h5><code>subscribeevent</code></h5>
-          <div class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-1">
+          <div class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-1">
             <p>
               The URL of an <code>Event</code> resource to be used when
-              subscribing to an event MUST be obtained from a Thing Description
+              subscribing to an event must be obtained from a Thing Description
               by locating a
               <a href="https://www.w3.org/TR/wot-thing-description/#form">
                 <code>Form</code></a> inside the corresponding
@@ -2500,12 +2502,12 @@
               </li>
             </ul>
           </div>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-3">
-              The resolved value of the <code>href</code> member MUST then be used
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-3">
+              The resolved value of the <code>href</code> member must then be used
               as the URL of the <code>Event</code> resource.</span>
           </p>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-4">
-              In order to subscribe to an event, a Consumer MUST follow the
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-4">
+              In order to subscribe to an event, a Consumer must follow the
               Server-Sent Events [[EVENTSOURCE]] specification to open a
               connection with the Web Thing at the URL of the <code>Event</code>
               resource.</span>
@@ -2541,10 +2543,10 @@
               const overheatedEventSource = new EventSource('/things/lamp/events/overheated');
             </pre>
           </p>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-5">
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-5">
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to subscribe to the
-              corresponding event, then it MUST follow the Server-Sent Events
+              corresponding event, then it must follow the Server-Sent Events
               [[EVENTSOURCE]] specification to maintain an open connection with
               the Consumer and push event data to the Consumer as events of the
               specified type are emitted.</span>
@@ -2564,27 +2566,27 @@
           HTTP/1.1 200 OK
           Content-Type: text/event-stream
           </pre>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6a">
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6a">
               Whenever an event of the specified type occurs while the Web Thing
-              has an open connection with a Consumer, the Web Thing MUST
+              has an open connection with a Consumer, the Web Thing must
               send event data to the Consumer using the event stream format in the
               Server-Sent Events [[EVENTSOURCE]] specification.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6b">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6b">
               For each message
-              sent, the Web Thing MUST set the <code>event</code> field to the
+              sent, the Web Thing must set the <code>event</code> field to the
               name of the <code>EventAffordance</code> and populate the
               <code>data</code> field with event data, if any.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6c">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6c">
               The
-              event data MUST follow the data schema specified in the
+              event data must follow the data schema specified in the
               <code>EventAffordance</code>
               and be serialized in JSON.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6d">
-              The <code>id</code> field SHOULD be set to a unique identifier for
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6d">
+              The <code>id</code> field should be set to a unique identifier for
               the event, for use when re-establishing a dropped connection (see
               below).</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6e">
-              It is RECOMMENDED that the identifier is a timestamp
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6e">
+              It is recommended that the identifier is a timestamp
               representing the time at which the event ocurred, in the
               &quot;date-time&quot; format specified by [[RFC3339]].</span>
           </p>
@@ -2593,15 +2595,15 @@
             data: 90\n
             id: 2021-11-16T16:53:50.817Z\n\n
           </pre>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-7a">
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-7a">
               If the connection between the Consumer and Web Thing drops
               (except as a result of the <code>unsubscribe</code> operation
-              defined below), the Consumer MUST re-establish the connection
+              defined below), the Consumer must re-establish the connection
               following the steps outlined in the Server-Sent Events specification
               [[EVENTSOURCE]].</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-7b">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeevent-7b">
               Once the connection is re-established the Web Thing
-              SHOULD, if possible, send any missed events which occurred since
+              should, if possible, send any missed events which occurred since
               the last event specified by the Consumer in a
               <code>Last-Event-ID</code> header.</span>
           </p>
@@ -2609,8 +2611,8 @@
 
         <section id="http-sse-profile-protocol-binding-events-unsubscribeevent">
           <h5><code>unsubscribeevent</code></h5>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-unsubscribeevent-1">
-              In order to unsubscribe from an event, a Consumer MUST terminate
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-unsubscribeevent-1">
+              In order to unsubscribe from an event, a Consumer must terminate
               the corresponding Server-Sent Events connection with the Web Thing
               as specified in the Server-Sent Events specification
               [[EVENTSOURCE]].</span>
@@ -2630,10 +2632,10 @@
 
         <section id="http-sse-profile-protocol-binding-events-subscribeallevents">
           <h5><code>subscribeallevents</code></h5>
-          <div class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-1">
+          <div class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-1">
             <p>
               The URL of an events resource to be used when subscribing to all
-              events emitted by a Web Thing MUST be obtained from a Thing
+              events emitted by a Web Thing must be obtained from a Thing
               Description by locating a
               <a href="https://www.w3.org/TR/wot-thing-description/#form">
                 <code>Form</code></a> inside the top level
@@ -2656,13 +2658,13 @@
               </li>
             </ul>
           </div>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-3b">
-              The resolved value of the <code>href</code> member MUST then be used
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-3b">
+              The resolved value of the <code>href</code> member must then be used
               as the URL of the events resource.</span>
           </p>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4">
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4">
               In order to subscribe to all events emitted by a Web Thing, a
-              Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
+              Consumer must follow the Server-Sent Events [[EVENTSOURCE]]
               specification to open a connection with the Web Thing at the URL of
               the events resource.</span>
           </p>
@@ -2697,9 +2699,9 @@
               const lampEventsSource = new EventSource('/things/lamp/events');
             </pre>
           </p>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-3">
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-3">
               If a Web Thing receives an HTTP request following the format
-              above then it MUST follow the Server-Sent Events
+              above then it must follow the Server-Sent Events
               [[EVENTSOURCE]] specification to maintain an open connection with
               the Consumer and push event data to the Consumer for all event
               types for which it has permission to subscribe.</span>
@@ -2719,26 +2721,26 @@
             HTTP/1.1 200 OK
             Content-Type: text/event-stream
           </pre>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4a">
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4a">
               Whenever an event occurs while the Web Thing has an open connection
-              with a Consumer, the Web Thing MUST send event data to the Consumer
+              with a Consumer, the Web Thing must send event data to the Consumer
               using the event stream format in the Server-Sent Events
               [[EVENTSOURCE]] specification.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4b">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4b">
               For each message sent, the Web Thing
-              MUST set the <code>event</code> field to the
+              must set the <code>event</code> field to the
               name of the <code>EventAffordance</code> and populate the
               <code>data</code> field with event data, if any.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4c">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4c">
               The
-              event data MUST follow the data schema specified in the
+              event data must follow the data schema specified in the
               <code>EventAffordance</code> and be serialized in JSON.</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4d">
-              The <code>id</code> field SHOULD be set to a unique identifier for
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4d">
+              The <code>id</code> field should be set to a unique identifier for
               the event, for use when re-establishing a dropped connection (see
               below).</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4e">
-              It is RECOMMENDED that the identifier is a timestamp
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4e">
+              It is recommended that the identifier is a timestamp
               representing the time at which the event ocurred, in the
               &quot;date-time&quot; format specified by [[RFC3339]].</span>
           </p>
@@ -2747,15 +2749,15 @@
             data: 90\n
             id: 2021-11-16T16:53:50.817Z\n\n
           </pre>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-5a">
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-5a">
               If the connection between the Consumer and Web Thing drops
               (except as a result of the <code>unsubscribeallevents</code>
-              operation defined below), the Consumer MUST re-establish the
+              operation defined below), the Consumer must re-establish the
               connection following the steps outlined in the Server-Sent Events
               specification [[EVENTSOURCE]].</span>
-            <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-5b">
+            <span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-5b">
               Once the connection is re-established
-              the Web Thing SHOULD, if possible, send any missed events which
+              the Web Thing should, if possible, send any missed events which
               occurred since the last event specified by the Consumer in a
               <code>Last-Event-ID</code> header.</span>
           </p>
@@ -2763,8 +2765,8 @@
 
         <section id="http-sse-profile-protocol-binding-events-unsubscribeallevents">
           <h5><code>unsubscribeallevents</code></h5>
-          <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-unsubscribeallevents-1">
-              In order to unsubscribe from all events, a Consumer MUST terminate
+          <p><span class="rfc2119-informative-assertion" id="http-sse-profile-protocol-binding-unsubscribeallevents-1">
+              In order to unsubscribe from all events, a Consumer must terminate
               the corresponding Server-Sent Events connection with the events
               endpoint of the Web Thing, following the steps specified in the
               Server-Sent Events specification [[EVENTSOURCE]].</span>
@@ -2794,20 +2796,20 @@
       for observing properties and listening for events using
       <a href="#sec-http-webhook-profile">WebHooks</a>.
     </p>
-    <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-general-1">
-        The <em>HTTP Webhook profile</em> MAY be used in conjunction with the
+    <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-general-1">
+        The <em>HTTP Webhook profile</em> may be used in conjunction with the
         <a href="#http-baseline-profile">HTTP Baseline Profile</a> in order to
         provide operations to read and write properties and invoke, query and
         cancel actions.</span>
     </p>
-    <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-general-2">
-        The <em>HTTP Webhook profile</em> MAY be used as an alternative event mechanism
+    <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-general-2">
+        The <em>HTTP Webhook profile</em> may be used as an alternative event mechanism
         to the <a href="#sec-http-sse-profile">HTTP SSE Profile</a>.</span>
     </p>
     <p>
-      <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-general-3">
+      <span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-general-3">
         In order to conform with the HTTP Webhook Profile, Web Things and
-        Consumers MUST also conform with all of the assertions in the
+        Consumers must also conform with all of the assertions in the
         <a href="#common-constraints">Common Constraints</a>
         section.
       </span>
@@ -2828,9 +2830,9 @@
         Explain listeners, data payloads, dataResponse payloads.
         Create normative language on multiple subscriptions to the same event by the same consumer.
       </p>
-      <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-events-1">
+      <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-events-1">
           Depending on the use case, a single listener for multiple things and multiple
-          event types MAY be used.</span>
+          event types may be used.</span>
       </p>
 
       <section id="webhook-example">
@@ -2917,10 +2919,10 @@
     <!-- Identifier -->
     <section id="http-webhook-profile-identifier">
       <h2>Identifier</h2>
-      <p><span class="rfc2119-assertion" id="http-webhook-profile-1">
+      <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-1">
           In order to denote that a given
           <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-          conforms to the HTTP Webhook Profile, its Thing Description MUST have a
+          conforms to the HTTP Webhook Profile, its Thing Description must have a
           <a href="https://w3c.github.io/wot-thing-description/#thing">
             <code>profile</code></a> member [[wot-thing-description]] with a value
           of <code>https://www.w3.org/2022/wot/profile/http-webhook/v1</code>.</span>
@@ -2933,8 +2935,8 @@
 
     <section id="sec-http-webhook-profile-message-format">
       <h3>Message Format</h3>
-      <p><span class="rfc2119-assertion" id="http-webhook-profile-message-format-1">
-        Event notification messages MUST comply with the following data schema.</span>
+      <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-message-format-1">
+        Event notification messages must comply with the following data schema.</span>
       </p>
 
       <p class="ednote">
@@ -2953,9 +2955,9 @@
         communicate using Webhook Events.
       </p>
       <p>
-        <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-1">
+        <span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-1">
           A Consumer or Web Thing conforming to the HTTP Webhook Profile
-          MUST implement this protocol binding.</span>
+          must implement this protocol binding.</span>
       </p>
 
       <section id="http-webhook-profile-protocol-binding-events">
@@ -2963,10 +2965,10 @@
 
         <section id="http-webhook-profile-protocol-binding-subscribeevent">
           <h4><code>subscribeevent</code></h4>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-subscribeevent-1">
+          <div class="rfc2119-informative-assertion" id="http-baseline-profile-protocol-binding-subscribeevent-1">
             <p>
               The URL of an <code>Event</code> resource to be used when
-              subscribing to an event MUST be obtained from a Thing Description
+              subscribing to an event must be obtained from a Thing Description
               by locating a
               <a href="https://www.w3.org/TR/wot-thing-description/#form">
                 <code>Form</code></a> inside the corresponding
@@ -2989,12 +2991,12 @@
               </li>
             </ul>
           </div>
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-3">
-              The resolved value of the <code>href</code> member MUST then be used
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-3">
+              The resolved value of the <code>href</code> member must then be used
               as the URL of the <code>Event</code> resource.</span>
           </p>
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-4">
-              In order to subscribe to an event, a Consumer MUST
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-4">
+              In order to subscribe to an event, a Consumer must
               provide the listener URL in the data payload of the
               <code>subscribe</code> operation of the <code>Event</code> resource.</span>
           </p>
@@ -3031,10 +3033,10 @@
               }
               </pre>
 
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to subscribe to the
-              corresponding event, then it MUST send <em>event messages</em>
+              corresponding event, then it must send <em>event messages</em>
               to the Consumer as events of the specified type are emitted.</span>
           </p>
 
@@ -3059,8 +3061,8 @@
               }
 
               </pre>
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-6">
-              Whenever an event of the specified type occurs, the Web Thing MUST
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-6">
+              Whenever an event of the specified type occurs, the Web Thing must
               send event data to the Consumer using the event payload format defined in section
               ["#sec-http-webhook-profile-protocol-binding-events-notification"].</span>
           </p>
@@ -3070,8 +3072,8 @@
         <section id="http-webhook-profile-protocol-binding-events-unsubscribeevent">
           <h4><code>unsubscribeevent</code></h4>
 
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-4b">
-              In order to unsubscribe to an event, a Consumer MUST
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-4b">
+              In order to unsubscribe to an event, a Consumer must
               provide the <code>subscriptionID</code> in the data payload of the
               <code>unsubscribe</code> operation of the <code>Event</code> resource.</span>
           </p>
@@ -3098,10 +3100,10 @@
 
         <section id="http-webhook-profile-protocol-binding-events-subscribeallevents">
           <h4><code>subscribeallevents</code></h4>
-          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-1">
+          <div class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-1">
             <p>
               The URL of an <code>Events</code> resource to be used when subscribing to all
-              events emitted by a Web Thing MUST be obtained from a Thing
+              events emitted by a Web Thing must be obtained from a Thing
               Description by locating a
               <a href="https://www.w3.org/TR/wot-thing-description/#form">
                 <code>Form</code></a> inside the top level
@@ -3124,14 +3126,14 @@
               </li>
             </ul>
           </div>
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-3">
-              The resolved value of the <code>href</code> member MUST then be used
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-3">
+              The resolved value of the <code>href</code> member must then be used
               as the URL of the events resource.</span>
           </p>
-          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-4">
+          <div class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-4">
             <p>
               In order to subscribe to <em>all</em> events emitted by a Web Thing, a
-              Consumer MUST send an HTTP request to the Web Thing with:
+              Consumer must send an HTTP request to the Web Thing with:
             </p>
             <ul>
               <li>Method set to <code>POST</code></li>
@@ -3159,9 +3161,9 @@
                 }
                 </pre>
 
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-5">
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-5">
               If a Web Thing receives an HTTP request following the format
-              above, then it MUST send <em>event messages</em>
+              above, then it must send <em>event messages</em>
               to the Consumer for all event
               types for which it has permission to subscribe.</span>
           </p>
@@ -3188,27 +3190,27 @@
 
               </pre>
 
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-6">
-              Whenever an event occurs, the Web Thing MUST send event data to the Consumer
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-6">
+              Whenever an event occurs, the Web Thing must send event data to the Consumer
               using the event payload format defined in section <a
                 href="sec-http-webhook-profile-message-format">Message Format</a>.</span>
 
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-7">
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-7">
               If the connection between the Web Thing and the Consumer drops,
-              the Web Thing MUST re-establish the connection.</span>
+              the Web Thing must re-establish the connection.</span>
           </p>
 
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-8">
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-8">
               Once the connection is re-established the Web Thing
-              SHOULD, if possible, send any missed events which occurred since
+              should, if possible, send any missed events which occurred since
               the last successful event notification.</span>
           </p>
         </section>
 
         <section id="http-webhook-profile-protocol-binding-events-unsubscribeallevents">
           <h4><code>unsubscribeallevents</code></h4>
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unsubscribeallevents-1">
-              In order to unsubscribe from all events, a Consumer MUST invoke the
+          <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-unsubscribeallevents-1">
+              In order to unsubscribe from all events, a Consumer must invoke the
               <code>unsubscribe</code> operation of the <code>Event</code> resource.</span>
           </p>
 
@@ -3237,40 +3239,40 @@
       <section id="sec-http-webhook-profile-protocol-binding-event-listeners">
         <h4>Event Connections</h4>
 
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-1">
-            A HTTP(s) connection to the event listener of a Consumer MUST be initiated and managed by the Web
+        <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-event-connections-1">
+            A HTTP(s) connection to the event listener of a Consumer must be initiated and managed by the Web
             Thing.</span>
         </p>
 
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-2">
-            A Consumer MUST terminate the subscription with the events endpoint of the Web Thing.</span>
+        <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-event-connections-2">
+            A Consumer must terminate the subscription with the events endpoint of the Web Thing.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-3">
+        <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-event-connections-3">
             If a Consumer becomes unavailable and the Web Thing cannot successfully transmit
-            event messages to the consumer, it SHOULD attempt several retries at increasing intervals.</span>
+            event messages to the consumer, it should attempt several retries at increasing intervals.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-4">
-            After the maximum number of retries was reached, the Web Thing MAY terminate the subscription
+        <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-event-connections-4">
+            After the maximum number of retries was reached, the Web Thing may terminate the subscription
             without having received an <code>unsubscribe</code> or <code>unsubscribeall</code> operation.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding--event-connections-5">
+        <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding--event-connections-5">
             If the connection between the Web Thing and the Consumer drops,
-            the Web Thing MUST attempt to re-establish the connection.</span>
+            the Web Thing must attempt to re-establish the connection.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-6">
+        <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-event-connections-6">
             Once the connection is re-established, the Web Thing
-            SHOULD, if possible, send any missed events which occurred since
+            should, if possible, send any missed events which occurred since
             the last successful event notification.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-7">
-            The Web Thing MAY reuse an existing connection to a listener for subsequent message traffic,
-            or it MAY establish a new connection for each message.</span>
+        <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-event-connections-7">
+            The Web Thing may reuse an existing connection to a listener for subsequent message traffic,
+            or it may establish a new connection for each message.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding--event-connections-8">
-            When an event message has been received, the Consumer MUST respond with a "HTTP 200 OK" message.</span>
+        <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding--event-connections-8">
+            When an event message has been received, the Consumer must respond with a "HTTP 200 OK" message.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-9">
-            An (optional) JSON payload MAY be provided to return a response back to the Web Thing
+        <p><span class="rfc2119-informative-assertion" id="http-webhook-profile-protocol-binding-event-connections-9">
+            An (optional) JSON payload may be provided to return a response back to the Web Thing
             via the same communication channel.</span>
         </p>
       </section>
