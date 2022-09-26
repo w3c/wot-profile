@@ -14,14 +14,14 @@ const req = https.get(docUrl, (res) => {
     res.on('data', (chunk) => { data += chunk; });
     res.on('end', () => {
         const $ = cheerio.load(data);
-        console.log(`"ID","Status","Comment"${addAssertionTxt?',"Assertion"':''}`);
+        console.log(`"ID","Status"${addAssertionTxt?',"Assertion"':''},"Comment"`);
         $('.rfc2119-assertion').each(function (i) {
             const id = $(this).attr('id');
             let assertionTxt = "";
             if (addAssertionTxt) {
                 assertionTxt = ',"'+$(this).text().trim().replace(/\r?\n/g,'').replace(/\s+/g,' ').replace(/"/g, '""')+'"';
             }
-            console.log(`"${id}","null","not testable with Assertion Tester"${assertionTxt}`);
+            console.log(`"${id}","null"${assertionTxt},`);
         });
     });
 }).on('error', (e) => {
