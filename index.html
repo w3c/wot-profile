@@ -1176,7 +1176,7 @@
               <li>URL set to the URL of the <code>Property</code> resource</li>
               <li><code>Accept</code> header set to <code>application/json
                 </code></li>
-            </ul>
+            </ul> 
           </div>
           <pre class="example">
               GET /things/lamp/properties/on HTTP/1.1
@@ -1495,7 +1495,38 @@
               </li>
             </ol>
           </div>
-          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-8">
+          <p>
+            <span class="rfc2119-assertion" 
+            id="http-basic-profile-protocol-binding-invokeaction-7">
+              If the <code>synchronous</code> member of the 
+              <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              [[wot-thing-description11]] is set to <code>true</code> then the Web 
+              Thing MUST respond with a
+              <a href="#sync-action-response">Synchronous Action Response</a>.
+            </span>
+          </p>
+          <p>
+            <span class="rfc2119-assertion" 
+            id="http-basic-profile-protocol-binding-invokeaction-8">
+              If the <code>synchronous</code> member of the 
+              <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              [[wot-thing-description11]] is set to <code>false</code> then the Web 
+              Thing MUST respond with an
+              <a href="#async-action-response">Asynchronous Action Response</a>.
+            </span>
+          </p>
+          <p>
+            <span class="rfc2119-assertion" 
+            id="http-basic-profile-protocol-binding-invokeaction-9">
+              If the <code>synchronous</code> member of the 
+              <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              [[wot-thing-description11]] is <code>undefined</code> then the Web 
+              Thing MAY respond with either a 
+              <a href="#sync-action-response">Synchronous Action Response</a> or
+              <a href="#async-action-response">Asynchronous Action Response</a>.
+            </span>
+          </p>
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-10">
               For long-running actions which are not expected to finish executing
               within the timeout period of an HTTP request (e.g. 30 to 120
               seconds), it is RECOMMENDED that a Web Thing respond with an
@@ -1504,28 +1535,28 @@
               <code>queryaction</code> operation on a dynamically created
               <code>ActionStatus</code> resource, after the initial
               <code>invokeaction</code> response.</span></p>
-          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-9">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-11">
               For short-lived actions which are expected to finish executing
               within the timeout period of an HTTP request, a Web Thing MAY wait
               until the action has completed to send a Synchronous Action
               Response.</span></p>
-          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-10">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-12">
               If a Web Thing encounters an error in attempting to execute an
               action before responding to the <code>invokeaction</code> request,
               then it MUST send an Error Response.</span></p>
-          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-11a">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-13">
               Conforming Consumers MUST support all three types of response
               to the initial <code>invokeaction</code> request.</span>
-            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-11b">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-14">
               After the initial request,
               support for subsequent operations on an <code>ActionStatus</code>
               resource is OPTIONAL.</span>
           </p>
 
           <h6 id="ActionStatus"><code>ActionStatus</code> object</h6>
-          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-12">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-15">
             <p>
-              The status of an action invocation request is represented by an
+              The status of an asynchronous action invocation request is represented by an
               <code>ActionStatus</code> object which includes the following
               members:
             </p>
@@ -1539,7 +1570,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-12_1">
+                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-16">
                   <td><code>status</code></td>
                   <td>The status of the action request.</td>
                   <td>mandatory</td>
@@ -1550,7 +1581,7 @@
                     <code>failed</code>)
                   </td>
                 </tr>
-                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-12_2">
+                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-17">
                   <td><code>output</code></td>
                   <td>
                     The output data, if any, of a completed action which
@@ -1562,7 +1593,7 @@
                   <td>optional</td>
                   <td>any type</td>
                 </tr>
-                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-12_3">
+                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-18">
                   <td><code>error</code></td>
                   <td>
                     An error message, if any, associated with a failed action
@@ -1574,7 +1605,7 @@
                   <td>optional</td>
                   <td><code>object</code></td>
                 </tr>
-                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-12_4">
+                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-19">
                   <td><code>href</code></td>
                   <td>
                     The [[URL]] of an <code>ActionStatus</code> resource which
@@ -1615,7 +1646,6 @@
               </tbody>
             </table>
           </div>
-
           <p class="note">
             It is possible that a Thing's clock may not be set to the correct
             time. If timings are important then a Consumer may therefore choose
@@ -1626,7 +1656,7 @@
           </p>
 
           <h6 id="sync-action-response">Synchronous Action Response</h6>
-          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-13">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-20">
             <p>
               If providing a Synchronous Action Response, a Web Thing MUST send
               an HTTP response with:
@@ -1636,23 +1666,17 @@
               <li><code>Content-Type</code> header set to
                 <code>application/json</code>
               </li>
-              <li>A body containing an <a href="#ActionStatus">
-                  <code>ActionStatus</code></a> object serialized
+              <li>A body containing the output of the action, if any, serialized
                 in JSON</li>
             </ul>
           </div>
           <pre class="example">
             HTTP/1.1 200 OK
             Content-Type: application/json
-            {
-              "status": "completed",
-              "timeRequested": "2021-11-10T11:43:20.135Z",
-              "timeEnded": "2021-11-10T11:43:25.135Z"
-            }
           </pre>
 
           <h6 id="async-action-response">Asynchronous Action Response</h6>
-          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-15">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-21">
             <p>
               If providing an Asynchronous Action Response, a Web Thing MUST send
               an HTTP response containing the URL of an <code>ActionStatus</code>
