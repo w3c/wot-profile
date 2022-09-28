@@ -113,7 +113,7 @@
 <body>
   <section id="abstract">
     <p>
-      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and a <em>HTTP Baseline Profile</em>,
+      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and an <em>HTTP Basic Profile</em>,
       which enables <em>out of the box interoperability</em>
       among things and devices. <em>Out of the box interoperability</em> implies,
       that devices can be integrated into various application scenarios without
@@ -122,7 +122,7 @@
       to use the device in a certain scenario.
       These actions can be done by anyone without specific training.
     </p>
-    The <a>HTTP Baseline Profile</a> defines a set of <em>constraints
+    The HTTP Basic Profile defines a set of <em>constraints
       and rules</em>, which compliant thing descriptions have to adopt
     to guarantee interoperability.
     </p>
@@ -136,18 +136,18 @@
       this document serves two purposes:
     </p>
     <ul>
-      <li>It defines a generic <strong>Profiling
-          Mechanism</strong> which provides a mechanism to describe a
+      <li>It defines a generic <strong><a href="#profiling-mechanism">Profiling
+          Mechanism</a></strong> which provides a mechanism to describe a
         profile in an unambiguous way. This mechanism can be
         used to define additional profiles.
       </li>
-      <li>In addition, it defines a <strong><a>HTTP Baseline
+      <li>In addition, it defines a <strong><a href="#http-basic-profile">HTTP Basic
             Profile</a></strong> of the Thing Description, which
-        contains protocol binding rules for HTTP. The <a>HTTP Baseline
-          Profile</a> formalizes the results of several PlugFests
+        contains protocol binding rules for HTTP. The HTTP Basic
+          Profile formalizes the results of several PlugFests
         that were conducted by the WoT Interest Group and of
         tests that were conducted as part of the development.
-        <p>The <em>normative</em> HTTP Baseline Profile is complemented by two 
+        <p>The <em>normative</em> HTTP Basic Profile is complemented by two 
           <em>informative profiles for events</em>: The <a href=#sec-http-sse-profile>HTTP SSE Profile</a> 
           and the <a href="#sec-http-webhook-profile">HTTP Webhook Profile</a>.
         
@@ -164,19 +164,20 @@
         <p>
         <p>
           <span class="rfc2119-assertion" id="profile-abstract-1">
-            A TD that is compliant to the <a>HTTP baseline profile</a> MUST adhere to
+            A TD that is compliant to the HTTP Basic Profile MUST adhere to
             both the common constraints and the protocol binding.</span>
-        </p>     </li>
+        </p>
+      </li>
     </ul>
     <p>
       Devices that constrain their use of the Thing Description to
-      the <a>HTTP Baseline Profile</a> can interoperate with each other
+      the HTTP Basic Profile can interoperate with each other
       out-of-the-box.
     </p>
-    <p>Note that the HTTP Baseline Profile is not exclusive. Device implementers are free to adopt
+    <p>Note that the HTTP Basic Profile is not exclusive. Device implementers are free to adopt
       other features of the Thing Description that go beyond the constraints
-      of the HTTP Baseline Profile, however the interoperability guarantees of the HTTP Baseline Profile
-      hold only for the <a>HTTP Baseline Profile</a> subset.
+      of the HTTP Basic Profile, however the interoperability guarantees of the HTTP Basic Profile
+      hold only for the HTTP Basic Profile subset.
     </p>
     <p>Future versions of this document may contain other profiles,
       e.g. a profile for digital twins and a profile for resource constrained devices.</p> 
@@ -251,7 +252,7 @@
         For green field deployments, where the implementations
         are being carried out and corresponding thing
         descriptions are being created, it is easier to achieve
-        full interoperability by using a small, extensible <a>Baseline
+        full interoperability by using a small, extensible <a>Basic
           Profile</a>.
       </p>
 
@@ -263,13 +264,13 @@
         and domain-specific thing consumer implementations.</p>
 
       <p>
-        The WoT <a>HTTP Baseline Profile</a> can be used by green field
+        The WoT HTTP Basic Profile can be used by green field
         deployments and gives guidance to new implementers of
         the WoT specifications. It has already demonstrated in
         brown-field scenarios in the Plugfests, where existing
         devices that already existed as products, prototypes or
         demonstrators, were described with Thing Descriptions
-        that are constrained to the <a>HTTP Baseline Profile</a>.
+        that are constrained to the HTTP Basic Profile.
       </p>
     </section>
 
@@ -298,7 +299,7 @@
         the range of such choices needs to be limited to a finite set so that a consumer
         of a Thing Description can be sure it will be able to interact with any possible Thing.
         A finite set of customization choices is also important for implementing devices with a fixed code base.
-        Defining such constraints leads to the profile mechanism and the HTTP Baseline Profile.
+        Defining such constraints leads to the profile mechanism and the HTTP Basic Profile.
       </p>
       <p>
         In addition to multiple vertical use cases that will use HTTP(S) for their implementations,
@@ -337,22 +338,22 @@
         the implementers of Plugfest devices.
       </p>
       <p>
-        <span class="rfc2119-assertion" id="profile-why-a-baseline-profile-1-x">
-          The <a>HTTP Baseline Profile</a> contains additional
+        <span class="rfc2119-assertion" id="profile-why-a-basic-profile-1-x">
+          The <a href="#http-basic-profile">HTTP Basic Profile</a> contains additional
           normative requirements that MUST be satisfied by devices
           to be compliant to the profile.</span>
       </p>
-      <figure id="http-baseline-Profile-figure">
+      <figure id="http-basic-Profile-figure">
         <img src="images/WoT HTTP Baseline Profile.png" class="wot-profiles" alt="http-baseline-Profile-Picture" />
-        <figcaption>WoT HTTP Baseline Profile - A Subset of Affordances</figcaption>
+        <figcaption>WoT HTTP Basic Profile - A Subset of Affordances</figcaption>
       </figure>
       <p>
-        Adoption of the <a>HTTP Baseline Profile</a> will
+        Adoption of the <a href="#http-basic-profile">HTTP Basic Profile</a> will
         significantly limit the implementation burden of device
         and cloud implementors.
       </p>
       <p>
-        The <a>HTTP Baseline Profile</a> was defined with the
+        The HTTP Basic Profile was defined with the
         following main goals:
       </p>
       <ul>
@@ -374,9 +375,9 @@
       <h2 id="out-of-the-box-interoperability">Out-of-the-box
         interoperability</h2>
       <p>
-        Devices, which implement the <a>HTTP Baseline Profile</a>, are <strong>out-of-the-box
-          interoperable</strong> with other <a>HTTP Baseline Profile</a>
-        compliant devices. Furthermore, the <a>HTTP Baseline Profile</a>
+        Devices, which implement the <a href="#http-basic-profile">HTTP Basic Profile</a>, are <strong>out-of-the-box
+          interoperable</strong> with other HTTP Basic Profile
+        compliant devices. Furthermore, the HTTP Basic Profile
         simplifies device validation and compliance testing
         since a corresponding conformance test suite can be
         defined.
@@ -439,7 +440,7 @@
       the normative statements in the present document.
     <!--p>
       A JSON Schema [[?JSON-SCHEMA]] to validate the compliance of a Thing Description
-      with the HTTP Baseline Profile is provided in Appendix <a href="#baseline-profile-json-schema"></a>.
+      with the HTTP Basic Profile is provided in Appendix <a href="#basic-profile-json-schema"></a>.
     </p-->
   </section>
 
@@ -516,7 +517,7 @@
     </ul>
 
     <section class="note">
-      Note: The WoT HTTP Baseline Profile does not prevent a TD to have forms for additional protocols,
+      Note: The WoT HTTP Basic Profile does not prevent a TD to have forms for additional protocols,
       but these can be ignored by compliant consumers, and could be removed without
       affecting profile conformance and compatibility.
       This may be useful for consumers that support multiple profiles.
@@ -637,7 +638,7 @@
     {
       "@context": "https://www.w3.org/2022/wot/td/v1.1",
       "id": "urn:dev:ops:32473-WoTLamp-1234",
-      "profile": "https://www.w3.org/2022/wot/profile/http-baseline/v1",
+      "profile": "https://www.w3.org/2022/wot/profile/http-basic/v1",
       "title": "My Lamp",
       "description": "A web connected lamp",
       ...
@@ -648,7 +649,7 @@
       "@context": "https://www.w3.org/2022/wot/td/v1.1",
       "id": "urn:dev:ops:32473-WoTLamp-1234",
       "profile": [
-        "https://www.w3.org/2022/wot/profile/http-baseline/v1",
+        "https://www.w3.org/2022/wot/profile/http-basic/v1",
         "https://www.w3.org/2022/wot/profile/http-sse/v1"
       ],
       "title": "My Lamp",
@@ -1013,11 +1014,11 @@
   </section>
 
 
-  <!-- HTTP Baseline Protocol -->
-  <section id="http-baseline-profile">
-    <h2>HTTP Baseline Profile</h2>
-    <p>This section defines the HTTP Baseline Profile, which includes a
-      <a href="#http-baseline-profile-protocol-binding">Protocol Binding</a>
+  <!-- HTTP Basic Profile -->
+  <section id="http-basic-profile">
+    <h2>HTTP Basic Profile</h2>
+    <p>This section defines the HTTP Basic Profile, which includes a
+      <a href="#http-basic-profile-protocol-binding">Protocol Binding</a>
       for reading and writing properties and invoking, querying and cancelling
       actions.
     </p>
@@ -1027,8 +1028,8 @@
       operations for observing properties and listening for events.
     </p>
     <p>
-      <span class="rfc2119-assertion" id="http-baseline-profile-1">
-        In order to conform with the HTTP Baseline Profile, Web Things and
+      <span class="rfc2119-assertion" id="http-basic-profile-1">
+        In order to conform with the HTTP Basic Profile, Web Things and
         Consumers MUST also conform with all of the assertions in the
         <a href="#common-constraints">Common Constraints</a> 
         section.
@@ -1036,20 +1037,20 @@
     </p>
 
     <!-- Identifier -->
-    <section id="http-baseline-profile-identifier">
+    <section id="http-basic-profile-identifier">
       <h2>Identifier</h2>
-      <p><span class="rfc2119-assertion" id="http-baseline-profile-identifier-1">
+      <p><span class="rfc2119-assertion" id="http-basic-profile-identifier-1">
           In order to denote that a given
           <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-          conforms to the HTTP Baseline Profile, its Thing Description MUST have a
+          conforms to the HTTP Basic Profile, its Thing Description MUST have a
           <a href="https://w3c.github.io/wot-thing-description/#thing">
             <code>profile</code></a> member [[wot-thing-description]] with a value
-          of <code>https://www.w3.org/2022/wot/profile/http-baseline/v1</code>.</span>
+          of <code>https://www.w3.org/2022/wot/profile/http-basic/v1</code>.</span>
       </p>
     </section>
 
     <!-- Protocol Binding -->
-    <section id="http-baseline-profile-protocol-binding">
+    <section id="http-basic-profile-protocol-binding">
       <h3>Protocol Binding</h3>
       <p>
         This section defines a protocol binding which describes how a
@@ -1061,7 +1062,7 @@
       </p>
       <p>
         <span class="rfc2119-assertion" id="profile-5-2-thing-protocol-binding-1">
-          A Consumer or Web Thing conforming to the HTTP Baseline Profile
+          A Consumer or Web Thing conforming to the HTTP Basic Profile
           MUST implement this protocol binding.
         </span>
       </p>
@@ -1076,7 +1077,7 @@
           {
             "@context": "https://www.w3.org/2019/wot/td/v1",
             "id": "https://mywebthingserver.com/things/lamp",
-            "profile": "https://www.w3.org/2022/wot/profile/http-baseline/v1",
+            "profile": "https://www.w3.org/2022/wot/profile/http-basic/v1",
             "base": "https://mywebthingserver.com/things/lamp/",
             "title": "My Lamp",
             "description": "A web connected lamp",
@@ -1144,11 +1145,11 @@
           }
         </pre>
 
-      <section id="http-baseline-profile-protocol-binding-properties">
+      <section id="http-basic-profile-protocol-binding-properties">
         <h4>Properties</h4>
-        <section id="http-baseline-profile-protocol-binding-readproperty">
+        <section id="http-basic-profile-protocol-binding-readproperty">
           <h5><code>readproperty</code></h5>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-readproperty-1">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readproperty-1">
             <p>
               The URL of a <code>Property</code> resource to be used when reading
               the value of a property MUST be obtained from a Thing Description by
@@ -1172,11 +1173,11 @@
               </li>
             </ul>
           </div>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-readproperty-3">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readproperty-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Property</code> resource.</span>
           </p>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-readproperty-4">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readproperty-4">
             <p>
               In order to read the value of a property, a Consumer MUST send
               an HTTP request to a Web Thing with:
@@ -1193,7 +1194,7 @@
               Host: mythingserver.com
               Accept: application/json
             </pre>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-readproperty-6">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readproperty-6">
             <p>
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to read the corresponding
@@ -1213,9 +1214,9 @@
             false
           </pre>
         </section>
-        <section id="http-baseline-profile-protocol-binding-writeproperty">
+        <section id="http-basic-profile-protocol-binding-writeproperty">
           <h5><code>writeproperty</code></h5>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-writeproperty-1">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-writeproperty-1">
             <p>
               The URL of a <code>Property</code> resource to be used when writing
               the value of a property MUST be obtained from a Thing Description by
@@ -1239,10 +1240,10 @@
               </li>
             </ul>
           </div>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-writeproperty-3">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-writeproperty-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Property</code> resource.</span></p>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-writeproperty-4">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-writeproperty-4">
             <p>
               In order to write the value of a property, a Consumer MUST send
               an HTTP request to a Web Thing with:
@@ -1262,7 +1263,7 @@
             Content-Type: application/json
             true
           </pre>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-writeproperty-6">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-writeproperty-6">
             <p>
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to write the corresponding
@@ -1277,9 +1278,9 @@
             HTTP/1.1 204 No Content
           </pre>
         </section>
-        <section id="http-baseline-profile-protocol-binding-readallproperties">
+        <section id="http-basic-profile-protocol-binding-readallproperties">
           <h5><code>readallproperties</code></h5>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-readallproperties-1">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readallproperties-1">
             <p>
               The URL of a <code>Properties</code> resource to be used when
               reading the value of all properties at once MUST be obtained from a
@@ -1304,12 +1305,12 @@
             </ul>
           </div>
           <p>
-            <span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-readallproperties-3">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readallproperties-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Properties</code> resource.
             </span>
           </p>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-readallproperties-4">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readallproperties-4">
             <p>
               In order to read the value of all properties, a Consumer MUST send
               an HTTP request to a Web Thing with:
@@ -1327,7 +1328,7 @@
               Host: mythingserver.com
               Accept: application/json
             </pre>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-readallproperties-5">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readallproperties-5">
             <p>
               If a Web Thing receives an HTTP request following the format
               above, then upon successfully reading the values of all the
@@ -1351,9 +1352,9 @@
               }
             </pre>
         </section>
-        <section id="http-baseline-profile-protocol-binding-writemultipleproperties">
+        <section id="http-basic-profile-protocol-binding-writemultipleproperties">
           <h5><code>writemultipleproperties</code></h5>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-writemultipleproperties-1">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-writemultipleproperties-1">
             <p>
               The URL of a <code>Properties</code> resource to be used when
               writing the value of multiple properties at once MUST be obtained
@@ -1378,12 +1379,12 @@
             </ul>
           </div>
           <p>
-            <span class="rfc2119-assertion" id="http-baseline-profile-protocol-bindings-writemultipleproperties-3">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-bindings-writemultipleproperties-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Properties</code> resource.
             </span>
           </p>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-writemultipleproperties-4">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-writemultipleproperties-4">
             <p>
               In order to write the value of multiple properties at once, a
               Consumer MUST send an HTTP request to a Web Thing with:
@@ -1407,7 +1408,7 @@
               "level": 50
             }
           </pre>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-writemultipleproperties-6">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-writemultipleproperties-6">
             <p>
               If a Web Thing receives an HTTP request following the format
               above, then upon successfully writing the values of the requested
@@ -1432,11 +1433,11 @@
           </p>
         </section>
       </section>
-      <section id="http-baseline-profile-protocol-binding-actions">
+      <section id="http-basic-profile-protocol-binding-actions">
         <h4>Actions</h4>
-        <section id="http-baseline-profile-protocol-binding-invokeaction">
+        <section id="http-basic-profile-protocol-binding-invokeaction">
           <h5><code>invokeaction</code></h5>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-1">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-1">
             <p>
               The URL of an <code>Action</code> resource to be used when invoking
               an action MUST be obtained from a Thing Description by locating a
@@ -1459,10 +1460,10 @@
               </li>
             </ul>
           </div>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-3">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Action</code> resource.</span></p>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-4">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-4">
             <p>
               In order to invoke an action on a Web Thing, a Consumer MUST send
               an HTTP request to the Web Thing with:
@@ -1488,7 +1489,7 @@
             "duration": 5
           }
           </pre>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-6">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-6">
             <p>
               If a Web Thing receives an HTTP request following the format
               above then it MUST respond with one of three response formats:
@@ -1505,7 +1506,7 @@
               </li>
             </ol>
           </div>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-8">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-8">
               For long-running actions which are not expected to finish executing
               within the timeout period of an HTTP request (e.g. 30 to 120
               seconds), it is RECOMMENDED that a Web Thing respond with an
@@ -1514,26 +1515,26 @@
               <code>queryaction</code> operation on a dynamically created
               <code>ActionStatus</code> resource, after the initial
               <code>invokeaction</code> response.</span></p>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-9">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-9">
               For short-lived actions which are expected to finish executing
               within the timeout period of an HTTP request, a Web Thing MAY wait
               until the action has completed to send a Synchronous Action
               Response.</span></p>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-10">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-10">
               If a Web Thing encounters an error in attempting to execute an
               action before responding to the <code>invokeaction</code> request,
               then it MUST send an Error Response.</span></p>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-11a">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-11a">
               Conforming Consumers MUST support all three types of response
               to the initial <code>invokeaction</code> request.</span>
-            <span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-11b">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-11b">
               After the initial request,
               support for subsequent operations on an <code>ActionStatus</code>
               resource is OPTIONAL.</span>
           </p>
 
           <h6 id="ActionStatus"><code>ActionStatus</code> object</h6>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-12">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-12">
             <p>
               The status of an action invocation request is represented by an
               <code>ActionStatus</code> object which includes the following
@@ -1549,7 +1550,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="rfc2119-table-assertion" id="http-baseline-profile-protocol-binding-invokeaction-12_1">
+                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-12_1">
                   <td><code>status</code></td>
                   <td>The status of the action request.</td>
                   <td>mandatory</td>
@@ -1560,7 +1561,7 @@
                     <code>failed</code>)
                   </td>
                 </tr>
-                <tr class="rfc2119-table-assertion" id="http-baseline-profile-protocol-binding-invokeaction-12_2">
+                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-12_2">
                   <td><code>output</code></td>
                   <td>
                     The output data, if any, of a completed action which
@@ -1572,19 +1573,19 @@
                   <td>optional</td>
                   <td>any type</td>
                 </tr>
-                <tr class="rfc2119-table-assertion" id="http-baseline-profile-protocol-binding-invokeaction-12_3">
+                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-12_3">
                   <td><code>error</code></td>
                   <td>
                     An error message, if any, associated with a failed action
                     which MUST use the JSON serialization of the Problem Details
                     format [[RFC7807]] (only needed in response to a
-                    <a href="#http-baseline-profile-protocol-binding-queryaction"><code>queryaction</code></a>
+                    <a href="#http-basic-profile-protocol-binding-queryaction"><code>queryaction</code></a>
                     operation).
                   </td>
                   <td>optional</td>
                   <td><code>object</code></td>
                 </tr>
-                <tr class="rfc2119-table-assertion" id="http-baseline-profile-protocol-binding-invokeaction-12_4">
+                <tr class="rfc2119-table-assertion" id="http-basic-profile-protocol-binding-invokeaction-12_4">
                   <td><code>href</code></td>
                   <td>
                     The [[URL]] of an <code>ActionStatus</code> resource which can
@@ -1636,7 +1637,7 @@
           </p>
 
           <h6 id="sync-action-response">Synchronous Action Response</h6>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-13">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-13">
             <p>
               If providing a Synchronous Action Response, a Web Thing MUST send
               an HTTP response with:
@@ -1662,7 +1663,7 @@
           </pre>
 
           <h6 id="async-action-response">Asynchronous Action Response</h6>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-invokeaction-15">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-15">
             <p>
               If providing an Asynchronous Action Response, a Web Thing MUST send
               an HTTP response containing the URL of an <code>ActionStatus</code>
@@ -1699,33 +1700,33 @@
           </pre>
         </section>
 
-        <section id="http-baseline-profile-protocol-binding-queryaction">
+        <section id="http-basic-profile-protocol-binding-queryaction">
           <h5><code>queryaction</code></h5>
           <p>
             A <code>queryaction</code> operation is used to query the current
             state of an ongoing action request.
           </p>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryaction-1a">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryaction-1a">
               A Web Thing which provides <a href="#async-action-response">
                 Asynchronous Action Response</a>s to an <code>invokeaction</code>
               operation on an <code>Action</code> MUST also support
               <code>queryaction</code> operations on
               that same <code>Action</code>.</span>
-            <span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryaction-1b">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryaction-1b">
               A Web Thing which only provides <a href="#sync-action-response">
                 Synchronous Action Response</a>s to an <code>invokeaction</code>
               operation on an <code>Action</code> SHOULD NOT support
               <code>queryaction</code> operations on that same
               <code>Action</code>.</span>
           </p>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryaction-2">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryaction-2">
               The URL of an <code>ActionStatus</code> resource to be used in a
               <code>queryaction</code> operation MUST be obtained from the
               <code>Location</code> header of an <a href="#async-action-response">
                 Asynchronous Action Response</a>, or the <code>href</code> member of
               the <code>ActionStatus</code> object in its body.</span>
           </p>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryaction-3">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryaction-3">
             <p>
               In order to query the status of an action request, a Consumer MUST
               send an HTTP request to a Web Thing with:
@@ -1746,7 +1747,7 @@
           Host: mythingserver.com
           Accept: application/json
           </pre>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryaction-5">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryaction-5">
             <p>
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to query the corresponding
@@ -1772,11 +1773,11 @@
             }
           </pre>
           <p>
-            <span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryaction-7a">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryaction-7a">
               If the queried action failed to execute, then
               the <code>status</code> member of the <code>ActionStatus</code> object
               MUST be set to <code>"failed"</code>.</span>
-            <span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryaction-7b">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryaction-7b">
               If the queried action failed to execute, then
               the <code>error</code>
               member MAY provide additional error information
@@ -1803,33 +1804,33 @@
           </pre>
         </section>
 
-        <section id="http-baseline-profile-protocol-binding-cancelaction">
+        <section id="http-basic-profile-protocol-binding-cancelaction">
           <h5><code>cancelaction</code></h5>
           <p>
             A <code>cancelaction</code> operation is used to cancel an ongoing
             <code>Action</code> request.
           </p>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-cancelaction-1a">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-cancelaction-1a">
               A Web Thing which provides <a href="#async-action-response">
                 Asynchronous Action Response</a>s to an <code>invokeaction</code>
               operation on an <code>Action</code> MAY also support
               <code>cancelaction</code> operations on
               that same <code>Action</code>.</span>
-            <span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-cancelaction-1b">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-cancelaction-1b">
               A Web Thing which only provides <a href="#sync-action-response">
                 Synchronous Action Response</a>s to an <code>invokeaction</code>
               operation on an <code>Action</code> SHOULD NOT support
               <code>cancelaction</code> operations on that same
               <code>Action</code>.</span>
           </p>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-cancelaction-2">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-cancelaction-2">
               The URL of an <code>ActionStatus</code> resource to be used in a
               <code>cancelaction</code> operation MUST be obtained from the
               <code>Location</code> header of an <a href="#async-action-response">
                 Asynchronous Action Response</a>, or the <code>href</code> member of
               the <code>ActionStatus</code> object in its body.</span>
           </p>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-cancelaction-3">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-cancelaction-3">
             <p>
               In order to cancel an action request, a Consumer MUST send an HTTP
               request to a Web Thing with:
@@ -1845,7 +1846,7 @@
             DELETE /things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655 HTTP/1.1
             Host: mythingserver.com
           </pre>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-cancelaction-5">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-cancelaction-5">
             <p>
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to cancel the corresponding
@@ -1863,7 +1864,7 @@
 
         <section id="queryallactions">
           <h5><code>queryallactions</code></h5>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryallactions-1">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryallactions-1">
             <p>
               The URL of an <code>Actions</code> resource to be used when
               querying the status of all ongoing action requests MUST be obtained
@@ -1887,11 +1888,11 @@
               </li>
             </ul>
           </div>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryallactions-3">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryallactions-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Actions</code> resource.</span>
           </p>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryallactions-4">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryallactions-4">
             <p>
               In order to query the status of all ongoing action requests, a
               Consumer MUST send an HTTP request to a Web Thing with:
@@ -1909,7 +1910,7 @@
           Host: mythingserver.com
           Accept: application/json
           </pre>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryallactions-6a">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryallactions-6a">
             <p>
               If a Web Thing receives an HTTP request following the format
               above, then upon successfully retreiving the status of all ongoing
@@ -1927,7 +1928,7 @@
               </li>
             </ul>
           </div>
-          <p><span class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-queryallactions-6b">
+          <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryallactions-6b">
               Each array in the result object
               MUST be sorted in reverse chronological order such that the
               most recent action request appears first.</span>
@@ -1990,7 +1991,7 @@
       [[EVENTSOURCE]].
     </p>
     <p>This profile may be used in conjunction with the
-      <a href="#http-baseline-profile">HTTP Baseline Profile</a> in order to
+      <a href="#http-basic-profile">HTTP Basic Profile</a> in order to
       provide operations to read and write properties and invoke, query and
       cancel actions.
     </p>
@@ -2040,7 +2041,7 @@
           "@context": "https://www.w3.org/2022/wot/td/v1.1",
           "id": "https://mywebthingserver.com/things/lamp",
           "profile": [
-            "https://www.w3.org/2022/wot/profile/http-baseline/v1",
+            "https://www.w3.org/2022/wot/profile/http-basic/v1",
             "https://www.w3.org/2022/wot/profile/http-sse/v1",
           ],
           "base": "https://mywebthingserver.com/things/lamp/",
@@ -2796,7 +2797,7 @@
     </p>
     <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-general-1">
         The <em>HTTP Webhook profile</em> MAY be used in conjunction with the
-        <a href="#http-baseline-profile">HTTP Baseline Profile</a> in order to
+        <a href="#http-basic-profile">HTTP Basic Profile</a> in order to
         provide operations to read and write properties and invoke, query and
         cancel actions.</span>
     </p>
@@ -2963,7 +2964,7 @@
 
         <section id="http-webhook-profile-protocol-binding-subscribeevent">
           <h4><code>subscribeevent</code></h4>
-          <div class="rfc2119-assertion" id="http-baseline-profile-protocol-binding-subscribeevent-1">
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-subscribeevent-1">
             <p>
               The URL of an <code>Event</code> resource to be used when
               subscribing to an event MUST be obtained from a Thing Description
@@ -3305,11 +3306,11 @@
 
   <!---------------------------------------------------------------->
 
-  <!--section id="baseline-profile-json-schema" class="appendix normative">
-    <h1>JSON Schema of the HTTP Baseline Profile</h1>
+  <!--section id="basic-profile-json-schema" class="appendix normative">
+    <h1>JSON Schema of the HTTP Basic Profile</h1>
     <p>
       A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance with
-      the HTTP Baseline profile.
+      the HTTP Basic profile.
     </p>
     <p class="ednote">
        TODO: Define a JSON-SCHEMA.
