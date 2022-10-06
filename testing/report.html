@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 3 Oct 2022
+    <b>Version</b>: 6 Oct 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -511,8 +511,8 @@ pre.example {
           defined in section 3.2.7 of [xmlschema-2].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="common-constraints-date-format-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-date-format-2">common-constraints-date-format-2</a></td>
@@ -523,9 +523,9 @@ pre.example {
           All dateTime values SHOULD use UTC as the time zone and use the 'Z' identifier.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-date-format-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-date-format-3">common-constraints-date-format-3</a></td>
 	<td class="baseassertion"></td>
@@ -534,10 +534,10 @@ pre.example {
 	<td class="atrisk">
           A time value of 24:00 is not permitted; the value 00:00 MUST be used instead.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-default-language" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-default-language">common-constraints-default-language</a></td>
 	<td class="baseassertion"></td>
@@ -551,9 +551,9 @@ pre.example {
           (e.g., en, de-AT, gsw-CH, zh-Hans, zh-Hant-HK, sl-nedis).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-errors-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-errors-1">common-constraints-errors-1</a></td>
 	<td class="baseassertion"></td>
@@ -565,10 +565,10 @@ pre.example {
           response with an HTTP error code which describes the reason for the
           failure.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-errors-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-errors-2">common-constraints-errors-2</a></td>
 	<td class="baseassertion"></td>
@@ -588,10 +588,10 @@ pre.example {
         
       </td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-errors-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-errors-3">common-constraints-errors-3</a></td>
 	<td class="baseassertion"></td>
@@ -601,10 +601,10 @@ pre.example {
           A Web Thing MAY respond with 3xx status codes for the purposes of
           redirection, caching or authentication.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-errors-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-errors-4">common-constraints-errors-4</a></td>
 	<td class="baseassertion"></td>
@@ -614,10 +614,10 @@ pre.example {
           A Web Thing MUST NOT respond with a 300 Multiple Choices
           status code.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-errors-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-errors-5">common-constraints-errors-5</a></td>
 	<td class="baseassertion"></td>
@@ -627,10 +627,10 @@ pre.example {
           Web Things MAY respond with other valid HTTP error codes
           (e.g. 418 I'm a teapot).</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-errors-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-errors-6">common-constraints-errors-6</a></td>
 	<td class="baseassertion"></td>
@@ -641,8 +641,8 @@ pre.example {
           error with no special defined behaviour.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="common-constraints-errors-7" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-errors-7">common-constraints-errors-7</a></td>
@@ -654,9 +654,9 @@ pre.example {
           MUST conform with the Problem Details format [[RFC7807]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-links-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-links-1">common-constraints-links-1</a></td>
 	<td class="baseassertion"></td>
@@ -666,9 +666,9 @@ pre.example {
           HTTP profiles and MUST be supported by all consumers.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-links-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-links-2">common-constraints-links-2</a></td>
 	<td class="baseassertion"></td>
@@ -678,10 +678,10 @@ pre.example {
           be present in a TD, however their interpretation is undefined
           in the context of the HTTP profiles</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-links-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-links-3">common-constraints-links-3</a></td>
 	<td class="baseassertion"></td>
@@ -691,8 +691,8 @@ pre.example {
           be ignored by all profile-compliant consumers.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="common-constraints-links-media-types-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-links-media-types-1">common-constraints-links-media-types-1</a></td>
@@ -703,9 +703,9 @@ pre.example {
           are defined for the link targets of compliant TDs. They MUST be supported by all consumers.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-links-media-types-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-links-media-types-2">common-constraints-links-media-types-2</a></td>
 	<td class="baseassertion"></td>
@@ -713,10 +713,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="atrisk">Other media types MAY be present in a TD. </td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-links-media-types-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-links-media-types-3">common-constraints-links-media-types-3</a></td>
 	<td class="baseassertion"></td>
@@ -726,8 +726,8 @@ pre.example {
           in the context of the HTTP profiles and they MAY be ignored by all profile-compliant consumers.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="common-constraints-security-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-security-1">common-constraints-security-1</a></td>
@@ -769,10 +769,10 @@ pre.example {
           
         </td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-security-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-security-2">common-constraints-security-2</a></td>
 	<td class="baseassertion"></td>
@@ -782,8 +782,8 @@ pre.example {
             Conformant Consumers MUST support all of these security schemes.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="common-constraints-security-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-security-3">common-constraints-security-3</a></td>
@@ -794,9 +794,9 @@ pre.example {
             A Thing MAY implement multiple security schemes.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-security-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-security-4">common-constraints-security-4</a></td>
 	<td class="baseassertion"></td>
@@ -807,10 +807,10 @@ pre.example {
             member of a
             Thing.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-security-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-security-5">common-constraints-security-5</a></td>
 	<td class="baseassertion"></td>
@@ -822,10 +822,10 @@ pre.example {
             
                 Forms.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-units" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-units">common-constraints-units</a></td>
 	<td class="baseassertion"></td>
@@ -835,10 +835,10 @@ pre.example {
         It is highly RECOMMENDED to provide a unit, 
         if a value has a physical quantity.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="common-constraints-units-metric" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-units-metric">common-constraints-units-metric</a></td>
 	<td class="baseassertion"></td>
@@ -848,10 +848,10 @@ pre.example {
         It is highly RECOMMENDED to use the metric system (SI units) 
         for devices that are used in global deployments.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-1">http-basic-profile-1</a></td>
 	<td class="baseassertion"></td>
@@ -865,9 +865,9 @@ pre.example {
       </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-identifier-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-identifier-1">http-basic-profile-identifier-1</a></td>
 	<td class="baseassertion"></td>
@@ -882,9 +882,9 @@ pre.example {
           of https://www.w3.org/2022/wot/profile/http-basic/v1.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-cancelaction-1a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-cancelaction-1a">http-basic-profile-protocol-binding-cancelaction-1a</a></td>
 	<td class="baseassertion"></td>
@@ -898,8 +898,8 @@ pre.example {
               that same Action.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-cancelaction-1b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-cancelaction-1b">http-basic-profile-protocol-binding-cancelaction-1b</a></td>
@@ -914,9 +914,9 @@ pre.example {
               Action.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-cancelaction-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-cancelaction-2">http-basic-profile-protocol-binding-cancelaction-2</a></td>
 	<td class="baseassertion"></td>
@@ -930,8 +930,8 @@ pre.example {
               the ActionStatus object in its body.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-cancelaction-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-cancelaction-3">http-basic-profile-protocol-binding-cancelaction-3</a></td>
@@ -952,8 +952,8 @@ pre.example {
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-cancelaction-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-cancelaction-5">http-basic-profile-protocol-binding-cancelaction-5</a></td>
@@ -972,10 +972,10 @@ pre.example {
             
           </td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-1">http-basic-profile-protocol-binding-invokeaction-1</a></td>
 	<td class="baseassertion"></td>
@@ -1006,8 +1006,8 @@ pre.example {
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-10" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-10">http-basic-profile-protocol-binding-invokeaction-10</a></td>
@@ -1024,10 +1024,10 @@ pre.example {
               ActionStatus resource, after the initial
               invokeaction response.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-11" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-11">http-basic-profile-protocol-binding-invokeaction-11</a></td>
 	<td class="baseassertion"></td>
@@ -1054,8 +1054,8 @@ pre.example {
               then it MUST send an Error Response.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-13" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-13">http-basic-profile-protocol-binding-invokeaction-13</a></td>
@@ -1067,9 +1067,9 @@ pre.example {
               to the initial invokeaction request.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-14" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-14">http-basic-profile-protocol-binding-invokeaction-14</a></td>
 	<td class="baseassertion"></td>
@@ -1183,9 +1183,9 @@ pre.example {
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-16" class="tabassertion">
 	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-16">http-basic-profile-protocol-binding-invokeaction-16</a></td>
 	<td class="tabassertion"></td>
@@ -1333,8 +1333,8 @@ Type: string.</td>
               as the URL of the Action resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-4">http-basic-profile-protocol-binding-invokeaction-4</a></td>
@@ -1359,8 +1359,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-6">http-basic-profile-protocol-binding-invokeaction-6</a></td>
@@ -1386,9 +1386,9 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-7" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-7">http-basic-profile-protocol-binding-invokeaction-7</a></td>
 	<td class="baseassertion"></td>
@@ -1420,9 +1420,9 @@ Type: string.</td>
             </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-9" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-9">http-basic-profile-protocol-binding-invokeaction-9</a></td>
 	<td class="baseassertion"></td>
@@ -1438,9 +1438,9 @@ Type: string.</td>
             </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryaction-1a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryaction-1a">http-basic-profile-protocol-binding-queryaction-1a</a></td>
 	<td class="baseassertion"></td>
@@ -1454,9 +1454,9 @@ Type: string.</td>
               that same Action.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryaction-1b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryaction-1b">http-basic-profile-protocol-binding-queryaction-1b</a></td>
 	<td class="baseassertion"></td>
@@ -1470,9 +1470,9 @@ Type: string.</td>
               Action.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryaction-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryaction-2">http-basic-profile-protocol-binding-queryaction-2</a></td>
 	<td class="baseassertion"></td>
@@ -1486,9 +1486,9 @@ Type: string.</td>
               the ActionStatus object in its body.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryaction-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryaction-3">http-basic-profile-protocol-binding-queryaction-3</a></td>
 	<td class="baseassertion"></td>
@@ -1512,8 +1512,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryaction-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryaction-5">http-basic-profile-protocol-binding-queryaction-5</a></td>
@@ -1539,9 +1539,9 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryaction-7a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryaction-7a">http-basic-profile-protocol-binding-queryaction-7a</a></td>
 	<td class="baseassertion"></td>
@@ -1553,9 +1553,9 @@ Type: string.</td>
               MUST be set to "failed".</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryaction-7b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryaction-7b">http-basic-profile-protocol-binding-queryaction-7b</a></td>
 	<td class="baseassertion"></td>
@@ -1568,9 +1568,9 @@ Type: string.</td>
               conforming to the Problem Details format [[RFC7807]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryallactions-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryallactions-1">http-basic-profile-protocol-binding-queryallactions-1</a></td>
 	<td class="baseassertion"></td>
@@ -1602,8 +1602,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryallactions-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryallactions-3">http-basic-profile-protocol-binding-queryallactions-3</a></td>
@@ -1615,8 +1615,8 @@ Type: string.</td>
               as the URL of the Actions resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryallactions-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryallactions-4">http-basic-profile-protocol-binding-queryallactions-4</a></td>
@@ -1638,8 +1638,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryallactions-6a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryallactions-6a">http-basic-profile-protocol-binding-queryallactions-6a</a></td>
@@ -1666,9 +1666,9 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-queryallactions-6b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-queryallactions-6b">http-basic-profile-protocol-binding-queryallactions-6b</a></td>
 	<td class="baseassertion"></td>
@@ -1680,9 +1680,9 @@ Type: string.</td>
               most recent action request appears first.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-readallproperties-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readallproperties-1">http-basic-profile-protocol-binding-readallproperties-1</a></td>
 	<td class="baseassertion"></td>
@@ -1714,8 +1714,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-readallproperties-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readallproperties-3">http-basic-profile-protocol-binding-readallproperties-3</a></td>
@@ -1728,8 +1728,8 @@ Type: string.</td>
             </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-readallproperties-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readallproperties-4">http-basic-profile-protocol-binding-readallproperties-4</a></td>
@@ -1751,8 +1751,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-readallproperties-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readallproperties-5">http-basic-profile-protocol-binding-readallproperties-5</a></td>
@@ -1775,10 +1775,10 @@ Type: string.</td>
             
           </td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-readproperty-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readproperty-1">http-basic-profile-protocol-binding-readproperty-1</a></td>
 	<td class="baseassertion"></td>
@@ -1810,8 +1810,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-readproperty-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readproperty-3">http-basic-profile-protocol-binding-readproperty-3</a></td>
@@ -1823,8 +1823,8 @@ Type: string.</td>
               as the URL of the Property resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-readproperty-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readproperty-4">http-basic-profile-protocol-binding-readproperty-4</a></td>
@@ -1845,8 +1845,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-readproperty-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readproperty-6">http-basic-profile-protocol-binding-readproperty-6</a></td>
@@ -1868,10 +1868,10 @@ Type: string.</td>
             
           </td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-subscribeevent-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-subscribeevent-1">http-basic-profile-protocol-binding-subscribeevent-1</a></td>
 	<td class="baseassertion"></td>
@@ -1905,9 +1905,9 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-writemultipleproperties-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writemultipleproperties-1">http-basic-profile-protocol-binding-writemultipleproperties-1</a></td>
 	<td class="baseassertion"></td>
@@ -1939,8 +1939,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-writemultipleproperties-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writemultipleproperties-4">http-basic-profile-protocol-binding-writemultipleproperties-4</a></td>
@@ -1964,8 +1964,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-writemultipleproperties-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writemultipleproperties-6">http-basic-profile-protocol-binding-writemultipleproperties-6</a></td>
@@ -1983,10 +1983,10 @@ Type: string.</td>
             
           </td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-binding-writeproperty-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writeproperty-1">http-basic-profile-protocol-binding-writeproperty-1</a></td>
 	<td class="baseassertion"></td>
@@ -2018,8 +2018,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-writeproperty-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writeproperty-3">http-basic-profile-protocol-binding-writeproperty-3</a></td>
@@ -2031,8 +2031,8 @@ Type: string.</td>
               as the URL of the Property resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-writeproperty-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writeproperty-4">http-basic-profile-protocol-binding-writeproperty-4</a></td>
@@ -2055,8 +2055,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-basic-profile-protocol-binding-writeproperty-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writeproperty-6">http-basic-profile-protocol-binding-writeproperty-6</a></td>
@@ -2075,10 +2075,10 @@ Type: string.</td>
             
           </td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-basic-profile-protocol-bindings-writemultipleproperties-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-bindings-writemultipleproperties-3">http-basic-profile-protocol-bindings-writemultipleproperties-3</a></td>
 	<td class="baseassertion"></td>
@@ -2090,8 +2090,8 @@ Type: string.</td>
             </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-1">http-sse-profile-1</a></td>
@@ -2106,9 +2106,9 @@ Type: string.</td>
       </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-identifier-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-identifier-1">http-sse-profile-identifier-1</a></td>
 	<td class="baseassertion"></td>
@@ -2123,9 +2123,9 @@ Type: string.</td>
           of https://www.w3.org/2022/wot/profile/http-sse/v1.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-1">http-sse-profile-protocol-binding-1</a></td>
 	<td class="baseassertion"></td>
@@ -2136,9 +2136,9 @@ Type: string.</td>
           MUST implement this protocol binding.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-1">http-sse-profile-protocol-binding-observeallproperties-1</a></td>
 	<td class="baseassertion"></td>
@@ -2172,8 +2172,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-2">http-sse-profile-protocol-binding-observeallproperties-2</a></td>
@@ -2185,8 +2185,8 @@ Type: string.</td>
               used as the URL of the properties resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-3">http-sse-profile-protocol-binding-observeallproperties-3</a></td>
@@ -2200,8 +2200,8 @@ Type: string.</td>
               of the properties resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-4">http-sse-profile-protocol-binding-observeallproperties-4</a></td>
@@ -2216,9 +2216,9 @@ Type: string.</td>
               properties for which it has permission to observe.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-5a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5a">http-sse-profile-protocol-binding-observeallproperties-5a</a></td>
 	<td class="baseassertion"></td>
@@ -2231,9 +2231,9 @@ Type: string.</td>
               the Server-Sent Events [[EVENTSOURCE]] specification.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-5b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5b">http-sse-profile-protocol-binding-observeallproperties-5b</a></td>
 	<td class="baseassertion"></td>
@@ -2245,9 +2245,9 @@ Type: string.</td>
               the data field with the new property value.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-5c" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5c">http-sse-profile-protocol-binding-observeallproperties-5c</a></td>
 	<td class="baseassertion"></td>
@@ -2258,9 +2258,9 @@ Type: string.</td>
               PropertyAffordance and MUST be serialized in JSON.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-5d" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5d">http-sse-profile-protocol-binding-observeallproperties-5d</a></td>
 	<td class="baseassertion"></td>
@@ -2272,9 +2272,9 @@ Type: string.</td>
               below).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-5e" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-5e">http-sse-profile-protocol-binding-observeallproperties-5e</a></td>
 	<td class="baseassertion"></td>
@@ -2286,9 +2286,9 @@ Type: string.</td>
               "date-time" format specified by [[RFC3339]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-6a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-6a">http-sse-profile-protocol-binding-observeallproperties-6a</a></td>
 	<td class="baseassertion"></td>
@@ -2302,8 +2302,8 @@ Type: string.</td>
               specification [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeallproperties-6b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeallproperties-6b">http-sse-profile-protocol-binding-observeallproperties-6b</a></td>
@@ -2317,9 +2317,9 @@ Type: string.</td>
               the Consumer in a Last-Event-ID header.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-1">http-sse-profile-protocol-binding-observeproperty-1</a></td>
 	<td class="baseassertion"></td>
@@ -2354,8 +2354,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-2">http-sse-profile-protocol-binding-observeproperty-2</a></td>
@@ -2367,8 +2367,8 @@ Type: string.</td>
               used as the URL of the Property resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-3">http-sse-profile-protocol-binding-observeproperty-3</a></td>
@@ -2382,8 +2382,8 @@ Type: string.</td>
               Property resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-4">http-sse-profile-protocol-binding-observeproperty-4</a></td>
@@ -2399,9 +2399,9 @@ Type: string.</td>
               the value of the specified property changes.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-5a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-5a">http-sse-profile-protocol-binding-observeproperty-5a</a></td>
 	<td class="baseassertion"></td>
@@ -2414,9 +2414,9 @@ Type: string.</td>
               format in the Server-Sent Events [[EVENTSOURCE]] specification.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-5b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-5b">http-sse-profile-protocol-binding-observeproperty-5b</a></td>
 	<td class="baseassertion"></td>
@@ -2430,9 +2430,9 @@ Type: string.</td>
               the data schema specified in the PropertyAffordance.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-5c" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-5c">http-sse-profile-protocol-binding-observeproperty-5c</a></td>
 	<td class="baseassertion"></td>
@@ -2444,9 +2444,9 @@ Type: string.</td>
               dropped connection (see below).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-5d" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-5d">http-sse-profile-protocol-binding-observeproperty-5d</a></td>
 	<td class="baseassertion"></td>
@@ -2459,9 +2459,9 @@ Type: string.</td>
               [[RFC3339]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-6a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-6a">http-sse-profile-protocol-binding-observeproperty-6a</a></td>
 	<td class="baseassertion"></td>
@@ -2475,8 +2475,8 @@ Type: string.</td>
               specification [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-observeproperty-6b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-observeproperty-6b">http-sse-profile-protocol-binding-observeproperty-6b</a></td>
@@ -2490,9 +2490,9 @@ Type: string.</td>
               the Consumer in a Last-Event-ID header.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-1">http-sse-profile-protocol-binding-subscribeallevents-1</a></td>
 	<td class="baseassertion"></td>
@@ -2526,8 +2526,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-3">http-sse-profile-protocol-binding-subscribeallevents-3</a></td>
@@ -2541,10 +2541,10 @@ Type: string.</td>
               the Consumer and push event data to the Consumer for all event
               types for which it has permission to subscribe.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-3b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-3b">http-sse-profile-protocol-binding-subscribeallevents-3b</a></td>
 	<td class="baseassertion"></td>
@@ -2555,8 +2555,8 @@ Type: string.</td>
               as the URL of the events resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4">http-sse-profile-protocol-binding-subscribeallevents-4</a></td>
@@ -2570,8 +2570,8 @@ Type: string.</td>
               the events resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4a">http-sse-profile-protocol-binding-subscribeallevents-4a</a></td>
@@ -2584,10 +2584,10 @@ Type: string.</td>
               using the event stream format in the Server-Sent Events
               [[EVENTSOURCE]] specification.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4b">http-sse-profile-protocol-binding-subscribeallevents-4b</a></td>
 	<td class="baseassertion"></td>
@@ -2599,10 +2599,10 @@ Type: string.</td>
               name of the EventAffordance and populate the
               data field with event data, if any.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4c" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4c">http-sse-profile-protocol-binding-subscribeallevents-4c</a></td>
 	<td class="baseassertion"></td>
@@ -2613,10 +2613,10 @@ Type: string.</td>
               event data MUST follow the data schema specified in the
               EventAffordance and be serialized in JSON.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4d" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4d">http-sse-profile-protocol-binding-subscribeallevents-4d</a></td>
 	<td class="baseassertion"></td>
@@ -2627,10 +2627,10 @@ Type: string.</td>
               the event, for use when re-establishing a dropped connection (see
               below).</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-4e" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-4e">http-sse-profile-protocol-binding-subscribeallevents-4e</a></td>
 	<td class="baseassertion"></td>
@@ -2642,9 +2642,9 @@ Type: string.</td>
               "date-time" format specified by [[RFC3339]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-5a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-5a">http-sse-profile-protocol-binding-subscribeallevents-5a</a></td>
 	<td class="baseassertion"></td>
@@ -2658,8 +2658,8 @@ Type: string.</td>
               specification [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeallevents-5b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeallevents-5b">http-sse-profile-protocol-binding-subscribeallevents-5b</a></td>
@@ -2673,9 +2673,9 @@ Type: string.</td>
               Last-Event-ID header.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-1">http-sse-profile-protocol-binding-subscribeevent-1</a></td>
 	<td class="baseassertion"></td>
@@ -2709,8 +2709,8 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-3">http-sse-profile-protocol-binding-subscribeevent-3</a></td>
@@ -2722,8 +2722,8 @@ Type: string.</td>
               as the URL of the Event resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-4">http-sse-profile-protocol-binding-subscribeevent-4</a></td>
@@ -2737,8 +2737,8 @@ Type: string.</td>
               resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-5">http-sse-profile-protocol-binding-subscribeevent-5</a></td>
@@ -2753,10 +2753,10 @@ Type: string.</td>
               the Consumer and push event data to the Consumer as events of the
               specified type are emitted.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-6a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6a">http-sse-profile-protocol-binding-subscribeevent-6a</a></td>
 	<td class="baseassertion"></td>
@@ -2768,10 +2768,10 @@ Type: string.</td>
               send event data to the Consumer using the event stream format in the
               Server-Sent Events [[EVENTSOURCE]] specification.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-6b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6b">http-sse-profile-protocol-binding-subscribeevent-6b</a></td>
 	<td class="baseassertion"></td>
@@ -2783,10 +2783,10 @@ Type: string.</td>
               name of the EventAffordance and populate the
               data field with event data, if any.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-6c" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6c">http-sse-profile-protocol-binding-subscribeevent-6c</a></td>
 	<td class="baseassertion"></td>
@@ -2798,10 +2798,10 @@ Type: string.</td>
               EventAffordance
               and be serialized in JSON.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-6d" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6d">http-sse-profile-protocol-binding-subscribeevent-6d</a></td>
 	<td class="baseassertion"></td>
@@ -2812,10 +2812,10 @@ Type: string.</td>
               the event, for use when re-establishing a dropped connection (see
               below).</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result failed">1</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-6e" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-6e">http-sse-profile-protocol-binding-subscribeevent-6e</a></td>
 	<td class="baseassertion"></td>
@@ -2827,9 +2827,9 @@ Type: string.</td>
               "date-time" format specified by [[RFC3339]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-7a" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7a">http-sse-profile-protocol-binding-subscribeevent-7a</a></td>
 	<td class="baseassertion"></td>
@@ -2843,8 +2843,8 @@ Type: string.</td>
               [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-subscribeevent-7b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-subscribeevent-7b">http-sse-profile-protocol-binding-subscribeevent-7b</a></td>
@@ -2858,9 +2858,9 @@ Type: string.</td>
               Last-Event-ID header.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-sse-profile-protocol-binding-unobserveallproperties-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-unobserveallproperties-1">http-sse-profile-protocol-binding-unobserveallproperties-1</a></td>
 	<td class="baseassertion"></td>
@@ -2873,8 +2873,8 @@ Type: string.</td>
               specified in the Server-Sent Events specification [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-unobserveproperty-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-unobserveproperty-1">http-sse-profile-protocol-binding-unobserveproperty-1</a></td>
@@ -2888,8 +2888,8 @@ Type: string.</td>
               [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-unsubscribeallevents-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-unsubscribeallevents-1">http-sse-profile-protocol-binding-unsubscribeallevents-1</a></td>
@@ -2903,8 +2903,8 @@ Type: string.</td>
               Server-Sent Events specification [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-sse-profile-protocol-binding-unsubscribeevent-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-sse-profile-protocol-binding-unsubscribeevent-1">http-sse-profile-protocol-binding-unsubscribeevent-1</a></td>
@@ -2918,8 +2918,8 @@ Type: string.</td>
               [[EVENTSOURCE]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="http-webhook-profile-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-1">http-webhook-profile-1</a></td>
@@ -2935,9 +2935,9 @@ Type: string.</td>
           of https://www.w3.org/2022/wot/profile/http-webhook/v1.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-message-format-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-message-format-1">http-webhook-profile-message-format-1</a></td>
 	<td class="baseassertion"></td>
@@ -2947,9 +2947,9 @@ Type: string.</td>
         Event notification messages MUST comply with the following data schema.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding--event-connections-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding--event-connections-5">http-webhook-profile-protocol-binding--event-connections-5</a></td>
 	<td class="baseassertion"></td>
@@ -2960,9 +2960,9 @@ Type: string.</td>
             the Web Thing MUST attempt to re-establish the connection.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding--event-connections-8" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding--event-connections-8">http-webhook-profile-protocol-binding--event-connections-8</a></td>
 	<td class="baseassertion"></td>
@@ -2972,9 +2972,9 @@ Type: string.</td>
             When an event message has been received, the Consumer MUST respond with a "HTTP 200 OK" message.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-1">http-webhook-profile-protocol-binding-1</a></td>
 	<td class="baseassertion"></td>
@@ -2985,9 +2985,9 @@ Type: string.</td>
           MUST implement this protocol binding.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-event-connections-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-1">http-webhook-profile-protocol-binding-event-connections-1</a></td>
 	<td class="baseassertion"></td>
@@ -2998,9 +2998,9 @@ Type: string.</td>
             Thing.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-event-connections-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-2">http-webhook-profile-protocol-binding-event-connections-2</a></td>
 	<td class="baseassertion"></td>
@@ -3010,9 +3010,9 @@ Type: string.</td>
             A Consumer MUST terminate the subscription with the events endpoint of the Web Thing.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-event-connections-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-3">http-webhook-profile-protocol-binding-event-connections-3</a></td>
 	<td class="baseassertion"></td>
@@ -3023,9 +3023,9 @@ Type: string.</td>
             event messages to the consumer, it SHOULD attempt several retries at increasing intervals.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-event-connections-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-4">http-webhook-profile-protocol-binding-event-connections-4</a></td>
 	<td class="baseassertion"></td>
@@ -3036,9 +3036,9 @@ Type: string.</td>
             without having received an unsubscribe or unsubscribeall operation.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-event-connections-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-6">http-webhook-profile-protocol-binding-event-connections-6</a></td>
 	<td class="baseassertion"></td>
@@ -3050,9 +3050,9 @@ Type: string.</td>
             the last successful event notification.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-event-connections-7" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-7">http-webhook-profile-protocol-binding-event-connections-7</a></td>
 	<td class="baseassertion"></td>
@@ -3063,9 +3063,9 @@ Type: string.</td>
             or it MAY establish a new connection for each message.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-event-connections-9" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-event-connections-9">http-webhook-profile-protocol-binding-event-connections-9</a></td>
 	<td class="baseassertion"></td>
@@ -3076,9 +3076,9 @@ Type: string.</td>
             via the same communication channel.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-events-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-events-1">http-webhook-profile-protocol-binding-events-1</a></td>
 	<td class="baseassertion"></td>
@@ -3089,9 +3089,9 @@ Type: string.</td>
           event types MAY be used.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-general-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-general-1">http-webhook-profile-protocol-binding-general-1</a></td>
 	<td class="baseassertion"></td>
@@ -3104,9 +3104,9 @@ Type: string.</td>
         cancel actions.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-general-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-general-3">http-webhook-profile-protocol-binding-general-3</a></td>
 	<td class="baseassertion"></td>
@@ -3120,9 +3120,9 @@ Type: string.</td>
       </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeallevents-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-1">http-webhook-profile-protocol-binding-subscribeallevents-1</a></td>
 	<td class="baseassertion"></td>
@@ -3156,9 +3156,9 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeallevents-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-3">http-webhook-profile-protocol-binding-subscribeallevents-3</a></td>
 	<td class="baseassertion"></td>
@@ -3169,9 +3169,9 @@ Type: string.</td>
               as the URL of the events resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeallevents-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-4">http-webhook-profile-protocol-binding-subscribeallevents-4</a></td>
 	<td class="baseassertion"></td>
@@ -3196,9 +3196,9 @@ Type: string.</td>
           </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeallevents-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-5">http-webhook-profile-protocol-binding-subscribeallevents-5</a></td>
 	<td class="baseassertion"></td>
@@ -3211,9 +3211,9 @@ Type: string.</td>
               types for which it has permission to subscribe.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeallevents-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-6">http-webhook-profile-protocol-binding-subscribeallevents-6</a></td>
 	<td class="baseassertion"></td>
@@ -3224,9 +3224,9 @@ Type: string.</td>
               using the event payload format defined in section Message Format.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeallevents-7" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-7">http-webhook-profile-protocol-binding-subscribeallevents-7</a></td>
 	<td class="baseassertion"></td>
@@ -3237,9 +3237,9 @@ Type: string.</td>
               the Web Thing MUST re-establish the connection.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeallevents-8" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeallevents-8">http-webhook-profile-protocol-binding-subscribeallevents-8</a></td>
 	<td class="baseassertion"></td>
@@ -3251,9 +3251,9 @@ Type: string.</td>
               the last successful event notification.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeevent-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-3">http-webhook-profile-protocol-binding-subscribeevent-3</a></td>
 	<td class="baseassertion"></td>
@@ -3264,9 +3264,9 @@ Type: string.</td>
               as the URL of the Event resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeevent-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-4">http-webhook-profile-protocol-binding-subscribeevent-4</a></td>
 	<td class="baseassertion"></td>
@@ -3278,9 +3278,9 @@ Type: string.</td>
               subscribe operation of the Event resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeevent-4b" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-4b">http-webhook-profile-protocol-binding-subscribeevent-4b</a></td>
 	<td class="baseassertion"></td>
@@ -3292,9 +3292,9 @@ Type: string.</td>
               unsubscribe operation of the Event resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeevent-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-5">http-webhook-profile-protocol-binding-subscribeevent-5</a></td>
 	<td class="baseassertion"></td>
@@ -3307,9 +3307,9 @@ Type: string.</td>
               to the Consumer as events of the specified type are emitted.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-subscribeevent-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-subscribeevent-6">http-webhook-profile-protocol-binding-subscribeevent-6</a></td>
 	<td class="baseassertion"></td>
@@ -3321,9 +3321,9 @@ Type: string.</td>
               ["#sec-http-webhook-profile-protocol-binding-events-notification"].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="http-webhook-profile-protocol-binding-unsubscribeallevents-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-webhook-profile-protocol-binding-unsubscribeallevents-1">http-webhook-profile-protocol-binding-unsubscribeallevents-1</a></td>
 	<td class="baseassertion"></td>
@@ -3334,9 +3334,9 @@ Type: string.</td>
               unsubscribe operation of the Event resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="privacy-considerations-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#privacy-considerations-1">privacy-considerations-1</a></td>
 	<td class="baseassertion"></td>
@@ -3350,8 +3350,8 @@ Type: string.</td>
         MUST be adopted by compliant implementations.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="profile-5-2-thing-protocol-binding-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-5-2-thing-protocol-binding-1">profile-5-2-thing-protocol-binding-1</a></td>
@@ -3364,9 +3364,9 @@ Type: string.</td>
         </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="profile-abstract-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-abstract-1">profile-abstract-1</a></td>
 	<td class="baseassertion"></td>
@@ -3377,9 +3377,9 @@ Type: string.</td>
             both the common constraints and the protocol binding.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="profile-why-a-basic-profile-1-x" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profile-why-a-basic-profile-1-x">profile-why-a-basic-profile-1-x</a></td>
 	<td class="baseassertion"></td>
@@ -3391,9 +3391,9 @@ Type: string.</td>
           to be compliant to the profile.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="profiling-mechanism-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profiling-mechanism-1">profiling-mechanism-1</a></td>
 	<td class="baseassertion"></td>
@@ -3407,9 +3407,9 @@ Type: string.</td>
       </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="profiling-mechanism-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profiling-mechanism-2">profiling-mechanism-2</a></td>
 	<td class="baseassertion"></td>
@@ -3424,9 +3424,9 @@ Type: string.</td>
       </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="profiling-mechanism-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profiling-mechanism-3">profiling-mechanism-3</a></td>
 	<td class="baseassertion"></td>
@@ -3439,9 +3439,9 @@ Type: string.</td>
       </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="profiling-mechanism-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#profiling-mechanism-4">profiling-mechanism-4</a></td>
 	<td class="baseassertion"></td>
@@ -3456,9 +3456,9 @@ Type: string.</td>
       </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
+	<td class="result failed">1</td></tr>
 <tr id="security-considerations-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#security-considerations-1">security-considerations-1</a></td>
 	<td class="baseassertion"></td>
@@ -3472,8 +3472,8 @@ Type: string.</td>
         MUST be adopted by compliant implementations.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr></tbody>
 </table>
 
