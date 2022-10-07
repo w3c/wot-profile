@@ -4,25 +4,10 @@
 #common-constraints-date-format-2 {
   background-color: yellow;
 }
-#common-constraints-date-format-3 {
-  background-color: yellow;
-}
 #common-constraints-default-language {
   background-color: yellow;
 }
-#common-constraints-errors-1 {
-  background-color: yellow;
-}
-#common-constraints-errors-2 {
-  background-color: yellow;
-}
 #common-constraints-errors-3 {
-  background-color: yellow;
-}
-#common-constraints-errors-4 {
-  background-color: yellow;
-}
-#common-constraints-errors-5 {
   background-color: yellow;
 }
 #common-constraints-errors-6 {
@@ -32,9 +17,6 @@
   background-color: yellow;
 }
 #common-constraints-links-1 {
-  background-color: yellow;
-}
-#common-constraints-links-2 {
   background-color: yellow;
 }
 #common-constraints-links-3 {
@@ -49,19 +31,10 @@
 #common-constraints-links-media-types-3 {
   background-color: yellow;
 }
-#common-constraints-security-1 {
-  background-color: yellow;
-}
 #common-constraints-security-2 {
   background-color: yellow;
 }
 #common-constraints-security-3 {
-  background-color: yellow;
-}
-#common-constraints-security-4 {
-  background-color: yellow;
-}
-#common-constraints-security-5 {
   background-color: yellow;
 }
 #common-constraints-units {
@@ -88,13 +61,7 @@
 #http-basic-profile-protocol-binding-cancelaction-3 {
   background-color: yellow;
 }
-#http-basic-profile-protocol-binding-cancelaction-5 {
-  background-color: yellow;
-}
 #http-basic-profile-protocol-binding-invokeaction-1 {
-  background-color: yellow;
-}
-#http-basic-profile-protocol-binding-invokeaction-10 {
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-invokeaction-11 {
@@ -193,9 +160,6 @@
 #http-basic-profile-protocol-binding-readallproperties-4 {
   background-color: yellow;
 }
-#http-basic-profile-protocol-binding-readallproperties-5 {
-  background-color: yellow;
-}
 #http-basic-profile-protocol-binding-readproperty-1 {
   background-color: yellow;
 }
@@ -203,9 +167,6 @@
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-readproperty-4 {
-  background-color: yellow;
-}
-#http-basic-profile-protocol-binding-readproperty-6 {
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-subscribeevent-1 {
@@ -227,9 +188,6 @@
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-writeproperty-4 {
-  background-color: yellow;
-}
-#http-basic-profile-protocol-binding-writeproperty-6 {
   background-color: yellow;
 }
 #http-basic-profile-protocol-bindings-writemultipleproperties-3 {
