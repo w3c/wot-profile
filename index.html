@@ -787,8 +787,16 @@
 
       <p>
         <span class="rfc2119-assertion" id="common-constraints-links-1">The following keywords are defined for the
-          HTTP profiles and MUST be supported by all consumers.</span>
+          HTTP profiles and MAY be present in compliant TDs.</span>
+	<span class="rfc2119-assertion" id="common-constraints-links-1a">Compliant consumers that have the capabilities 
+	  to handle these relation types SHOULD treat the link targets appropriately.</span>
       </p>
+      <section class="ednote">
+      <p>For consumers that can render images or documents this implies to display appropriate documentation
+	      to a human reader.</p>
+      <p>Consumers that are capable of working with nested things and thing model structures are able 
+	 to navigate between things and thing models in a well defined way.</p>
+      </section>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-links-2">Other keywords for links MAY
           be present in a TD, however their interpretation is undefined
