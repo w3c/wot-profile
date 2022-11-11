@@ -6,13 +6,12 @@ from os import listdir
 from os.path import isfile, join
 import csv
 
-
 onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 contributorList=[]
 assertionDict={}
 assertionList = []
-allAssertions={}
+assertionTotals={}
 descriptions={}
 
 for file in onlyfiles:
@@ -32,16 +31,16 @@ for file in onlyfiles:
                 status=row['Status']
                 assertionDict[contrib][assertionId]=status
                 # add the assertion to the list of all assertions, allocate if necessary
-                if (not assertionId in allAssertions):
+                if (not assertionId in assertionTotals):
                     assertionList.append(assertionId)
-                    allAssertions[assertionId] = 0
+                    assertionTotals[assertionId] = 0
                 if (status=="pass"):
-                    allAssertions[assertionId] = allAssertions[assertionId]+1
+                    assertionTotals[assertionId] = assertionTotals[assertionId]+1
 
 # write csv 
 
 index = 0
-with open('assertion-totals.csv', 'w', newline='') as csvfile:
+with open('implementation-xref.csv', 'w', newline='') as csvfile:
     fieldnames = ['Index', 'ID','Total'] + contributorList + ['Description']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
@@ -52,14 +51,12 @@ with open('assertion-totals.csv', 'w', newline='') as csvfile:
         index=index+1
         row["ID"]=assertionId
         row["Description"]=descriptions[assertionId]
-        row["Total"]=allAssertions[assertionId]
+        row["Total"]=assertionTotals[assertionId]
         for contrib in contributorList:
             if (assertionDict[contrib].get(assertionId)):
                 row[contrib] = assertionDict[contrib][assertionId]
             else:
                row[contrib] = "XXXX"
-
-
-        print (row)
+        # print (row)
         writer.writerow(row)
  
