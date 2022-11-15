@@ -761,7 +761,7 @@
               </a>
             </li>
           </ul>
-        </span >
+        </span>
         <p><span class="rfc2119-assertion" id="common-constraints-security-2">
             Conformant Consumers MUST support all of these security schemes.</span>
         </p>
@@ -984,7 +984,7 @@
           <li><code>404 Not Found</code></li>
           <li><code>500 Internal Server Error</code></li>
         </ul>
-      </span >
+      </span>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-errors-3">
           A Web Thing MAY respond with 3xx status codes for the purposes of
@@ -1180,7 +1180,7 @@
                 member is <code>http</code> or <code>https</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readproperty-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Property</code> resource.</span>
@@ -1196,7 +1196,7 @@
               <li><code>Accept</code> header set to <code>application/json
                 </code></li>
             </ul> 
-          </span >
+          </span>
           <pre class="example">
               GET /things/lamp/properties/on HTTP/1.1
               Host: mythingserver.com
@@ -1215,7 +1215,7 @@
                 </code></li>
               <li>A body with the value of the property serialized in JSON</li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             HTTP/1.1 200 OK
             Content-Type: application/json
@@ -1247,7 +1247,7 @@
                 member is <code>http</code> or <code>https</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-writeproperty-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Property</code> resource.</span></p>
@@ -1264,7 +1264,7 @@
               <li>A body with a requested new value for the property serialized
                 in JSON</li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             PUT /things/lamp/properties/on HTTP/1.1
             Host: mythingserver.com
@@ -1281,7 +1281,7 @@
             <ul>
               <li>Status code set to <code>204</code></li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             HTTP/1.1 204 No Content
           </pre>
@@ -1311,7 +1311,7 @@
                 member is <code>http</code> or <code>https</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p>
             <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-readallproperties-3">
               The resolved value of the <code>href</code> member MUST then be used
@@ -1330,7 +1330,7 @@
               <li><code>Accept</code> header set to <code>application/json
                   </code></li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
               GET /things/lamp/properties HTTP/1.1
               Host: mythingserver.com
@@ -1350,7 +1350,7 @@
               <li>A body with the values of all readable properties serialized
                 in JSON, as an object keyed by property name</li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
               HTTP/1.1 200 OK
               Content-Type: application/json
@@ -1385,7 +1385,7 @@
                 member is <code>http</code> or <code>https</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p>
             <span class="rfc2119-assertion" id="http-basic-profile-protocol-bindings-writemultipleproperties-3">
               The resolved value of the <code>href</code> member MUST then be used
@@ -1406,7 +1406,7 @@
               <li>A body with requested new values for the writable properties
                 serialized in JSON, as an object keyed by property name</li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             PUT /things/lamp/properties HTTP/1.1
             Host: mythingserver.com
@@ -1425,7 +1425,7 @@
             <ul>
               <li>Status code set to <code>204</code></li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             HTTP/1.1 204 No Content
           </pre>
@@ -1467,7 +1467,7 @@
                 member is <code>http</code> or <code>https</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Action</code> resource.</span></p>
@@ -1486,7 +1486,7 @@
               <li>A body with an input to the action, if any, serialized in
                 JSON</li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
           POST /things/lamp/actions/fade HTTP/1.1
           Host: mythingserver.com
@@ -1513,7 +1513,7 @@
                 <a href="#error-responses">Error Response</a>
               </li>
             </ol>
-          </span >
+          </span>
           <p>
             <span class="rfc2119-assertion" 
             id="http-basic-profile-protocol-binding-invokeaction-7">
@@ -1664,7 +1664,7 @@
                 </tr>
               </tbody>
             </table>
-          </span >
+          </span>
           <p class="note">
             It is possible that a Thing's clock may not be set to the correct
             time. If timings are important then a Consumer may therefore choose
@@ -1688,7 +1688,7 @@
               <li>A body containing the output of the action, if any, serialized
                 in JSON</li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             HTTP/1.1 200 OK
             Content-Type: application/json
@@ -1719,7 +1719,7 @@
                 of the <code>ActionStatus</code> resource
               </li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             HTTP/1.1 201 CREATED
             Content-Type: application/json
@@ -1773,7 +1773,7 @@
               </code>
               </li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
           GET /things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655
           Host: mythingserver.com
@@ -1795,7 +1795,7 @@
                 representing the current status of the action request, serialized
                 in JSON</li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             HTTP/1.1 200 OK
             Content-Type: application/json
@@ -1873,7 +1873,7 @@
                 URL set to the URL of the <code>ActionStatus</code> resource
               </li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             DELETE /things/lamp/actions/fade/123e4567-e89b-12d3-a456-426655 HTTP/1.1
             Host: mythingserver.com
@@ -1888,7 +1888,7 @@
             <ul>
               <li>Status code set to <code>204</code></li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
             HTTP/1.1 204 No Content
           </pre>
@@ -1919,7 +1919,7 @@
                 member is <code>http</code> or <code>https</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryallactions-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Actions</code> resource.</span>
@@ -1936,7 +1936,7 @@
               <li><code>Accept</code> header set to <code>application/json
               </code></li>
             </ul>
-          </span >
+          </span>
           <pre class="example">
           GET /things/lamp/actions HTTP/1.1
           Host: mythingserver.com
@@ -1959,7 +1959,7 @@
                 representing the action requests, serialized in JSON.
               </li>
             </ul>
-          </span >
+          </span>
           <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryallactions-6b">
               Each array in the result object
               MUST be sorted in reverse chronological order such that the
@@ -2199,7 +2199,7 @@
                 <code>sse</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-2">
               The resolved value of the <code>href</code> member MUST then be
@@ -2359,7 +2359,7 @@
                 <code>sse</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-2">
               The resolved value of the <code>href</code> member MUST then be
@@ -2534,7 +2534,7 @@
                 <code>sse</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the <code>Event</code> resource.</span>
@@ -2691,7 +2691,7 @@
                 <code>sse</code>
               </li>
             </ul>
-          </span >
+          </span>
           <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-3b">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the events resource.</span>
