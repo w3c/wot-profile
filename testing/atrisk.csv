@@ -130,6 +130,7 @@
 "http-webhook-profile-protocol-binding-event-connections-7","HELP, pass=1"
 "http-webhook-profile-protocol-binding-event-connections-9","HELP, pass undefined"
 "http-webhook-profile-protocol-binding-events-1","HELP, pass=1"
+"http-webhook-profile-protocol-binding-events-2","HELP, no results"
 "http-webhook-profile-protocol-binding-general-1","HELP, pass=1"
 "http-webhook-profile-protocol-binding-general-3","HELP, pass=1"
 "http-webhook-profile-protocol-binding-subscribeallevents-1","HELP, pass undefined"
