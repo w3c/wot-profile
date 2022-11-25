@@ -787,8 +787,15 @@
 
       <p>
         <span class="rfc2119-assertion" id="common-constraints-links-1">The following keywords are defined for the
-          HTTP profiles and MAY be present in compliant TDs.</span>
-	<span class="rfc2119-assertion" id="common-constraints-links-1a">Compliant consumers that have the capabilities 
+          HTTP profiles and MAY be present in profile-compliant TDs.</span>
+          <section class=note>
+          These links enable consumers to interpret linked content that is provided by the link target in an unambiguous way.
+          This interpretation is a "best effort" mechanism, that depends on the capabilities of the consumer.
+          A consumer with a browser could render HTML content, a consumer with a PDF engine can display PDF content,
+          a consumer with a dot-matrix display only can display icons.
+          </section>
+      </p>
+	<span class="rfc2119-assertion" id="common-constraints-links-1a">Consumers that have the capabilities 
 	  to handle these relation types SHOULD treat the link targets appropriately.</span>
       </p>
       <section class="ednote">
@@ -861,7 +868,6 @@
             <tr>
               <td><code>icon</code></td>
               <td>supported media types: <code>image/png</code>, <code>image/jpeg</code>. </td>
-              <td><strong>TODO:</strong> sizes tbd., quadratig icons only?.</td>
             </tr>
             <tr>
               <td><code>type</code></td>
