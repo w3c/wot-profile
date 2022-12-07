@@ -807,18 +807,30 @@
 
       <p>Hypermedia links in the HTTP Profiles are significantly constrained to ensure a common interpretation
         and interoperability between things and consumers.</p>
-
+      
       <p>
-        <span class="rfc2119-assertion" id="common-constraints-links-1">The following keywords are defined for the
-          HTTP profiles and MUST be supported by all consumers.</span>
-      </p>
+        <span class="rfc2119-assertion" id="common-constraints-links-1">The following keywords are defined for links in the
+          HTTP profiles and MAY be present in profile-compliant TDs with the constraints defined by this section.</span>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-links-2">Other keywords for links MAY
           be present in a TD, however their interpretation is undefined
           in the context of the HTTP profiles</span>
-        <span class="rfc2119-assertion" id="common-constraints-links-3">These keywords MAY
+        <span class="rfc2119-assertion" id="common-constraints-links-3">These other link types MAY
           be ignored by all profile-compliant consumers.</span>
       </p>
+      
+      <section class=note>
+        <p>
+          These links enable consumers to interpret linked content that is provided by the link target in an unambiguous way.
+          This interpretation is a "best effort" mechanism, that depends on the capabilities of the consumer.
+          A consumer with a browser could render HTML content, a consumer with a PDF engine can display PDF content,
+          a consumer with a dot-matrix display only can display icons.
+        </p>
+        <p>For consumers that can render images or documents this implies to display appropriate documentation
+          to a human reader.</p>
+        <p>Consumers that are capable of working with nested things and thing model structures are able
+          to navigate between things and thing models in a well defined way.</p>
+      </section>
       <!-- TD 5.3.4.1 -->
       <table class="def">
         <thead>
@@ -876,7 +888,6 @@
             <tr>
               <td><code>icon</code></td>
               <td>supported media types: <code>image/png</code>, <code>image/jpeg</code>. </td>
-              <td><strong>TODO:</strong> sizes tbd., quadratig icons only?.</td>
             </tr>
             <tr>
               <td><code>type</code></td>
@@ -908,9 +919,9 @@
 
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-1">The following media types from <a
             href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA</a>
-          are defined for the link targets of compliant TDs. They MUST be supported by all consumers.</span>
-        <span class="rfc2119-assertion" id="common-constraints-links-media-types-2">Other media types MAY be present in a TD. </span>
-        <span class="rfc2119-assertion" id="common-constraints-links-media-types-3">Their interpretation is undefined
+          MAY be used as the link targets of profile compliant TDs with the constraints in this section.</span>
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-2">Other media types MAY 
+          be present in a TD, however their heir interpretation is undefined
           in the context of the HTTP profiles and they MAY be ignored by all profile-compliant consumers.</span>
         <table class="def">
           <thead>
@@ -956,10 +967,57 @@
               <td><code>image/png</code></td>
               <td></td>
             </tr>
-
           </tbody>
         </table>
       </section>
+
+
+      <p>
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-4">
+          If a Consumer encounters a link with "rel": "icon" and "type": "image/*" and it is capable of rendering images in
+          the
+          provided format, then it SHOULD interpret the link as an icon for the Thing and display it to the user.
+        </span>
+      </p>
+      <p>
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-5">
+          If a Consumer encounters a link with "rel": "alternate" and "type": "text/html" and it is capable of rendering an
+          HTML
+          page and accepting user input, then it SHOULD interpret the link as a user interface for the Thing and provide a
+          means
+          for the user to follow that link and view and interact with the HTML page.
+          </section>
+      </p>
+      <p>
+      
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-6">
+          If a Consumer encounters a link with "rel": "service-doc" and "type": "text/plain", "type": "text/html" or "type":
+          "text/pdf", and is capable of rendering documents in the provided format, then it SHOULD interpret the link as a
+          user
+          manual for the Thing and provide a means for the user to follow that link and read the user manual.
+          </section>
+      </p>
+      <p>
+      
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-7">
+          If a Consumer encounters a link with "rel": "item" and "type": "application/td+json" and is capable of rendering a
+          hierarchical tree of Things, then it should interpret the link as an indication that the target is a sub-Thing of
+          the
+          current Thing and render this in a meaningful way to the user.
+        </span>
+      </p>
+      <p>
+      
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-8">
+          If a Consumer encounters a link with "rel": "collection" and "type": "application/td+json" and is capable of
+          rendering a
+          hierarchical tree of Things, then it should interpret the link as an indication that the target describes a Thing
+          (e.g.
+          a group, system of Things or Thing Directory) which contains the current Thing and render this in a meaningful way
+          to
+          the user.
+        </span>
+      </p>
     </section>
 
     <!-- Errors -->
