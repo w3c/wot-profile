@@ -3075,7 +3075,7 @@
                 member is <code>http</code> or <code>https</code>
               </li>
               <li>Its <code>subprotocol</code> member has a value of
-                <code>"webhook"</code>
+                <code>webhook</code>
               </li>
             </ul>
           </div>
@@ -3085,7 +3085,7 @@
           </p>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-4">
               In order to subscribe to an event, a Consumer MUST
-              provide the listener URL in the data payload of the
+              provide the listener URL in the request payload of the
               <code>subscribe</code> operation of the <code>Event</code> resource.</span>
           </p>
           <p>
@@ -3099,26 +3099,22 @@
               <code>Accept</code> header set to <code>application/json</code>
             </li>
             <li>
-              A body with a subscription payload, serialized in JSON.
+              A body with a subscription request payload, serialized in JSON.
             </li>
-
-            <p class="ednote">
-              <!-- TODO --> TODO: Define subscription payload.
+            <p>
+              The subscription payload contains the URI for the event message listener
+              in the field with the <code>callbackURI</code> key. 
             </p>
 
           </ul>
           <pre class="example">
               POST /things/lamp/events/overheated HTTP/1.1
               Host: mythingserver.com
+              Content-Type: application/json
               Accept: application/json
-
               {
-                "properties": {
-                  ...
-                  listener: uri,
-                  ...
-                }
-              }
+                callbackURI: "http://myConsumer.com/myEventListener"
+            }
               </pre>
 
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
@@ -3138,12 +3134,13 @@
               <code>Content-Type</code> header set to
               <code>application/json</code>
             </li>
-            <li></li>
+            <li>
+              <code>Accept</code> header set to <code>application/json</code>
+            </li>
           </ul>
           <pre class="example">
               HTTP/1.1 200 OK
               Content-Type: application/json
-
               {
                   subscriptionId: 1234-4544-1211
               }
@@ -3170,25 +3167,22 @@
             the Web Thing with:
           </p>
           <ul>
-            <li>Method set to <code>POST</code></li>
-            <li>URL set to the URL of the <code>Event</code> resource</li>
+            <li>Method set to <code>DELETE</code></li>
+            <li>URL set to the URL of the <code>Event</code> resource followed by the <code>subscriptionId</code> of a valid subscription</li>
             <li>
               <code>Accept</code> header set to <code>application/json</code>
             </li>
-            <li>
-              <code>Request Payload</code> contains a <code>JSON</code>
-              object with a valid <code>subscriptionId</code>.
-            </li>
-            <p class="ednote">
-              <!-- TODO: define subscriptionId format - urn? -->
-              TODO: define subscriptionId format - urn?
-            </p>
           </ul>
+
+          <pre class="example" title="Unsubscribe using subscriptionId">
+            DELETE /things/lamp/events/overheated/1234-4544-1211 HTTP/1.1
+            Host: mythingserver.com
+          </pre>
         </section>
 
         <section id="http-webhook-profile-protocol-binding-events-subscribeallevents">
           <h4><code>subscribeallevents</code></h4>
-          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-1">
+          <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-1">
             <p>
               The URL of an <code>Events</code> resource to be used when subscribing to all
               events emitted by a Web Thing MUST be obtained from a Thing
@@ -3210,15 +3204,15 @@
                 member is <code>http</code> or <code>https</code>
               </li>
               <li>Its <code>subprotocol</code> member has a value of
-                <code>"webhook"</code>
+                <code>webhook</code>
               </li>
             </ul>
-          </div>
+          </span>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the events resource.</span>
           </p>
-          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-4">
+          <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-4">
             <p>
               In order to subscribe to <em>all</em> events emitted by a Web Thing, a
               Consumer MUST send an HTTP request to the Web Thing with:
@@ -3227,27 +3221,23 @@
               <li>Method set to <code>POST</code></li>
               <li>URL set to the URL of the events resource</li>
               <li>
-                <code>Accept</code> header set to <code>text/event-stream</code>
+                <code>Accept</code> header set to <code>application/json</code>
               </li>
               <li>
                 <code>Request Payload</code> contains a <code>JSON</code>
-                object with a subscription payload.
+                object with a subscription request payload.
               </li>
             </ul>
-          </div>
+          </span>
           <pre class="example">
-                POST /things/lamp/events/overheated HTTP/1.1
-                Host: mythingserver.com
-                Accept: application/json
+            POST /things/lamp/events HTTP/1.1
+            Host: mythingserver.com
+            Accept: application/json
 
-                {
-                  "properties": {
-                    ...
-                    listener: uri,
-                    ...
-                  }
-                }
-                </pre>
+            {
+              callbackURI: "http://myConsumer.com/myEventListener"
+            }
+            </pre>
 
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-5">
               If a Web Thing receives an HTTP request following the format
@@ -3265,18 +3255,19 @@
               <code>Content-Type</code> header set to
               <code>application/json</code>
             </li>
+            <li>
+              <code>Accept</code> header set to <code>application/json</code>
+            </li>
             <li>Response payload contains a JSON object with a <code>subscriptionId</code>.</li>
           </ul>
 
           <pre class="example">
-                HTTP/1.1 200 OK
-                Content-Type: text/event-stream
-
-                {
-                  subscriptionId: 1234-4544-1211
-                }
-
-              </pre>
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+          {
+            subscriptionId: 1234-4544-1211
+          }
+          </pre>
 
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-6">
               Whenever an event occurs, the Web Thing MUST send event data to the Consumer
@@ -3307,20 +3298,17 @@
             the Web Thing with:
           </p>
           <ul>
-            <li>Method set to <code>POST</code></li>
+            <li>Method set to <code>DELETE</code></li>
             <li>URL set to the URL of the <code>Event</code> resource</li>
             <li>
               <code>Accept</code> header set to <code>application/json</code>
             </li>
-            <li>
-              <code>Request Payload</code> contains a <code>JSON</code>
-              object with a valid <code>subscriptionId</code>.
-            </li>
           </ul>
-          <p class="ednote">
-            <!-- TODO -->
-            TODO: define subscription id format - urn?
-          </p>
+
+            <pre class="example" title="Unsubscribe all using callbackURI">
+              DELETE /things/lamp/events HTTP/1.1
+              Host: mythingserver.com
+            </pre>
         </section>
       </section>
 
