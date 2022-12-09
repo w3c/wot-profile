@@ -161,8 +161,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "group": "wg/wot",
   "wgPublicList": "public-wot-wg",
   "edDraftURI": "https://w3c.github.io/wot-profile/",
-  "githubAPI": "https://api.github.com/repos/w3c/wot-profile",
-  "issueBase": "https://www.github.com/w3c/wot-profile/issues",
+  "issueBase": "https://github.com/w3c/wot-profile/issues",
+  "github": {
+    "repoURL": "https://github.com/w3c/wot-profile",
+    "branch": "main"
+  },
   "previousPublishDate": "2020-11-24",
   "previousMaturity": "FPWD",
   "editors": [
@@ -281,6 +284,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/wot-profile/">https://w3c.github.io/wot-profile/</a></dd>
         <dt>History:</dt><dd>
                     <a href="https://www.w3.org/standards/history/wot-profile">https://www.w3.org/standards/history/wot-profile</a>
+                  </dd><dd>
+                    <a href="https://github.com/w3c/wot-profile/commits/main">Commit history</a>
                   </dd>
         
         
@@ -302,7 +307,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd>
         
         
-        <dt>Feedback:</dt><dd><a href="mailto:public-wot-wg@w3.org?subject=%5Bwot-profile%5D%20YOUR%20TOPIC%20HERE">public-wot-wg@w3.org</a> with subject line <kbd>[wot-profile] <em>… message topic …</em></kbd> (<a rel="discussion" href="https://lists.w3.org/Archives/Public/public-wot-wg">archives</a>)</dd>
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/w3c/wot-profile/">GitHub w3c/wot-profile</a>
+        (<a href="https://github.com/w3c/wot-profile/pulls/">pull requests</a>,
+        <a href="https://github.com/w3c/wot-profile/issues/new/choose">new issue</a>,
+        <a href="https://github.com/w3c/wot-profile/issues/">open issues</a>)
+      </dd><dd><a href="mailto:public-wot-wg@w3.org?subject=%5Bwot-profile%5D%20YOUR%20TOPIC%20HERE">public-wot-wg@w3.org</a> with subject line <kbd>[wot-profile] <em>… message topic …</em></kbd> (<a rel="discussion" href="https://lists.w3.org/Archives/Public/public-wot-wg">archives</a>)</dd>
         
         <dt>Contributors</dt><dd>
     <a href="https://github.com/w3c/wot-profile/graphs/contributors">In the GitHub repository</a>
@@ -3437,12 +3447,11 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
             <li>
               A body with a subscription request payload, serialized in JSON.
             </li>
+          </ul>
             <p>
               The subscription payload contains the URI for the event message listener
               in the field with the <code>callbackURI</code> key. 
             </p>
-
-          </ul>
           <div class="example" id="example-45">
         <div class="marker">
     <a class="self-link" href="#example-45">Example<bdi> 45</bdi></a>

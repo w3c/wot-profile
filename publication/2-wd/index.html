@@ -19,8 +19,11 @@
       group: "wg/wot",
       wgPublicList: "public-wot-wg",
       edDraftURI: "https://w3c.github.io/wot-profile/",
-      githubAPI: "https://api.github.com/repos/w3c/wot-profile",
-      issueBase: "https://www.github.com/w3c/wot-profile/issues",
+      issueBase: "https://github.com/w3c/wot-profile/issues",
+      github: {
+        repoURL: "https://github.com/w3c/wot-profile",
+        branch: "main"
+      },
       previousPublishDate: "2020-11-24",
       previousMaturity: "FPWD",
       editors: [{
@@ -3100,12 +3103,11 @@
             <li>
               A body with a subscription request payload, serialized in JSON.
             </li>
+          </ul>
             <p>
               The subscription payload contains the URI for the event message listener
               in the field with the <code>callbackURI</code> key. 
             </p>
-
-          </ul>
           <pre class="example">
               POST /things/lamp/events/overheated HTTP/1.1
               Host: mythingserver.com
