@@ -459,7 +459,7 @@
       <dfn id="dfn-vocab-term" class="lint-ignore">Vocabulary Term</dfn>,
       <dfn class="lint-ignore">WoT Interface</dfn>, and
       <dfn class="lint-ignore">WoT Runtime</dfn>
-      are defined in <a href="https://www.w3.org/TR/wot-architecture/#terminology">Section 3</a>
+      are defined in <a href="https://www.w3.org/TR/wot-architecture11/#terminology">Section 3</a>
       of the WoT Architecture specification [[?WOT-ARCHITECTURE]].
 
     <p>
@@ -599,7 +599,7 @@
     <p>
       <span class="rfc2119-assertion" id="profiling-mechanism-1">
         In order to conform with a profile, a
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#dfn-thing">Web Thing</a>
         MUST conform with all the normative statements in the profile's
         specification.
       </span>
@@ -607,9 +607,9 @@
     <p>
       <span class="rfc2119-assertion" id="profiling-mechanism-2">
         In order to denote that a given
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#dfn-thing">Web Thing</a>
         conforms to one or more profiles, its Thing Description MUST include a
-        <a href="https://w3c.github.io/wot-thing-description/#thing">
+        <a href="https://www.w3.org/TR/wot-thing-description11/#thing">
           <code>profile</code></a> member [[wot-thing-description11]].
       </span>
       <span class="rfc2119-assertion" id="profiling-mechanism-3">
@@ -727,23 +727,23 @@
         <div class="rfc2119-assertion" id="common-constraints-security-1">
           <p>
             Below is a list of <a
-              href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
+              href="https://www.w3.org/TR/wot-thing-description11/#sec-security-vocabulary-definition">
               security schemes</a> [[wot-thing-description]] which conformant Web
             Things MAY use:
           </p>
           <ul>
             <li>
-              <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#nosecurityscheme">
                 <code>NoSecurityScheme</code>
               </a>
             </li>
             <li>
-              <a href="https://w3c.github.io/wot-thing-description/#basicsecurityscheme">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#basicsecurityscheme">
                 <code>BasicSecurityScheme</code>
               </a>
             </li>
             <li>
-              <a href="https://w3c.github.io/wot-thing-description/#oauth2securityscheme">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#oauth2securityscheme">
                 <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow.
               </a>
             </li>
@@ -760,7 +760,7 @@
         <p><span class="rfc2119-assertion" id="common-constraints-security-6">
           Conformant Consumers MUST support security bootstrapping for all 
           implemented security schemes, as defined in
-          <a href="https://w3c.github.io/wot-discovery/#exploration-secboot">Security Bootstrapping</a>
+          <a href="https://www.w3.org/TR/wot-discovery/#exploration-secboot">Security Bootstrapping</a>
           in the WoT Discovery [[wot-discovery]] specification.
         </span></p>
         
@@ -768,7 +768,7 @@
           Conformant Things which require authentication in order to retrieve 
           their Thing Description MUST implement security bootstrapping, as
           defined in 
-          <a href="https://w3c.github.io/wot-discovery/#exploration-secboot">Security Bootstrapping</a>
+          <a href="https://www.w3.org/TR/wot-discovery/#exploration-secboot">Security Bootstrapping</a>
           in the WoT Discovery [[wot-discovery]] specification.
         </span></p>
     </section>
@@ -779,10 +779,10 @@
       <p class="rfc2119-assertion" id="common-constraints-discovery-1">
         A Web Thing's Thing Description [[wot-thing-description]] MUST be 
         retrievable from a
-        <a href="https://w3c.github.io/wot-architecture/#dfn-wot-thing-description-server">
+        <a href="https://www.w3.org/TR/wot-architecture11/#dfn-wot-thing-description-server">
           Thing Description Server</a> [[wot-architecture11]] using an HTTP
         [[HTTP11]] URL provided by a
-        <a href="https://w3c.github.io/wot-discovery/#introduction-mech">
+        <a href="https://www.w3.org/TR/wot-discovery/#introduction-mech">
           Direct Introduction Mechanism</a> [[wot-discovery]].
       </p>
     </section>
@@ -1093,9 +1093,9 @@
       <h2>Identifier</h2>
       <p><span class="rfc2119-assertion" id="http-basic-profile-identifier-1">
           In order to denote that a given
-          <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+          <a href="https://www.w3.org/TR/wot-architecture11/#dfn-thing">Web Thing</a>
           conforms to the HTTP Basic Profile, its Thing Description MUST have a
-          <a href="https://w3c.github.io/wot-thing-description/#thing">
+          <a href="https://www.w3.org/TR/wot-thing-description11/#thing">
             <code>profile</code></a> member [[wot-thing-description]] with a value
           of <code>https://www.w3.org/2022/wot/profile/http-basic/v1</code>.</span>
       </p>
@@ -1106,9 +1106,9 @@
       <h3>Protocol Binding</h3>
       <p>
         This section defines a protocol binding which describes how a
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#dfn-consumer">Consumer</a>
         communicates with a
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#dfn-thing">Web Thing</a>
         [[wot-architecture11]] using JSON [[JSON]] payloads over
         the HTTP [[HTTP11]] protocol.
       </p>
@@ -1206,9 +1206,9 @@
               The URL of a <code>Property</code> resource to be used when reading
               the value of a property MUST be obtained from a Thing Description by
               locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the corresponding
-              <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#propertyaffordance">
                 <code>PropertyAffordance</code></a>
               for which:
             </p>
@@ -1273,9 +1273,9 @@
               The URL of a <code>Property</code> resource to be used when writing
               the value of a property MUST be obtained from a Thing Description by
               locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the corresponding
-              <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#propertyaffordance">
                 <code>PropertyAffordance</code></a>
               for which:
             </p>
@@ -1337,9 +1337,9 @@
               The URL of a <code>Properties</code> resource to be used when
               reading the value of all properties at once MUST be obtained from a
               Thing Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the top level
-              <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form-serialization-json">
                 <code>forms</code></a> member
               for which:
             </p>
@@ -1411,9 +1411,9 @@
               The URL of a <code>Properties</code> resource to be used when
               writing the value of multiple properties at once MUST be obtained
               from a Thing Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the top level
-              <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form-serialization-json">
                 <code>forms</code></a> member
               for which:
             </p>
@@ -1493,9 +1493,9 @@
             <p>
               The URL of an <code>Action</code> resource to be used when invoking
               an action MUST be obtained from a Thing Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the corresponding
-              <a href="https://www.w3.org/TR/wot-thing-description/#actionaffordance">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#actionaffordance">
                 <code>ActionAffordance</code></a>
               for which:
             </p>
@@ -1562,7 +1562,7 @@
             <span class="rfc2119-assertion" 
             id="http-basic-profile-protocol-binding-invokeaction-7">
               If the <code>synchronous</code> member of the 
-              <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              <a href="https://www.w3.org/TR/wot-thing-description11/#actionaffordance"><code>ActionAffordance</code></a>
               [[wot-thing-description11]] is set to <code>true</code> then the Web 
               Thing MUST respond with a
               <a href="#sync-action-response">Synchronous Action Response</a>.
@@ -1572,7 +1572,7 @@
             <span class="rfc2119-assertion" 
             id="http-basic-profile-protocol-binding-invokeaction-8">
               If the <code>synchronous</code> member of the 
-              <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              <a href="https://www.w3.org/wot-thing-description11/#actionaffordance"><code>ActionAffordance</code></a>
               [[wot-thing-description11]] is set to <code>false</code> then the Web 
               Thing MUST respond with an
               <a href="#async-action-response">Asynchronous Action Response</a>.
@@ -1582,7 +1582,7 @@
             <span class="rfc2119-assertion" 
             id="http-basic-profile-protocol-binding-invokeaction-9">
               If the <code>synchronous</code> member of the 
-              <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              <a href="https://www.w3.org/TR/wot-thing-description11/#actionaffordance"><code>ActionAffordance</code></a>
               [[wot-thing-description11]] is <code>undefined</code> then the Web 
               Thing MAY respond with either a 
               <a href="#sync-action-response">Synchronous Action Response</a> or
@@ -1650,7 +1650,7 @@
                     The output data, if any, of a completed action which
                     MUST conform with the <code>output</code> data schema of the
                     corresponding
-                    <a href="https://www.w3.org/TR/wot-thing-description/#actionaffordance">
+                    <a href="https://www.w3.org/TR/wot-thing-description11/#actionaffordance">
                       <code>ActionAffordance</code></a>.
                   </td>
                   <td>optional</td>
@@ -1945,9 +1945,9 @@
               The URL of an <code>Actions</code> resource to be used when
               querying the status of all ongoing action requests MUST be obtained
               from a Thing Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the top level
-              <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form-serialization-json">
                 <code>forms</code></a> member
               for which:
             </p>
@@ -2085,9 +2085,9 @@
       <h2>Identifier</h2>
       <p><span class="rfc2119-assertion" id="http-sse-profile-identifier-1">
           In order to denote that a given
-          <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+          <a href="https://www.w3.org/TR/wot-architecture11/#dfn-thing">Web Thing</a>
           conforms to the HTTP SSE Profile, its Thing Description MUST have a
-          <a href="https://w3c.github.io/wot-thing-description/#thing">
+          <a href="https://www.w3.org/TR/wot-thing-description11/#thing">
             <code>profile</code></a> member [[wot-thing-description]] with a value
           of <code>https://www.w3.org/2022/wot/profile/http-sse/v1</code>.</span>
       </p>
@@ -2096,9 +2096,9 @@
       <h2>Protocol Binding</h2>
       <p>
         This section defines a protocol binding which describes how a
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#dfn-consumer">Consumer</a>
         communicates with a
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#dfn-thing">Web Thing</a>
         [[wot-architecture11]] using Server-Sent Events [[EVENTSOURCE]].
       </p>
       <p>
@@ -2222,9 +2222,9 @@
               The URL of a <code>Property</code> resource to be used when
               observing the value of a property MUST be obtained from a Thing
               Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the corresponding
-              <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#propertyaffordance">
                 <code>PropertyAffordance</code></a>
               for which:
             </p>
@@ -2383,9 +2383,9 @@
               The URL of a properties resource to be used when observing
               changes to all properties of a Web Thing MUST be obtained from a
               Thing Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the top level
-              <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form-serialization-json"><code>forms</code></a>
               member of a Thing Description for which:
             </p>
             <ul>
@@ -2558,9 +2558,9 @@
               The URL of an <code>Event</code> resource to be used when
               subscribing to an event MUST be obtained from a Thing Description
               by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the corresponding
-              <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#eventaffordance">
                 <code>EventAffordance</code></a> for which:
             </p>
             <ul>
@@ -2715,9 +2715,9 @@
               The URL of an events resource to be used when subscribing to all
               events emitted by a Web Thing MUST be obtained from a Thing
               Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the top level
-              <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form-serialization-json"><code>forms</code></a>
               member of a Thing Description for which:
             </p>
             <ul>
@@ -3008,9 +3008,9 @@
       <h2>Identifier</h2>
       <p><span class="rfc2119-assertion" id="http-webhook-profile-1">
           In order to denote that a given
-          <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+          <a href="https://www.w3.org/TR/wot-architecture11/#dfn-thing">Web Thing</a>
           conforms to the HTTP Webhook Profile, its Thing Description MUST have a
-          <a href="https://w3c.github.io/wot-thing-description/#thing">
+          <a href="https://www.w3.org/TR/wot-thing-description11/#thing">
             <code>profile</code></a> member [[wot-thing-description]] with a value
           of <code>https://www.w3.org/2022/wot/profile/http-webhook/v1</code>.</span>
       </p>
@@ -3036,9 +3036,9 @@
       <h2>Protocol Binding</h2>
       <p>
         This section defines a protocol binding which describes how a
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#dfn-consumer">Consumer</a>
         and a
-        <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#dfn-thing">Web Thing</a>
         communicate using Webhook Events.
       </p>
       <p>
@@ -3057,9 +3057,9 @@
               The URL of an <code>Event</code> resource to be used when
               subscribing to an event MUST be obtained from a Thing Description
               by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the corresponding
-              <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#eventaffordance">
                 <code>EventAffordance</code></a> for which:
             </p>
             <ul>
@@ -3186,9 +3186,9 @@
               The URL of an <code>Events</code> resource to be used when subscribing to all
               events emitted by a Web Thing MUST be obtained from a Thing
               Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form">
                 <code>Form</code></a> inside the top level
-              <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
+              <a href="https://www.w3.org/TR/wot-thing-description11/#form-serialization-json"><code>forms</code></a>
               member of a Thing Description for which:
             </p>
             <ul>
@@ -3271,7 +3271,7 @@
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-6">
               Whenever an event occurs, the Web Thing MUST send event data to the Consumer
               using the event payload format defined in section <a
-                href="sec-http-webhook-profile-message-format">Message Format</a>.</span>
+                href="#sec-http-webhook-profile-message-format">Message Format</a>.</span>
 
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-7">
               If the connection between the Web Thing and the Consumer drops,
@@ -3358,9 +3358,9 @@
     <h4>Privacy Considerations</h4>
     <p><span class="rfc2119-assertion" id="privacy-considerations-1">
         The privacy considerations of the
-        <a href="https://w3c.github.io/wot-architecture/#sec-privacy-considerations">WoT Architecture</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#sec-privacy-considerations">WoT Architecture</a>
         and
-        <a href="https://w3c.github.io/wot-thing-description/#sec-privacy-consideration">WoT Thing Description</a>
+        <a href="https://www.w3.org/TR/wot-thing-description11/#sec-privacy-consideration">WoT Thing Description</a>
         MUST be adopted by compliant implementations.</span>
     </p>
   </section>
@@ -3369,13 +3369,13 @@
     <h4>Security Considerations</h4>
     <p><span class="rfc2119-assertion" id="security-considerations-1">
         The security considerations of the
-        <a href="https://w3c.github.io/wot-architecture/#sec-security-consideration">WoT Architecture</a>
+        <a href="https://www.w3.org/TR/wot-architecture11/#sec-security-consideration">WoT Architecture</a>
         and
-        <a href="https://w3c.github.io/wot-thing-description/#sec-security-considerations">WoT Thing Description</a>
+        <a href="https://www.w3.org/TR/wot-thing-description11/#sec-security-considerations">WoT Thing Description</a>
         MUST be adopted by compliant implementations.</span>
     </p>
     <p class="note">
-      Please see <a href="https://w3c.github.io/wot-security-best-practices/">
+      Please see <a href="https://www.w3.org/TR/wot-security-best-practices/">
         WoT Security Best Practices</a> for implementation advice.
     </p>
   </section>
