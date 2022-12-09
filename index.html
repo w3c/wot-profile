@@ -337,7 +337,7 @@
           to be compliant to the profile.</span>
       </p>
       <figure id="http-basic-Profile-figure">
-        <img src="images/WoT HTTP Baseline Profile.png" class="wot-profiles" alt="http-baseline-Profile-Picture" />
+        <img src="images/WoT-HTTP-Baseline-Profile.png" class="wot-profiles" alt="http-baseline-Profile-Picture" />
         <figcaption>WoT HTTP Basic Profile - A Subset of Affordances</figcaption>
       </figure>
       <p>
@@ -393,7 +393,7 @@
         techniques for compressing them. Examples for these formats and encodings in the WoT are JSON,
         XML, JSON-LD, UTF-8 payloads.
       </p>
-      <h3 id="out-of-the-box-interoperability-technical-interop">Semantic Interoperability</h3>
+      <h3 id="out-of-the-box-interoperability-semantic-interop">Semantic Interoperability</h3>
       <p>
         <em>Semantic Interoperability</em> is associated with a common understanding of the behavior of communication
         partners.
@@ -926,7 +926,6 @@
               <td><code>text/html</code></td>
               <td></td>
             </tr>
-            <tr>
             <tr>
               <td><code>text/markdown</code></td>
               <td>charset=UTF-8</td>
@@ -2936,7 +2935,7 @@
         </p>
 
         <figure id="sequence-diagram-webhook">
-          <img src="images/Sequence Diagram - WebHook.png" class="wot-profiles"
+          <img src="images/Sequence-Diagram-WebHook.png" class="wot-profiles"
             alt="Webhook example - sequence diagram" />
           <figcaption>HTTP Webhook Profile - Sequence of operations and notifications</figcaption>
         </figure>
@@ -3182,7 +3181,7 @@
 
         <section id="http-webhook-profile-protocol-binding-events-subscribeallevents">
           <h4><code>subscribeallevents</code></h4>
-          <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-1">
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-1">
             <p>
               The URL of an <code>Events</code> resource to be used when subscribing to all
               events emitted by a Web Thing MUST be obtained from a Thing
@@ -3207,12 +3206,12 @@
                 <code>webhook</code>
               </li>
             </ul>
-          </span>
+          </div>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-3">
               The resolved value of the <code>href</code> member MUST then be used
               as the URL of the events resource.</span>
           </p>
-          <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-4">
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-4">
             <p>
               In order to subscribe to <em>all</em> events emitted by a Web Thing, a
               Consumer MUST send an HTTP request to the Web Thing with:
@@ -3228,7 +3227,7 @@
                 object with a subscription request payload.
               </li>
             </ul>
-          </span>
+          </div>
           <pre class="example">
             POST /things/lamp/events HTTP/1.1
             Host: mythingserver.com
