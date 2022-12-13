@@ -55,19 +55,22 @@
 #common-constraints-links-media-types-7 {
   background-color: yellow;
 }
-#common-constraints-links-media-types-8 {
-  background-color: yellow;
-}
-#common-constraints-errors-3 {
-  background-color: yellow;
-}
-#common-constraints-errors-6 {
-  background-color: yellow;
-}
 #http-basic-profile-1 {
   background-color: yellow;
 }
 #profile-5-2-thing-protocol-binding-1 {
+  background-color: yellow;
+}
+#http-basic-profile-protocol-binding-readproperty-3 {
+  background-color: yellow;
+}
+#http-basic-profile-protocol-binding-readproperty-4 {
+  background-color: yellow;
+}
+#http-basic-profile-protocol-binding-writeproperty-3 {
+  background-color: yellow;
+}
+#http-basic-profile-protocol-binding-writeproperty-4 {
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-readallproperties-3 {
@@ -76,7 +79,16 @@
 #http-basic-profile-protocol-bindings-writemultipleproperties-3 {
   background-color: yellow;
 }
+#http-basic-profile-protocol-binding-writemultipleproperties-4 {
+  background-color: yellow;
+}
+#http-basic-profile-protocol-binding-invokeaction-1 {
+  background-color: yellow;
+}
 #http-basic-profile-protocol-binding-invokeaction-3 {
+  background-color: yellow;
+}
+#http-basic-profile-protocol-binding-invokeaction-4 {
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-invokeaction-7 {
