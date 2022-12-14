@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 13 Dec 2022
+    <b>Version</b>: 14 Dec 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -830,10 +830,10 @@ pre.example {
 	<td class="baseassertion">A Web Thing's Thing Description [[wot-thing-description]] MUST be retrievable from a Thing Description Server [[wot-architecture11]] using an HTTP [[HTTP11]] URL provided by a Direct Introduction Mechanism [[wot-discovery]].</td>
 	<td class="baseassertion">A Web Thing's Thing Description [[wot-thing-description]] MUST be retrievable from a Thing Description Server [[wot-architecture11]] using an HTTP [[HTTP11]] URL provided by a Direct Introduction Mechanism [[wot-discovery]].</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="common-constraints-links-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-links-1">18: common-constraints-links-1</a></td>
 	<td class="baseassertion">TD</td>
@@ -856,10 +856,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Other keywords for links MAY be present in a TD, however their interpretation is undefined in the context of the HTTP profiles</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="common-constraints-links-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-links-3">20: common-constraints-links-3</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -872,7 +872,7 @@ pre.example {
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="common-constraints-links-media-types-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-links-media-types-1">21: common-constraints-links-media-types-1</a></td>
 	<td class="baseassertion">TD</td>
@@ -893,12 +893,12 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Other media types MAY be present in a TD, however their heir interpretation is undefined in the context of the HTTP profiles and they MAY be ignored by all profile-compliant consumers.</td>
+	<td class="baseassertion">Other media types MAY be present in a TD, however their heir interpretation is undefined in the context of the HTTP profiles and they MAY be ignored by all profile-compliant consumers.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="common-constraints-errors-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-errors-1">28: common-constraints-errors-1</a></td>
 	<td class="baseassertion">Thing</td>
@@ -921,10 +921,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">It is RECOMMENDED that error responses use one of the following HTTP error codes: 400 Bad Request 401 Unauthorized 403 Forbidden 404 Not Found 500 Internal Server Error</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="common-constraints-errors-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#common-constraints-errors-3">30: common-constraints-errors-3</a></td>
 	<td class="baseassertion">Thing</td>
@@ -1061,10 +1061,10 @@ pre.example {
 	<td class="baseassertion">The URL of a Property resource to be used when reading the value of a property MUST be obtained from a Thing Description by locating a Form inside the corresponding PropertyAffordance for which: After defaults have been applied, its op member contains the value readproperty. After being resolved against a base URL where applicable, the URI scheme [[RFC3986]] of the value of its href member is http or https</td>
 	<td class="baseassertion">The URL of a Property resource to be used when reading the value of a property MUST be obtained from a Thing Description by locating a Form inside the corresponding PropertyAffordance for which: After defaults have been applied, its op member contains the value readproperty. After being resolved against a base URL where applicable, the URI scheme [[RFC3986]] of the value of its href member is http or https</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="http-basic-profile-protocol-binding-readproperty-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readproperty-3">40: http-basic-profile-protocol-binding-readproperty-3</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1073,10 +1073,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The resolved value of the href member MUST then be used as the URL of the Property resource.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="http-basic-profile-protocol-binding-readproperty-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readproperty-4">41: http-basic-profile-protocol-binding-readproperty-4</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1085,10 +1085,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">In order to read the value of a property, a Consumer MUST send an HTTP request to a Web Thing with: Method set to GET URL set to the URL of the Property resource Accept header set to application/json</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="http-basic-profile-protocol-binding-readproperty-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readproperty-6">42: http-basic-profile-protocol-binding-readproperty-6</a></td>
 	<td class="baseassertion">Thing</td>
@@ -1097,10 +1097,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">If a Web Thing receives an HTTP request following the format above and the Consumer has permission to read the corresponding property, then upon successfully reading the value of the property it MUST send an HTTP response with: Status code set to 200 Content-Type header set to application/json A body with the value of the property serialized in JSON</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="http-basic-profile-protocol-binding-writeproperty-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writeproperty-1">43: http-basic-profile-protocol-binding-writeproperty-1</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1110,10 +1110,10 @@ pre.example {
 	<td class="baseassertion">The URL of a Property resource to be used when writing the value of a property MUST be obtained from a Thing Description by locating a Form inside the corresponding PropertyAffordance for which: After defaults have been applied, its op member contains the value writeproperty After being resolved against a base URL where applicable, the URI scheme [[RFC3986]] of the value of its href member is http or https</td>
 	<td class="baseassertion">The URL of a Property resource to be used when writing the value of a property MUST be obtained from a Thing Description by locating a Form inside the corresponding PropertyAffordance for which: After defaults have been applied, its op member contains the value writeproperty After being resolved against a base URL where applicable, the URI scheme [[RFC3986]] of the value of its href member is http or https</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="http-basic-profile-protocol-binding-writeproperty-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writeproperty-3">44: http-basic-profile-protocol-binding-writeproperty-3</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1122,10 +1122,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The resolved value of the href member MUST then be used as the URL of the Property resource.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="http-basic-profile-protocol-binding-writeproperty-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writeproperty-4">45: http-basic-profile-protocol-binding-writeproperty-4</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1134,10 +1134,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">In order to write the value of a property, a Consumer MUST send an HTTP request to a Web Thing with: Method set to PUT URL set to the URL of the Property resource Content-Type header set to application/json A body with a requested new value for the property serialized in JSON</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="http-basic-profile-protocol-binding-writeproperty-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writeproperty-6">46: http-basic-profile-protocol-binding-writeproperty-6</a></td>
 	<td class="baseassertion">Thing</td>
@@ -1161,10 +1161,10 @@ pre.example {
 	<td class="baseassertion">The URL of a Properties resource to be used when reading the value of all properties at once MUST be obtained from a Thing Description by locating a Form inside the top level forms member for which: Its op member contains the value readallproperties After being resolved against a base URL where applicable, the URI scheme [[RFC3986]] of the value of its href member is http or https</td>
 	<td class="baseassertion">The URL of a Properties resource to be used when reading the value of all properties at once MUST be obtained from a Thing Description by locating a Form inside the top level forms member for which: Its op member contains the value readallproperties After being resolved against a base URL where applicable, the URI scheme [[RFC3986]] of the value of its href member is http or https</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="http-basic-profile-protocol-binding-readallproperties-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readallproperties-3">48: http-basic-profile-protocol-binding-readallproperties-3</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1176,7 +1176,7 @@ pre.example {
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="http-basic-profile-protocol-binding-readallproperties-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readallproperties-4">49: http-basic-profile-protocol-binding-readallproperties-4</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1185,10 +1185,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">In order to read the value of all properties, a Consumer MUST send an HTTP request to a Web Thing with: Method set to GET URL set to the URL of the Properties resource Accept header set to application/json</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="http-basic-profile-protocol-binding-readallproperties-5" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-readallproperties-5">50: http-basic-profile-protocol-binding-readallproperties-5</a></td>
 	<td class="baseassertion">Thing</td>
@@ -1197,10 +1197,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">If a Web Thing receives an HTTP request following the format above, then upon successfully reading the values of all the readable properties to which the Consumer has permission to access, it MUST send an HTTP response with: Status code set to 200 Content-Type header set to application/json A body with the values of all readable properties serialized in JSON, as an object keyed by property name</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="http-basic-profile-protocol-binding-writemultipleproperties-1" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writemultipleproperties-1">51: http-basic-profile-protocol-binding-writemultipleproperties-1</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1209,10 +1209,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The URL of a Properties resource to be used when writing the value of multiple properties at once MUST be obtained from a Thing Description by locating a Form inside the top level forms member for which: Its op member contains the value writemultipleproperties After being resolved against a base URL where applicable, the URI scheme [[RFC3986]] of the value of its href member is http or https</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
+	<td class="result baseassertion">2</td></tr>
 <tr id="http-basic-profile-protocol-bindings-writemultipleproperties-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-bindings-writemultipleproperties-3">52: http-basic-profile-protocol-bindings-writemultipleproperties-3</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1224,7 +1224,7 @@ pre.example {
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
+	<td class="result baseassertion">2</td></tr>
 <tr id="http-basic-profile-protocol-binding-writemultipleproperties-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writemultipleproperties-4">53: http-basic-profile-protocol-binding-writemultipleproperties-4</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1233,10 +1233,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">In order to write the value of multiple properties at once, a Consumer MUST send an HTTP request to a Web Thing with: Method set to PUT URL set to the URL of the Properties resource Content-Type header set to application/json A body with requested new values for the writable properties serialized in JSON, as an object keyed by property name</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
+	<td class="result baseassertion">2</td></tr>
 <tr id="http-basic-profile-protocol-binding-writemultipleproperties-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-writemultipleproperties-6">54: http-basic-profile-protocol-binding-writemultipleproperties-6</a></td>
 	<td class="baseassertion">Thing</td>
@@ -1260,10 +1260,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The URL of an Action resource to be used when invoking an action MUST be obtained from a Thing Description by locating a Form inside the corresponding ActionAffordance for which: After defaults have been applied, the value of its op member is invokeaction After being resolved against a base URL where applicable, the URI scheme [[RFC3986]] of the value of its href member is http or https</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
+	<td class="result baseassertion">2</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-3">56: http-basic-profile-protocol-binding-invokeaction-3</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1275,7 +1275,7 @@ pre.example {
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
+	<td class="result baseassertion">2</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-4" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-4">57: http-basic-profile-protocol-binding-invokeaction-4</a></td>
 	<td class="baseassertion">Consumer</td>
@@ -1284,10 +1284,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">In order to invoke an action on a Web Thing, a Consumer MUST send an HTTP request to the Web Thing with: Method set to POST URL set to the URL of the Action resource Accept header set to application/json Content-Type header set to application/json A body with an input to the action, if any, serialized in JSON</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
+	<td class="result baseassertion">2</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-6" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-6">58: http-basic-profile-protocol-binding-invokeaction-6</a></td>
 	<td class="baseassertion">Thing</td>
@@ -1357,10 +1357,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">For long-running actions which are not expected to finish executing within the timeout period of an HTTP request (e.g. 30 to 120 seconds), it is RECOMMENDED that a Web Thing respond with an Asynchronous Action Response so that a Consumer may continue to monitor the status of an action request with a queryaction operation on a dynamically created ActionStatus resource, after the initial invokeaction response.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="http-basic-profile-protocol-binding-invokeaction-11" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-profile#http-basic-profile-protocol-binding-invokeaction-11">63: http-basic-profile-protocol-binding-invokeaction-11</a></td>
 	<td class="baseassertion">Thing</td>
