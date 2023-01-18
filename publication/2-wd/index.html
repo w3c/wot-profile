@@ -2067,7 +2067,7 @@
     <p>This section defines the HTTP SSE Profile, including a
       <a href="#http-sse-profile-protocol-binding">Protocol Binding</a>
       for observing properties and listening for events using Server-Sent Events
-      [[EVENTSOURCE]].
+      [[HTML]].
     </p>
     <p>This profile may be used in conjunction with the
       <a href="#http-basic-profile">HTTP Basic Profile</a> in order to
@@ -2102,7 +2102,7 @@
         <a href="https://www.w3.org/TR/wot-architecture11/#dfn-consumer">Consumer</a>
         communicates with a
         <a href="https://www.w3.org/TR/wot-architecture11/#dfn-thing">Web Thing</a>
-        [[wot-architecture11]] using Server-Sent Events [[EVENTSOURCE]].
+        [[wot-architecture11]] using Server-Sent Events [[HTML]].
       </p>
       <p>
         <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-1">
@@ -2255,7 +2255,7 @@
           <p>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-3">
               In order to observe a property, a Consumer MUST follow the
-              Server-Sent Events [[EVENTSOURCE]] specification to open a
+              Server-Sent Events [[HTML]] specification to open a
               connection with the Web Thing at the URL of the
               <code>Property</code> resource.</span>
           </p>
@@ -2295,7 +2295,7 @@
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to observe the
               corresponding property, then it MUST follow the Server-Sent Events
-              [[EVENTSOURCE]] specification to maintain an open connection with
+              [[HTML]] specification to maintain an open connection with
               the Consumer and push a property value to the Consumer each time
               the value of the specified property changes.</span>
           </p>
@@ -2319,7 +2319,7 @@
               Whenever the value of the specified property changes while the Web
               Thing has an open connection with a Consumer, the Web Thing MUST
               send a property value to the Consumer using the event stream
-              format in the Server-Sent Events [[EVENTSOURCE]] specification.</span>
+              format in the Server-Sent Events [[HTML]] specification.</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5b">
               For each message sent, the Web Thing MUST set the
               <code>event</code> field to the name of the
@@ -2348,7 +2348,7 @@
               (except as a result of the <code>unobserve</code> operation
               defined below), the Consumer MUST re-establish the connection
               following the steps outlined in the Server-Sent Events
-              specification [[EVENTSOURCE]].</span>
+              specification [[HTML]].</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-6b">
               Once the connection is
               re-established the Web Thing SHOULD, if possible, send any missed
@@ -2364,7 +2364,7 @@
               In order to stop observing a property, a Consumer MUST terminate
               the corresponding Server-Sent Events connection with the Web Thing
               as specified in the Server-Sent Events specification
-              [[EVENTSOURCE]].</span>
+              [[HTML]].</span>
           </p>
           <p class="note" title="Terminating a connection using JavaScript">
             For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed
@@ -2372,7 +2372,7 @@
             <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
               <code>EventSource</code></a> interface, a Server-Sent Events
             connection can be terminated using the <code>close()</code> method
-            on an <code>EventSource</code> [[EVENTSOURCE]] object.
+            on an <code>EventSource</code> [[HTML]] object.
           <pre class="example">
               levelSource.close();
             </pre>
@@ -2415,7 +2415,7 @@
           <p>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-3">
               In order to observe changes to all properties of a Web Thing, a
-              Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
+              Consumer MUST follow the Server-Sent Events [[HTML]]
               specification to open a connection with the Web Thing at the URL
               of the properties resource.</span>
           </p>
@@ -2454,7 +2454,7 @@
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-4">
               If a Web Thing receives an HTTP request following the format
               above then it MUST follow the Server-Sent Events
-              [[EVENTSOURCE]] specification to maintain an open connection with
+              [[HTML]] specification to maintain an open connection with
               the Consumer and push new property values to the Consumer for all
               properties for which it has permission to observe.</span>
           </p>
@@ -2478,7 +2478,7 @@
               Whenever a property changes while the Web Thing has an open
               connection with a Consumer, the Web Thing MUST send the new
               property value to the Consumer using the event stream format in
-              the Server-Sent Events [[EVENTSOURCE]] specification.</span>
+              the Server-Sent Events [[HTML]] specification.</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5b">
               For each message sent, the Web Thing MUST set the <code>event</code> field
               to the name of the <code>PropertyAffordance</code> and populate
@@ -2507,7 +2507,7 @@
               (except as a result of the <code>unobserveallproperties</code>
               operation defined below), the Consumer MUST re-establish the
               connection following the steps outlined in the Server-Sent Events
-              specification [[EVENTSOURCE]].</span>
+              specification [[HTML]].</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-6b">
               Once the connection is
               re-established the Web Thing SHOULD, if possible, send any missed
@@ -2523,7 +2523,7 @@
               In order to unobserve all properties, a Consumer MUST terminate
               the corresponding Server-Sent Events connection with the
               properties endpoint of the Web Thing, following the steps
-              specified in the Server-Sent Events specification [[EVENTSOURCE]].</span>
+              specified in the Server-Sent Events specification [[HTML]].</span>
           </p>
           <p class="note" title="Terminating a connection using JavaScript">
             For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed
@@ -2531,7 +2531,7 @@
             <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
               <code>EventSource</code></a> interface, a Server-Sent Events
             connection can be terminated using the <code>close()</code> method
-            on an <code>EventSource</code> [[EVENTSOURCE]] object.
+            on an <code>EventSource</code> [[HTML]] object.
           <pre class="example">
               lampPropertiesSource.close();
             </pre>
@@ -2543,7 +2543,7 @@
       <section id="http-sse-profile-protocol-binding-events">
         <h3>Events</h3>
         <p>
-          The HTTP SSE Profile uses Server-Sent Events [[EVENTSOURCE]] as a
+          The HTTP SSE Profile uses Server-Sent Events [[HTML]] as a
           mechanism for Consumers to subscribe to events emitted by a Web Thing.
         </p>
         <p class="note">
@@ -2588,7 +2588,7 @@
           </p>
           <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-4">
               In order to subscribe to an event, a Consumer MUST follow the
-              Server-Sent Events [[EVENTSOURCE]] specification to open a
+              Server-Sent Events [[HTML]] specification to open a
               connection with the Web Thing at the URL of the <code>Event</code>
               resource.</span>
           </p>
@@ -2627,7 +2627,7 @@
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to subscribe to the
               corresponding event, then it MUST follow the Server-Sent Events
-              [[EVENTSOURCE]] specification to maintain an open connection with
+              [[HTML]] specification to maintain an open connection with
               the Consumer and push event data to the Consumer as events of the
               specified type are emitted.</span>
           </p>
@@ -2650,7 +2650,7 @@
               Whenever an event of the specified type occurs while the Web Thing
               has an open connection with a Consumer, the Web Thing MUST
               send event data to the Consumer using the event stream format in the
-              Server-Sent Events [[EVENTSOURCE]] specification.</span>
+              Server-Sent Events [[HTML]] specification.</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6b">
               For each message
               sent, the Web Thing MUST set the <code>event</code> field to the
@@ -2681,7 +2681,7 @@
               (except as a result of the <code>unsubscribe</code> operation
               defined below), the Consumer MUST re-establish the connection
               following the steps outlined in the Server-Sent Events specification
-              [[EVENTSOURCE]].</span>
+              [[HTML]].</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-7b">
               Once the connection is re-established the Web Thing
               SHOULD, if possible, send any missed events which occurred since
@@ -2696,7 +2696,7 @@
               In order to unsubscribe from an event, a Consumer MUST terminate
               the corresponding Server-Sent Events connection with the Web Thing
               as specified in the Server-Sent Events specification
-              [[EVENTSOURCE]].</span>
+              [[HTML]].</span>
           </p>
           <p class="note" title="Terminating a connection using JavaScript">
             For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed
@@ -2704,7 +2704,7 @@
             <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
               <code>EventSource</code></a> interface, a Server-Sent Events
             connection can be terminated using the <code>close()</code> method
-            on an <code>EventSource</code> [[EVENTSOURCE]] object.
+            on an <code>EventSource</code> [[HTML]] object.
           </p>
           <pre class="example">
               overheatedEventSource.close();
@@ -2745,7 +2745,7 @@
           </p>
           <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4">
               In order to subscribe to all events emitted by a Web Thing, a
-              Consumer MUST follow the Server-Sent Events [[EVENTSOURCE]]
+              Consumer MUST follow the Server-Sent Events [[HTML]]
               specification to open a connection with the Web Thing at the URL of
               the events resource.</span>
           </p>
@@ -2783,7 +2783,7 @@
           <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-3">
               If a Web Thing receives an HTTP request following the format
               above then it MUST follow the Server-Sent Events
-              [[EVENTSOURCE]] specification to maintain an open connection with
+              [[HTML]] specification to maintain an open connection with
               the Consumer and push event data to the Consumer for all event
               types for which it has permission to subscribe.</span>
           </p>
@@ -2806,7 +2806,7 @@
               Whenever an event occurs while the Web Thing has an open connection
               with a Consumer, the Web Thing MUST send event data to the Consumer
               using the event stream format in the Server-Sent Events
-              [[EVENTSOURCE]] specification.</span>
+              [[HTML]] specification.</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4b">
               For each message sent, the Web Thing
               MUST set the <code>event</code> field to the
@@ -2836,7 +2836,7 @@
               (except as a result of the <code>unsubscribeallevents</code>
               operation defined below), the Consumer MUST re-establish the
               connection following the steps outlined in the Server-Sent Events
-              specification [[EVENTSOURCE]].</span>
+              specification [[HTML]].</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-5b">
               Once the connection is re-established
               the Web Thing SHOULD, if possible, send any missed events which
@@ -2851,7 +2851,7 @@
               In order to unsubscribe from all events, a Consumer MUST terminate
               the corresponding Server-Sent Events connection with the events
               endpoint of the Web Thing, following the steps specified in the
-              Server-Sent Events specification [[EVENTSOURCE]].</span>
+              Server-Sent Events specification [[HTML]].</span>
           </p>
           <p class="note" title="Terminating a connection using JavaScript">
             For Consumers implemented in JavaScript [[ECMASCRIPT]] and executed
@@ -2859,7 +2859,7 @@
             <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface">
               <code>EventSource</code></a> interface, a Server-Sent Events
             connection can be terminated using the <code>close()</code> method
-            on an <code>EventSource</code> [[EVENTSOURCE]] object.
+            on an <code>EventSource</code> [[HTML]] object.
           <pre class="example">
               lampEventsSource.close();
             </pre>
