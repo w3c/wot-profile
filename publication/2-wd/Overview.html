@@ -3581,8 +3581,8 @@ Accept: application/json</code></pre>
     <a href="#http-sse-profile-protocol-binding">Protocol
     Binding</a> for observing properties and listening for events
     using Server-Sent Events [<cite><a class="bibref"
-    data-link-type="biblio" href="#bib-eventsource" title=
-    "Server-Sent Events">EVENTSOURCE</a></cite>].</p>
+    data-link-type="biblio" href="#bib-html" title=
+    "HTML Standard">HTML</a></cite>].</p>
     <p>This profile may be used in conjunction with the <a href=
     "#http-basic-profile">HTTP Basic Profile</a> in order to
     provide operations to read and write properties and invoke,
@@ -3628,8 +3628,8 @@ Accept: application/json</code></pre>
       href="#bib-wot-architecture11" title=
       "Web of Things (WoT) Architecture 1.1">wot-architecture11</a></cite>]
       using Server-Sent Events [<cite><a class="bibref"
-      data-link-type="biblio" href="#bib-eventsource" title=
-      "Server-Sent Events">EVENTSOURCE</a></cite>].</p>
+      data-link-type="biblio" href="#bib-html" title=
+      "HTML Standard">HTML</a></cite>].</p>
       <p><span class="rfc2119-assertion" id=
       "http-sse-profile-protocol-binding-1">A Consumer or Web Thing
       conforming to the HTTP SSE Profile <em class=
@@ -3849,8 +3849,7 @@ Accept: application/json</code></pre>
           order to observe a property, a Consumer <em class=
           "rfc2119">MUST</em> follow the Server-Sent Events
           [<cite><a class="bibref" data-link-type="biblio" href=
-          "#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
+          "#bib-html" title="HTML Standard">HTML</a></cite>]
           specification to open a connection with the Web Thing at
           the URL of the <code>Property</code> resource.</span></p>
           <p>This involves the Consumer sending an HTTP request to
@@ -3916,8 +3915,7 @@ Accept: application/json</code></pre>
           corresponding property, then it <em class=
           "rfc2119">MUST</em> follow the Server-Sent Events
           [<cite><a class="bibref" data-link-type="biblio" href=
-          "#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
+          "#bib-html" title="HTML Standard">HTML</a></cite>]
           specification to maintain an open connection with the
           Consumer and push a property value to the Consumer each
           time the value of the specified property
@@ -3948,9 +3946,9 @@ Accept: application/json</code></pre>
           Thing <em class="rfc2119">MUST</em> send a property value
           to the Consumer using the event stream format in the
           Server-Sent Events [<cite><a class="bibref"
-          data-link-type="biblio" href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
-          specification.</span> <span class="rfc2119-assertion" id=
+          data-link-type="biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>] specification.</span>
+          <span class="rfc2119-assertion" id=
           "http-sse-profile-protocol-binding-observeproperty-5b">For
           each message sent, the Web Thing <em class=
           "rfc2119">MUST</em> set the <code>event</code> field to
@@ -3988,9 +3986,9 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           "rfc2119">MUST</em> re-establish the connection following
           the steps outlined in the Server-Sent Events
           specification [<cite><a class="bibref" data-link-type=
-          "biblio" href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>].</span>
-          <span class="rfc2119-assertion" id=
+          "biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>].</span> <span class=
+          "rfc2119-assertion" id=
           "http-sse-profile-protocol-binding-observeproperty-6b">Once
           the connection is re-established the Web Thing <em class=
           "rfc2119">SHOULD</em>, if possible, send any missed
@@ -4013,8 +4011,8 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           Server-Sent Events connection with the Web Thing as
           specified in the Server-Sent Events specification
           [<cite><a class="bibref" data-link-type="biblio" href=
-          "#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>].</span></p>
+          "#bib-html" title=
+          "HTML Standard">HTML</a></cite>].</span></p>
           <div class="note" role="note" id=
           "issue-container-generatedID-8">
             <div role="heading" class="note-title marker" id=
@@ -4032,9 +4030,8 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
             Events connection can be terminated using the
             <code>close()</code> method on an
             <code>EventSource</code> [<cite><a class="bibref"
-            data-link-type="biblio" href="#bib-eventsource" title=
-            "Server-Sent Events">EVENTSOURCE</a></cite>]
-            object.</p>
+            data-link-type="biblio" href="#bib-html" title=
+            "HTML Standard">HTML</a></cite>] object.</p>
           </div>
           <div class="example" id="example-28">
             <div class="marker">
@@ -4091,10 +4088,10 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           In order to observe changes to all properties of a Web
           Thing, a Consumer <em class="rfc2119">MUST</em> follow
           the Server-Sent Events [<cite><a class="bibref"
-          data-link-type="biblio" href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
-          specification to open a connection with the Web Thing at
-          the URL of the properties resource.</span></p>
+          data-link-type="biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>] specification to open a
+          connection with the Web Thing at the URL of the
+          properties resource.</span></p>
           <p>This involves the Consumer sending an HTTP request to
           the Web Thing with:</p>
           <ul>
@@ -4155,12 +4152,11 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           If a Web Thing receives an HTTP request following the
           format above then it <em class="rfc2119">MUST</em> follow
           the Server-Sent Events [<cite><a class="bibref"
-          data-link-type="biblio" href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
-          specification to maintain an open connection with the
-          Consumer and push new property values to the Consumer for
-          all properties for which it has permission to
-          observe.</span></p>
+          data-link-type="biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>] specification to
+          maintain an open connection with the Consumer and push
+          new property values to the Consumer for all properties
+          for which it has permission to observe.</span></p>
           <p>This involves the Web Thing initially sending an HTTP
           response to the Consumer with:</p>
           <ul>
@@ -4187,8 +4183,7 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           "rfc2119">MUST</em> send the new property value to the
           Consumer using the event stream format in the Server-Sent
           Events [<cite><a class="bibref" data-link-type="biblio"
-          href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
+          href="#bib-html" title="HTML Standard">HTML</a></cite>]
           specification.</span> <span class="rfc2119-assertion" id=
           "http-sse-profile-protocol-binding-observeallproperties-5b">
           For each message sent, the Web Thing <em class=
@@ -4231,10 +4226,9 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           below), the Consumer <em class="rfc2119">MUST</em>
           re-establish the connection following the steps outlined
           in the Server-Sent Events specification [<cite><a class=
-          "bibref" data-link-type="biblio" href="#bib-eventsource"
-          title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>].</span>
-          <span class="rfc2119-assertion" id=
+          "bibref" data-link-type="biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>].</span> <span class=
+          "rfc2119-assertion" id=
           "http-sse-profile-protocol-binding-observeallproperties-6b">
           Once the connection is re-established the Web Thing
           <em class="rfc2119">SHOULD</em>, if possible, send any
@@ -4257,9 +4251,8 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           Server-Sent Events connection with the properties
           endpoint of the Web Thing, following the steps specified
           in the Server-Sent Events specification [<cite><a class=
-          "bibref" data-link-type="biblio" href="#bib-eventsource"
-          title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>].</span></p>
+          "bibref" data-link-type="biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>].</span></p>
           <div class="note" role="note" id=
           "issue-container-generatedID-10">
             <div role="heading" class="note-title marker" id=
@@ -4277,9 +4270,8 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
             Events connection can be terminated using the
             <code>close()</code> method on an
             <code>EventSource</code> [<cite><a class="bibref"
-            data-link-type="biblio" href="#bib-eventsource" title=
-            "Server-Sent Events">EVENTSOURCE</a></cite>]
-            object.</p>
+            data-link-type="biblio" href="#bib-html" title=
+            "HTML Standard">HTML</a></cite>] object.</p>
           </div>
           <div class="example" id="example-33">
             <div class="marker">
@@ -4301,10 +4293,9 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
         </div>
         <p>The HTTP SSE Profile uses Server-Sent Events
         [<cite><a class="bibref" data-link-type="biblio" href=
-        "#bib-eventsource" title=
-        "Server-Sent Events">EVENTSOURCE</a></cite>] as a mechanism
-        for Consumers to subscribe to events emitted by a Web
-        Thing.</p>
+        "#bib-html" title="HTML Standard">HTML</a></cite>] as a
+        mechanism for Consumers to subscribe to events emitted by a
+        Web Thing.</p>
         <div class="note" role="note" id=
         "issue-container-generatedID-11">
           <div role="heading" class="note-title marker" id=
@@ -4366,8 +4357,7 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           order to subscribe to an event, a Consumer <em class=
           "rfc2119">MUST</em> follow the Server-Sent Events
           [<cite><a class="bibref" data-link-type="biblio" href=
-          "#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
+          "#bib-html" title="HTML Standard">HTML</a></cite>]
           specification to open a connection with the Web Thing at
           the URL of the <code>Event</code> resource.</span></p>
           <p>This involves the Consumer sending an HTTP request to
@@ -4433,8 +4423,7 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           corresponding event, then it <em class=
           "rfc2119">MUST</em> follow the Server-Sent Events
           [<cite><a class="bibref" data-link-type="biblio" href=
-          "#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
+          "#bib-html" title="HTML Standard">HTML</a></cite>]
           specification to maintain an open connection with the
           Consumer and push event data to the Consumer as events of
           the specified type are emitted.</span></p>
@@ -4464,8 +4453,7 @@ id: 2021-11-17T15:33:20.827Z\n\n</code></pre>
           <em class="rfc2119">MUST</em> send event data to the
           Consumer using the event stream format in the Server-Sent
           Events [<cite><a class="bibref" data-link-type="biblio"
-          href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
+          href="#bib-html" title="HTML Standard">HTML</a></cite>]
           specification.</span> <span class="rfc2119-assertion" id=
           "http-sse-profile-protocol-binding-subscribeevent-6b">For
           each message sent, the Web Thing <em class=
@@ -4506,9 +4494,9 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
           "rfc2119">MUST</em> re-establish the connection following
           the steps outlined in the Server-Sent Events
           specification [<cite><a class="bibref" data-link-type=
-          "biblio" href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>].</span>
-          <span class="rfc2119-assertion" id=
+          "biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>].</span> <span class=
+          "rfc2119-assertion" id=
           "http-sse-profile-protocol-binding-subscribeevent-7b">Once
           the connection is re-established the Web Thing <em class=
           "rfc2119">SHOULD</em>, if possible, send any missed
@@ -4533,8 +4521,8 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
           Server-Sent Events connection with the Web Thing as
           specified in the Server-Sent Events specification
           [<cite><a class="bibref" data-link-type="biblio" href=
-          "#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>].</span></p>
+          "#bib-html" title=
+          "HTML Standard">HTML</a></cite>].</span></p>
           <div class="note" role="note" id=
           "issue-container-generatedID-13">
             <div role="heading" class="note-title marker" id=
@@ -4552,9 +4540,8 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
             Events connection can be terminated using the
             <code>close()</code> method on an
             <code>EventSource</code> [<cite><a class="bibref"
-            data-link-type="biblio" href="#bib-eventsource" title=
-            "Server-Sent Events">EVENTSOURCE</a></cite>]
-            object.</p>
+            data-link-type="biblio" href="#bib-html" title=
+            "HTML Standard">HTML</a></cite>] object.</p>
           </div>
           <div class="example" id="example-38">
             <div class="marker">
@@ -4613,10 +4600,10 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
           order to subscribe to all events emitted by a Web Thing,
           a Consumer <em class="rfc2119">MUST</em> follow the
           Server-Sent Events [<cite><a class="bibref"
-          data-link-type="biblio" href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
-          specification to open a connection with the Web Thing at
-          the URL of the events resource.</span></p>
+          data-link-type="biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>] specification to open a
+          connection with the Web Thing at the URL of the events
+          resource.</span></p>
           <p>This involves the Consumer sending an HTTP request to
           the Web Thing with:</p>
           <ul>
@@ -4677,12 +4664,11 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
           a Web Thing receives an HTTP request following the format
           above then it <em class="rfc2119">MUST</em> follow the
           Server-Sent Events [<cite><a class="bibref"
-          data-link-type="biblio" href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
-          specification to maintain an open connection with the
-          Consumer and push event data to the Consumer for all
-          event types for which it has permission to
-          subscribe.</span></p>
+          data-link-type="biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>] specification to
+          maintain an open connection with the Consumer and push
+          event data to the Consumer for all event types for which
+          it has permission to subscribe.</span></p>
           <p>This involves the Web Thing initially sending an HTTP
           response to the Consumer with:</p>
           <ul>
@@ -4709,8 +4695,7 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
           "rfc2119">MUST</em> send event data to the Consumer using
           the event stream format in the Server-Sent Events
           [<cite><a class="bibref" data-link-type="biblio" href=
-          "#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>]
+          "#bib-html" title="HTML Standard">HTML</a></cite>]
           specification.</span> <span class="rfc2119-assertion" id=
           "http-sse-profile-protocol-binding-subscribeallevents-4b">
           For each message sent, the Web Thing <em class=
@@ -4751,10 +4736,9 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
           below), the Consumer <em class="rfc2119">MUST</em>
           re-establish the connection following the steps outlined
           in the Server-Sent Events specification [<cite><a class=
-          "bibref" data-link-type="biblio" href="#bib-eventsource"
-          title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>].</span>
-          <span class="rfc2119-assertion" id=
+          "bibref" data-link-type="biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>].</span> <span class=
+          "rfc2119-assertion" id=
           "http-sse-profile-protocol-binding-subscribeallevents-5b">
           Once the connection is re-established the Web Thing
           <em class="rfc2119">SHOULD</em>, if possible, send any
@@ -4779,8 +4763,8 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
           Server-Sent Events connection with the events endpoint of
           the Web Thing, following the steps specified in the
           Server-Sent Events specification [<cite><a class="bibref"
-          data-link-type="biblio" href="#bib-eventsource" title=
-          "Server-Sent Events">EVENTSOURCE</a></cite>].</span></p>
+          data-link-type="biblio" href="#bib-html" title=
+          "HTML Standard">HTML</a></cite>].</span></p>
           <div class="note" role="note" id=
           "issue-container-generatedID-15">
             <div role="heading" class="note-title marker" id=
@@ -4798,9 +4782,8 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
             Events connection can be terminated using the
             <code>close()</code> method on an
             <code>EventSource</code> [<cite><a class="bibref"
-            data-link-type="biblio" href="#bib-eventsource" title=
-            "Server-Sent Events">EVENTSOURCE</a></cite>]
-            object.</p>
+            data-link-type="biblio" href="#bib-html" title=
+            "HTML Standard">HTML</a></cite>] object.</p>
           </div>
           <div class="example" id="example-43">
             <div class="marker">
@@ -5724,14 +5707,6 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
           URL: <a href=
           "https://tc39.es/ecma262/multipage/">https://tc39.es/ecma262/multipage/</a>
         </dd>
-        <dt id="bib-eventsource">[EVENTSOURCE]</dt>
-        <dd>
-          <a href=
-          "https://www.w3.org/TR/eventsource/"><cite>Server-Sent
-          Events</cite></a>. Ian Hickson. W3C. 28 January 2021. W3C
-          Recommendation. URL: <a href=
-          "https://www.w3.org/TR/eventsource/">https://www.w3.org/TR/eventsource/</a>
-        </dd>
         <dt id="bib-h2020-create-iot">[H2020-CREATE-IoT]</dt>
         <dd>
           <a href=
@@ -5742,6 +5717,15 @@ id: 2021-11-16T16:53:50.817Z\n\n</code></pre>
           Programme. 2018-11. Published. URL: <a href=
           "https://european-iot-pilots.eu/wp-content/uploads/2018/11/D06_02_WP06_H2020_CREATE-IoT_Final.pdf">
           https://european-iot-pilots.eu/wp-content/uploads/2018/11/D06_02_WP06_H2020_CREATE-IoT_Final.pdf</a>
+        </dd>
+        <dt id="bib-html">[HTML]</dt>
+        <dd>
+          <a href=
+          "https://html.spec.whatwg.org/multipage/"><cite>HTML
+          Standard</cite></a>. Anne van Kesteren; Domenic Denicola;
+          Ian Hickson; Philip Jägenstedt; Simon Pieters. WHATWG.
+          Living Standard. URL: <a href=
+          "https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
         </dd>
         <dt id="bib-wot-architecture">[WOT-ARCHITECTURE]</dt>
         <dd>
