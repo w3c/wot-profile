@@ -1,4 +1,4 @@
-# Web of Things (WoT) Profile - Explainer
+# Draft: Web of Things (WoT) Profile - Explainer
 
 The WoT profile 
 <a href="https://w3c.github.io/wot-profile/">WoT Profile</a>, 
