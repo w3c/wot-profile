@@ -57,7 +57,7 @@ A Consumer of  a Web Thing conforming to the HTTP Basic Profile must implement t
 
 #### Actions
 
- The Baselic Profile defines synchronous and asynchronous action models. 
+ The Basic Profile defines synchronous and asynchronous action models. 
  It defines four operations that can be applied to an action endpoint.
 
 |   Operations    | Description                     |
