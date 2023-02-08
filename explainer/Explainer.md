@@ -41,10 +41,10 @@ The format does not forbid the use of additional elements of the WoT Thing Descr
 Devices which implement the HTTP Profile, are out-of-the-box interoperable with other HTTP Profile compliant devices.
 Furthermore, the HTTP Profile simplifies device validation and compliance testing, since a corresponding conformance test suite can be defined.
 
-### HTTP Baseline Profile
+### HTTP Basic Profile
 The HTTP profile defines a protocol binding which describes how a Consumer communicates with a Web Thing using JSON payloads over the HTTP protocol. It contains binding rules for properties and actions.
 
-A Consumer of  a Web Thing conforming to the HTTP Baseline Profile must implement this protocol binding.
+A Consumer of  a Web Thing conforming to the HTTP Basic Profile must implement this protocol binding.
 
 #### Properties
 
@@ -57,7 +57,7 @@ A Consumer of  a Web Thing conforming to the HTTP Baseline Profile must implemen
 
 #### Actions
 
- The Baseline Profile defines synchronous and asynchronous action models. 
+ The Baselic Profile defines synchronous and asynchronous action models. 
  It defines four operations that can be applied to an action endpoint.
 
 |   Operations    | Description                     |
@@ -78,9 +78,9 @@ If any of the operations on properties, actions and events defined above are uns
 
 ### Events
 
-Events are used for asynchronous notifications. To keep the implementation effort for the HTTP Baseline profile low, two separate event mechanisms are specified in two different profiles, the HTTP SSE Profile and the HTTP WebHook Profile.
+Events are used for asynchronous notifications. To keep the implementation effort for the HTTP Basic profile low, two separate event mechanisms are specified in two different profiles, the HTTP SSE Profile and the HTTP WebHook Profile.
 
-These event profiles may be used stand-alone, or in conjunction with the HTTP Baseline Profile 
+These event profiles may be used stand-alone, or in conjunction with the HTTP Basic Profile 
 in order to provide operations to read and write properties and invoke, query and cancel actions.
 
 Event subscriptions can be either performed for individual event sources or can be registered at top-level for the entire thing.
