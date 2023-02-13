@@ -152,12 +152,16 @@
         contains protocol binding rules for HTTP.
         <p>The <em>normative</em> HTTP Basic Profile is complemented by two
           <em>informative profiles for events</em>: The <a href=#sec-http-sse-profile>HTTP SSE Profile</a>
+        <p>The <em>normative</em> HTTP Basic Profile is complemented by two
+          <em>informative profiles for events</em>: The <a href=#sec-http-sse-profile>HTTP SSE Profile</a>
           and the <a href="#sec-http-webhook-profile">HTTP Webhook Profile</a>.
+
 
           <p>
           In the current version of this document these event bindings are provided in <em>informative</em>
           sections, to illustrate how these event mechanisms could be supported in other profiles.
         </p>
+        <p>It is planned that future versions of this document <em>normatively</em> define
         <p>It is planned that future versions of this document <em>normatively</em> define
           these event mechanisms.
         </p>
@@ -183,6 +187,7 @@
       hold only for the HTTP Basic Profile subset.
     </p>
     <p>Future versions of this document may contain other profiles,
+      e.g. a profile for digital twins and a profile for resource constrained devices.</p>
       e.g. a profile for digital twins and a profile for resource constrained devices.</p>
 
     <section>
@@ -480,6 +485,8 @@
       <dd>A technical specification which provides a set of assertions such that
         any <a href="#dfn-consumer">Consumer</a> which conforms with the those
         assertions is <a href="#out-of-the-box-interoperability">out-of-the-box
+        any <a href="#dfn-consumer">Consumer</a> which conforms with the those
+        assertions is <a href="#out-of-the-box-interoperability">out-of-the-box
         interoperable</a> with any <a href="#dfn-thing">Thing</a> which also
         conforms with those assertions.
       </dd>
@@ -563,10 +570,12 @@
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-a11y-1">
 	  It is REQUIRED to provide a <code>title</code> that can be automatically rendered in a non-visual way
+	  It is REQUIRED to provide a <code>title</code> that can be automatically rendered in a non-visual way
 	  (e.g. using a screen reader)
 	  for things that may be used in deployments with users with disabilities.</span>
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-a11y-2">
+	  It is highly RECOMMENDED to provide a <code>description</code> that can be automatically rendered in a non-visual way
 	  It is highly RECOMMENDED to provide a <code>description</code> that can be automatically rendered in a non-visual way
 	  (e.g. using a screen reader)
 	  for things that may be used in deployments with users with disabilities.</span>
@@ -576,6 +585,7 @@
         It needs to be clarified which TD elements are used by people with disabilities and to which these constraints are applied.
       </section>
 
+
     </section>
     <!-- Units -->
 
@@ -583,13 +593,16 @@
       <h2 id="units">Units</h2>
       <p>Authors of <a>Thing Descriptions</a> should be aware that units
       that are common in their geographic region are not globally applicable
+      that are common in their geographic region are not globally applicable
       and may lead to misinterpretation with drastic consequences.
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-units">
         It is highly RECOMMENDED to provide a <code>unit</code>,
+        It is highly RECOMMENDED to provide a <code>unit</code>,
         if a value has a physical quantity.</span>
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-units-metric">
+        It is highly RECOMMENDED to use the metric system (SI units)
         It is highly RECOMMENDED to use the metric system (SI units)
         for devices that are used in global deployments.</span>
       </p>
@@ -600,6 +613,7 @@
       <h2 id="date-format">Date Format</h2>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-date-format-1">
+          All date and time values MUST use the <code>date-time</code> format
           All date and time values MUST use the <code>date-time</code> format
           defined in [[RFC3339]].</span>
       </p>
@@ -646,23 +660,25 @@
             Conformant Consumers MUST support at least all of these security schemes.</span>
         </p>
 
+
         <p><span class="rfc2119-assertion" id="common-constraints-security-3">
             A Thing MAY implement multiple security schemes.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="common-constraints-security-4">
-            A Thing MUST support at least one of the above security schemes.</span>
-        </p>
 
         <p><span class="rfc2119-assertion" id="common-constraints-security-6">
+          Conformant Consumers MUST support security bootstrapping for all
           Conformant Consumers MUST support security bootstrapping for all
           implemented security schemes, as defined in
           <a href="https://w3c.github.io/wot-discovery/#exploration-secboot">Security Bootstrapping</a>
           in the WoT Discovery [[wot-discovery]] specification.
         </span></p>
 
+
         <p><span class="rfc2119-assertion" id="common-constraints-security-7">
           Conformant Things which require authentication in order to retrieve
+          Conformant Things which require authentication in order to retrieve
           their Thing Description MUST implement security bootstrapping, as
+          defined in
           defined in
           <a href="https://w3c.github.io/wot-discovery/#exploration-secboot">Security Bootstrapping</a>
           in the WoT Discovery [[wot-discovery]] specification.
@@ -673,6 +689,7 @@
     <section id="common-constraints-discovery">
       <h2>Discovery</h2>
       <p class="rfc2119-assertion" id="common-constraints-discovery-1">
+        A Web Thing's Thing Description [[wot-thing-description]] MUST be
         A Web Thing's Thing Description [[wot-thing-description]] MUST be
         retrievable from a
         <a href="https://w3c.github.io/wot-architecture/#dfn-wot-thing-description-server">
@@ -691,6 +708,7 @@
       <p>Hypermedia links in the HTTP Profiles are significantly constrained to ensure a common interpretation
         and interoperability between things and consumers.</p>
 
+
       <p>
         <span class="rfc2119-assertion" id="common-constraints-links-1">The following keywords are defined for links in the
           HTTP profiles and MAY be present in profile-compliant TDs with the constraints defined by this section.</span>
@@ -701,6 +719,7 @@
         <span class="rfc2119-assertion" id="common-constraints-links-3">These other link types MAY
           be ignored by all profile-compliant consumers.</span>
       </p>
+
 
       <section class=note>
         <p>
@@ -804,6 +823,7 @@
             href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA</a>
           MAY be used as the link targets of profile compliant TDs with the constraints in this section.</span>
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-2">Other media types MAY
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-2">Other media types MAY
           be present in a TD, however their heir interpretation is undefined
           in the context of the HTTP profiles and they MAY be ignored by all profile-compliant consumers.</span>
         <table class="def">
@@ -872,6 +892,7 @@
       </p>
       <p>
 
+
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-6">
           If a Consumer encounters a link with "rel": "service-doc" and "type": "text/plain", "type": "text/html" or "type":
           "text/pdf", and is capable of rendering documents in the provided format, then it SHOULD interpret the link as a
@@ -881,6 +902,7 @@
       </p>
       <p>
 
+
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-7">
           If a Consumer encounters a link with "rel": "item" and "type": "application/td+json" and is capable of rendering a
           hierarchical tree of Things, then it should interpret the link as an indication that the target is a sub-Thing of
@@ -889,6 +911,7 @@
         </span>
       </p>
       <p>
+
 
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-8">
           If a Consumer encounters a link with "rel": "collection" and "type": "application/td+json" and is capable of
@@ -1030,6 +1053,7 @@
       <span class="rfc2119-assertion" id="http-basic-profile-1">
         In order to conform with the HTTP Basic Profile, Web Things and
         Consumers MUST also conform with all of the assertions in the
+        <a href="#common-constraints">Common Constraints</a>
         <a href="#common-constraints">Common Constraints</a>
         section.
       </span>
@@ -1186,6 +1210,7 @@
               <li>URL set to the URL of the <code>Property</code> resource</li>
               <li><code>Accept</code> header set to <code>application/json
                 </code></li>
+            </ul>
             </ul>
           </div>
           <pre class="example">
@@ -1507,9 +1532,12 @@
           </div>
           <p>
             <span class="rfc2119-assertion"
+            <span class="rfc2119-assertion"
             id="http-basic-profile-protocol-binding-invokeaction-7">
               If the <code>synchronous</code> member of the
+              If the <code>synchronous</code> member of the
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              [[wot-thing-description11]] is set to <code>true</code> then the Web
               [[wot-thing-description11]] is set to <code>true</code> then the Web
               Thing MUST respond with a
               <a href="#sync-action-response">Synchronous Action Response</a>.
@@ -1517,9 +1545,12 @@
           </p>
           <p>
             <span class="rfc2119-assertion"
+            <span class="rfc2119-assertion"
             id="http-basic-profile-protocol-binding-invokeaction-8">
               If the <code>synchronous</code> member of the
+              If the <code>synchronous</code> member of the
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              [[wot-thing-description11]] is set to <code>false</code> then the Web
               [[wot-thing-description11]] is set to <code>false</code> then the Web
               Thing MUST respond with an
               <a href="#async-action-response">Asynchronous Action Response</a>.
@@ -1527,9 +1558,13 @@
           </p>
           <p>
             <span class="rfc2119-assertion"
+            <span class="rfc2119-assertion"
             id="http-basic-profile-protocol-binding-invokeaction-9">
               If the <code>synchronous</code> member of the
+              If the <code>synchronous</code> member of the
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              [[wot-thing-description11]] is <code>undefined</code> then the Web
+              Thing MAY respond with either a
               [[wot-thing-description11]] is <code>undefined</code> then the Web
               Thing MAY respond with either a
               <a href="#sync-action-response">Synchronous Action Response</a> or
@@ -1620,6 +1655,7 @@
                   <td>
                     The [[URL]] of an <code>ActionStatus</code> resource which
                     can be used by <code>queryaction</code> and
+                    can be used by <code>queryaction</code> and
                     <code>cancelaction</code> operations, the
                     <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
                       scheme</a> [[RFC3986]] of which MUST resolve to
@@ -1636,6 +1672,8 @@
                     A timestamp indicating the time at which the Thing received
                     the request to execute the action. (See
                     <a href="#date-format">Date Format</a> for date format
+                    the request to execute the action. (See
+                    <a href="#date-format">Date Format</a> for date format
                     constraints).
                   </td>
                   <td>optional</td>
@@ -1646,6 +1684,8 @@
                   <td>
                     A timestamp indicating the time at which the Thing
                     successfully completed executing the action, or failed to
+                    execute the action. (See
+                    <a href="#date-format">Date Format</a> for date format
                     execute the action. (See
                     <a href="#date-format">Date Format</a> for date format
                     constraints).
@@ -2290,6 +2330,8 @@
               identifier is a timestamp representing the time at which the
               property changed</span> (see
               <a href="#date-format">Date Format</a> for date format
+              property changed</span> (see
+              <a href="#date-format">Date Format</a> for date format
               constraints).
           </p>
           <pre class="example">
@@ -2447,6 +2489,8 @@
               below).</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5e">
               It is RECOMMENDED that the identifier is a timestamp
+              representing the time at which the property changed</span> (see
+              <a href="#date-format">Date Format</a> for date format
               representing the time at which the property changed</span> (see
               <a href="#date-format">Date Format</a> for date format
               constraints).
@@ -2622,6 +2666,8 @@
               below).</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6e">
               It is RECOMMENDED that the identifier is a timestamp
+              representing the time at which the event ocurred</span> (see
+              <a href="#date-format">Date Format</a> for date format
               representing the time at which the event ocurred</span> (see
               <a href="#date-format">Date Format</a> for date format
               constraints).
@@ -2872,12 +2918,19 @@
 	 When the event condition occurs, the WebThing
 	 is notifying all listeners with a corresponding event message, which is transmitted over HTTP(s).
 	 The event message contains details about the event, such as timestamp, event type,
+	 is notifying all listeners with a corresponding event message, which is transmitted over HTTP(s).
+	 The event message contains details about the event, such as timestamp, event type,
 	 event source etc. in the data payload.
       </p><p>
 	 Depending on the deployment scenarios and integration requirements for existing consumers, it may be
+	 Depending on the deployment scenarios and integration requirements for existing consumers, it may be
 	 required to use specific data payload formats (e.g. Cloud Events).
 	 When a listener receives an event message in a data payload, in many cases it just acknowledges the
+	 When a listener receives an event message in a data payload, in many cases it just acknowledges the
 	 successful reception of the event.
+	 Additionally, it may provide a dataResponse payload, which provides a back-channel that can be used
+	 to communicate further details from the consumer to the WebThing.
+      </p>
 	 Additionally, it may provide a dataResponse payload, which provides a back-channel that can be used
 	 to communicate further details from the consumer to the WebThing.
       </p>
@@ -2994,6 +3047,7 @@
       </p>
     </section>
 
+
     <section id="http-webhook-profile-protocol-binding">
       <h2>Protocol Binding</h2>
       <p>
@@ -3064,6 +3118,7 @@
             </li>
             <p>
               The subscription payload contains the URI for the event message listener
+              in the field with the <code>callbackURI</code> key.
               in the field with the <code>callbackURI</code> key.
             </p>
 
