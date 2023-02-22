@@ -67,11 +67,10 @@ A Consumer of  a Web Thing conforming to the HTTP Basic Profile must implement t
 | cancelaction    | cancel an ongoing asynchronous action request |
 | queryallactions | query the status of all ongoing action requests |
 
-On synchronous actions, the action output result is contained in the response.
-For asynchronous actions the operation returns an ActionStatus object in the response.
-This ActionStatus object contains a status member and a URL that can be used to query the action status using the queryaction operation.
-
-On synchronous actions, the action output result is contained in the response. For asynchronous actions the operation returns an Action Status object in the response. This Action Status object contains a status member and a URL that can be used to query the status of the action using the queryaction operation.
+On synchronous actions, the action output result is contained in the response. 
+For asynchronous actions the operation returns an Action Status object in the response. 
+This Action Status object contains a status member and a URL that can be used 
+to query the status of the action using the queryaction operation.
 
 ### Common Error Responses
 If any of the operations on properties, actions and events defined above are unsuccessful, the Web Thing must send an HTTP response with an HTTP error code which describes the reason for the failure. The profile restricts the permitted error codes to enable uniform and common error handling across devices from multiple manufacturers.
