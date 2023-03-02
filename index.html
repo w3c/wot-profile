@@ -1671,7 +1671,19 @@
               "timeRequested": "2021-11-10T11:43:19.135Z"
             }
           </pre>
-        </section>
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-22">
+          <p>
+            In resource constrained environments, if the buffer becomes full then a Web Thing SHOULD
+            remove the oldest Action result ActionStatus from its buffer to make room for a newer one.
+          </p>
+          </div>
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-23">
+          <p>
+            A Web Thing MUST return a <code>503</code> error response if the invocation cannot be enqueued,
+            e.g. the internal pending queue is full.
+          </p>
+          </div>
+         </section>
 
         <section id="http-basic-profile-protocol-binding-queryaction">
           <h5><code>queryaction</code></h5>
