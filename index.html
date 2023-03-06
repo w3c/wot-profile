@@ -652,6 +652,16 @@
         <p><span class="rfc2119-assertion" id="common-constraints-security-4">
             A Thing MUST support at least one of the above security schemes.</span>
         </p>
+        <p><span class="rfc2119-assertion" id="common-constraints-security-basic-in">
+            For the <code>BasicSecurityScheme</code> the "in" field MUST be either omitted
+            or be given its default value of "header" as defined in [[wot-thing-description11].</span>
+           <span class="rfc2119-assertion" id="common-constraints-security-basic-name">
+            For the <code>BasicSecurityScheme</code> the "name" field MUST be provided using
+            the value "Authorization" if a "proxy" endpoint is not given.</span>
+           <span class="rfc2119-assertion" id="common-constraints-security-basic-proxy">
+            For the <code>BasicSecurityScheme</code> the "name" field MUST be provided using
+            the value "Proxy-Authorization" if a"proxy" endpoint is given.</span>
+        </p>
 
         <p><span class="rfc2119-assertion" id="common-constraints-security-6">
           Conformant Consumers MUST support security bootstrapping for all
