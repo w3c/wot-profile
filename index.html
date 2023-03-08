@@ -923,6 +923,7 @@
           <li><code>403 Forbidden</code></li>
           <li><code>404 Not Found</code></li>
           <li><code>500 Internal Server Error</code></li>
+          <li><code>503 Service Unavailable</code></li>
         </ul>
       </div>
       <p>
@@ -1670,7 +1671,18 @@
               "timeRequested": "2021-11-10T11:43:19.135Z"
             }
           </pre>
-        </section>
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-22">
+          <p>
+            In resource constrained environments, the ActionStatus objects of older completed/failed actions MAY be deleted to make room for newly invoked actions.
+          </p>
+          </div>
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-23">
+          <p>
+            A Web Thing SHOULD return a <code>503</code> error response if the invocation cannot be accepted because the action is unavailable,
+            e.g. because the Thing is overloaded.
+          </p>
+          </div>
+         </section>
 
         <section id="http-basic-profile-protocol-binding-queryaction">
           <h5><code>queryaction</code></h5>
