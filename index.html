@@ -960,6 +960,56 @@
           (e.g., en, de-AT, gsw-CH, zh-Hans, zh-Hant-HK, sl-nedis).</span>
         </span>
     </section>
+    <section id="sec-identifiers">
+      <h2>Identifiers</h2>
+      <p>
+        Web resources are identified by uniform resource identifiers (URIs).
+        The Thing Description defines the field <a href="https://w3c.github.io/wot-thing-description/#thing><code>id</code></a>
+	for that purpose, which is in the format "anyURI".
+      </p>
+      <p>
+        In deployments of multiple devices in the same application context, things must be distinguished by the consumer.
+        In these cases, these identifiers must be <em>unique</em>.
+        Use cases with worldwide deployments typically require <em>globally</em> unique identifiers.
+      </p> 
+      <section id="sec-identifiers-format">
+        <h3>Format</h3>
+      <p>
+        A common and well defined format for these identifiers enables easy implementation 
+        and simplifies handling across manufacturers through the use of libraries. 
+        It also ensures that there are no name clashes of devices from different manufacturers.
+        The [[UUID]] format has been developed to satisfy these requirements.
+      </p>
+        <p>
+          <span class="rfc2119-assertion" id="common-constraints-identifiers-uuid">
+            It is RECOMMENDED to use Universally Unique IDentifier (UUID) [[RFC4122]] as common format for identifers.
+          </span>
+        </p>
+          <span class="rfc2119-assertion" id="common-constraints-identifiers-random">
+          It is RECOMMENDED to use [[UUIDv4]] as common format for unique identifers, where random identifiers are required.
+          </span>
+      </p>
+      </section>
+      <section id="sec-identifiers-mutability">
+        <h3>Mutable and Immutable Identifiers</h3>
+      <p>
+        Many use cases require that identifiers do not change during the lifecycle of the thing in the application context.
+        However there are cases, where the IDs must change due to legal or privacy obligations. 
+        IDs should be changed when a device is offboarded and onboarded on a new system (e.g. for change
+        of ownership).
+        In these cases, or when a device is moved to a new usage context, identifiers usually must change. 
+      </p>
+
+      <p><span class="rfc2119-assertion" id="common-constraints-identifiers-mutable">
+        In certain use cases where privacy is a factor or legal obligations mandate changing identifiers, 
+        the use of a <em>mutable UUID</em> is RECOMMENDED.</span>
+      </p>
+
+      <p><span class="rfc2119-assertion" id="common-constraints-identifiers-immutable-ids">
+        If possible and allowed by law, required immutable IDs SHOULD be made available through a
+        property rather than used as the id for the TD itself.
+      </span></p>
+      </section>
   </section>
 
 
