@@ -150,15 +150,15 @@
       <li>In addition, it defines a <strong><a href="#http-basic-profile">HTTP Basic
             Profile</a></strong> of the Thing Description, which
         contains protocol binding rules for HTTP.
-        <p>The <em>normative</em> HTTP Basic Profile is complemented by two 
-          <em>informative profiles for events</em>: The <a href=#sec-http-sse-profile>HTTP SSE Profile</a> 
+        <p>The <em>normative</em> HTTP Basic Profile is complemented by two
+          <em>informative profiles for events</em>: The <a href=#sec-http-sse-profile>HTTP SSE Profile</a>
           and the <a href="#sec-http-webhook-profile">HTTP Webhook Profile</a>.
-        
+
           <p>
           In the current version of this document these event bindings are provided in <em>informative</em>
           sections, to illustrate how these event mechanisms could be supported in other profiles.
         </p>
-        <p>It is planned that future versions of this document <em>normatively</em> define 
+        <p>It is planned that future versions of this document <em>normatively</em> define
           these event mechanisms.
         </p>
 
@@ -183,7 +183,7 @@
       hold only for the HTTP Basic Profile subset.
     </p>
     <p>Future versions of this document may contain other profiles,
-      e.g. a profile for digital twins and a profile for resource constrained devices.</p> 
+      e.g. a profile for digital twins and a profile for resource constrained devices.</p>
 
     <section>
       <h3>Motivation for a Profile</h3>
@@ -275,7 +275,7 @@
 
     <!-- Use Cases -->
     <section id="profile-use-cases">
-      <h2>Summary of Use Cases and Requirements</h2>
+      <h2>Use Cases and Requirements</h2>
       <p>
         A set of over 30 use cases for the Web of Things were contributed by stakeholders
         from multiple industries for various application domains.
@@ -478,119 +478,12 @@
         <dfn class="export">Profile</dfn>
       </dt>
       <dd>A technical specification which provides a set of assertions such that
-        any <a href="#dfn-consumer">Consumer</a> which conforms with the those 
-        assertions is <a href="#out-of-the-box-interoperability">out-of-the-box 
+        any <a href="#dfn-consumer">Consumer</a> which conforms with the those
+        assertions is <a href="#out-of-the-box-interoperability">out-of-the-box
         interoperable</a> with any <a href="#dfn-thing">Thing</a> which also
         conforms with those assertions.
       </dd>
     </dl>
-  </section>
-
-
-  <section id="requirements">
-    <h2>Profile Requirements</h2>
-    <p>
-      The following requirements were identified by the WoT profile task force and are addressed by the
-      Profile 1.0 specification.
-    </p>
-    <h3>Interoperability</h3>
-    <!-- Supporters: Oracle, Intel, Siemens, Fujitsu, Ben, Cristano -->
-    <p>
-      This is the most important objective of the profile.
-      A TD Consumer satisfying the requirements of a profile should be able to process any TD also satisfying the
-      profile
-      and should be able to correctly interact with all affordances of the Thing such a TD describes.
-    </p>
-
-    This implies that a profile has three parts:
-    <ul>
-      <li>Restrictions on TDs</li>
-      <li>Implementation requirements, constraints and behavioral assertions for Consumers</li>
-      <li>Implementation requirements, constraints and behavioral assertions on Things</li>
-    </ul>
-
-    <section class="note">
-      Note: The WoT HTTP Basic Profile does not prevent a TD to have forms for additional protocols,
-      but these can be ignored by compliant consumers, and could be removed without
-      affecting profile conformance and compatibility.
-      This may be useful for consumers that support multiple profiles.
-    </section>
-
-    <h3>Limit and reduce complexity</h3>
-    <!-- Supporters: Oracle, Siemens, Ben, Cristiano -->
-    <p>
-      Complexity addresses at least the following two things to simplify the development and
-      reduce the implementation effort:
-    </p>
-    <ul>
-      <li>Implementation complexity on a thing and consumer, e.g. eliminating the need of RDF processing,
-        but still permitting semantic annotations.</li>
-      <li>Simplifying thing description to have fewer variations.</li>
-      <li>Limiting the effort for JSON implementation.</li>
-    </ul>
-    
-    <h3>No Ambiguities, select single choice</h3>
-    <!-- Supporters: Oracle, Fujitsu, Intel, Ben, Cristiano, Ege -->
-    <p>
-      Get rid of ambiguities, i.e. clarify specifications to define interpretation of a TD and behavior of the thing and
-      consumer.
-    </p>
-    <p>
-      Examples are the choice of properties vs. actions, use of PUT or POST for HTTP, observe protocols.
-    </p>
-    
-    <h3>Developer guidance</h3>
-    <!-- Supporters: Fujitsu, Siemens, Intel, Oracle, Ben, Cristiano-->
-    <p>
-      A profile should help define what needs to be implemented. This requirement also includes behavioral goals and
-      recommendations about best practice for the implementation of Consumers and Things.
-    </p>
-    <h3>Multiple profiles (mechanism)</h3>
-    <!-- Supporters: Intel, Siemens, Ben, Cristiano, Hitachi -->
-    <p>
-      The mechanism used to indicate that a TD satisfies a profile should be general enough to indicate
-      the TD satisfies the requirements for multiple profiles.
-    </p>
- 
-    <h3>Composable profiles</h3>
-    <!-- Proposer: Intel, Hitachi, Siemens, Ben(*)-->
-    <p>
-      It should be possible to combine multiple profiles both for production and consumption:
-    </p>
-    <p>
-      It should be possible to indicate that a consumer can ingest TDs that satisfy one or more profiles, even if each
-      TDs
-      individually only satisfies one profile. For example, a Smart Building may need to use both "constrained" devices
-      and
-      "unconstrained" devices. A gateway consuming TDs should be able to ingest TDs designed for both the constrained
-      and unconstrained
-      contexts.
-    </p>
-    <p>
-      A Thing that satisfies all the requirements for multiple TDs (for example, a device using protocols common to two
-      different usage contexts) should be able to indicate that.
-    </p>
-
-    <h3>Validatible TDs</h3>
-    <!-- Supporters: Intel, Oracle, Ben, Cristiano -->
-    <p>
-      Whether or not a TD satisfies the requirements of a given profile should be verifiable with automated tools.
-      We can use the existing TD JSDON Schema as a basis and reuse the existing tooling (TD-playground)
-    </p>
-    <h3>Identification of profiles</h3>
-    <!-- Supporters: Intel, Siemens, Fujitsu, Hitachi, Ben, Oracle -->
-    <p>
-      There should be a mechanism to identify which profiles a TD satisfies. This mechanism should be intrinsic to a TD,
-      i.e. be in-band.
-    </p>
-
-    <h3>Finite set of features and capabilities</h3>
-    <!-- Supporters: Intel, Oracle, Fujitsu, Ben(*), IRI -->
-    <p>
-      A profile should limit the number of options, for example the set of possible protocols, 
-      to a finite set, so that a consumer can consume any TD in a given profile with 
-      a finite and static code base.
-    </p>
   </section>
 
   <!-- Profiling mechanism -->
@@ -669,12 +562,12 @@
  	users with disabilities.
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-a11y-1">
-	  It is REQUIRED to provide a <code>title</code> that can be automatically rendered in a non-visual way 
+	  It is REQUIRED to provide a <code>title</code> that can be automatically rendered in a non-visual way
 	  (e.g. using a screen reader)
 	  for things that may be used in deployments with users with disabilities.</span>
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-a11y-2">
-	  It is highly RECOMMENDED to provide a <code>description</code> that can be automatically rendered in a non-visual way 
+	  It is highly RECOMMENDED to provide a <code>description</code> that can be automatically rendered in a non-visual way
 	  (e.g. using a screen reader)
 	  for things that may be used in deployments with users with disabilities.</span>
       </p>
@@ -682,22 +575,22 @@
         This is just a baseline set of requirements, which needs additional input from the APA group.
         It needs to be clarified which TD elements are used by people with disabilities and to which these constraints are applied.
       </section>
-      
+
     </section>
     <!-- Units -->
 
     <section id="sdec-common-constraints-units">
       <h2 id="units">Units</h2>
       <p>Authors of <a>Thing Descriptions</a> should be aware that units
-      that are common in their geographic region are not globally applicable 
+      that are common in their geographic region are not globally applicable
       and may lead to misinterpretation with drastic consequences.
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-units">
-        It is highly RECOMMENDED to provide a <code>unit</code>, 
+        It is highly RECOMMENDED to provide a <code>unit</code>,
         if a value has a physical quantity.</span>
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-units-metric">
-        It is highly RECOMMENDED to use the metric system (SI units) 
+        It is highly RECOMMENDED to use the metric system (SI units)
         for devices that are used in global deployments.</span>
       </p>
     </section>
@@ -707,7 +600,7 @@
       <h2 id="date-format">Date Format</h2>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-date-format-1">
-          All date and time values MUST use the <code>date-time</code> format 
+          All date and time values MUST use the <code>date-time</code> format
           defined in [[RFC3339]].</span>
       </p>
       <pre class="example">
@@ -750,24 +643,27 @@
           </ul>
         </div>
         <p><span class="rfc2119-assertion" id="common-constraints-security-2">
-            Conformant Consumers MUST support all of these security schemes.</span>
+            Conformant Consumers MUST support at least all of these security schemes.</span>
         </p>
-	    
+
         <p><span class="rfc2119-assertion" id="common-constraints-security-3">
             A Thing MAY implement multiple security schemes.</span>
         </p>
-        
+        <p><span class="rfc2119-assertion" id="common-constraints-security-4">
+            A Thing MUST support at least one of the above security schemes.</span>
+        </p>
+
         <p><span class="rfc2119-assertion" id="common-constraints-security-6">
-          Conformant Consumers MUST support security bootstrapping for all 
+          Conformant Consumers MUST support security bootstrapping for all
           implemented security schemes, as defined in
           <a href="https://w3c.github.io/wot-discovery/#exploration-secboot">Security Bootstrapping</a>
           in the WoT Discovery [[wot-discovery]] specification.
         </span></p>
-        
+
         <p><span class="rfc2119-assertion" id="common-constraints-security-7">
-          Conformant Things which require authentication in order to retrieve 
+          Conformant Things which require authentication in order to retrieve
           their Thing Description MUST implement security bootstrapping, as
-          defined in 
+          defined in
           <a href="https://w3c.github.io/wot-discovery/#exploration-secboot">Security Bootstrapping</a>
           in the WoT Discovery [[wot-discovery]] specification.
         </span></p>
@@ -777,7 +673,7 @@
     <section id="common-constraints-discovery">
       <h2>Discovery</h2>
       <p class="rfc2119-assertion" id="common-constraints-discovery-1">
-        A Web Thing's Thing Description [[wot-thing-description]] MUST be 
+        A Web Thing's Thing Description [[wot-thing-description]] MUST be
         retrievable from a
         <a href="https://w3c.github.io/wot-architecture/#dfn-wot-thing-description-server">
           Thing Description Server</a> [[wot-architecture11]] using an HTTP
@@ -794,7 +690,7 @@
 
       <p>Hypermedia links in the HTTP Profiles are significantly constrained to ensure a common interpretation
         and interoperability between things and consumers.</p>
-      
+
       <p>
         <span class="rfc2119-assertion" id="common-constraints-links-1">The following keywords are defined for links in the
           HTTP profiles and MAY be present in profile-compliant TDs with the constraints defined by this section.</span>
@@ -805,7 +701,7 @@
         <span class="rfc2119-assertion" id="common-constraints-links-3">These other link types MAY
           be ignored by all profile-compliant consumers.</span>
       </p>
-      
+
       <section class=note>
         <p>
           These links enable consumers to interpret linked content that is provided by the link target in an unambiguous way.
@@ -907,7 +803,7 @@
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-1">The following media types from <a
             href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA</a>
           MAY be used as the link targets of profile compliant TDs with the constraints in this section.</span>
-        <span class="rfc2119-assertion" id="common-constraints-links-media-types-2">Other media types MAY 
+        <span class="rfc2119-assertion" id="common-constraints-links-media-types-2">Other media types MAY
           be present in a TD, however their heir interpretation is undefined
           in the context of the HTTP profiles and they MAY be ignored by all profile-compliant consumers.</span>
         <table class="def">
@@ -975,7 +871,7 @@
           </section>
       </p>
       <p>
-      
+
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-6">
           If a Consumer encounters a link with "rel": "service-doc" and "type": "text/plain", "type": "text/html" or "type":
           "text/pdf", and is capable of rendering documents in the provided format, then it SHOULD interpret the link as a
@@ -984,7 +880,7 @@
           </section>
       </p>
       <p>
-      
+
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-7">
           If a Consumer encounters a link with "rel": "item" and "type": "application/td+json" and is capable of rendering a
           hierarchical tree of Things, then it should interpret the link as an indication that the target is a sub-Thing of
@@ -993,7 +889,7 @@
         </span>
       </p>
       <p>
-      
+
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-8">
           If a Consumer encounters a link with "rel": "collection" and "type": "application/td+json" and is capable of
           rendering a
@@ -1008,7 +904,7 @@
 
     <!-- Errors -->
     <section id="common-constraints-errors">
-      <h2 id="error-responses">Errors</h2>
+      <h3 id="error-responses">Errors</h3>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-errors-1">
           If any of the operations defined in the protocol bindings of HTTP
@@ -1027,6 +923,7 @@
           <li><code>403 Forbidden</code></li>
           <li><code>404 Not Found</code></li>
           <li><code>500 Internal Server Error</code></li>
+          <li><code>503 Service Unavailable</code></li>
         </ul>
       </div>
       <p>
@@ -1083,7 +980,7 @@
       <span class="rfc2119-assertion" id="http-basic-profile-1">
         In order to conform with the HTTP Basic Profile, Web Things and
         Consumers MUST also conform with all of the assertions in the
-        <a href="#common-constraints">Common Constraints</a> 
+        <a href="#common-constraints">Common Constraints</a>
         section.
       </span>
     </p>
@@ -1239,7 +1136,7 @@
               <li>URL set to the URL of the <code>Property</code> resource</li>
               <li><code>Accept</code> header set to <code>application/json
                 </code></li>
-            </ul> 
+            </ul>
           </div>
           <pre class="example">
               GET /things/lamp/properties/on HTTP/1.1
@@ -1559,32 +1456,32 @@
             </ol>
           </div>
           <p>
-            <span class="rfc2119-assertion" 
+            <span class="rfc2119-assertion"
             id="http-basic-profile-protocol-binding-invokeaction-7">
-              If the <code>synchronous</code> member of the 
+              If the <code>synchronous</code> member of the
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
-              [[wot-thing-description11]] is set to <code>true</code> then the Web 
+              [[wot-thing-description11]] is set to <code>true</code> then the Web
               Thing MUST respond with a
               <a href="#sync-action-response">Synchronous Action Response</a>.
             </span>
           </p>
           <p>
-            <span class="rfc2119-assertion" 
+            <span class="rfc2119-assertion"
             id="http-basic-profile-protocol-binding-invokeaction-8">
-              If the <code>synchronous</code> member of the 
+              If the <code>synchronous</code> member of the
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
-              [[wot-thing-description11]] is set to <code>false</code> then the Web 
+              [[wot-thing-description11]] is set to <code>false</code> then the Web
               Thing MUST respond with an
               <a href="#async-action-response">Asynchronous Action Response</a>.
             </span>
           </p>
           <p>
-            <span class="rfc2119-assertion" 
+            <span class="rfc2119-assertion"
             id="http-basic-profile-protocol-binding-invokeaction-9">
-              If the <code>synchronous</code> member of the 
+              If the <code>synchronous</code> member of the
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
-              [[wot-thing-description11]] is <code>undefined</code> then the Web 
-              Thing MAY respond with either a 
+              [[wot-thing-description11]] is <code>undefined</code> then the Web
+              Thing MAY respond with either a
               <a href="#sync-action-response">Synchronous Action Response</a> or
               <a href="#async-action-response">Asynchronous Action Response</a>.
             </span>
@@ -1672,7 +1569,7 @@
                   <td><code>href</code></td>
                   <td>
                     The [[URL]] of an <code>ActionStatus</code> resource which
-                    can be used by <code>queryaction</code> and 
+                    can be used by <code>queryaction</code> and
                     <code>cancelaction</code> operations, the
                     <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
                       scheme</a> [[RFC3986]] of which MUST resolve to
@@ -1687,8 +1584,8 @@
                   <td><code>timeRequested</code></td>
                   <td>
                     A timestamp indicating the time at which the Thing received
-                    the request to execute the action. (See 
-                    <a href="#date-format">Date Format</a> for date format 
+                    the request to execute the action. (See
+                    <a href="#date-format">Date Format</a> for date format
                     constraints).
                   </td>
                   <td>optional</td>
@@ -1699,8 +1596,8 @@
                   <td>
                     A timestamp indicating the time at which the Thing
                     successfully completed executing the action, or failed to
-                    execute the action. (See 
-                    <a href="#date-format">Date Format</a> for date format 
+                    execute the action. (See
+                    <a href="#date-format">Date Format</a> for date format
                     constraints).
                   </td>
                   <td>optional</td>
@@ -1774,7 +1671,18 @@
               "timeRequested": "2021-11-10T11:43:19.135Z"
             }
           </pre>
-        </section>
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-22">
+          <p>
+            In resource constrained environments, the ActionStatus objects of older completed/failed actions MAY be deleted to make room for newly invoked actions.
+          </p>
+          </div>
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-23">
+          <p>
+            A Web Thing SHOULD return a <code>503</code> error response if the invocation cannot be accepted because the action is unavailable,
+            e.g. because the Thing is overloaded.
+          </p>
+          </div>
+         </section>
 
         <section id="http-basic-profile-protocol-binding-queryaction">
           <h5><code>queryaction</code></h5>
@@ -2330,8 +2238,8 @@
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5d">
               It is RECOMMENDED that the
               identifier is a timestamp representing the time at which the
-              property changed</span> (see 
-              <a href="#date-format">Date Format</a> for date format 
+              property changed</span> (see
+              <a href="#date-format">Date Format</a> for date format
               constraints).
           </p>
           <pre class="example">
@@ -2489,8 +2397,8 @@
               below).</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5e">
               It is RECOMMENDED that the identifier is a timestamp
-              representing the time at which the property changed</span> (see 
-              <a href="#date-format">Date Format</a> for date format 
+              representing the time at which the property changed</span> (see
+              <a href="#date-format">Date Format</a> for date format
               constraints).
           </p>
           <pre class="example">
@@ -2664,8 +2572,8 @@
               below).</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6e">
               It is RECOMMENDED that the identifier is a timestamp
-              representing the time at which the event ocurred</span> (see 
-              <a href="#date-format">Date Format</a> for date format 
+              representing the time at which the event ocurred</span> (see
+              <a href="#date-format">Date Format</a> for date format
               constraints).
           </p>
           <pre class="example">
@@ -2903,22 +2811,26 @@
         The mechanism is scalable and supports Consumers that receive events from
         multiple Things. Consumers implement a Webhook listener that is handling the event
         streams generated by Things.
+        For Webhook mechanism to function, the Consumer provides a server and client behavior.
+        The client behavior is used for the initial subscription operation, whereas the server behavior is used to
+        accept the event streams sent by the Thing.
+        Thus, interactions can be initiated both by the Thing and the Consumer.
       </p>
       <p>
 	 A Webhook is similar to a callback mechanism in programming languages. Consumers can
 	 subscribe to events they are interested in by registering a listener with the event endpoint.
 	 When the event condition occurs, the WebThing
-	 is notifying all listeners with a corresponding event message, which is transmitted over HTTP(s). 
-	 The event message contains details about the event, such as timestamp, event type, 
+	 is notifying all listeners with a corresponding event message, which is transmitted over HTTP(s).
+	 The event message contains details about the event, such as timestamp, event type,
 	 event source etc. in the data payload.
       </p><p>
-	 Depending on the deployment scenarios and integration requirements for existing consumers, it may be 
+	 Depending on the deployment scenarios and integration requirements for existing consumers, it may be
 	 required to use specific data payload formats (e.g. Cloud Events).
-	 When a listener receives an event message in a data payload, in many cases it just acknowledges the 
+	 When a listener receives an event message in a data payload, in many cases it just acknowledges the
 	 successful reception of the event.
-	 Additionally, it may provide a dataResponse payload, which provides a back-channel that can be used 
-	 to communicate further details from the consumer to the WebThing. 
-      </p> 
+	 Additionally, it may provide a dataResponse payload, which provides a back-channel that can be used
+	 to communicate further details from the consumer to the WebThing.
+      </p>
       <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-events-1">
           Depending on the use case, a single listener for multiple things and multiple
           event types MAY be used.</span>
@@ -3031,7 +2943,7 @@
         TODO: Describe data and dataResponse schemas.
       </p>
     </section>
-	  
+
     <section id="http-webhook-profile-protocol-binding">
       <h2>Protocol Binding</h2>
       <p>
@@ -3102,7 +3014,7 @@
             </li>
             <p>
               The subscription payload contains the URI for the event message listener
-              in the field with the <code>callbackURI</code> key. 
+              in the field with the <code>callbackURI</code> key.
             </p>
 
           </ul>
