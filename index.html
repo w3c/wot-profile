@@ -3097,7 +3097,7 @@
             the Web Thing with:
           </p>
           <ul>
-            <li>Method set to <code>DELETE</code></li>
+            <li>Method set to <code>POST</code></li>
             <li>URL set to the URL of the <code>Property</code> resource followed by the <code>subscriptionId</code>
               of a valid subscription</li>
             or
@@ -3173,8 +3173,7 @@
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-4">
               If a Web Thing receives an HTTP request following the format
               above, then it MUST send <em>notification</em>
-              to the Consumer for all event
-              types for which it has permission to subscribe.</span>
+              to the Consumer for all properties for which it has permission to subscribe.</span>
           </p>
           <p>
             This involves the Web Thing initially sending an HTTP
@@ -3202,10 +3201,8 @@
   
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-5">
               Whenever a property changes while a Consumer is oberving Properties, the Web Thing MUST send event data to
-              the
-              Consumer
-              using the payload format defined in section <a href="sec-http-webhook-profile-message-format">Message
-                Format</a>.</span>
+              the Consumer using the payload format defined in section 
+              <a href="sec-http-webhook-profile-message-format">Message Format</a>.</span>
   
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-6">
               If the connection between the Web Thing and the Consumer drops,
@@ -3234,7 +3231,7 @@
             the Web Thing with:
           </p>
           <ul>
-            <li>Method set to <code>DELETE</code></li>
+            <li>Method set to <code>POST</code></li>
             <li>URL set to the URL of the <code>Property</code> resource followed by the <code>subscriptionId</code>
               of a valid subscription</li>
              <li>
