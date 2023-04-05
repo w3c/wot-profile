@@ -3245,14 +3245,15 @@
           </p>
           <ul>
             <li>Method set to <code>DELETE</code></li>
-            <li>URL set to the URL of the <code>Property</code> resource</li>
-            <li>
+            <li>URL set to the URL of the <code>Property</code> resource followed by the <code>subscriptionId</code>
+              of a valid subscription</li>
+             <li>
               <code>Accept</code> header set to <code>application/json</code>
             </li>
           </ul>
   
           <pre class="example" title="Unobserve all">
-              DELETE /things/lamp/events HTTP/1.1
+              DELETE /things/lamp/properties HTTP/1.1
               Host: mythingserver.com
             </pre>
         </section>
@@ -3262,11 +3263,6 @@
   
   
       <!---- WEBHOOK-Events  -->
-  
-  
-  
-  
-    </section>
   
     <section id="http-webhook-profile-protocol-binding-events">
       <h3>Events</h3>
