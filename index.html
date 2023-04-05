@@ -2791,7 +2791,7 @@
     <p>This section defines the <em>HTTP Webhook Profile</em>, including a
       <a href="#http-webhook-profile-protocol-binding">Protocol Binding</a>
       for observing properties and listening for events using
-      <a href="#sec-http-webhook-profile">WebHooks</a>.
+      <a href="#sec-http-webhook-profile">Webhooks</a>.
     </p>
     <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-general-1">
         The <em>HTTP Webhook profile</em> MAY be used in conjunction with the
@@ -2943,10 +2943,10 @@
       </section>
     </section>
   
-    <section id="sec-http-webhook-profile-message-format">
+    <section id="http-webhook-profile-protocol-binding-notification-format">
       <h3>Message Format</h3>
-      <p><span class="rfc2119-assertion" id="http-webhook-profile-message-format-1">
-          Event notification messages MUST comply with the following data schema.</span>
+      <p><span class="rfc2119-assertion" id="http-webhook-profile-notification-format-1">
+          Notification messages MUST comply with the following data schema.</span>
       </p>
   
       <p class="ednote">
@@ -2988,18 +2988,14 @@
             </p>
             <ul>
               <li>
-                After defaults have been applied, its <code>op</code> member
-                contains the value <code>subscribeevent</code>
+                Its <code>op</code> member contains the value
+                <code>observeproperty</code>
               </li>
               <li>
                 After being resolved against a base URL where applicable, the
                 <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
-              </li>
-              <li>
-                Its <code>op</code> member contains the value
-                <code>observeproperty</code>
               </li>
               <li>Its <code>subprotocol</code> member has a value of
                 <code>webhook</code>
@@ -3048,7 +3044,7 @@
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-5">
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to observe the
-              corresponding property, then it MUST send <em>event messages</em>
+              corresponding property, then it MUST send a <em>notification</em>
               to the Consumer each time the value of the specified property changes.</span>
           </p>
   
@@ -3074,14 +3070,14 @@
               }
           </pre>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-6">
-              Whenever an event of the specified type occurs, the Web Thing MUST
-              send event data to the Consumer using the event payload format defined in section
-              ["#sec-http-webhook-profile-protocol-binding-events-notification"].</span>
+              Whenever a change of the property occurs, the Web Thing MUST
+              send the new value to the Consumer using the  payload format defined in section
+              ["#http-webhook-profile-protocol-binding-notification-format"].</span>
           </p>
   
         </section>
   
-        <section id="http-webhook-profile-protocol-binding-events-unobserveproperty">
+        <section id="http-webhook-profile-protocol-binding-unobserveproperty">
           <h4><code>unobserveproperty</code></h4>
   
           <section class="ednote"> This is inconsistent: there are currently two different unobserve mechanisms
@@ -3174,9 +3170,9 @@
             }
          </pre>
   
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-5">
+          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-4">
               If a Web Thing receives an HTTP request following the format
-              above, then it MUST send <em>event messages</em>
+              above, then it MUST send <em>notification</em>
               to the Consumer for all event
               types for which it has permission to subscribe.</span>
           </p>
@@ -3204,37 +3200,31 @@
         }
       </pre>
   
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-6">
+          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-5">
               Whenever a property changes while a Consumer is oberving Properties, the Web Thing MUST send event data to
               the
               Consumer
-              using the event payload format defined in section <a href="sec-http-webhook-profile-message-format">Message
+              using the payload format defined in section <a href="sec-http-webhook-profile-message-format">Message
                 Format</a>.</span>
   
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-7">
+          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-6">
               If the connection between the Web Thing and the Consumer drops,
               the Web Thing MUST re-establish the connection.</span>
           </p>
   
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-8">
+          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-7">
               Once the connection is re-established the Web Thing
-              SHOULD, if possible, send any missed events which occurred since
-              the last successful event notification.</span>
+              SHOULD, if possible, send any missed notifications which occurred since
+              the last successful notification.</span>
           </p>
         </section>
   
         <section id="http-webhook-profile-protocol-binding-unobserveallproperties">
           <h4><code>unobserveallproperties</code></h4>
           <p>
-            <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveallproperties-1">
-              In order to unobserve all properties, a Consumer MUST terminate
-              the corresponding Server-Sent Events connection with the
-              properties endpoint of the Web Thing, following the steps
-              specified in the Server-Sent Events specification [[EVENTSOURCE]].</span>
-          </p>
-  
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unsubscribeallevents-1">
-              In order to unobserve all events, a Consumer MUST invoke the
+
+          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveallproperties-1">
+              In order to unobserve all properties, a Consumer MUST invoke the
               <code>unobserveallproperties</code> operation of the <code>Property</code> resource.</span>
           </p>
   
@@ -3253,7 +3243,7 @@
           </ul>
   
           <pre class="example" title="Unobserve all">
-              DELETE /things/lamp/properties HTTP/1.1
+              DELETE /things/lamp/properties/1234-4544-1211 HTTP/1.1
               Host: mythingserver.com
             </pre>
         </section>
@@ -3363,7 +3353,7 @@
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-6">
               Whenever an event of the specified type occurs, the Web Thing MUST
               send event data to the Consumer using the event payload format defined in section
-              ["#sec-http-webhook-profile-protocol-binding-events-notification"].</span>
+              ["#sec-http-webhook-profile-protocol-binding-notification"].</span>
           </p>
 
         </section>
