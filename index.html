@@ -119,264 +119,155 @@
 <body>
   <section id="abstract">
     <p>
-      The <em>WoT Profile Specification</em> defines a Profiling Mechanism and an <em>HTTP Basic Profile</em>,
-      which enables <em>out of the box interoperability</em>
-      among things and devices. <em>Out of the box interoperability</em> implies,
-      that devices can be integrated into various application scenarios without
-      deep level adaptations. Typically only minor configuration operations are
-      necessary (such as entering a network key, or IP address)
-      to use the device in a certain scenario.
-      These actions can be done by anyone without specific training.
-    </p>
-    The HTTP Basic Profile defines a set of <em>constraints
-      and rules</em>, which compliant thing descriptions have to adopt
-    to guarantee interoperability.
+      This specification defines a <a href="#profiling-mechanism">Profiling
+      Mechanism</a> and a set of <a href="#dfn-profile">Profiles</a>
+      which enable <a href="#out-of-the-box-interoperability">out-of-the-box
+      interoperability</a> between 
+      <a href="#dfn-thing">Web Things</a> and their
+      <a href="#dfn-consumer">Consumers</a> on the 
+      <a href="https://www.w3.org/wot">Web of Things</a>.
     </p>
     <p>
-      These rules are prescriptive, to ensure that
-      compliant implementations satisfy the semantic guarantees
-      implied by them. We call this set of rules a <em>Profile</em>.
+      Being out-of-the-box interoperable means that any Consumer which conforms
+      with a given Profile can interact with any Thing which conforms with the 
+      same profile, without additional customization.
     </p>
     <p>
-      The <strong>WoT Profile Specification</strong> as defined in
-      this document serves two purposes:
+      A Profile is a technical specification which provides a set of assertions
+      to which conformant Consumers and Things must conform.
     </p>
-    <ul>
-      <li>It defines a generic <strong><a href="#profiling-mechanism">Profiling
-          Mechanism</a></strong> which provides a mechanism to describe a
-        profile in an unambiguous way. This mechanism can be
-        used to define additional profiles.
-      </li>
-      <li>In addition, it defines a <strong><a href="#http-basic-profile">HTTP Basic
-            Profile</a></strong> of the Thing Description, which
-        contains protocol binding rules for HTTP.
-        <p>The <em>normative</em> HTTP Basic Profile is complemented by two
-          <em>informative profiles for events</em>: The <a href=#sec-http-sse-profile>HTTP SSE Profile</a>
-          and the <a href="#sec-http-webhook-profile">HTTP Webhook Profile</a>.
-
-          <p>
-          In the current version of this document these event bindings are provided in <em>informative</em>
-          sections, to illustrate how these event mechanisms could be supported in other profiles.
-        </p>
-        <p>It is planned that future versions of this document <em>normatively</em> define
-          these event mechanisms.
-        </p>
-
-        <p>This specification defines a set of normative constraints
-          that apply to <em>all</em> profiles defined by this document.</p>
-        <p>
-        <p>
-          <span class="rfc2119-assertion" id="profile-abstract-1">
-            A TD that is compliant to the HTTP Basic Profile MUST adhere to
-            both the common constraints and the protocol binding.</span>
-        </p>
-      </li>
-    </ul>
     <p>
-      Devices that constrain their use of the Thing Description to
-      the HTTP Basic Profile can interoperate with each other
-      out-of-the-box.
+      The Profiling Mechanism provides a means to denote that a given Thing 
+      conforms to one or more Profiles, by referring to the identifiers of those 
+      Profiles in the <code>profile</code> member of its
+      <a href="#dfn-thing-description">Thing Description</a>.
     </p>
-    <p>Note that the HTTP Basic Profile is not exclusive. Device implementers are free to adopt
-      other features of the Thing Description that go beyond the constraints
-      of the HTTP Basic Profile, however the interoperability guarantees of the HTTP Basic Profile
-      hold only for the HTTP Basic Profile subset.
-    </p>
-    <p>Future versions of this document may contain other profiles,
-      e.g. a profile for digital twins and a profile for resource constrained devices.</p>
-
-    <section>
-      <h3>Motivation for a Profile</h3>
-    </section>
-
     <p>
-    <p id="profile-abstract-2">
-      The W3C WoT Thing Architecture [[wot-architecture11]] and
-      WoT Thing Description [[wot-thing-description11]] define a
-      powerful description mechanism and a format to describe
-      myriads of very different devices, which may be connected
-      over various protocols.
-      The format is very flexible and open
-      and puts very few normative requirements on devices that
-      implement it.</p>
-
-    <p>
-      However, this flexibility de-facto prevents
-      interoperability, since, without additional <strong>rules</strong>,
-      it allows implementers to make many choices that do not
-      provide <strong>guarantees</strong> of common behavior
-      between implementations.
+      The specification defines three profiles:
+      <ul>
+        <li>The <em>normative</em> <a href="#http-basic-profile">HTTP Basic 
+          Profile</a> defines a protocol binding for reading and writing
+          properties and invoking, querying and cancelling actions using the 
+          HTTP protocol.
+        </li>
+        <li>
+          The <em>informative</em> <a href=#sec-http-sse-profile>HTTP SSE
+          Profile</a> defines a protocol binding for observing properties and 
+          subscribing to and unsubscring from events using Server-Sent Events.
+        </li>
+        <li>
+          The <em>informative</em> <a href="#sec-http-webhook-profile">HTTP 
+          Webhook Profile</a> defines a protocol binding for subscribing to and
+          unsubscribing from events using Webhooks.
+        </li>
+      </ul>
     </p>
-
+    <p>
+      The Profiles defined in this specification share a set of
+      <a href="#common-constraints">Common Constraints</a> to which
+      implementations of those Profiles must also conform. This includes
+      constraints on units, date formats, security mechanisms,
+      discovery mechanisms, link relations, errors and default language.
+    </p>
+    <p>
+      Future versions of this specification, or extension specifications, may 
+      define additional Profiles.
+    </p>
   </section>
 
   <section id='sotd'></section>
 
-  <section id="intro">
-    <h1 id="introduction">Introduction</h1>
-    <p>
-      The W3C WoT Architecture [[wot-architecture11]] and the WoT
-      Thing Description [[wot-thing-description11]]
-      have been developed as a versatile format, that allows
-      describing the interactions between multiple devices and
-      protocols.
-
-    </p>
-    <p>
-      This flexibility permits an easy integration of new device
-      types and protocols, however it risks interoperability,
-      since there are <em>no guarantees</em> that two devices
-      which are formally spec-compliant, will be able to
-      communicate.
-    </p>
-    <p>To increase adoption of the WoT specifications,
-      interoperability between on premise devices, edge devices
-      and the cloud is essential. Even if every manufacturer is
-      implementing the current Thing Description specification in
-      full flexibility, there is no interoperability guarantee;
-      many choices are still left to the implementations and there
-      are very few normative requirements that a device has to
-      fulfill.</p>
-
-    <section>
-      <h3>Deployment Scenarios</h3>
-
-      <p>A Thing Description can be used in two fundamentally
-        different deployment scenarios:</p>
-      <ul>
-        <li>a "brown-field" scenario, where it is created
-          to describe the interactions with existing systems.</li>
-
-        <li>a "green-field" scenario, where a device model
-          and a thing description are developed together.</li>
-      </ul>
-
+  <section id="introduction">
+    <h1>Introduction</h1>
+    <!-- Motivation -->
+    <section id="motivation">
+      <h2>Motivation</h2>
       <p>
-        For green field deployments, where the implementations
-        are being carried out and corresponding thing
-        descriptions are being created, it is easier to achieve
-        full interoperability by using a small, extensible <a href="#http-basic-profile">HTTP Basic
-          Profile</a>.
+        The <a href="https://www.w3.org/WoT/">Web of Things</a> (WoT) seeks to 
+        counter the fragmentation of the
+        <a href="https://en.wikipedia.org/wiki/Internet_of_things">Internet of 
+        Things</a> (IoT) by using and extending existing, standardized 
+        web technologies.
       </p>
-
-      <p>In the brown field area, due to the nature of
-        existing deployments and protocols, a broad spectrum of
-        variations and potentially high complexity of thing
-        descriptions inhibits interoperability and will most
-        likely lead to additional profiles of the <a>WoT Thing Description</a>
-        and domain-specific thing consumer implementations.</p>
-
       <p>
-        The WoT HTTP Basic Profile can be used by green field
-        deployments and gives guidance to new implementers of
-        the WoT specifications.
+        The W3C WoT Thing Description [[wot-thing-description]] specification
+        defines a building block of the Web of Things, by specifying an 
+        information model and JSON-based representation format for describing the
+        capabilities of connected devices and the interfaces with which to 
+        communicate with them.
+      </p>
+      <p>
+        The Thing Description specification is designed to be protocol-agnostic 
+        and flexible enough to describe a wide range of existing ("brownfield") 
+        IoT devices, rather than specifying a fixed protocol or application 
+        programming interface (API) which all devices must implement. The downside
+        of this open ended flexibility is that it makes ad-hoc interoperability on
+        the Web of Things very difficult, because it's nearly impossible to create
+        a single WoT <a href="#dfn-consumer">Consumer</a> [[wot-architecture]] 
+        which is guaranteed to be able to communicate with any
+        <a href="#dfn-thing">Web Thing</a> [[wot-architecture]] out of the box.
+      </p>
+      <p>
+        This specification is designed to complement the Thing Description 
+        [[wot-thing-description]] specification, by defining a 
+        <a href="#profiling-mechanism">Profiling Mechanism</a> and a set of 
+        <a href="#dfn-profile">Profiles</a> which enable 
+        <a href="#out-of-the-box-interoperability">out-of-the-box
+        interoperability</a> between <a href="#dfn-thing">Web Things</a> and their
+        <a href="#dfn-consumer">Consumers</a>.
+      </p>
+      <p>
+        Profiles are designed specifically for new ("greenfield") implementations 
+        where developers have the freedom to conform to a prescriptive protocol
+        binding and set of common constraints, in order to benefit from 
+        out-of-the-box interoperability.
+      </p>
+      <p class="note">
+        Of the Profiles defined in this specification, only the
+        <a href="#http-basic-profile">HTTP Basic Profile</a> is currently
+        normative. It is planned that future versions of this specification will 
+        normatively define the <a href=#sec-http-sse-profile>HTTP SSE Profile</a> 
+        and <a href="#sec-http-webhook-profile">HTTP Webhook Profile</a>, but 
+        in this version of the specification they are only informative.
+      </p>
+      <p>
+        Future versions of this specification, or extension specifications, may 
+        define additional Profiles.
       </p>
     </section>
 
     <!-- Use Cases -->
-    <section id="profile-use-cases">
+    <section id="use-cases-and-requirements">
       <h2>Use Cases and Requirements</h2>
       <p>
-        A set of over 30 use cases for the Web of Things were contributed by stakeholders
-        from multiple industries for various application domains.
-        These have been published in the WoT Use Cases and Requirements document [[wot-usecases]].
+        The Web of Things Interest Group collected use cases for
+        the Web of Things from stakeholders representing various different 
+        industries. This includes both vertical domain-specific use cases and
+        horizontal use cases which apply to multiple application domains 
+        [[wot-usecases]].
       </p>
       <p>
-        Based on these use cases a set of requirements have been derived which drive the development
-        of the W3C Web of Things specification family.
-        Several of these domains require easy integration of devices from multiple vendors,
-        in other words, out-of-the-box interoperability.
-        However, the descriptive approach taken by the WoT specifications generally leads
-        to a large variety of different protocols and data formats,
-        which can work against out-of-the box interoperability.
+        Several of the
+        <a href="https://www.w3.org/TR/wot-usecases/#sec-vertical-ucs">domain-specific
+        use cases</a> refer to the need for easy integration of 
+        devices from multiple vendors. This is especially important for
+        <a href="https://www.w3.org/TR/wot-usecases/#multi-vendor">cross-domain
+        use cases</a> which require "multi-vendor system 
+        integration" and "out-of-the-box interoperability".
       </p>
       <p>
-        For example, a WoT Thing Description (TD) can in theory include a description based on a
-        networking protocol unknown to a device that wishes to connect to it.
-        To ensure interoperability without additional customization (e.g. by writing software or
-        performing complex setup or configuration steps),
-        the range of such choices needs to be limited to a finite set so that a consumer
-        of a Thing Description can be sure it will be able to interact with any possible Thing.
-        A finite set of customization choices is also important for implementing devices with a fixed code base.
-        Defining such constraints leads to the profile mechanism and the HTTP Basic Profile.
+        A set of 
+        <a href="https://github.com/w3c/wot-profile/blob/main/REQUIREMENTS.md">requirements</a>
+        for Profiles were derived from these use cases. 
       </p>
-      <p>
-        In addition to multiple vertical use cases that will use HTTP(S) for their implementations,
-        there are horizontal use cases that are addressed by this profile specification.
-        The primary focus is to enable Multi-Vendor system integration with out of the box interoperability.
-      </p>
-      <section id="profile-use-case-MVSE">
-        <h2>Multi-Vendor System Integration - Out of the box interoperability</h2>
-        Users of devices want to process data from all devices that conform to a class of devices in a uniform way.
-        They need a guarantee that they are able to correctly interact with all affordances of the Thing
-        that complies with this class of devices.
-        Different interpretations of the same Thing Description, that lead to different behaviour, should not be
-        possible.
-        Users want to integrate devices in existing scenarios out of the box, i.e. with close to zero configuration
-        tasks.
-      </section>
     </section>
 
-    <section id="why-profile">
-      <h2 id="why-define-a-profile">
-        Why a <a>Profile</a>?
-      </h2>
-
+    <section id="out-of-the-box-interoperability">
+      <h2>Out-of-the-Box Interoperability</h2>
       <p>
-        During the recent WoT Plugfests there were many
-        de-facto agreements on the use of a small constrained
-        subset of interaction patterns and protocol choices.
-        These de-facto agreements select a common subset of the
-        <a>WoT Thing Description</a>, based on
-        proven interoperability among manufacturers.
-      </p>
-      <p>
-        <span class="rfc2119-assertion" id="profile-why-a-basic-profile-1-x">
-          The <a href="#http-basic-profile">HTTP Basic Profile</a> contains additional
-          normative requirements that MUST be satisfied by devices
-          to be compliant to the profile.</span>
-      </p>
-      <figure id="http-basic-Profile-figure">
-        <img src="images/WoT-HTTP-Baseline-Profile.png" class="wot-profiles" alt="http-baseline-Profile-Picture" />
-        <figcaption>WoT HTTP Basic Profile - A Subset of Affordances</figcaption>
-      </figure>
-      <p>
-        Adoption of the <a href="#http-basic-profile">HTTP Basic Profile</a> will
-        significantly limit the implementation burden of device
-        and cloud implementors.
-      </p>
-      <p>
-        The HTTP Basic Profile was defined with the
-        following main goals:
-      </p>
-      <ul>
-        <li>guarantee interoperability among all
-          implementations of the profile.</li>
-        <li>limit the implementation complexity.</li>
-      </ul>
-
-      <p>It makes choices on the required metadata fields as
-        well as the supported interactions and protocol
-        endpoints. It introduces some constraints on data
-        schemas for properties and actions which are required
-        for resource constrained devices in real-world
-        deployments. The format does not forbid the use of
-        additional elements of the <a>WoT Thing Description</a> for vendor specific
-        extensions, however this will impact interoperability.</p>
-    </section>
-    <section>
-      <h2 id="out-of-the-box-interoperability">Out-of-the-box
-        interoperability</h2>
-      <p>
-        Devices, which implement the <a href="#http-basic-profile">HTTP Basic Profile</a>, are <strong>out-of-the-box
-          interoperable</strong> with other HTTP Basic Profile
-        compliant devices. Furthermore, the HTTP Basic Profile
-        simplifies device validation and compliance testing
-        since a corresponding conformance test suite can be
-        defined.
-      </p>
-      <p>
-        The following classification adopts the terminology as described in the
+        The definition of out-of-the-box interoperability used in this
+        specification includes multiple layers. 
+        The following classification adopts terminology from the
         "H2020 – CREATE-IoT Project - Recommendations for commonalities and
         interoperability profiles of IoT platforms" [[?H2020-CREATE-IoT]]
         report.
@@ -403,17 +294,17 @@
       </p>
       <p>
         Domain specific ontologies, e.g. semantic interop of automotive and medical devices exceed the scope of the
-        profile.
+        this specification.
       </p>
       <h3 id="out-of-the-box-interoperability-organisational-interop">Organisational Interoperability</h3>
       <p>
-        <em>Organisational Interoperability</em> in the profile context implies that any consumer,
+        <em>Organisational Interoperability</em> in the profile context implies that any Consumer
         which conforms with a given profile can interact with any Thing which conforms
         with the same profile, without additional customization.
       </p>
       <p>
         Organisational Interoperability also requires commonly agreed approaches to security,
-        trust and privacy, i.e. a consumer is provided access to Things only, when these
+        trust and privacy, i.e. a consumer is provided access to Things only when these
         common terms and conditions are applied.
       </p>
       <p>
@@ -421,10 +312,6 @@
         of the profile specification can be integrated with compliant consumers without additional customization.
         This works across infrastructures, regions and cultures.
       </p>
-    </section>
-    <section>
-      <h2>Structure of this document</h2>
-      <section class="ednote">to be added.</section>
     </section>
   </section>
   <section id="conformance">
@@ -543,6 +430,12 @@
       ...
     }
     </pre>
+    <p class="note">
+      Conforming to a Profile does not prevent a Web Thing from describing
+      additional capabilities and protocol bindings in their Thing Description
+      beyond those described in the Profile, as long as they conform with all of
+      the normative assertions of the Profile.
+    </p>
   </section>
 
   <!--  Common -->
