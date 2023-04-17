@@ -3070,7 +3070,9 @@
           </pre>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-6">
               Whenever a change of the property occurs, the Web Thing MUST
-              send the new value to the Consumer using the  payload format defined in section
+              send the new value to the Consumer with an <code>HTTP POST</code> request with a 
+              <code>Content-Type</code> header set to <code>application/json</code>,
+              in the payload format defined in section
               ["#http-webhook-profile-protocol-binding-notification-format"].</span>
           </p>
   
@@ -3208,10 +3210,13 @@
           </pre>
   
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-5">
-              Whenever a property changes while a Consumer is oberving Properties, the Web Thing MUST send event data to
-              the Consumer using the payload format defined in section 
-              <a href="sec-http-webhook-profile-message-format">Message Format</a>.</span>
-        </section>
+              Whenever a property changes while a Consumer is oberving Properties, 
+              the Web Thing MUST send the new value to the Consumer with an 
+              <code>HTTP POST</code> request with a 
+                <code>Content-Type</code> header set to <code>application/json</code>,
+                and the payload format defined in section
+                ["#http-webhook-profile-protocol-binding-notification-format"].</span>
+            </section>
   
         <section id="http-webhook-profile-protocol-binding-unobserveallproperties">
           <h4><code>unobserveallproperties</code></h4>
@@ -3488,7 +3493,7 @@
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-6">
               Whenever an event occurs, the Web Thing MUST send event data to the Consumer
               using the event payload format defined in section <a
-                href="sec-http-webhook-profile-message-format">Message Format</a>.</span>
+                href="sec-http-webhook-profile-notification-format">Notification Format</a>.</span>
 
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-7">
               If the connection between the Web Thing and the Consumer drops,
