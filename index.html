@@ -2970,7 +2970,7 @@
               </pre>
             <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-6">
                 Whenever an event of the specified type occurs, the Web Thing MUST
-                send event data to the Consumer using the event payload format defined in section
+                send event data to the Consumer using the notification payload format defined in section
                 ["#sec-http-webhook-profile-protocol-binding-notification"].</span>
             </p>
           </section>
@@ -3008,10 +3008,9 @@
           <ul>
             <li>Status code set to <code>204 No Content</code></li>
           </ul>
-            <pre class="example" title="Unsubscribe using subscriptionId">
-              DELETE /things/lamp/events/overheated/1234-4544-1211 HTTP/1.1
-              Host: mythingserver.com
-            </pre>
+          <pre class="example">
+            HTTP/1.1 204 No Content
+          </pre>
           </section>
   
           <section id="http-webhook-profile-protocol-binding-events-subscribeallevents">
@@ -3105,7 +3104,7 @@
   
             <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-6">
                 Whenever an event occurs, the Web Thing MUST send event data to the Consumer
-                using the event payload format defined in section <a
+                using the notification payload format defined in section <a
                   href="sec-http-webhook-profile-message-format">Message Format</a>.</span>
   
             <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-7">
@@ -3156,10 +3155,9 @@
               <ul>
                 <li>Status code set to <code>204 No Content</code></li>
               </ul>
-                <pre class="example" title="Unsubscribe using subscriptionId">
-                  DELETE /things/lamp/events/1234-4544-1211 HTTP/1.1
-                  Host: mythingserver.com
-                </pre>
+              <pre class="example">
+                HTTP/1.1 204 No Content
+              </pre>
               </section>
           </section>
         </section>
