@@ -2726,26 +2726,29 @@
         Thus, interactions can be initiated both by the Thing and the Consumer.
       </p>
       <p>
-	 A Webhook is similar to a callback mechanism in programming languages. Consumers can
-	 subscribe to events they are interested in by registering a listener with the event endpoint.
-	 When the event condition occurs, the WebThing
-	 is notifying all listeners with a corresponding event message, which is transmitted over HTTP(s).
-	 The event message contains details about the event, such as timestamp, event type,
-	 event source etc. in the data payload.
-      </p><p>
-	 Depending on the deployment scenarios and integration requirements for existing consumers, it may be
-	 required to use specific data payload formats (e.g. Cloud Events).
-	 When a listener receives an event message in a data payload, in many cases it just acknowledges the
-	 successful reception of the event.
-	 Additionally, it may provide a dataResponse payload, which provides a back-channel that can be used
-	 to communicate further details from the consumer to the WebThing.
+        A Webhook is similar to a callback mechanism in programming languages. Consumers can
+        subscribe to properties or events they are interested in by registering a listener with that endpoint.
+        When the event condition occurs, the WebThing
+        is notifying all listeners with a corresponding notification, which is transmitted over HTTP(s).
+        The notification message contains details about the event, such as timestamp, event type,
+        event source etc. in the data payload.
+      </p>
+      
+      <p>
+        Depending on the deployment scenarios and integration requirements for existing consumers, it may be
+        required to use specific data payload formats (e.g. Cloud Events).
+        When a listener receives an event notification in a data payload, in many cases it just acknowledges the
+        successful reception of the event.
+        Additionally, it may provide a dataResponse payload, which provides a back-channel that can be used
+        to communicate further details from the consumer to the WebThing.
       </p>
       <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-events-1">
           Depending on the use case, a single listener for multiple things and multiple
-          event types MAY be used.</span>
+          endpoints MAY be used.</span>
       </p>
       <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-events-2">
-          To minimize network traffic, the same listerner MUST NOT perform multiple subscriptions to the same listener.</span>
+          To minimize network traffic, the same Consumer SHOULD NOT perform multiple subscriptions to 
+          the same endpoint.</span>
       </p>
 
       <section id="webhook-example">
@@ -3132,40 +3135,38 @@
         </section>
       </section>
 
+      <!-- Webhook Notifications -->
+
       <section id="sec-http-webhook-profile-protocol-binding-event-listeners">
-        <h4>Event Connections</h4>
+        <h4>Webhook Notifications</h4>
+
+        <p>Webhook notifications are sent by the WebThing to registered Consumers to notify them 
+        of value changes of properties or of events occuring on the WebThing.</p>
 
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-1">
             A HTTP(s) connection to the event listener of a Consumer MUST be initiated and managed by the Web
             Thing.</span>
         </p>
-
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-2">
-            A Consumer MUST terminate the subscription with the events endpoint of the Web Thing.</span>
+            A Consumer MUST actively terminate the subscription with the (event- or property-) endpoint that is sending notifications
+           of the Web Thing.</span>
         </p>
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-3">
             If a Consumer becomes unavailable and the Web Thing cannot successfully transmit
-            event messages to the consumer, it SHOULD attempt several retries at increasing intervals.</span>
+            notification messages to the consumer, it SHOULD attempt several retries at increasing intervals.</span>
         </p>
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-4">
             After the maximum number of retries was reached, the Web Thing MAY terminate the subscription
-            without having received an <code>unsubscribe</code> or <code>unsubscribeall</code> operation.</span>
-        </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding--event-connections-5">
-            If the connection between the Web Thing and the Consumer drops,
-            the Web Thing MUST attempt to re-establish the connection.</span>
-        </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-6">
-            Once the connection is re-established, the Web Thing
-            SHOULD, if possible, send any missed events which occurred since
-            the last successful event notification.</span>
-        </p>
-        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-7">
-            The Web Thing MAY reuse an existing connection to a listener for subsequent message traffic,
-            or it MAY establish a new connection for each message.</span>
+            without having received an explicit <code>unsubscribe</code> or <code>unsubscribeall</code> operation.</span>
         </p>
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding--event-connections-8">
-            When an event message has been received, the Consumer MUST respond with a "HTTP 200 OK" message.</span>
+            When a notification message has been received, the Consumer MUST respond with an 
+            <code>HTTP 200 OK</code> response code, if the response contains a body.</span>
+
+            <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding--event-connections-8a">
+              If the response to an notification by the Consumer does not contain a payload, the Consumer MUST respond with an 
+              <code>HTTP 204 No Content</code> response code.</span> 
+
         </p>
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-9">
             An (optional) JSON payload MAY be provided to return a response back to the Web Thing
