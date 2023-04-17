@@ -3144,8 +3144,13 @@
         of value changes of properties or of events occuring on the WebThing.</p>
 
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-1">
-            A HTTP(s) connection to the event listener of a Consumer MUST be initiated and managed by the Web
+            A HTTP(s) connection to the notification listener of a Consumer MUST be initiated and managed by the Web
             Thing.</span>
+        </p>
+        <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-1a">
+          Notifications must be sent with an <code>HTTP POST</code> request with a 
+          <code>Content-Type</code> header set to <code>application/json.</code>
+        </span>
         </p>
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-2">
             A Consumer MUST actively terminate the subscription with the (event- or property-) endpoint that is sending notifications
@@ -3159,6 +3164,7 @@
             After the maximum number of retries was reached, the Web Thing MAY terminate the subscription
             without having received an explicit <code>unsubscribe</code> or <code>unsubscribeall</code> operation.</span>
         </p>
+
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding--event-connections-8">
             When a notification message has been received, the Consumer MUST respond with an 
             <code>HTTP 200 OK</code> response code, if the response contains a body.</span>
