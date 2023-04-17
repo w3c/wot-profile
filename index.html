@@ -2683,7 +2683,7 @@
     </section>
   </section>
 
-  <!-- ------------------------------------------------------------ -->
+  <!-- ----------------------- HTTP Webhook Profile ------------------------------------- -->
   
   <section id="sec-http-webhook-profile" class="informative">
     <h1>HTTP Webhook Profile</h1>
@@ -2718,7 +2718,7 @@
       </p>
       <p>
         The mechanism is scalable and supports Consumers that receive events from
-        multiple Things. Consumers implement a Webhook listener which handles events emitted by Things.
+        multiple Things. Consumers implement a Webhook listener which handles notifications emitted by Things.
         For Webhook mechanism to function, the Consumer provides a server and client behavior.
         The client behavior is used for the initial subscription operation, whereas the server behavior is used to accept the events sent by the Thing.
         Thus, interactions can be initiated both by the Thing and the Consumer.
@@ -2726,7 +2726,7 @@
       <p>
         A Webhook is similar to a callback mechanism in programming languages. Consumers can
         subscribe to properties or events they are interested in by registering a listener with that endpoint.
-        When the event condition occurs, the WebThing
+        When the property change or the event condition occurs, the WebThing
         is notifying all listeners with a corresponding notification, which is transmitted over HTTP(s).
         The notification message contains details about the event, such as timestamp, event type,
         event source etc. in the data payload.
@@ -2735,8 +2735,8 @@
       <p>
         Depending on the deployment scenarios and integration requirements for existing consumers, it may be
         required to use specific data payload formats (e.g. Cloud Events).
-        When a listener receives an event notification in a data payload, in many cases it just acknowledges the
-        successful reception of the event.
+        When a listener receives a notification message in a data payload, in many cases it just acknowledges the
+        successful reception of the message.
         Additionally, it may provide a dataResponse payload, which provides a back-channel that can be used
         to communicate further details from the consumer to the WebThing.
       </p>
@@ -2755,14 +2755,21 @@
         <p>The following sequence diagram illustrates the flow of messages between a Consumer and a Web Thing
           when subscribing to, unsubscribing from and receiving events.
         </p>
-  
+
         <figure id="sequence-diagram-webhook">
           <img src="images/Sequence-Diagram-WebHook.png" class="wot-profiles" alt="Webhook example - sequence diagram" />
           <figcaption>HTTP Webhook Profile - Sequence of operations and notifications</figcaption>
         </figure>
   
-  
+        <p>A similar flow applies to observing property changes.
+        </p>
+
         <p>The following example contains a snippet from a TD that illustrates how a Webhook event can be described.
+        </p>
+
+        <p class="ednote">
+          <!-- TODO -->
+          TODO: Fix example - align with updated text.
         </p>
         <pre class="example">
               ...
@@ -2775,7 +2782,7 @@
                           "subscription": {
                               "type": "object",
                               "properties": {
-                                "callbackURL": {
+                                "callbackURI": {
                                     "type": "string",
                                     "format": "uri",
                                     "description": "Callback URL provided by subscriber for Webhook notifications.",
@@ -2929,7 +2936,7 @@
             </li>
             <p>
               The subscription payload contains the URI for the notification listener
-              in the field with the <code>callbackURI</code> key.
+              in the field with the key <code>callbackURI</code>.
             </p>
           </ul>
           <pre class="example">
