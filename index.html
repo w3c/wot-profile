@@ -2593,7 +2593,7 @@
           </pre>
           <p><span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-7a">
               If the connection between the Consumer and Web Thing drops
-              (except as a result of the <code>unsubscribe</code> operation
+              (except as a result of the <code>unsubscribeevent</code> operation
               defined below), the Consumer MUST re-establish the connection
               following the steps outlined in the Server-Sent Events specification
               [[EVENTSOURCE]].</span>
@@ -3305,7 +3305,7 @@
             This involves the Consumer sending an HTTP request to
             the Web Thing with:
           </p>
-          <ul>
+          <ul>git 
             <li>Method set to <code>POST</code></li>
             <li>URL set to the URL of the <code>Event</code> resource</li>
             <li>
@@ -3368,7 +3368,7 @@
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unsubscribeevent-1">
               In order to unsubscribe to an event, a Consumer MUST
               terminate the corresponding subscription with the Web Thing using the
-              <code>unsubscribe</code> operation of the <code>Event</code> resource.</span>
+              <code>unsubscribeevent</code> operation of the <code>Event</code> resource.</span>
           </p>
           <p>
             This involves the Consumer sending an HTTP request to
@@ -3511,7 +3511,7 @@
           <h4><code>unsubscribeallevents</code></h4>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unsubscribeallevents-1">
               In order to unsubscribe from all events, a Consumer MUST invoke the
-              <code>unsubscribe</code> operation of the <code>Event</code> resource.</span>
+              <code>unsubscribeevent</code> operation of the <code>Event</code> resource.</span>
           </p>
 
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
@@ -3570,7 +3570,7 @@
         </p>
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-4">
             After the maximum number of retries was reached, the Web Thing MAY terminate the subscription
-            without having received an <code>unsubscribe</code> or <code>unsubscribeall</code> operation.</span>
+            without having received an <code>unsubscribeevent</code> or <code>unsubscribeallevents</code> operation.</span>
         </p>
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding--event-connections-5">
             If the connection between the Web Thing and the Consumer drops,
