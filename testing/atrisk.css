@@ -1,10 +1,7 @@
-#profile-abstract-1 {
-  background-color: yellow;
-}
-#profile-why-a-basic-profile-1-x {
-  background-color: yellow;
-}
 #profiling-mechanism-1 {
+  background-color: yellow;
+}
+#profiling-mechanism-5 {
   background-color: yellow;
 }
 #common-constraints-a11y-1 {
@@ -14,6 +11,15 @@
   background-color: yellow;
 }
 #common-constraints-security-2 {
+  background-color: yellow;
+}
+#common-constraints-security-basic-in {
+  background-color: yellow;
+}
+#common-constraints-security-basic-name {
+  background-color: yellow;
+}
+#common-constraints-security-basic-proxy {
   background-color: yellow;
 }
 #common-constraints-security-6 {
@@ -29,6 +35,9 @@
   background-color: yellow;
 }
 #common-constraints-links-media-types-1 {
+  background-color: yellow;
+}
+#common-constraints-links-media-types-2 {
   background-color: yellow;
 }
 #common-constraints-links-media-types-4 {
@@ -55,12 +64,6 @@
 #http-basic-profile-1 {
   background-color: yellow;
 }
-#profile-5-2-thing-protocol-binding-1 {
-  background-color: yellow;
-}
-#http-basic-profile-protocol-binding-readallproperties-3 {
-  background-color: yellow;
-}
 #http-basic-profile-protocol-bindings-writemultipleproperties-3 {
   background-color: yellow;
 }
@@ -73,16 +76,10 @@
 #http-basic-profile-protocol-binding-invokeaction-11 {
   background-color: yellow;
 }
-#http-basic-profile-protocol-binding-invokeaction-12 {
-  background-color: yellow;
-}
 #http-basic-profile-protocol-binding-invokeaction-13 {
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-invokeaction-14 {
-  background-color: yellow;
-}
-#http-basic-profile-protocol-binding-invokeaction-15 {
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-invokeaction-16 {
@@ -100,7 +97,10 @@
 #http-basic-profile-protocol-binding-invokeaction-20 {
   background-color: yellow;
 }
-#http-basic-profile-protocol-binding-invokeaction-21 {
+#http-basic-profile-protocol-binding-invokeaction-22 {
+  background-color: yellow;
+}
+#http-basic-profile-protocol-binding-invokeaction-23 {
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-queryaction-2 {
@@ -130,46 +130,16 @@
 #http-basic-profile-protocol-binding-queryallactions-6b {
   background-color: yellow;
 }
-#http-sse-profile-1 {
-  background-color: yellow;
-}
-#http-sse-profile-identifier-1 {
-  background-color: yellow;
-}
-#http-sse-profile-protocol-binding-1 {
-  background-color: yellow;
-}
-#http-sse-profile-protocol-binding-observeproperty-1 {
-  background-color: yellow;
-}
-#http-sse-profile-protocol-binding-observeproperty-2 {
-  background-color: yellow;
-}
 #http-sse-profile-protocol-binding-observeproperty-3 {
   background-color: yellow;
 }
 #http-sse-profile-protocol-binding-observeproperty-4 {
   background-color: yellow;
 }
-#http-sse-profile-protocol-binding-observeproperty-5a {
-  background-color: yellow;
-}
-#http-sse-profile-protocol-binding-observeproperty-5b {
-  background-color: yellow;
-}
-#http-sse-profile-protocol-binding-observeproperty-5c {
-  background-color: yellow;
-}
-#http-sse-profile-protocol-binding-observeproperty-5d {
-  background-color: yellow;
-}
 #http-sse-profile-protocol-binding-observeproperty-6a {
   background-color: yellow;
 }
 #http-sse-profile-protocol-binding-observeproperty-6b {
-  background-color: yellow;
-}
-#http-sse-profile-protocol-binding-unobserveproperty-1 {
   background-color: yellow;
 }
 #http-sse-profile-protocol-binding-observeallproperties-1 {
@@ -283,10 +253,58 @@
 #http-webhook-profile-1 {
   background-color: yellow;
 }
-#http-webhook-profile-message-format-1 {
+#http-webhook-profile-notification-format-1 {
   background-color: yellow;
 }
 #http-webhook-profile-protocol-binding-1 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeproperty-1 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeproperty-2 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeproperty-3 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeproperty-5 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeproperty-6 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-unobserveproperty-1 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-subscribeevent-5-1 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-subscribeevent-5-2 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-subscribeevent-5-3 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-subscribeevent-5-4 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeallproperties-1 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeallproperties-2 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeallproperties-3 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeallproperties-4 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-observeallproperties-5 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-unobserveallproperties-1 {
   background-color: yellow;
 }
 #http-basic-profile-protocol-binding-subscribeevent-1 {
@@ -298,13 +316,10 @@
 #http-webhook-profile-protocol-binding-subscribeevent-4 {
   background-color: yellow;
 }
-#http-webhook-profile-protocol-binding-subscribeevent-5 {
-  background-color: yellow;
-}
 #http-webhook-profile-protocol-binding-subscribeevent-6 {
   background-color: yellow;
 }
-#http-webhook-profile-protocol-binding-subscribeevent-4b {
+#http-webhook-profile-protocol-binding-unsubscribeevent-1 {
   background-color: yellow;
 }
 #http-webhook-profile-protocol-binding-subscribeallevents-1 {
@@ -322,16 +337,13 @@
 #http-webhook-profile-protocol-binding-subscribeallevents-6 {
   background-color: yellow;
 }
-#http-webhook-profile-protocol-binding-subscribeallevents-7 {
-  background-color: yellow;
-}
-#http-webhook-profile-protocol-binding-subscribeallevents-8 {
-  background-color: yellow;
-}
 #http-webhook-profile-protocol-binding-unsubscribeallevents-1 {
   background-color: yellow;
 }
 #http-webhook-profile-protocol-binding-event-connections-1 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding-event-connections-1a {
   background-color: yellow;
 }
 #http-webhook-profile-protocol-binding-event-connections-2 {
@@ -343,16 +355,10 @@
 #http-webhook-profile-protocol-binding-event-connections-4 {
   background-color: yellow;
 }
-#http-webhook-profile-protocol-binding--event-connections-5 {
-  background-color: yellow;
-}
-#http-webhook-profile-protocol-binding-event-connections-6 {
-  background-color: yellow;
-}
-#http-webhook-profile-protocol-binding-event-connections-7 {
-  background-color: yellow;
-}
 #http-webhook-profile-protocol-binding--event-connections-8 {
+  background-color: yellow;
+}
+#http-webhook-profile-protocol-binding--event-connections-8a {
   background-color: yellow;
 }
 #http-webhook-profile-protocol-binding-event-connections-9 {
