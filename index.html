@@ -969,6 +969,7 @@
               "fade": {
                 "title": "Fade",
                 "description": "Fade the lamp to a given level",
+                "synchronous": false,
                 "input": {
                   "type": "object",
                   "properties": {
@@ -1366,6 +1367,14 @@
           </div>
           <p>
             <span class="rfc2119-assertion"
+            id="http-basic-profile-protocol-binding-invokeaction-24">
+              The <code>synchronous</code> member of an 
+              <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
+              MUST be set to <code>true</code> or <code>false</code>.
+            </span>
+          </p>
+          <p>
+            <span class="rfc2119-assertion"
             id="http-basic-profile-protocol-binding-invokeaction-7">
               If the <code>synchronous</code> member of the
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
@@ -1381,17 +1390,6 @@
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
               [[wot-thing-description11]] is set to <code>false</code> then the Web
               Thing MUST respond with an
-              <a href="#async-action-response">Asynchronous Action Response</a>.
-            </span>
-          </p>
-          <p>
-            <span class="rfc2119-assertion"
-            id="http-basic-profile-protocol-binding-invokeaction-9">
-              If the <code>synchronous</code> member of the
-              <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
-              [[wot-thing-description11]] is <code>undefined</code> then the Web
-              Thing MAY respond with either a
-              <a href="#sync-action-response">Synchronous Action Response</a> or
               <a href="#async-action-response">Asynchronous Action Response</a>.
             </span>
           </p>
@@ -1970,6 +1968,7 @@
             "fade": {
               "title": "Fade",
               "description": "Fade the lamp to a given level",
+              "synchronous": false,
               "input": {
                 "type": "object",
                 "properties": {
