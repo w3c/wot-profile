@@ -1954,7 +1954,17 @@
               "type": "boolean",
               "title": "On/Off",
               "description": "Whether the lamp is turned on",
-              "forms": [{"href": "properties/on"}]
+              "forms": [
+                {
+                  "href": "properties/on",
+                  "op": ["readproperty", "writeproperty"],
+                },
+                {
+                  "href": "properties/on",
+                  "op": ["observeproperty", "unobserveproperty"],
+                  "subprotocol": "sse"
+                }
+              ]
             },
             "level" : {
               "type": "integer",
@@ -1963,7 +1973,18 @@
               "unit": "percent",
               "minimum" : 0,
               "maximum" : 100,
-              "forms": [{"href": "properties/level"}]
+              "forms": [
+              {
+                "href": "properties/level",
+                "op": ["readproperty", "writeproperty"],
+              },
+              {
+                "href": "properties/level",
+                "op": ["observeproperty", "unobserveproperty"],
+                "subprotocol": "sse"
+              }
+            ]
+          },
             }
           },
           "actions": {
