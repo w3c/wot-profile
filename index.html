@@ -192,36 +192,37 @@
       </p>
       <p>
         The W3C WoT Thing Description [[wot-thing-description11]] specification
-        defines a building block of the Web of Things, by specifying an 
-        information model and JSON-based representation format for describing the
-        capabilities of connected devices and the interfaces with which to 
-        communicate with them.
+        defines an information model and JSON-based representation format for 
+        describing the capabilities of connected devices and the interfaces with
+        which to communicate with them. Thing Descriptions are designed to be 
+        protocol-agnostic and flexible enough to describe a wide range of 
+        existing ("brownfield") IoT devices.
       </p>
       <p>
-        The Thing Description specification is designed to be protocol-agnostic 
-        and flexible enough to describe a wide range of existing ("brownfield") 
-        IoT devices, rather than specifying a fixed protocol or application 
-        programming interface (API) which all devices must implement. The downside
-        of this open ended flexibility is that it makes ad-hoc interoperability on
-        the Web of Things very difficult, because it's nearly impossible to create
-        a single WoT <a href="#dfn-consumer">Consumer</a> [[wot-architecture]] 
-        which is guaranteed to be able to communicate with any
-        <a href="#dfn-thing">Web Thing</a> [[wot-architecture]] out of the box.
+        In order to provide this level of flexibility the Thing Description 
+        specification includes a number of extension points including protocol 
+        bindings, payload bindings, security mechanisms, link relations and 
+        semantic contexts. As long as all of the capabilities of a device can 
+        be described using a Thing Description and a <a href="#dfn-consumer">
+        Consumer</a> implements all of the extensions used, the Consumer should 
+        be able to interoperate with that device. However, the result of this 
+        extensible architecture is that any given Consumer can only interoperate
+        with a subset of possible <a href="#dfn-thing">Web Things</a>.
       </p>
       <p>
         This specification is designed to complement the Thing Description 
-        [[wot-thing-description11]] specification, by defining a 
-        <a href="#profiling-mechanism">Profiling Mechanism</a> and a set of 
-        <a href="#dfn-profile">Profiles</a> which enable 
-        <a href="#out-of-the-box-interoperability">out-of-the-box
-        interoperability</a> between <a href="#dfn-thing">Web Things</a> and their
-        <a href="#dfn-consumer">Consumers</a>.
+        [[wot-thing-description11]] specification, by enabling ad-hoc  
+        interoperability through the use of "profiles". A profile 
+        prescribes a finite set of extensions and defaults that a Thing can 
+        be constrained to in order to guarantee 
+        <a href="#out-of-the-box-interoperability">out-of-the-box 
+        interoperability</a> with any Consumer which implements that profile.
       </p>
       <p>
         Profiles are designed specifically for new ("greenfield") implementations 
         where developers have the freedom to conform to a prescriptive protocol
         binding and set of common constraints, in order to benefit from 
-        out-of-the-box interoperability.
+        this additional level of interoperability.
       </p>
       <p class="note">
         Of the Profiles defined in this specification, only the
