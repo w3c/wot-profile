@@ -2,11 +2,14 @@
 
 ## Why do we need a Profile? 
 
-The W3C WoT Architecture [wot-architecture11] and the WoT Thing Description [wot-thing-description11] have been developed as a versatile format, that allows describing the interactions between multiple devices and protocols.
+The W3C [WoT Architecture][wot-architecture11] and the WoT [Thing Description][wot-thing-description11] have been developed as a versatile format, that allows describing the interactions between multiple devices and protocols.
 
 This flexibility permits an easy integration of new device types and protocols, however it risks interoperability, since there are no guarantees that two devices which are formally spec-compliant, will be able to communicate.
 
-To increase adoption of the WoT specifications, interoperability between on premise devices, edge devices and the cloud is essential. Even if every manufacturer is implementing the current Thing Description specification in full flexibility, there is no interoperability guarantee; many choices are still left to the implementations and there are very few normative requirements that a device has to fulfill.
+To increase adoption of the WoT specifications, interoperability between on premise devices, edge devices and the cloud is essential. Even if every manufacturer is implementing the current Thing Description specification in full flexibility, there is no full interoperability guarantee; many choices are still left to the implementations and there are very few normative requirements that a device has to fulfill.
+
+[wot-architecture11]: https://www.w3.org/TR/wot-architecture11/
+[wot-thing-description11]: https://www.w3.org/TR/wot-thing-description11/
 
 ## The WoT Profile Specification
 
@@ -25,8 +28,8 @@ The WoT Basic Profile has been defined with the objective of out-of-the-box inte
 
 In addition to the HTTP Basic Profile, the WoT Profile specification defines the HTTP SSE Profile 
 and the HTTP Webhook Profile. These enable asynchronous notifications for events.
-The HTTP SSE Profile is using the SSE protocol, the HTTP Webhook Profile 
-uses a WebHook mechanism. A device can conform to only one of these profiles or implement a combination of these. 
+The HTTP SSE Profile is using the [SSE protocol](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events),
+ the HTTP Webhook Profile uses a WebHook mechanism. A device can conform to only one of these profiles or implement a combination of these.
 
 To claim compliance with a profile, a Thing must conform with all the normative statements in that profile specification.
 
