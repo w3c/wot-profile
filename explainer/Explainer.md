@@ -1,6 +1,6 @@
 # Web of Things (WoT) Profile - Explainer
 
-## Why do we need a Profile? 
+## Why do we need a Profile?
 
 The W3C [WoT Architecture][wot-architecture11] and the WoT [Thing Description][wot-thing-description11] have been developed as a versatile format, that allows describing the interactions between multiple devices and protocols.
 
@@ -13,8 +13,8 @@ To increase adoption of the WoT specifications, interoperability between on prem
 
 ## The WoT Profile Specification
 
-The WoT Profile 
-<a href="https://w3c.github.io/wot-profile/">WoT Profile</a>, 
+The WoT Profile
+<a href="https://w3c.github.io/wot-profile/">WoT Profile</a>,
 defines a Profiling Mechanism and a HTTP Basic Profile,
 which enables out-of-the-box interoperability among things and devices.
 Out-of-the-box interoperability implies that devices can be integrated together
@@ -26,7 +26,7 @@ These actions can be done by anyone without specific training.
 
 The WoT Basic Profile has been defined with the objective of out-of-the-box interoperability and easy implementability - it defines prescriptive rules and requirements for properties and actions, which are expected to satisfy the majority of deployment scenarios.
 
-In addition to the HTTP Basic Profile, the WoT Profile specification defines the HTTP SSE Profile 
+In addition to the HTTP Basic Profile, the WoT Profile specification defines the HTTP SSE Profile
 and the HTTP Webhook Profile. These enable asynchronous notifications for events.
 The HTTP SSE Profile is using the [SSE protocol](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events),
  the HTTP Webhook Profile uses a WebHook mechanism. A device can conform to only one of these profiles or implement a combination of these.
@@ -60,7 +60,7 @@ A Consumer of  a Web Thing conforming to the HTTP Basic Profile must implement t
 
 #### Actions
 
- The Basic Profile defines synchronous and asynchronous action models. 
+ The Basic Profile defines synchronous and asynchronous action models.
  It defines four operations that can be applied to an action endpoint.
 
 |   Operations    | Description                     |
@@ -70,9 +70,9 @@ A Consumer of  a Web Thing conforming to the HTTP Basic Profile must implement t
 | cancelaction    | cancel an ongoing asynchronous action request |
 | queryallactions | query the status of all ongoing action requests |
 
-On synchronous actions, the action output result is contained in the response. 
-For asynchronous actions the operation returns an Action Status object in the response. 
-This Action Status object contains a status member and a URL that can be used 
+On synchronous actions, the action output result is contained in the response.
+For asynchronous actions the operation returns an Action Status object in the response.
+This Action Status object contains a status member and a URL that can be used
 to query the status of the action using the queryaction operation.
 
 ### Common Error Responses
@@ -82,7 +82,7 @@ If any of the operations on properties, actions and events defined above are uns
 
 Events are used for asynchronous notifications. To keep the implementation effort for the HTTP Basic profile low, two separate event mechanisms are specified in two different profiles, the HTTP SSE Profile and the HTTP WebHook Profile.
 
-These event profiles may be used stand-alone, or in conjunction with the HTTP Basic Profile 
+These event profiles may be used stand-alone, or in conjunction with the HTTP Basic Profile
 in order to provide operations to read and write properties and invoke, query and cancel actions.
 
 Event subscriptions can be either performed for individual event sources or can be registered at top-level for the entire thing.
@@ -103,12 +103,12 @@ It contains recommendation about elements that must be present in an environment
 
 ## Internationalisation
 
-Profile compliant devices will be implemented on real world runtime environments. Common implementation runtimes are Java, JavaScript/node.js and Python. 
-These have only support for a limited set of languages. To facilitate interoperability between devices that are implemented on these runtimes, the profile will recommend a common subset of the languages that are supported by these environments.  
+Profile compliant devices will be implemented on real world runtime environments. Common implementation runtimes are Java, JavaScript/node.js and Python.
+These have only support for a limited set of languages. To facilitate interoperability between devices that are implemented on these runtimes, the profile will recommend a common subset of the languages that are supported by these environments.
 
 ## Security Considerations
 
-The WoT Profile Specification adopts the Security Considerations of the WoT Architecture and WoT Thing Description specifications.  
+The WoT Profile Specification adopts the Security Considerations of the WoT Architecture and WoT Thing Description specifications.
 
 The HTTP Profile defines a subset of the security schemes that may be implemented on compliant devices.
 
@@ -116,4 +116,4 @@ While WoT supports the description of a wide variety of security schemes, profil
 
 ## Privacy Considerations
 
-The WoT Profile Specification adopts the Privacy Considerations of the WoT Architecture and WoT Thing Description specifications.  
+The WoT Profile Specification adopts the Privacy Considerations of the WoT Architecture and WoT Thing Description specifications.
