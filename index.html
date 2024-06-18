@@ -122,14 +122,14 @@
       This specification defines a <a href="#profiling-mechanism">Profiling
       Mechanism</a> and a set of <a href="#dfn-profile">Profiles</a>
       which enable <a href="#out-of-the-box-interoperability">out-of-the-box
-      interoperability</a> between 
+      interoperability</a> between
       <a href="#dfn-thing">Web Things</a> and their
-      <a href="#dfn-consumer">Consumers</a> on the 
+      <a href="#dfn-consumer">Consumers</a> on the
       <a href="https://www.w3.org/wot">Web of Things</a>.
     </p>
     <p>
       Being out-of-the-box interoperable means that any Consumer which conforms
-      with a given Profile can interact with any Thing which conforms with the 
+      with a given Profile can interact with any Thing which conforms with the
       same profile, without additional customization.
     </p>
     <p>
@@ -137,8 +137,8 @@
       to which conformant Consumers and Things must conform.
     </p>
     <p>
-      The Profiling Mechanism provides a means to denote that a given Thing 
-      conforms to one or more Profiles, by referring to the identifiers of those 
+      The Profiling Mechanism provides a means to denote that a given Thing
+      conforms to one or more Profiles, by referring to the identifiers of those
       Profiles in the <code>profile</code> member of its
       <a href="#dfn-thing-description">Thing Description</a>.
     </p>
@@ -146,18 +146,18 @@
     <p>
       The specification defines three profiles:
       <ul>
-        <li>The <em>normative</em> <a href="#http-basic-profile">HTTP Basic 
+        <li>The <em>normative</em> <a href="#http-basic-profile">HTTP Basic
           Profile</a> defines a protocol binding for reading and writing
-          properties and invoking, querying and cancelling actions using the 
+          properties and invoking, querying and cancelling actions using the
           HTTP protocol.
         </li>
         <li>
           The <em>informative</em> <a href=#sec-http-sse-profile>HTTP SSE
-          Profile</a> defines a protocol binding for observing properties and 
+          Profile</a> defines a protocol binding for observing properties and
           subscribing to and unsubscring from events using Server-Sent Events.
         </li>
         <li>
-          The <em>informative</em> <a href="#sec-http-webhook-profile">HTTP 
+          The <em>informative</em> <a href="#sec-http-webhook-profile">HTTP
           Webhook Profile</a> defines a protocol binding for subscribing to and
           unsubscribing from events using Webhooks.
         </li>
@@ -171,7 +171,7 @@
       discovery mechanisms, link relations, errors and default language.
     </p>
     <p>
-      Future versions of this specification, or extension specifications, may 
+      Future versions of this specification, or extension specifications, may
       define additional Profiles.
     </p>
   </section>
@@ -184,56 +184,56 @@
     <section id="motivation">
       <h2>Motivation</h2>
       <p>
-        The <a href="https://www.w3.org/WoT/">Web of Things</a> (WoT) seeks to 
+        The <a href="https://www.w3.org/WoT/">Web of Things</a> (WoT) seeks to
         counter the fragmentation of the
-        <a href="https://en.wikipedia.org/wiki/Internet_of_things">Internet of 
-        Things</a> (IoT) by using and extending existing, standardized 
+        <a href="https://en.wikipedia.org/wiki/Internet_of_things">Internet of
+        Things</a> (IoT) by using and extending existing, standardized
         web technologies.
       </p>
       <p>
         The W3C WoT Thing Description [[wot-thing-description11]] specification
-        defines an information model and JSON-based representation format for 
+        defines an information model and JSON-based representation format for
         describing the capabilities of connected devices and the interfaces with
-        which to communicate with them. Thing Descriptions are designed to be 
-        protocol-agnostic and flexible enough to describe a wide range of 
+        which to communicate with them. Thing Descriptions are designed to be
+        protocol-agnostic and flexible enough to describe a wide range of
         existing ("brownfield") IoT devices.
       </p>
       <p>
-        In order to provide this level of flexibility the Thing Description 
-        specification includes a number of extension points including protocol 
-        bindings, payload bindings, security mechanisms, link relations and 
-        semantic contexts. As long as all of the capabilities of a device can 
+        In order to provide this level of flexibility the Thing Description
+        specification includes a number of extension points including protocol
+        bindings, payload bindings, security mechanisms, link relations and
+        semantic contexts. As long as all of the capabilities of a device can
         be described using a Thing Description and a <a href="#dfn-consumer">
-        Consumer</a> implements all of the extensions used, the Consumer should 
-        be able to interoperate with that device. However, the result of this 
+        Consumer</a> implements all of the extensions used, the Consumer should
+        be able to interoperate with that device. However, the result of this
         extensible architecture is that any given Consumer can only interoperate
         with a subset of possible <a href="#dfn-thing">Web Things</a>.
       </p>
       <p>
-        This specification is designed to complement the Thing Description 
-        [[wot-thing-description11]] specification, by enabling ad-hoc  
-        interoperability through the use of "profiles". A profile 
-        prescribes a finite set of extensions and defaults that a Thing can 
-        be constrained to in order to guarantee 
-        <a href="#out-of-the-box-interoperability">out-of-the-box 
+        This specification is designed to complement the Thing Description
+        [[wot-thing-description11]] specification, by enabling ad-hoc
+        interoperability through the use of "profiles". A profile
+        prescribes a finite set of extensions and defaults that a Thing can
+        be constrained to in order to guarantee
+        <a href="#out-of-the-box-interoperability">out-of-the-box
         interoperability</a> with any Consumer which implements that profile.
       </p>
       <p>
-        Profiles are designed specifically for new ("greenfield") implementations 
+        Profiles are designed specifically for new ("greenfield") implementations
         where developers have the freedom to conform to a prescriptive protocol
-        binding and set of common constraints, in order to benefit from 
+        binding and set of common constraints, in order to benefit from
         this additional level of interoperability.
       </p>
       <p class="note">
         Of the Profiles defined in this specification, only the
         <a href="#http-basic-profile">HTTP Basic Profile</a> is currently
-        normative. It is planned that future versions of this specification will 
-        normatively define the <a href=#sec-http-sse-profile>HTTP SSE Profile</a> 
-        and <a href="#sec-http-webhook-profile">HTTP Webhook Profile</a>, but 
+        normative. It is planned that future versions of this specification will
+        normatively define the <a href=#sec-http-sse-profile>HTTP SSE Profile</a>
+        and <a href="#sec-http-webhook-profile">HTTP Webhook Profile</a>, but
         in this version of the specification they are only informative.
       </p>
       <p>
-        Future versions of this specification, or extension specifications, may 
+        Future versions of this specification, or extension specifications, may
         define additional Profiles.
       </p>
     </section>
@@ -243,24 +243,24 @@
       <h2>Use Cases and Requirements</h2>
       <p>
         The Web of Things Interest Group collected use cases for
-        the Web of Things from stakeholders representing various different 
+        the Web of Things from stakeholders representing various different
         industries. This includes both vertical domain-specific use cases and
-        horizontal use cases which apply to multiple application domains 
+        horizontal use cases which apply to multiple application domains
         [[wot-usecases]].
       </p>
       <p>
         Several of the
         <a href="https://www.w3.org/TR/wot-usecases/#sec-vertical-ucs">domain-specific
-        use cases</a> refer to the need for easy integration of 
+        use cases</a> refer to the need for easy integration of
         devices from multiple vendors. This is especially important for
         <a href="https://www.w3.org/TR/wot-usecases/#multi-vendor">cross-domain
-        use cases</a> which require "multi-vendor system 
+        use cases</a> which require "multi-vendor system
         integration" and "out-of-the-box interoperability".
       </p>
       <p>
-        A set of 
+        A set of
         <a href="https://github.com/w3c/wot-profile/blob/main/REQUIREMENTS.md">requirements</a>
-        for Profiles were derived from these use cases. 
+        for Profiles were derived from these use cases.
       </p>
     </section>
 
@@ -268,7 +268,7 @@
       <h2>Out-of-the-Box Interoperability</h2>
       <p>
         The definition of out-of-the-box interoperability used in this
-        specification includes multiple layers. 
+        specification includes multiple layers.
         The following classification adopts terminology from the
         "H2020 – CREATE-IoT Project - Recommendations for commonalities and
         interoperability profiles of IoT platforms" [[?H2020-CREATE-IoT]]
@@ -410,7 +410,7 @@
       </span>
       <span class="rfc2119-assertion" id="profiling-mechanism-5">
         All Things and Consumers conforming to a profile MUST satisfy the assertions specified in the [[wot-thing-description11]],
-        except for the assertion <code>td-context-ns-td10-namespacev10</code> with text <code>TD 1.1 consumers MUST accept 
+        except for the assertion <code>td-context-ns-td10-namespacev10</code> with text <code>TD 1.1 consumers MUST accept
           TDs satisfying the W3C WoT Thing Description 1.0 [wot-thing-description] specification.</code>
       </span>
     </p>
@@ -1374,7 +1374,7 @@
           <p>
             <span class="rfc2119-assertion"
             id="http-basic-profile-protocol-binding-invokeaction-24">
-              The <code>synchronous</code> member of an 
+              The <code>synchronous</code> member of an
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance"><code>ActionAffordance</code></a>
               MUST be set to <code>true</code> or <code>false</code>.
             </span>
@@ -2711,7 +2711,7 @@
 
 
   <!-- ----------------------- HTTP Webhook Profile ------------------------------------- -->
-  
+
   <section id="sec-http-webhook-profile" class="informative">
     <h1>HTTP Webhook Profile</h1>
     <p>This section defines the <em>HTTP Webhook Profile</em>, including a
@@ -2759,7 +2759,7 @@
         The notification message contains details about the event, such as timestamp, event type,
         event source etc. in the data payload.
       </p>
-      
+
       <p>
         Depending on the deployment scenarios and integration requirements for existing consumers, it may be
         required to use specific data payload formats (e.g. Cloud Events).
@@ -2773,22 +2773,22 @@
           endpoints MAY be used.</span>
       </p>
       <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-events-2">
-          To minimize network traffic, the same Consumer SHOULD NOT perform multiple subscriptions to 
+          To minimize network traffic, the same Consumer SHOULD NOT perform multiple subscriptions to
           the same endpoint.</span>
       </p>
-  
+
       <section id="webhook-example">
         <h4>Webhook Example</h4>
-  
+
         <p>The following sequence diagram illustrates the flow of messages between a Consumer and a Web Thing
           when subscribing to, unsubscribing from and receiving events.
         </p>
-  
+
         <figure id="sequence-diagram-webhook">
           <img src="images/Sequence-Diagram-WebHook.png" class="wot-profiles" alt="Webhook example - sequence diagram" />
           <figcaption>HTTP Webhook Profile - Sequence of operations and notifications</figcaption>
         </figure>
-  
+
 
         <p>A similar flow applies to observing property changes.
         </p>
@@ -2802,7 +2802,7 @@
         </p>
         <pre class="example">
               ...
-  
+
               {
                   "events": {
                       "fireAlarm": {
@@ -2828,7 +2828,7 @@
                               "type": "string",
                               "description": "sprinkler status"
                           },
-  
+
                           "cancellation": {
                             "type": "object",
                             "properties": {
@@ -2877,19 +2877,19 @@
           profile entries, which indicates that a Web Thing conforms to all of the profiles in that array.</p>
       </section>
     </section>
-  
+
     <section id="http-webhook-profile-protocol-binding-notification-format">
       <h3>Message Format</h3>
       <p><span class="rfc2119-assertion" id="http-webhook-profile-notification-format-1">
           Notification messages MUST comply with the following data schema.</span>
       </p>
-  
+
       <p class="ednote">
         <!-- TODO -->
         TODO: Describe data and dataResponse schemas.
       </p>
     </section>
-  
+
     <section id="http-webhook-profile-protocol-binding">
       <h2>Protocol Binding</h2>
       <p>
@@ -2905,7 +2905,7 @@
           MUST implement this protocol binding.</span>
       </p>
       <!---- WEBHOOK-Properties  -->
-  
+
       <section id="http-webhook-profile-protocol-binding-properties">
         <h3>Properties</h3>
         <section id="http-webhook-profile-protocol-binding-observeproperty">
@@ -2977,14 +2977,14 @@
                 callbackURI: "http://myConsumer.com/myNotificationListener"
               }
             </pre>
-  
+
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-5">
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to observe the
               corresponding property, then it MUST send a <em>notification</em>
               to the Consumer each time the value of the specified property changes.</span>
           </p>
-  
+
           <p>
             This involves the Web Thing initially sending an HTTP
             response to the Consumer with:
@@ -3007,17 +3007,17 @@
           </pre>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-6">
               Whenever a change of the property occurs, the Web Thing MUST
-              send the new value to the Consumer with an <code>HTTP POST</code> request with a 
+              send the new value to the Consumer with an <code>HTTP POST</code> request with a
               <code>Content-Type</code> header set to <code>application/json</code>,
               in the payload format defined in section
               ["#http-webhook-profile-protocol-binding-notification-format"].</span>
           </p>
-  
+
         </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-unobserveproperty">
           <h4><code>unobserveproperty</code></h4>
-  
+
           <p>
             <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveproperty-1">
               In order to stop observing a property, a Consumer MUST terminate
@@ -3025,20 +3025,20 @@
               <code>unobserveproperty</code> operation of the <code>Property</code> resource.</span>
             </span>
           </p>
-  
+
           <p>
             This involves the Consumer sending an HTTP request to
             the Web Thing with:
           </p>
           <ul>
             <li>Method set to <code>DELETE</code></li>
-            <li>URL set to the <code>subscription URL</code> 
-              provided in the <code>Location</code> header 
+            <li>URL set to the <code>subscription URL</code>
+              provided in the <code>Location</code> header
               of the response to the <code>subscribe</code> request</li>
           </ul>
 
       <!---- WEBHOOK-Properties  -->
-  
+
       <section id="http-webhook-profile-protocol-binding-properties">
         <h3>Properties</h3>
         <section id="http-webhook-profile-protocol-binding-observeproperty">
@@ -3110,14 +3110,14 @@
                 callbackURI: "http://myConsumer.com/myNotificationListener"
               }
             </pre>
-  
+
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-5">
               If a Web Thing receives an HTTP request following the format
               above and the Consumer has permission to observe the
               corresponding property, then it MUST send a <em>notification</em>
               to the Consumer each time the value of the specified property changes.</span>
           </p>
-  
+
           <p>
             This involves the Web Thing initially sending an HTTP
             response to the Consumer with:
@@ -3140,17 +3140,17 @@
           </pre>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-6">
               Whenever a change of the property occurs, the Web Thing MUST
-              send the new value to the Consumer with an <code>HTTP POST</code> request with a 
+              send the new value to the Consumer with an <code>HTTP POST</code> request with a
               <code>Content-Type</code> header set to <code>application/json</code>,
               in the payload format defined in section
               ["#http-webhook-profile-protocol-binding-notification-format"].</span>
           </p>
-  
+
         </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-unobserveproperty">
           <h4><code>unobserveproperty</code></h4>
-  
+
           <p>
             <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveproperty-1">
               In order to stop observing a property, a Consumer MUST terminate
@@ -3158,22 +3158,22 @@
               <code>unobserveproperty</code> operation of the <code>Property</code> resource.</span>
             </span>
           </p>
-  
+
           <p>
             This involves the Consumer sending an HTTP request to
             the Web Thing with:
           </p>
           <ul>
             <li>Method set to <code>DELETE</code></li>
-            <li>URL set to the <code>subscription URL</code> 
-              provided in the <code>Location</code> header 
+            <li>URL set to the <code>subscription URL</code>
+              provided in the <code>Location</code> header
               of the response to the <code>subscribe</code> request</li>
           </ul>
 
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has previously subscribed to the
-            corresponding property with the <code>subscriptionID</code> provided, 
+            corresponding property with the <code>subscriptionID</code> provided,
             then the subscription is cancelled.</span>
         </p>
 
@@ -3188,7 +3188,7 @@
           HTTP/1.1 204 No Content
         </pre>
        </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-events-observeallproperties">
           <h4><code>observeallproperties</code></h4>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-1">
@@ -3240,18 +3240,18 @@
               <code>Request Payload</code> contains a <code>JSON</code>
               object with a subscription request payload.
             </li>
-  
+
           </ul>
           <pre class="example">
             POST /things/lamp/properties HTTP/1.1
             Host: mythingserver.com
             Content-Type: application/json
-  
+
             {
               callbackURI: "http://myConsumer.com/myNotificationListener"
             }
          </pre>
-  
+
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-4">
               If a Web Thing receives an HTTP request following the format
               above, then it MUST send <em>notifications</em>
@@ -3270,24 +3270,24 @@
             <li>
               <code>Location</code> header set to the URL of the root <code>Property</code> resource
               followed by a unique <code>subscriptionId</code>
-            </li>          
+            </li>
           </ul>
-  
+
           <pre class="example">
             HTTP/1.1 201 Created
             Content-Type: application/json
             Location: /things/lamp/properties/1234-4544-1211
           </pre>
-  
+
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-5">
-              Whenever a property changes while a Consumer is oberving Properties, 
-              the Web Thing MUST send the new value to the Consumer with an 
-              <code>HTTP POST</code> request with a 
+              Whenever a property changes while a Consumer is oberving Properties,
+              the Web Thing MUST send the new value to the Consumer with an
+              <code>HTTP POST</code> request with a
                 <code>Content-Type</code> header set to <code>application/json</code>,
                 and the payload format defined in section
                 ["#http-webhook-profile-protocol-binding-notification-format"].</span>
             </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-unobserveallproperties">
           <h4><code>unobserveallproperties</code></h4>
           <p>
@@ -3325,9 +3325,9 @@
             </pre>
         </section>
       </section>
-  
+
       <!---- WEBHOOK-Events  -->
-  
+
     <section id="http-webhook-profile-protocol-binding-events">
       <h3>Events</h3>
       <section id="http-webhook-profile-protocol-binding-subscribeevent">
@@ -3374,7 +3374,7 @@
             This involves the Consumer sending an HTTP request to
             the Web Thing with:
           </p>
-          <ul>git 
+          <ul>git
             <li>Method set to <code>POST</code></li>
             <li>URL set to the URL of the <code>Event</code> resource</li>
             <li>
@@ -3444,15 +3444,15 @@
           </p>
           <ul>
             <li>Method set to <code>DELETE</code></li>
-            <li>URL set to the <code>subscription URL</code> 
-              provided in the <code>Location</code> header 
+            <li>URL set to the <code>subscription URL</code>
+              provided in the <code>Location</code> header
               of the response to the <code>subscribe</code> request</li>
           </ul>
 
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has subscribed to the
-            corresponding event with the <code>subscriptionID</code> provided, 
+            corresponding event with the <code>subscriptionID</code> provided,
             then the subscription is cancelled.</span>
         </p>
 
@@ -3573,7 +3573,7 @@
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
             If a Web Thing receives an HTTP request following the format
             above and the Consumer has previously subscribed to the
-            root event with the <code>subscriptionID</code> provided, 
+            root event with the <code>subscriptionID</code> provided,
             then the subscription is cancelled.</span>
           </p>
           <p>
@@ -3582,8 +3582,8 @@
           </p>
           <ul>
             <li>Method set to <code>DELETE</code></li>
-            <li>URL set to the <code>subscription URL</code> 
-              provided in the <code>Location</code> header 
+            <li>URL set to the <code>subscription URL</code>
+              provided in the <code>Location</code> header
               of the response to the <code>subscribeallevents</code> request.</li>
           </ul>
 
@@ -3612,7 +3612,7 @@
       <section id="sec-http-webhook-profile-protocol-binding-event-listeners">
         <h4>Webhook Notifications</h4>
 
-        <p>Webhook notifications are sent by the WebThing to registered Consumers to notify them 
+        <p>Webhook notifications are sent by the WebThing to registered Consumers to notify them
         of value changes of properties or of events occuring on the WebThing.</p>
 
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-1">
@@ -3620,7 +3620,7 @@
             Thing.</span>
         </p>
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-1a">
-          Notifications must be sent with an <code>HTTP POST</code> request with a 
+          Notifications must be sent with an <code>HTTP POST</code> request with a
           <code>Content-Type</code> header set to <code>application/json.</code>
         </span>
         </p>
@@ -3638,12 +3638,12 @@
         </p>
 
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding--event-connections-8">
-            When a notification message has been received, the Consumer MUST respond with an 
+            When a notification message has been received, the Consumer MUST respond with an
             <code>HTTP 200 OK</code> response code, if the response contains a body.</span>
 
             <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding--event-connections-8a">
-              If the response to an notification by the Consumer does not contain a payload, the Consumer MUST respond with an 
-              <code>HTTP 204 No Content</code> response code.</span> 
+              If the response to an notification by the Consumer does not contain a payload, the Consumer MUST respond with an
+              <code>HTTP 204 No Content</code> response code.</span>
 
         </p>
         <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-event-connections-9">
