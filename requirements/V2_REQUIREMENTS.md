@@ -22,7 +22,9 @@ As a developer of a WoT Thing, I want to guarantee out-of-the-box interoperabili
 
 As the developer of DIY smart home hub software, I want to safely expose an HTTP-based API for monitoring and controlling a home which conforms to a common standard, so that cloud services from multiple vendors can add value to a user's smart home without having to implement a vendor-specific API.
 
-As the developer of a smart home mobile app I want to offer my users out-of-the-box interoperability with a wide range of smart home devices so that I can maximise the audience for my app.
+As the developer of a smart home mobile app, I want to offer my users out-of-the-box interoperability with a wide range of smart home devices so that I can maximise the audience for my app.
+
+As the developer of a smart home device, I want my device to be controllable by any smart home hub software and/or any smart home mobile app that conforms to a common standard....
 
 ### Smart Buildings
 
