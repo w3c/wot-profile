@@ -8,7 +8,8 @@ The [W3C WoT Thing Description 1.1 specification](https://w3c.github.io/wot-prof
 
 In order to provide this level of flexibility the Thing Description specification includes a number of extension points including protocol bindings, payload bindings, security mechanisms, link relations and semantic contexts. As long as all of the capabilities of a device can be described using a Thing Description and a [Consumer](https://w3c.github.io/wot-profile/#dfn-consumer) implements all of the extensions used, the Consumer should be able to interoperate with that device. However, the result of this extensible architecture is that any given Consumer can only interoperate with a subset of possible [Web Things](https://w3c.github.io/wot-profile/#dfn-thing).
 
-The WoT Profiles specification should complement the [Thing Description](https://w3c.github.io/wot-profile/#bib-wot-thing-description11) specification, by enabling ad-hoc interoperability through the use of "profiles". A profile prescribes a finite set of extensions and defaults that a Thing can be constrained to in order to guarantee out-of-the-box interoperability with any Consumer which implements that profile. Out-of-the-box interoperability means that a [Consumer](https://w3c.github.io/wot-profile/#dfn-consumer) which implements a given profile is guaranteed to be able to use every capability of a [Thing](https://w3c.github.io/wot-profile/#dfn-thing), which implements that same profile, without Thing-specific customization.
+
+"WoT Profiles" are a mechanism by which out-of-the-box interoperability between WoT [Consumers](https://w3c.github.io/wot-profile/#dfn-consumer) and [Things](https://w3c.github.io/wot-profile/#dfn-thing) can be guaranteed, by constraining a Thing to a finite list of options for each extension point, and requiring that it conforms to certain defaults. As long as a Consumer implements all of the extensions and defaults prescribed by a Profile, it should be guaranteed to be able to use all of the capabilities of a Thing which conform to that Profile, without Thing-specific customisation.
 
 Profiles will be designed specifically for new ("greenfield") implementations where developers have the freedom to conform to a prescriptive protocol binding and set of common constraints, in order to benefit from this additional level of interoperability.
 
@@ -69,3 +70,4 @@ Individual profile documents:
 11. SHOULD NOT define discovery mechanisms, which should be defined in the WoT Discovery specification
 12. SHOULD NOT define security mechanisms, which should be defined in a protocol binding document
 13. SHOULD NOT describe an existing single-vendor IoT platform, which should be defined in a platform binding document
+14. MUST NOT include any assertions which would require a Thing Description of a conformant Web Thing to be non-conformant with the Thing Description 2.0 specification
