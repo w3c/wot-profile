@@ -71,3 +71,4 @@ Individual profile documents:
 12. SHOULD NOT define security mechanisms, which should be defined in a protocol binding document
 13. SHOULD NOT describe an existing single-vendor IoT platform, which should be defined in a platform binding document
 14. MUST NOT include any assertions which would require a Thing Description of a conformant Web Thing to be non-conformant with the Thing Description 2.0 specification
+15. SHOULD NOT include any assertions which conflict with another Profile, so that a Thing may conform with multiple Profiles
