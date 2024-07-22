@@ -13,6 +13,8 @@ In order to provide this level of flexibility the Thing Description specificatio
 
 Whilst the Web of Things provides the freedom to describe a wide range of existing IoT systems using [WoT Binding Templates](https://www.w3.org/TR/wot-binding-templates/), Profiles provide an optional additional layer of common constraints to which new implementations can conform in order to benefit from an increased level of interoperability.
 
+Conforming to a Profile does not prevent a Web Thing from describing additional capabilities and protocol bindings in their Thing Description beyond those described in the Profile, as long as they conform with all of the normative assertions of the Profile. 
+
 ## Use Cases
 
 As a developer of a WoT Consumer, I want to guarantee out-of-the-box interoperability with a wide range of WoT Things.
