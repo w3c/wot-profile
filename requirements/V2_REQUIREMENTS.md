@@ -4,7 +4,7 @@
 
 The [Web of Things](https://www.w3.org/WoT/) (WoT) seeks to counter the fragmentation of the [Internet of Things](https://en.wikipedia.org/wiki/Internet_of_things) (IoT) by using and extending existing, standardized web technologies.
 
-The [W3C WoT Thing Description 1.1 specification](https://w3c.github.io/wot-profile/#bib-wot-thing-description11) defines an information model and JSON-based representation format for describing the capabilities of connected devices and the interfaces with which to communicate with them. Thing Descriptions are designed to be protocol-agnostic and flexible enough to describe a wide range of existing ("brownfield") IoT devices.
+The [W3C WoT Thing Description 1.1 specification](https://w3c.github.io/wot-profile/#bib-wot-thing-description11) defines an information model and JSON-based representation format for describing the capabilities of connected devices and the interfaces with which to communicate with them. Thing Descriptions are designed to be protocol-agnostic and flexible enough to describe a wide range of existing IoT devices.
 
 In order to provide this level of flexibility the Thing Description specification includes a number of extension points including protocol bindings, payload bindings, security mechanisms, link relations and semantic contexts. As long as all of the capabilities of a device can be described using a Thing Description and a [Consumer](https://w3c.github.io/wot-profile/#dfn-consumer) implements all of the extensions used, the Consumer should be able to interoperate with that device. However, the result of this extensible architecture is that any given Consumer can only interoperate with a subset of possible [Web Things](https://w3c.github.io/wot-profile/#dfn-thing).
 
