@@ -11,7 +11,7 @@ In order to provide this level of flexibility the Thing Description specificatio
 
 "WoT Profiles" are a mechanism by which out-of-the-box interoperability between WoT [Consumers](https://w3c.github.io/wot-profile/#dfn-consumer) and [Things](https://w3c.github.io/wot-profile/#dfn-thing) can be guaranteed, by constraining a Thing to a finite list of options for each extension point, and requiring that it conforms to certain defaults. As long as a Consumer implements all of the extensions and defaults prescribed by a Profile, it should be guaranteed to be able to use all of the capabilities of a Thing which conform to that Profile, without Thing-specific customisation.
 
-Whilst the Web of Things provides the freedom to describe a wide range of existing IoT systems using [WoT Binding Templates](https://www.w3.org/TR/wot-binding-templates/), Profiles provide an optional additional layer of common constraints to which new implementations can conform in order to benefit from an increased level of interoperability.
+Whilst the Web of Things provides the freedom to describe a wide range of existing IoT systems using Thing Description, Profiles provide an optional additional layer of common constraints to which new implementations can conform in order to benefit from an increased level of interoperability.
 
 Profiles are designed to constrain, not extend, the Web of Things. They should only be used to constrain the set of options for existing extension points, never to extend the Web of Things directly.
 
