@@ -15,7 +15,7 @@ Whilst the Web of Things provides the freedom to describe a wide range of existi
 
 Profiles are designed to constrain, not extend, the Web of Things. They should only be used to constrain the set of options for existing extension points, never to extend the Web of Things directly.
 
-Conforming to a Profile does not prevent a Web Thing from describing additional capabilities and protocol bindings in their Thing Description beyond those described in the Profile, as long as they conform with all of the normative assertions of the Profile. 
+Conforming to a Profile does not prevent a Web Thing from describing additional capabilities or protocol bindings beyond those described in the Profile in their Thing Description, as long as they conform with all of the normative assertions of the Profile. 
 
 ## Use Cases
 
