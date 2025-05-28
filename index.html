@@ -1032,13 +1032,17 @@
             <ul>
               <li>
                 After defaults have been applied, its <code>op</code> member
-                contains the value <code>readproperty</code>.
+                contains the value <code>readproperty</code>
               </li>
               <li>
                 After being resolved against a base URL where applicable, the
                 <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
+              </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
               </li>
             </ul>
           </div>
@@ -1107,6 +1111,10 @@
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
               </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
+              </li>
             </ul>
           </div>
           <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-writeproperty-3">
@@ -1170,6 +1178,10 @@
                 <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
+              </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
               </li>
             </ul>
           </div>
@@ -1244,6 +1256,10 @@
                 <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
+              </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
               </li>
             </ul>
           </div>
@@ -1326,6 +1342,10 @@
                 <a href="https://tools.ietf.org/html/rfc3986#section-3.1">URI
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
+              </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
               </li>
             </ul>
           </div>
@@ -1787,6 +1807,10 @@
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
               </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
+              </li>
             </ul>
           </div>
           <p><span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-queryallactions-3">
@@ -2089,6 +2113,10 @@
               <li>Its <code>subprotocol</code> member has a value of
                 <code>sse</code>
               </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
+              </li>
             </ul>
           </div>
           <p>
@@ -2199,6 +2227,13 @@
               property changes which occurred since the last change specified by
               the Consumer in a <code>Last-Event-ID</code> header.</span>
           </p>
+          <p class="note" title="application/json wrapped in text/event-stream">
+            Property values are serialised in JSON and provided in the <code>data</code>
+            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The 
+            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the 
+            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is 
+            indicated in <code>contentType</code> member of the Form (with defaults applied).
+          </p>
         </section>
 
         <section id="unobserveproperty">
@@ -2248,6 +2283,10 @@
               </li>
               <li>Its <code>subprotocol</code> member has a value of
                 <code>sse</code>
+              </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
               </li>
             </ul>
           </div>
@@ -2358,6 +2397,13 @@
               property changes which occurred since the last change specified by
               the Consumer in a <code>Last-Event-ID</code> header.</span>
           </p>
+          <p class="note" title="application/json wrapped in text/event-stream">
+            Property values are serialised in JSON and provided in the <code>data</code>
+            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The 
+            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the 
+            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is 
+            indicated in <code>contentType</code> member of the Form (with defaults applied).
+          </p>
         </section>
 
         <section id="unobserveallproperties">
@@ -2423,6 +2469,10 @@
               </li>
               <li>Its <code>subprotocol</code> member has a value of
                 <code>sse</code>
+              </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
               </li>
             </ul>
           </div>
@@ -2532,6 +2582,13 @@
               the last event specified by the Consumer in a
               <code>Last-Event-ID</code> header.</span>
           </p>
+          <p class="note" title="application/json wrapped in text/event-stream">
+            Event payloads are serialised in JSON and provided in the <code>data</code>
+            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The 
+            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the 
+            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is 
+            indicated in <code>contentType</code> member of the Form (with defaults applied).
+          </p>
         </section>
 
         <section id="http-sse-profile-protocol-binding-events-unsubscribeevent">
@@ -2580,6 +2637,10 @@
               </li>
               <li>Its <code>subprotocol</code> member has a value of
                 <code>sse</code>
+              </li>
+              <li>
+                After defaults have been applied, the value of its
+                <code>contentType</code> member is <code>application/json</code>
               </li>
             </ul>
           </div>
@@ -2686,6 +2747,13 @@
               the Web Thing SHOULD, if possible, send any missed events which
               occurred since the last event specified by the Consumer in a
               <code>Last-Event-ID</code> header.</span>
+          </p>
+          <p class="note" title="application/json wrapped in text/event-stream">
+            Event payloads are serialised in JSON and provided in the <code>data</code>
+            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The 
+            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the 
+            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is 
+            indicated in <code>contentType</code> member of the Form (with defaults applied).
           </p>
         </section>
 
@@ -2936,8 +3004,8 @@
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
               </li>
-              <li>Its <code>Content-Type</code> header has a value of
-                <code>application/json</code>
+              <li>Once defaults have been applied, its <code>contentType</code> member has a 
+                value of <code>application/json</code>
               </li>
               <li>Its <code>subprotocol</code> member has a value of
                 <code>webhook</code>
@@ -3069,8 +3137,8 @@
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
               </li>
-              <li>Its <code>Content-Type</code> header has a value of
-                <code>application/json</code>
+              <li>Once defaults have been applied, its <code>contentType</code> member has a 
+                value of <code>application/json</code>
               </li>
               <li>Its <code>subprotocol</code> member has a value of
                 <code>webhook</code>
@@ -3216,8 +3284,8 @@
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
               </li>
-              <li>Its <code>Content-Type</code> header has a value of
-                <code>application/json</code>
+              <li>Once defaults have been applied, its <code>contentType</code> member has a 
+                value of <code>application/json</code>
               </li>
               <li>Its <code>subprotocol</code> member has a value of
                 <code>webhook</code>
@@ -3357,8 +3425,8 @@
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
               </li>
-              <li>Its <code>Content-Type</code> header has a value of
-                <code>application/json</code>
+              <li>Once defaults have been applied, its <code>contentType</code> member has a 
+                value of <code>application/json</code>
               </li>
               <li>Its <code>subprotocol</code> member has a value of
                 <code>webhook</code>
@@ -3495,8 +3563,8 @@
                   scheme</a> [[RFC3986]] of the value of its <code>href</code>
                 member is <code>http</code> or <code>https</code>
               </li>
-              <li>Its <code>Content-Type</code> header has a value of
-                <code>application/json</code>
+              <li>Once defaults have been applied, its <code>contentType</code> member has a 
+                value of <code>application/json</code>
               </li>
               <li>Its <code>subprotocol</code> member has a value of
                 <code>webhook</code>
