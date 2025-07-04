@@ -2987,8 +2987,8 @@
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-1">
             <p>
               The URL of a <a>Property</a> resource to be used when
-              observing the value of a property MUST be obtained from a Thing
-              Description by locating a
+              observing the value of a property MUST be obtained from a <a>Thing Description</a>
+              [[wot-thing-description11]] by locating a
               <a href="https://www.w3.org/TR/wot-thing-description/#form">Form</a> inside the
               corresponding
               <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">PropertyAffordance</a>
@@ -3106,43 +3106,34 @@
   
         <section id="http-webhook-profile-protocol-binding-unobserveproperty">
           <h4><code>unobserveproperty</code></h4>
-  
-          <p>
-            <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveproperty-1">
-              In order to stop observing a property, a Consumer MUST terminate
-              the corresponding subscription with the Web Thing using the
-              <code>unobserveproperty</code> operation of the <code>Property</code> resource.</span>
-            </span>
-          </p>
-  
-          <p>
-            This involves the Consumer sending an HTTP request to
-            the Web Thing with:
-          </p>
-          <ul>
-            <li>Method set to <code>DELETE</code></li>
-            <li>URL set to the <code>subscription URL</code>
-              provided in the <code>Location</code> header
-              of the response to the <code>subscribe</code> request</li>
-          </ul>
-  
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
-              If a Web Thing receives an HTTP request following the format
-              above and the Consumer has previously subscribed to the
-              corresponding property with the <code>subscriptionID</code> provided,
-              then the subscription is cancelled.</span>
-          </p>
-  
-          <p>
-            This involves the Web Thing sending an HTTP
-            response to the Consumer with:
-          </p>
-          <ul>
-            <li>Status code set to <code>204 No Content</code></li>
-          </ul>
-          <pre class="example">
-                  HTTP/1.1 204 No Content
-                    </pre>
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveproperty-1">
+            <p>In order to cancel the observation of a property, a <a>Consumer</a> MUST send an 
+            HTTP request to the <a>Web Thing</a> with:</p>
+            <ul>
+              <li>Method set to <code>DELETE</code></li>
+              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response 
+                during the <code>observeproperty</code> operation</li>
+            </ul>
+          </div>
+          <pre class="example" title="Unobserve property request">
+            DELETE /things/properties/level/74353483-3997-437a-a4f5-84d03784e517 HTTP/1.1 
+            Host: mythingserver.com
+          </pre>
+
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveproperty-2">
+            <p>
+              If a <a>Web Thing</a> receives an HTTP request following the format
+              above, and a property observation exists with the provided URL, 
+              then upon successfully cancelling the observation the <a>Web Thing</a>
+              MUST send an HTTP response to the <a>Consumer</a> with:
+            </p>
+            <ul>
+              <li>Status code set to <code>204 No Content</code></li>
+            </ul>
+          </div>
+          <pre class="example" title="Unobserve property response">
+            HTTP/1.1 204 No Content
+          </pre>
         </section>
   
         <section id="http-webhook-profile-protocol-binding-events-observeallproperties">
