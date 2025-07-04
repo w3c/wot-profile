@@ -3021,7 +3021,7 @@
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-3">
             <p>
               In order to observe a property, a <a>Consumer</a> MUST send an HTTP request to the
-              Web Thing with:
+              <a>Web</a> Thing with:
             </p>
             <ul>
               <li>Method set to <code>POST</code></li>
@@ -3048,15 +3048,16 @@
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-5">
             <p>
-              If a Web Thing receives an HTTP request following the format above and the Consumer
+              If a <a>Web Thing</a> receives an HTTP request following the format above and the <a>Consumer</a>
               has permission to observe the corresponding property, then upon successfully registering
-              a callback URL it MUST send an HTTP response to the Consumer with:
+              a callback URL it MUST send an HTTP response to the <a>Consumer</a> with:
             </p>
             <ul>
               <li>Status code set to <code>201 Created</code></li>
               <li>
                 <code>Location</code> header set to a unique URL representing the individual property
-                observation, for use by the Consumer when later unobserving the Property.
+                observation subscription, for use by the Consumer when later cancelling the observation 
+                of the Property.
               </li>
             </ul>
           </div>
@@ -3066,12 +3067,12 @@
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-6">
             <p>
-              Whilst the Property observation is registered, whenever a change in the value of the observed property
-              occurs, the Web Thing MUST send an HTTP request to the observing Consumer with:
+              Whilst the <a>Property</a> observation subscription is registered, whenever a change in the value of the 
+              observed property occurs, the <a>Web Thing</a> MUST send an HTTP request to the observing <a>Consumer</a> with:
             </p>
             <ul>
               <li>Method set to <code>POST</code></li>
-              <li>URL set to the callback URL provided by the Consumer when registering the observation</li>
+              <li>URL set to the callback URL provided by the <a>Consumer</a> when registering the observation</li>
               <li><code>Content-Type</code> header set to <code>application/json</code></li>
               <li>A <code>Link</code> header with the URL set to the URL of the corresponding Property Affordance,
                 and <code>rel</code> set to <code>self</code></li>
@@ -3092,8 +3093,8 @@
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-7">
             <p>
-              When a Consumer receives an HTTP request following the format above to a valid callback URL,
-              it MUST send an HTTP response to the Consumer with:
+              When a <a>Consumer</a> receives an HTTP request following the format above to a valid callback URL,
+              it MUST send an HTTP response to the <a>Web Thing</a> with:
             </p>
             <ul>
               <li>Status code set to <code>200 OK</code></li>
@@ -3107,7 +3108,7 @@
         <section id="http-webhook-profile-protocol-binding-unobserveproperty">
           <h4><code>unobserveproperty</code></h4>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveproperty-1">
-            <p>In order to cancel the observation of a property, a <a>Consumer</a> MUST send an 
+            <p>In order to cancel the observation subscription of a property, a <a>Consumer</a> MUST send an 
             HTTP request to the <a>Web Thing</a> with:</p>
             <ul>
               <li>Method set to <code>DELETE</code></li>
@@ -3123,8 +3124,8 @@
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveproperty-2">
             <p>
               If a <a>Web Thing</a> receives an HTTP request following the format
-              above, and a property observation exists with the provided URL, 
-              then upon successfully cancelling the observation the <a>Web Thing</a>
+              above, and a property observation subscription exists with the provided URL, 
+              then upon successfully cancelling the subscription the <a>Web Thing</a>
               MUST send an HTTP response to the <a>Consumer</a> with:
             </p>
             <ul>
@@ -3140,11 +3141,11 @@
           <h4><code>observeallproperties</code></h4>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-1">
             <p>
-              The URL of a <code>Properties</code> resource to be used when observing
-              changes to all properties of a Web Thing MUST be obtained from a
-              Thing Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">
-                <code>Form</code></a> inside the top level
+              The URL of a <a>Properties</a> resource to be used when observing the values of all properties
+              of a <a>Web Thing</a> MUST be obtained from a
+              <a>Thing Description</a>
+              [[wot-thing-description11]] by locating a
+              <a href="https://www.w3.org/TR/wot-thing-description/#form">Form</a> inside the top level
               <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
               member of a Thing Description for which:
             </p>
@@ -3170,106 +3171,126 @@
           <p>
             <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-2">
               The resolved value of the <code>href</code> member MUST then be
-              used as the URL of the properties resource.</span>
+              used as the URL of the <a>Properties</a> resource.</span>
           </p>
-          <p>
-            <span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-3">
-              In order to observe changes to <em>all</em> properties of a Web Thing, a
-              Consumer MUST send an HTTP request to the Web Thing with:</span>
-          </p>
-          <ul>
-            <li>Method set to <code>POST</code></li>
-            <li>URL set to the URL of the properties resource</li>
-            <li>
-              <code>Content-Type</code> header set to <code>application/json</code>
-            </li>
-            <li>
-              <code>Request Payload</code> contains a <code>JSON</code>
-              object with a subscription request payload.
-            </li>
-  
-          </ul>
-          <pre class="example">
-                    POST /things/lamp/properties HTTP/1.1
-                    Host: mythingserver.com
-                    Content-Type: application/json
-          
-                    {
-                      callbackURI: "http://myConsumer.com/myNotificationListener"
-                    }
-                    </pre>
-  
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-4">
-              If a Web Thing receives an HTTP request following the format
-              above, then it MUST send <em>notifications</em>
-              to the Consumer for all properties for which it has permission to subscribe.</span>
-          </p>
-          <p>
-            This involves the Web Thing initially sending an HTTP
-            response to the Consumer with:
-          </p>
-          <ul>
-            <li>Status code set to <code>201 Created</code></li>
-            <li>
-              <code>Content-Type</code> header set to
-              <code>application/json</code>
-            </li>
-            <li>
-              <code>Location</code> header set to the URL of the root <code>Property</code> resource
-              followed by a unique <code>subscriptionId</code>
-            </li>
-          </ul>
-  
-          <pre class="example">
-                    HTTP/1.1 201 Created
-                    Content-Type: application/json
-                    Location: /things/lamp/properties/1234-4544-1211
-                    </pre>
-  
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-5">
-              Whenever a property changes while a Consumer is oberving Properties,
-              the Web Thing MUST send the new value to the Consumer with an
-              <code>HTTP POST</code> request with a
-              <code>Content-Type</code> header set to <code>application/json</code>,
-              and the payload format defined in section
-              ["#http-webhook-profile-protocol-binding-notification-format"].</span>
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-3">
+            <p>
+              In order to observe changes to all <a>Properties</a> of a <a>Web Thing</a>, a
+              <a>Consumer</a> MUST send an HTTP request to the <a>Web Thing</a> with:</span>
+            </p>
+            <ul>
+              <li>Method set to <code>POST</code></li>
+              <li>URL set to the URL of the properties resource</li>
+              <li>
+                <code>Content-Type</code> header set to <code>application/json</code>
+              </li>
+              <li>
+                A body containing a JSON object with the following members:
+                <ul>
+                  <li>A <code>callbackURL</code> member set to a callback URL the Thing
+                    should use to send property change notifications to the Consumer.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <pre class="example" title="Observe all properties request">
+            POST /things/lamp/properties HTTP/1.1
+            Host: mythingserver.com
+            Content-Type: application/json
+            {
+              callbackURL: "https://myconsumer.com/listeners/aa2d8e1f-dc6a-4fe0-a5c0-a42d9f532699"
+            }
+          </pre>
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-4">
+            <p>
+              If a <a>Web Thing</a> receives an HTTP request following the format above and the <a>Consumer</a>
+              has permission to observe properties of the Thing, then upon successfully registering
+              a callback URL it MUST send an HTTP response to the <a>Consumer</a> with:
+            </p>
+            <ul>
+              <li>Status code set to <code>201 Created</code></li>
+              <li>
+                <code>Location</code> header set to a unique URL representing the individual
+                observation subscription, for use by the Consumer when later cancelling the observation
+                of all properties.
+              </li>
+            </ul>
+          </div>
+          <pre class="example" title="Observe all properties response">
+            HTTP/1.1 201 Created
+            Location: /things/properties/a84fc5df-2667-4db2-a767-feb4640f2cf7
+          </pre>
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-5">
+            <p>
+              Whilst the <a>Properties</a> observation subscription is registered, whenever a change in the value of any 
+              observeable property occurs, the <a>Web Thing</a> MUST send an HTTP request to the observing Consumer with:
+            </p>
+            <ul>
+              <li>Method set to <code>POST</code></li>
+              <li>URL set to the callback URL provided by the Consumer when registering the observation subscription</li>
+              <li><code>Content-Type</code> header set to <code>application/json</code></li>
+              <li>A <code>Link</code> header with the URL set to the URL of the corresponding Property Affordance,
+                and <code>rel</code> set to <code>self</code></li>
+              <li>A <code>Date</code> header automatically set to the time of the property change by the 
+                user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a> 
+                format from [[rfc9110]]
+              </li>
+              <li>A body containing the new value of the property, serialised in JSON</li>
+            </ul>
+          </div>
+          <pre class="example" title="Property change notification request">
+            POST /listeners/aa2d8e1f-dc6a-4fe0-a5c0-a42d9f532699 HTTP/1.1
+            Host: myconsumer.com
+            Date: Fri, 4 Jul 2025 12:56:00 GMT
+            Content-type: application/json
+            Link: &lt;https://mythingserver.com/things/mylamp1/properties/level&gt;; rel="self"
+            86
+          </pre>
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-6">
+            <p>
+              When a <a>Consumer</a> receives an HTTP request following the format above to a valid callback URL,
+              it MUST send an HTTP response to the <a>Web Thing</a> with:
+            </p>
+            <ul>
+              <li>Status code set to <code>200 OK</code></li>
+            </ul>
+          </div>
+          <pre class="example" title="Property change notification response">
+            HTTP/1.1 200 OK
+          </pre>
         </section>
   
         <section id="http-webhook-profile-protocol-binding-unobserveallproperties">
           <h4><code>unobserveallproperties</code></h4>
-          <p>
-  
-          <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveallproperties-1">
-              In order to unobserve all properties, a Consumer MUST invoke the
-              <code>unobserveallproperties</code> operation of the <code>Property</code> resource.</span>
-          </p>
-  
-          <p>
-            This involves the Consumer sending an HTTP request to
-            the Web Thing with:
-          </p>
-          <ul>
-            <li>Method set to <code>DELETE</code></li>
-            <li>URL set to the <code>subscription URL</code>
-              provided in the <code>Location</code> header
-              of the response to the <code>subscribealleproperties</code> request.
-            </li>
-          </ul>
-          <pre class="example" title="Unobserve all">
-                      DELETE /things/lamp/properties/1234-4544-1211 HTTP/1.1
-                      Host: mythingserver.com
-                    </pre>
-  
-          <p>
-            This involves the Web Thing sending an HTTP
-            response to the Consumer with:
-          </p>
-          <ul>
-            <li>Status code set to <code>204 No Content</code></li>
-          </ul>
-          <pre class="example">
-                      HTTP/1.1 204 No Content
-                    </pre>
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveallproperties-1">
+            <p>
+              In order to cancel the observation of all properties, a <a>Consumer</a> MUST
+              send an HTTP request to the <a>Web Thing</a> with:
+            </p>
+            <ul>
+              <li>Method set to <code>DELETE</code></li>
+              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response 
+                during the <code>observeallproperties</code> operation</li>
+            </ul>
+          </div>
+          <pre class="example" title="Unobserve all properties request">
+            DELETE /things/properties/a84fc5df-2667-4db2-a767-feb4640f2cf7 HTTP/1.1 
+            Host: mythingserver.com
+          </pre>
+          <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveallproperties-2">
+            <p>
+              If a <a>Web Thing</a> receives an HTTP request following the format
+              above, and a properties observation subscription exists with the provided URL, 
+              then upon successfully cancelling the observation subscription the <a>Web Thing</a>
+              MUST send an HTTP response to the <a>Consumer</a> with:
+            </p>
+            <ul>
+              <li>Status code set to <code>204 No Content</code></li>
+            </ul>
+          </div>
+          <pre class="example" title="Unobserve properties response">
+            HTTP/1.1 204 No Content
+          </pre>
         </section>
       </section>
   
