@@ -602,176 +602,48 @@
     <section id="common-constraints-links">
       <h2>Links</h2>
 
-      <p>Hypermedia links in the HTTP Profiles are significantly constrained to ensure a common interpretation
-        and interoperability between things and consumers.</p>
+      A <a>Thing Description</a> can contain <a href="https://www.w3.org/TR/wot-thing-description/#link">Links</a> 
+      [[wot-thing-description11]] in its top level <code>links</code> member
+      that provide hyperlinks to other web resources. This section defines specific combinations of
+      <code>rel</code> and <code>type</code> members of a Link which conformant <a>Consumers</a>
+      are expected to interpret in a particular way.
 
-      <p>
-        <span class="rfc2119-assertion" id="common-constraints-links-1">The following keywords are defined for links in the
-          HTTP profiles and MAY be present in profile-compliant TDs with the constraints defined by this section.</span>
-      <p>
-        <span class="rfc2119-assertion" id="common-constraints-links-2">Other keywords for links MAY
-          be present in a TD, however their interpretation is undefined
-          in the context of the HTTP profiles</span>
-        <span class="rfc2119-assertion" id="common-constraints-links-3">These other link types MAY
-          be ignored by all profile-compliant consumers.</span>
-      </p>
-
-      <section class=note>
-        <p>
-          These links enable consumers to interpret linked content that is provided by the link target in an unambiguous way.
-          This interpretation is a "best effort" mechanism, that depends on the capabilities of the consumer.
-          A consumer with a browser could render HTML content, a consumer with a PDF engine can display PDF content,
-          a consumer with a dot-matrix display only can display icons.
-        </p>
-        <p>For consumers that can render images or documents this implies to display appropriate documentation
-          to a human reader.</p>
-        <p>Consumers that are capable of working with nested things and thing model structures are able
-          to navigate between things and thing models in a well defined way.</p>
-      </section>
-      <!-- TD 5.3.4.1 -->
       <table class="def">
         <thead>
           <tr>
-            <th>Keyword</th>
-            <th>Type</th>
-            <th>Constraint</th>
+            <th>rel</th>
+            <th>type</th>
+            <th>Meaning</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><code>href</code></td>
-            <td>IRI of the link target</td>
-            <td>mandatory,<code>anyURI</code></td>
+            <td><code>icon</code></td>
+            <td><code>image/*</code></td>
+            <td>An icon representing the Thing</td>
           </tr>
           <tr>
-            <td><code>type</code></td>
-            <td>media type [RFC2046] of the link target</td>
-            <td>mandatory, the supported set of media types is defined in
-              <a href="#sec-link-relation-types">Media Types for Link Targets</a> below.
-            </td>
+            <td><code>alternate</code></td>
+            <td><code>text/html</code></td>
+            <td>A user interface to interact with the Thing</td>
           </tr>
           <tr>
-            <td><code>rel</code></td>
-            <td>link relation type <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA
-                Link Relations</a></td>
-            <td>mandatory, the supported subset of relation types is described in
-              <a href="#sec-link-relation-types">Link Relation Types</a> below.
-            </td>
+            <td><code>service-doc</code></td>
+            <td><code>text/plain</code> or <code>text/html</code> or <code>text/pdf</code></td>
+            <td>A user manual for the Thing</td>
           </tr>
           <tr>
-            <td><code>sizes</code></td>
-            <td>string with icon dimensions</td>
-            <td>mandatory for <code>icon</code> link targets, forbidden otherwise.</td>
+            <td><code>item</code></td>
+            <td><code>application/td+json</code></td>
+            <td>The target Thing is a component of this Thing or a member of a collection of Things that this Thing represents</td>
           </tr>
           <tr>
-            <td><code>hreflang</code></td>
-            <td><code>array of string</code> with valid language tags according to [BCP47]</td>
-            <td>optional.</td>
+            <td><code>collection</code></td>
+            <td><code>application/td+json</code></td>
+            <td>This Thing is a component of the target Thing or a group of Things that the target Thing represents</td>
           </tr>
         </tbody>
       </table>
-
-      <section id="sec-link-relation-types">
-        <h3>Link Relation Types</h3>
-        <table class="def">
-          <thead>
-            <tr>
-              <th>Relation Type</th>
-              <th>Constraint</th>
-              <th>Remarks</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>icon</code></td>
-              <td>supported media types: <code>image/png</code>, <code>image/jpeg</code>. </td>
-            </tr>
-            <tr>
-              <td><code>type</code></td>
-              <td>link target MUST be a profile-compliant <a>Thing Model</a></td>
-              <td>No other types are defined in the Profile.</td>
-            </tr>
-            <tr>
-              <td><code>service-doc</code></td>
-              <td>human readable documentation, supported formats are Unicode Text, markdown, HTML and PDF.</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><code>collection</code></td>
-              <td>link target is a collection of things or thing models.</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><code>item</code></td>
-              <td>link target is a collection member of the thing or thing model.</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><code>alternate</code></td>
-              <td>link target is an alternative representation of the Thing.</td>
-              <td></td>
-            </tr>
-
-          </tbody>
-        </table>
-      </section>
-
-      <section id="sec-link-media-types">
-        <h3>Media Types for Link Targets</h3>
-
-        <span class="rfc2119-assertion" id="common-constraints-links-media-types-1">The following media types from <a
-            href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA</a>
-          MAY be used as the link targets of profile compliant TDs with the constraints in this section.</span>
-        <span class="rfc2119-assertion" id="common-constraints-links-media-types-2">Other media types MAY
-          be present in a TD, however their heir interpretation is undefined
-          in the context of the HTTP profiles and they MAY be ignored by all profile-compliant consumers.</span>
-        <table class="def">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Constraint</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>text/plain</code></td>
-              <td>charset=UTF-8</td>
-            </tr>
-            <tr>
-              <td><code>text/html</code></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><code>text/markdown</code></td>
-              <td>charset=UTF-8</td>
-            </tr>
-            <tr>
-              <td><code>text/pdf</code></td>
-              <td></td>
-            </tr>
-            <td><code>application/json</code></td>
-            <td></td>
-            </tr>
-            <tr>
-              <td><code>application/ld+json</code></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><code> application/octet-stream</code></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><code>image/jpeg</code></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><code>image/png</code></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
 
       <p>
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-4">
