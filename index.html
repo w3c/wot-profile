@@ -456,31 +456,6 @@
       The following sections are applicable for profiles defined by this document.
     </p>
 
-    <!-- Identifiers TODO -->
-
-    <!-- Accessibility -->
-
-    <section id="common-constraints-accessibilityy">
-      <h2 id="accessibility">Accessibility</h2>
-      <p>Authors of <a>Thing Descriptions</a> must ensure that the things described by them are accessible to
- 	users with disabilities.
-      </p>
-      <p><span class="rfc2119-assertion" id="common-constraints-a11y-1">
-	  It is REQUIRED to provide a <code>title</code> that can be automatically rendered in a non-visual way
-	  (e.g. using a screen reader)
-	  for things that may be used in deployments with users with disabilities.</span>
-      </p>
-      <p><span class="rfc2119-assertion" id="common-constraints-a11y-2">
-	  It is highly RECOMMENDED to provide a <code>description</code> that can be automatically rendered in a non-visual way
-	  (e.g. using a screen reader)
-	  for things that may be used in deployments with users with disabilities.</span>
-      </p>
-      <section class="ednote">
-        This is just a baseline set of requirements, which needs additional input from the APA group.
-        It needs to be clarified which TD elements are used by people with disabilities and to which these constraints are applied.
-      </section>
-
-    </section>
     <!-- Units -->
 
     <section id="sdec-common-constraints-units">
@@ -3754,19 +3729,15 @@
     </p>
   </section>
 
-  <!---------------------------------------------------------------->
-
-  <!--section id="basic-profile-json-schema" class="appendix normative">
-    <h1>JSON Schema of the HTTP Basic Profile</h1>
+  <section id="accessibility-considerations">
+    <h1>Accessibility Considerations</h1>
     <p>
-      A Thing Description can be syntactically validated with the JSON Schema [[?JSON-SCHEMA]] for compliance with
-      the HTTP Basic profile.
+      <span class="rfc2119-assertion" id="accessibility-considerations-1">
+        The values of <code>title</code> and <code>description</code> members at all levels of a
+        <a>Thing Description</a> may be used to generate a user interface and SHOULD therefore be human readable strings
+        which can also be rendered by assistive technologies when necessary.
+      </span>
     </p>
-    <p class="ednote">
-       TODO: Define a JSON-SCHEMA.
-    </p>
-  </section-->
-
   </section>
 
   <section id="changes" class="appendix">
