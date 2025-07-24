@@ -112,6 +112,7 @@
     .rfc2119-assertion {
       background-color: rgb(230, 230, 230)
     }
+
     a[href].internalDFN {
       color: inherit;
       border-bottom: 1px solid #99c;
@@ -125,9 +126,9 @@
   <section id="abstract">
     <p>
       This specification defines a <a href="#profiling-mechanism">Profiling
-      Mechanism</a> and a set of <a>Profiles</a>
+        Mechanism</a> and a set of <a>Profiles</a>
       which enable <a href="#out-of-the-box-interoperability">out-of-the-box
-      interoperability</a> between
+        interoperability</a> between
       <a>Web Things</a> and their
       <a>Consumers</a> on the
       <a href="https://www.w3.org/wot">Web of Things</a>.
@@ -150,23 +151,23 @@
 
     <p>
       The specification defines three profiles:
-      <ul>
-        <li>The <a href="#http-basic-profile">HTTP Basic
+    <ul>
+      <li>The <a href="#http-basic-profile">HTTP Basic
           Profile</a> defines a protocol binding for reading and writing
-          properties and invoking, querying and cancelling actions using the
-          HTTP protocol.
-        </li>
-        <li>
-          The <a href=#http-sse-profile>HTTP SSE
+        properties and invoking, querying and cancelling actions using the
+        HTTP protocol.
+      </li>
+      <li>
+        The <a href=#http-sse-profile>HTTP SSE
           Profile</a> defines a protocol binding for observing properties and
-          subscribing to events using Server-Sent Events.
-        </li>
-        <li>
-          The <a href="#http-webhook-profile">HTTP
-          Webhook Profile</a> defines a protocol binding for observing properties 
-          and subscribing to events using Webhooks.
-        </li>
-      </ul>
+        subscribing to events using Server-Sent Events.
+      </li>
+      <li>
+        The <a href="#http-webhook-profile">HTTP
+          Webhook Profile</a> defines a protocol binding for observing properties
+        and subscribing to events using Webhooks.
+      </li>
+    </ul>
     </p>
     <p>
       The <a>Profiles</a> defined in this specification share a set of
@@ -193,7 +194,7 @@
         The <a href="https://www.w3.org/WoT/">Web of Things</a> (WoT) seeks to
         counter the fragmentation of the
         <a href="https://en.wikipedia.org/wiki/Internet_of_things">Internet of
-        Things</a> (IoT) by using and extending existing, standardized
+          Things</a> (IoT) by using and extending existing, standardized
         web technologies.
       </p>
       <p>
@@ -209,7 +210,7 @@
         specification includes a number of extension points including protocol
         bindings, payload bindings, security mechanisms, link relations and
         semantic contexts. As long as all of the capabilities of a device can
-        be described using a <a>Thing Description</a> and a <a>Consumer</a> implements 
+        be described using a <a>Thing Description</a> and a <a>Consumer</a> implements
         all of the extensions used, the <a>Consumer</a> should
         be able to interoperate with that device. However, the result of this
         extensible architecture is that any given <a>Consumer</a> can only interoperate
@@ -222,7 +223,7 @@
         prescribes a finite set of extensions and defaults that a <a>Thing</a> can
         be constrained to in order to guarantee
         <a href="#out-of-the-box-interoperability">out-of-the-box
-        interoperability</a> with any <a>Consumer</a> which implements that profile.
+          interoperability</a> with any <a>Consumer</a> which implements that profile.
       </p>
       <p>
         <a>Profiles</a> are designed specifically for new ("greenfield") implementations
@@ -249,10 +250,10 @@
       <p>
         Several of the
         <a href="https://www.w3.org/TR/wot-usecases/#sec-vertical-ucs">domain-specific
-        use cases</a> refer to the need for easy integration of
+          use cases</a> refer to the need for easy integration of
         devices from multiple vendors. This is especially important for
         <a href="https://www.w3.org/TR/wot-usecases/#multi-vendor">cross-domain
-        use cases</a> which require "multi-vendor system
+          use cases</a> which require "multi-vendor system
         integration" and "out-of-the-box interoperability".
       </p>
       <p>
@@ -266,8 +267,8 @@
     <section id="out-of-the-box-interoperability">
       <h3>Out-of-the-Box Interoperability</h3>
       <p>
-        At a high level, out-of-the-box interoperability means that a <a>Consumer</a> 
-        is guaranteed to be able to use every capability of a <a>Thing</a>, 
+        At a high level, out-of-the-box interoperability means that a <a>Consumer</a>
+        is guaranteed to be able to use every capability of a <a>Thing</a>,
         without Thing-specific customization.
       </p>
       <p>
@@ -352,7 +353,7 @@
       <dd>A technical specification which provides a set of assertions such that
         any <a>Consumer</a> which conforms with the those
         assertions is <a href="#out-of-the-box-interoperability">out-of-the-box
-        interoperable</a> with any <a>Thing</a> which also
+          interoperable</a> with any <a>Thing</a> which also
         conforms with those assertions.
       </dd>
     </dl>
@@ -364,7 +365,7 @@
     <p>
       <span class="rfc2119-assertion" id="profiling-mechanism-1">
         In order to conform with a <a>Profile</a>, a
-        <a>Web Thing</a> MUST conform with all the normative statements in the 
+        <a>Web Thing</a> MUST conform with all the normative statements in the
         <a>Profile</a>'s specification.
       </span>
     </p>
@@ -425,16 +426,17 @@
       <span class="rfc2119-assertion" id="profiling-mechanism-6">
         A <a>Profile</a> SHOULD NOT redefine defaults from protocol binding templates [[wot-binding-templates]].
       </span>
-      E.g., if a profile uses an HTTP protocol binding and the HTTP Binding Template specifies that in an 
+      E.g., if a profile uses an HTTP protocol binding and the HTTP Binding Template specifies that in an
       HTTP protocol binding the default value of <code>htv:methodName</code> for a <code>readproperty</code>
       operation is <code>GET</code>, the profile should not redefine that value as <code>POST</code>.
     </p>
     <p>
       <span class="rfc2119-assertion" id="profiling-mechanism-7">
-        A <a>Profile</a> SHOULD NOT require a <a>Thing</a> to respond in a way which would be unexpected by a 
+        A <a>Profile</a> SHOULD NOT require a <a>Thing</a> to respond in a way which would be unexpected by a
         <a>Consumer</a> which does not implement the <a>Profile</a>.
       </span>
-      E.g., a <a>Profile</a> may define details of a protocol binding for a <code>queryaction</code> operation which would not
+      E.g., a <a>Profile</a> may define details of a protocol binding for a <code>queryaction</code> operation which
+      would not
       currently be possible to fully describe using a protocol binding template in a <a>Thing Description</a> (due to
       current limitations of the WoT Thing Description 1.1 specification), and would be consumable by a conformant
       <a>Consumer</a>, but any other action-related operations exposed by the <a>Thing Description</a> ought to still
@@ -448,7 +450,7 @@
     </p>
     <p class="note">
       Just because a <a>Thing Description</a> claims that the Thing it describes conforms to a given <a>Profile</a>,
-      a <a>Consumer</a> should not assume that it does in fact conform. E.g. a <a>Consumer</a> should be able 
+      a <a>Consumer</a> should not assume that it does in fact conform. E.g. a <a>Consumer</a> should be able
       to recover gracefully if a <a>Thing</a> does not respond as specified to a given operation.
     </p>
   </section>
@@ -464,16 +466,16 @@
     <section id="common-constraints-units">
       <h3 id="units">Units</h3>
       <p>Authors of <a>Thing Descriptions</a> should be aware that units
-      that are common in their geographic region are not globally applicable
-      and may lead to misinterpretation with drastic consequences.
+        that are common in their geographic region are not globally applicable
+        and may lead to misinterpretation with drastic consequences.
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-units-1">
-        It is highly RECOMMENDED to provide a <code>unit</code>,
-        if a value has a physical quantity.</span>
+          It is highly RECOMMENDED to provide a <code>unit</code>,
+          if a value has a physical quantity.</span>
       </p>
       <p><span class="rfc2119-assertion" id="common-constraints-units-2">
-        It is highly RECOMMENDED to use the metric system (SI units)
-        for devices that are used in global deployments.</span>
+          It is highly RECOMMENDED to use the metric system (SI units)
+          for devices that are used in global deployments.</span>
       </p>
     </section>
 
@@ -482,7 +484,7 @@
       <h3 id="date-format">Date Format</h3>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-date-format-1">
-          Unless otherwise specified, all date and time values MUST use the 
+          Unless otherwise specified, all date and time values MUST use the
           <code>date-time</code> format defined in [[RFC3339]].</span>
       </p>
       <pre class="example">
@@ -499,67 +501,71 @@
     <!-- Security -->
     <section id="common-constraints-security">
       <h3>Security</h3>
-        <div class="rfc2119-assertion" id="common-constraints-security-1">
-          <p>
-            Conformant <a>Web Things</a> MUST use at least one of the following security schemes [[wot-thing-description11]]:
-          </p>
-          <ul>
-            <li>
-                <code>NoSecurityScheme</code>
-            </li>
-            <li>
-                <code>BasicSecurityScheme</code>
-            </li>
-            <li>
-                <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow
-            </li>
-          </ul>
-        </div>
-        <div class="rfc2119-assertion" id="common-constraints-security-2">
-          <p>
-            Conformant <a>Consumers</a> MUST support all of the following security schemes [[wot-thing-description11]]:
-          </p>
-            <ul>
-              <li>
-                  <code>NoSecurityScheme</code>
-              </li>
-              <li>
-                  <code>BasicSecurityScheme</code>
-              </li>
-              <li>
-                  <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow
-              </li>
-              <li>
-                   <code>ComboSecurityScheme</code> with the <code>oneOf</code> member containing at least one of the schemes above
-              </li>
-            </ul>
-        </div>
-        <p><span class="rfc2119-assertion" id="common-constraints-security-3">
-            A <a>Thing</a> MAY implement multiple security schemes.</span>
+      <div class="rfc2119-assertion" id="common-constraints-security-1">
+        <p>
+          Conformant <a>Web Things</a> MUST use at least one of the following security schemes
+          [[wot-thing-description11]]:
         </p>
-    	  <p><span class="rfc2119-assertion" id="common-constraints-security-4">
-            If a <a>Thing</a> supports multiple security schemes it MUST use the <code>ComboSecurityScheme</code> to enumerate 
-            those schemes using the <code>oneOf</code> member, so that only one security scheme is required to be used at a time.</span>
+        <ul>
+          <li>
+            <code>NoSecurityScheme</code>
+          </li>
+          <li>
+            <code>BasicSecurityScheme</code>
+          </li>
+          <li>
+            <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow
+          </li>
+        </ul>
+      </div>
+      <div class="rfc2119-assertion" id="common-constraints-security-2">
+        <p>
+          Conformant <a>Consumers</a> MUST support all of the following security schemes [[wot-thing-description11]]:
         </p>
-        <p><span class="rfc2119-assertion" id="common-constraints-security-basic-in">
-            For the <code>BasicSecurityScheme</code> the "in" field MUST be either omitted
-            or be given its default value of "header" as defined in [[wot-thing-description11].</span>
-           <span class="rfc2119-assertion" id="common-constraints-security-basic-name">
-            For the <code>BasicSecurityScheme</code> the "name" field MUST be provided using
-            the value "Authorization" if a "proxy" endpoint is not given.</span>
-           <span class="rfc2119-assertion" id="common-constraints-security-basic-proxy">
-            For the <code>BasicSecurityScheme</code> the "name" field MUST be provided using
-            the value "Proxy-Authorization" if a "proxy" endpoint is given.</span>
-        </p>
+        <ul>
+          <li>
+            <code>NoSecurityScheme</code>
+          </li>
+          <li>
+            <code>BasicSecurityScheme</code>
+          </li>
+          <li>
+            <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow
+          </li>
+          <li>
+            <code>ComboSecurityScheme</code> with the <code>oneOf</code> member containing at least one of the schemes
+            above
+          </li>
+        </ul>
+      </div>
+      <p><span class="rfc2119-assertion" id="common-constraints-security-3">
+          A <a>Thing</a> MAY implement multiple security schemes.</span>
+      </p>
+      <p><span class="rfc2119-assertion" id="common-constraints-security-4">
+          If a <a>Thing</a> supports multiple security schemes it MUST use the <code>ComboSecurityScheme</code> to
+          enumerate
+          those schemes using the <code>oneOf</code> member, so that only one security scheme is required to be used at
+          a time.</span>
+      </p>
+      <p><span class="rfc2119-assertion" id="common-constraints-security-basic-in">
+          For the <code>BasicSecurityScheme</code> the "in" field MUST be either omitted
+          or be given its default value of "header" as defined in [[wot-thing-description11].</span>
+        <span class="rfc2119-assertion" id="common-constraints-security-basic-name">
+          For the <code>BasicSecurityScheme</code> the "name" field MUST be provided using
+          the value "Authorization" if a "proxy" endpoint is not given.</span>
+        <span class="rfc2119-assertion" id="common-constraints-security-basic-proxy">
+          For the <code>BasicSecurityScheme</code> the "name" field MUST be provided using
+          the value "Proxy-Authorization" if a "proxy" endpoint is given.</span>
+      </p>
 
-        <p><span class="rfc2119-assertion" id="common-constraints-security-6">
+      <p><span class="rfc2119-assertion" id="common-constraints-security-6">
           Conformant <a>Consumers</a> MUST support security bootstrapping for all
           implemented security schemes, as defined in
           <a href="https://www.w3.org/TR/wot-discovery/#exploration-secboot">Security Bootstrapping</a>
           in the WoT Discovery [[wot-discovery]] specification.
         </span></p>
 
-        <p><span class="rfc2119-assertion" id="common-constraints-security-7">
+      <p><span class="rfc2119-assertion" id="common-constraints-security-7">
           Conformant <a>Things</a> which require authentication in order to retrieve
           their <a>Thing Description</a> MUST implement security bootstrapping, as
           defined in
@@ -587,7 +593,7 @@
     <section id="common-constraints-links">
       <h3>Links</h3>
 
-      A <a>Thing Description</a> can contain <a href="https://www.w3.org/TR/wot-thing-description/#link">Links</a> 
+      A <a>Thing Description</a> can contain <a href="https://www.w3.org/TR/wot-thing-description/#link">Links</a>
       [[wot-thing-description11]] in its top level <code>links</code> member
       that provide hyperlinks to other web resources. This section defines specific combinations of
       <code>rel</code> and <code>type</code> members of a Link which conformant <a>Consumers</a>
@@ -620,7 +626,8 @@
           <tr>
             <td><code>item</code></td>
             <td><code>application/td+json</code></td>
-            <td>The target Thing is a component of this Thing or a member of a collection of Things that this Thing represents</td>
+            <td>The target Thing is a component of this Thing or a member of a collection of Things that this Thing
+              represents</td>
           </tr>
           <tr>
             <td><code>collection</code></td>
@@ -632,16 +639,19 @@
 
       <p>
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-4">
-          If a <a>Consumer</a> encounters a link with "rel": "icon" and "type": "image/*" and it is capable of rendering images in
+          If a <a>Consumer</a> encounters a link with "rel": "icon" and "type": "image/*" and it is capable of rendering
+          images in
           the
           provided format, then it SHOULD interpret the link as an icon for the Thing and display it to the user.
         </span>
       </p>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-5">
-          If a <a>Consumer</a> encounters a link with "rel": "alternate" and "type": "text/html" and it is capable of rendering an
+          If a <a>Consumer</a> encounters a link with "rel": "alternate" and "type": "text/html" and it is capable of
+          rendering an
           HTML
-          page and accepting user input, then it SHOULD interpret the link as a user interface for the Thing and provide a
+          page and accepting user input, then it SHOULD interpret the link as a user interface for the Thing and provide
+          a
           means
           for the user to follow that link and view and interact with the HTML page.
         </span>
@@ -649,8 +659,10 @@
       <p>
 
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-6">
-          If a <a>Consumer</a> encounters a link with "rel": "service-doc" and "type": "text/plain", "type": "text/html" or "type":
-          "text/pdf", and is capable of rendering documents in the provided format, then it SHOULD interpret the link as a
+          If a <a>Consumer</a> encounters a link with "rel": "service-doc" and "type": "text/plain", "type": "text/html"
+          or "type":
+          "text/pdf", and is capable of rendering documents in the provided format, then it SHOULD interpret the link as
+          a
           user
           manual for the Thing and provide a means for the user to follow that link and read the user manual.
         </span>
@@ -658,8 +670,10 @@
       <p>
 
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-7">
-          If a <a>Consumer</a> encounters a link with "rel": "item" and "type": "application/td+json" and is capable of rendering a
-          hierarchical tree of Things, then it should interpret the link as an indication that the target is a sub-Thing of
+          If a <a>Consumer</a> encounters a link with "rel": "item" and "type": "application/td+json" and is capable of
+          rendering a
+          hierarchical tree of Things, then it should interpret the link as an indication that the target is a sub-Thing
+          of
           the
           current Thing and render this in a meaningful way to the user.
         </span>
@@ -667,11 +681,14 @@
       <p>
 
         <span class="rfc2119-assertion" id="common-constraints-links-media-types-8">
-          If a <a>Consumer</a> encounters a link with "rel": "collection" and "type": "application/td+json" and is capable of
+          If a <a>Consumer</a> encounters a link with "rel": "collection" and "type": "application/td+json" and is
+          capable of
           rendering a
-          hierarchical tree of Things, then it should interpret the link as an indication that the target describes a Thing
+          hierarchical tree of Things, then it should interpret the link as an indication that the target describes a
+          Thing
           (e.g.
-          a group, system of Things or Thing Directory) which contains the current Thing and render this in a meaningful way
+          a group, system of Things or Thing Directory) which contains the current Thing and render this in a meaningful
+          way
           to
           the user.
         </span>
@@ -783,7 +800,7 @@
       <p>
         The examples provided throughout this section describe how a <a>Consumer</a>
         would communicate with a <a>Web Thing</a> which produces the following <a>Thing
-        Description</a>:
+          Description</a>:
       </p>
 
       <pre class="example">
@@ -1149,12 +1166,12 @@
           </pre>
         </section>
         <p class="note">
-            The <code>readmultipleproperties</code> operation is excluded due to
-            the complexities of the request payload format and because it
-            doesn't add much functionality over <code>readproperty</code> and
-            <code>readallproperties</code>.
-            <code>writeallproperties</code> is excluded because it
-            is just a special case of <code>writemultipleproperties</code>.
+          The <code>readmultipleproperties</code> operation is excluded due to
+          the complexities of the request payload format and because it
+          doesn't add much functionality over <code>readproperty</code> and
+          <code>readallproperties</code>.
+          <code>writeallproperties</code> is excluded because it
+          is just a special case of <code>writemultipleproperties</code>.
         </p>
       </section>
       <section id="http-basic-profile-protocol-binding-actions">
@@ -1217,13 +1234,13 @@
           </pre>
           <p>
             <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-5">
-              If the action does not have an input then the <code>Content-type</code> header of 
+              If the action does not have an input then the <code>Content-type</code> header of
               the request SHOULD NOT be set, and the body should be empty.
             </span>
           </p>
           <p class="note">
-            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks 
-            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid 
+            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks
+            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid
             action input and is not considered to be an "empty" body.
           </p>
           <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-6">
@@ -1244,16 +1261,14 @@
             </ol>
           </div>
           <p>
-            <span class="rfc2119-assertion"
-            id="http-basic-profile-protocol-binding-invokeaction-24">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-24">
               The <code>synchronous</code> member of an
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance">ActionAffordance</a>
               MUST be set to <code>true</code> or <code>false</code>.
             </span>
           </p>
           <p>
-            <span class="rfc2119-assertion"
-            id="http-basic-profile-protocol-binding-invokeaction-7">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-7">
               If the <code>synchronous</code> member of the
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance">ActionAffordance</a>
               [[wot-thing-description11]] is set to <code>true</code> then the Web
@@ -1262,8 +1277,7 @@
             </span>
           </p>
           <p>
-            <span class="rfc2119-assertion"
-            id="http-basic-profile-protocol-binding-invokeaction-8">
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-8">
               If the <code>synchronous</code> member of the
               <a href="https://w3c.github.io/wot-thing-description/#actionaffordance">ActionAffordance</a>
               [[wot-thing-description11]] is set to <code>false</code> then the <a>Web Thing</a>
@@ -1427,12 +1441,12 @@
               <li>An empty body</li>
             </ul>
           </div>
-          <pre class="example" title="Synchronous action response without an output"> 
+          <pre class="example" title="Synchronous action response without an output">
             HTTP/1.1 204 No Content
           </pre>
           <p class="note">
-            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks 
-            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid 
+            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks
+            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid
             action output and is not considered to be an "empty" body.
           </p>
           <h6 id="async-action-response">Asynchronous Action Response</h6>
@@ -1472,17 +1486,19 @@
             }
           </pre>
           <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-22">
-          <p>
-            In resource constrained environments, the <code>ActionStatus</code> objects of older completed/failed actions MAY be deleted to make room for newly invoked actions.
-          </p>
+            <p>
+              In resource constrained environments, the <code>ActionStatus</code> objects of older completed/failed
+              actions MAY be deleted to make room for newly invoked actions.
+            </p>
           </div>
           <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-23">
-          <p>
-            A <a>Web Thing</a> SHOULD return a <code>503</code> error response if the invocation cannot be accepted because the action is unavailable,
-            e.g. because the <a>Thing</a> is overloaded.
-          </p>
+            <p>
+              A <a>Web Thing</a> SHOULD return a <code>503</code> error response if the invocation cannot be accepted
+              because the action is unavailable,
+              e.g. because the <a>Thing</a> is overloaded.
+            </p>
           </div>
-         </section>
+        </section>
 
         <section id="http-basic-profile-protocol-binding-queryaction">
           <h5><code>queryaction</code></h5>
@@ -1823,7 +1839,7 @@
 
       <p>
         The examples provided throughout this section describe how a <a>Consumer</a>
-        would communicate with a <a>Web Thing</a> which produces the following 
+        would communicate with a <a>Web Thing</a> which produces the following
         <a>Thing Description</a>:
       </p>
       <pre class="example">
@@ -1912,7 +1928,7 @@
               The URL of a <a>Property</a> resource to be used when
               observing the value of a property MUST be obtained from a Thing
               Description by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">Form</a> inside 
+              <a href="https://www.w3.org/TR/wot-thing-description/#form">Form</a> inside
               the corresponding
               <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">PropertyAffordance</a>
               for which:
@@ -2007,7 +2023,7 @@
           <p>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5a">
               Whenever the value of the specified <a>Property</a> changes while the <a>Web
-              Thing</a> has an open connection with a <a>Consumer</a>, the <a>Web Thing</a> MUST
+                Thing</a> has an open connection with a <a>Consumer</a>, the <a>Web Thing</a> MUST
               send a property value to the <a>Consumer</a> using the event stream
               format in the Server-Sent Events [[EVENTSOURCE]] specification.</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5b">
@@ -2016,7 +2032,7 @@
               <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">PropertyAffordance</a>
               and populate the <code>data</code>
               field with the property value, serialized in JSON and following
-              the data schema specified in the 
+              the data schema specified in the
               <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">PropertyAffordance</a>.</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeproperty-5c">
               The <code>id</code> field SHOULD be set to a unique
@@ -2026,8 +2042,8 @@
               It is RECOMMENDED that the
               identifier is a timestamp representing the time at which the
               property changed</span> (see
-              <a href="#date-format">Date Format</a> for date format
-              constraints).
+            <a href="#date-format">Date Format</a> for date format
+            constraints).
           </p>
           <pre class="example">
             event: level\n
@@ -2049,9 +2065,9 @@
           </p>
           <p class="note" title="application/json wrapped in text/event-stream">
             <a>Property</a> values are serialised in JSON and provided in the <code>data</code>
-            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The 
-            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the 
-            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is 
+            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The
+            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the
+            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is
             indicated in <code>contentType</code> member of the Form (with defaults applied).
           </p>
         </section>
@@ -2183,7 +2199,7 @@
               the Server-Sent Events [[EVENTSOURCE]] specification.</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5b">
               For each message sent, the <a>Web Thing</a> MUST set the <code>event</code> field
-              to the name of the 
+              to the name of the
               <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">PropertyAffordance</a>
               and populate
               the <code>data</code> field with the new property value.</span>
@@ -2198,8 +2214,8 @@
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-observeallproperties-5e">
               It is RECOMMENDED that the identifier is a timestamp
               representing the time at which the <a>Property</a> changed</span> (see
-              <a href="#date-format">Date Format</a> for date format
-              constraints).
+            <a href="#date-format">Date Format</a> for date format
+            constraints).
           </p>
           <pre class="example">
             event: level\n
@@ -2221,9 +2237,9 @@
           </p>
           <p class="note" title="application/json wrapped in text/event-stream">
             Property values are serialised in JSON and provided in the <code>data</code>
-            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The 
-            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the 
-            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is 
+            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The
+            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the
+            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is
             indicated in <code>contentType</code> member of the Form (with defaults applied).
           </p>
         </section>
@@ -2256,7 +2272,7 @@
         <h4>Events</h4>
         <p>
           The HTTP SSE Profile uses Server-Sent Events [[EVENTSOURCE]] as a
-          mechanism for <a>Consumers</a> to subscribe to events emitted 
+          mechanism for <a>Consumers</a> to subscribe to events emitted
           by a <a>Web Thing</a>.
         </p>
         <p class="note">
@@ -2274,7 +2290,7 @@
               The URL of an event resource to be used when
               subscribing to an <a>Event</a> MUST be obtained from a <a>Thing Description</a>
               by locating a
-              <a href="https://www.w3.org/TR/wot-thing-description/#form">Form</a> inside the 
+              <a href="https://www.w3.org/TR/wot-thing-description/#form">Form</a> inside the
               corresponding
               <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">EventAffordance</a>
               for which:
@@ -2375,7 +2391,7 @@
               <code>data</code> field with event data, if any.</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6c">
               The
-              event data MUST follow the data schema specified in the 
+              event data MUST follow the data schema specified in the
               <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">EventAffordance</a>
               and be serialized in JSON.</span>
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6d">
@@ -2385,8 +2401,8 @@
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeevent-6e">
               It is RECOMMENDED that the identifier is a timestamp
               representing the time at which the event ocurred</span> (see
-              <a href="#date-format">Date Format</a> for date format
-              constraints).
+            <a href="#date-format">Date Format</a> for date format
+            constraints).
           </p>
           <pre class="example">
             event: overheated\n
@@ -2407,9 +2423,9 @@
           </p>
           <p class="note" title="application/json wrapped in text/event-stream">
             Event payloads are serialised in JSON and provided in the <code>data</code>
-            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The 
-            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the 
-            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is 
+            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The
+            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the
+            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is
             indicated in <code>contentType</code> member of the Form (with defaults applied).
           </p>
         </section>
@@ -2441,7 +2457,7 @@
             <p>
               The URL of an events resource to be used when subscribing to all
               <a>Events</a> emitted by a <a>Web Thing</a> MUST be obtained from a <a>Thing
-              Description</a> by locating a
+                Description</a> by locating a
               <a href="https://www.w3.org/TR/wot-thing-description/#form">Form</a> inside the top level
               <a href="https://www.w3.org/TR/wot-thing-description/#form-serialization-json"><code>forms</code></a>
               member of a <a>Thing Description</a> for which:
@@ -2552,8 +2568,8 @@
             <span class="rfc2119-assertion" id="http-sse-profile-protocol-binding-subscribeallevents-4e">
               It is RECOMMENDED that the identifier is a timestamp
               representing the time at which the event ocurred</span>
-              (see <a href="#date-format">Date Format</a> for date format
-              constraints).
+            (see <a href="#date-format">Date Format</a> for date format
+            constraints).
           </p>
           <pre class="example">
             event: overheated\n
@@ -2574,9 +2590,9 @@
           </p>
           <p class="note" title="application/json wrapped in text/event-stream">
             Event payloads are serialised in JSON and provided in the <code>data</code>
-            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The 
-            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the 
-            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is 
+            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The
+            <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the
+            <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is
             indicated in <code>contentType</code> member of the Form (with defaults applied).
           </p>
         </section>
@@ -2604,7 +2620,7 @@
       </section>
     </section>
   </section>
-  
+
   <!-- HTTP Webhook Profile -->
   <section id="http-webhook-profile">
     <h2>HTTP Webhook Profile</h2>
@@ -2632,12 +2648,12 @@
       </span>
     </p>
     <p class="note" title="HTTP client and server roles">
-      In order to implement the HTTP Webhook profile it must be possible for 
+      In order to implement the HTTP Webhook profile it must be possible for
       both the <a>Thing</a> and <a>Consumer</a> to act as both an HTTP client and HTTP server,
-      accessible by each other over a network. This may not be possible in all 
+      accessible by each other over a network. This may not be possible in all
       deployment scenarios.
     </p>
-  
+
     <!-- Identifier -->
     <section id="http-webhook-profile-identifier">
       <h3>Identifier</h3>
@@ -2651,11 +2667,11 @@
       </p>
       <section class="note">
         <p>Note that the <code>profile</code> member is an array that may contain multiple
-          profile entries, which indicates that a <a>Web Thing</a> conforms to all of the <a>Profiles</a> 
+          profile entries, which indicates that a <a>Web Thing</a> conforms to all of the <a>Profiles</a>
           in that array.</p>
       </section>
     </section>
-  
+
     <!-- Protocol Binding -->
     <section id="http-webhook-profile-protocol-binding">
       <h3>Protocol Binding</h3>
@@ -2672,7 +2688,7 @@
         The examples provided throughout this section describe how a <a>Consumer</a> would communicate
         with a <a>Web Thing</a> which produces the following <a>Thing Description</a> [[wot-thing-description11]]:
       </p>
-  
+
       <pre class="example" title="HTTP Webhook Profile Example Thing Description">
         {
           "@context": "https://www.w3.org/2022/wot/td/v1.1",
@@ -2800,7 +2816,7 @@
           ]
         }
         </pre>
-  
+
       <section id="http-webhook-profile-protocol-binding-properties">
         <h4>Properties</h4>
         <section id="http-webhook-profile-protocol-binding-observeproperty">
@@ -2877,7 +2893,7 @@
               <li>Status code set to <code>201 Created</code></li>
               <li>
                 <code>Location</code> header set to a unique URL representing the individual property
-                observation subscription, for use by the <a>Consumer</a> when later cancelling the observation 
+                observation subscription, for use by the <a>Consumer</a> when later cancelling the observation
                 of the <a>Property</a>.
               </li>
             </ul>
@@ -2888,8 +2904,9 @@
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-6">
             <p>
-              Whilst the property observation subscription is registered, whenever a change in the value of the 
-              observed <a>Property</a> occurs, the <a>Web Thing</a> MUST send an HTTP request to the observing <a>Consumer</a> with:
+              Whilst the property observation subscription is registered, whenever a change in the value of the
+              observed <a>Property</a> occurs, the <a>Web Thing</a> MUST send an HTTP request to the observing
+              <a>Consumer</a> with:
             </p>
             <ul>
               <li>Method set to <code>POST</code></li>
@@ -2897,12 +2914,14 @@
               <li><code>Content-Type</code> header set to <code>application/json</code></li>
               <li>A <code>Link</code> header with the URL set to the URL of the corresponding property resource,
                 and <code>rel</code> set to <code>self</code></li>
-              <li>A <code>Date</code> header automatically set to the time of the property change by the 
-                user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a> 
+              <li>A <code>Date</code> header automatically set to the time of the property change by the
+                user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a>
                 format from [[rfc9110]]
               </li>
-              <li>A body containing the new value of the <a>Property</a>, serialised in JSON and conforming to the data schema of 
-                the <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance"></a>Property Affordance</li>
+              <li>A body containing the new value of the <a>Property</a>, serialised in JSON and conforming to the data
+                schema of
+                the <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance"></a>Property Affordance
+              </li>
             </ul>
           </div>
           <pre class="example" title="Property change notification request">
@@ -2926,15 +2945,15 @@
             HTTP/1.1 200 OK
           </pre>
         </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-unobserveproperty">
           <h5><code>unobserveproperty</code></h5>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveproperty-1">
-            <p>In order to cancel the observation subscription of a property, a <a>Consumer</a> MUST send an 
-            HTTP request to the <a>Web Thing</a> with:</p>
+            <p>In order to cancel the observation subscription of a property, a <a>Consumer</a> MUST send an
+              HTTP request to the <a>Web Thing</a> with:</p>
             <ul>
               <li>Method set to <code>DELETE</code></li>
-              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response 
+              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response
                 during the <code>observeproperty</code> operation</li>
             </ul>
           </div>
@@ -2946,7 +2965,7 @@
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveproperty-2">
             <p>
               If a <a>Web Thing</a> receives an HTTP request following the format
-              above, and a property observation subscription exists with the provided URL, 
+              above, and a property observation subscription exists with the provided URL,
               then upon successfully cancelling the subscription the <a>Web Thing</a>
               MUST send an HTTP response to the <a>Consumer</a> with:
             </p>
@@ -2958,7 +2977,7 @@
             HTTP/1.1 204 No Content
           </pre>
         </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-events-observeallproperties">
           <h5><code>observeallproperties</code></h5>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-1">
@@ -3044,22 +3063,27 @@
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-5">
             <p>
-              Whilst the properties observation subscription is registered, whenever a change in the value of any 
-              observeable <a>Property</a> occurs, the <a>Web Thing</a> MUST send an HTTP request to the observing <a>Consumer</a> with:
+              Whilst the properties observation subscription is registered, whenever a change in the value of any
+              observeable <a>Property</a> occurs, the <a>Web Thing</a> MUST send an HTTP request to the observing
+              <a>Consumer</a> with:
             </p>
             <ul>
               <li>Method set to <code>POST</code></li>
-              <li>URL set to the callback URL provided by the <a>Consumer</a> when registering the observation subscription</li>
+              <li>URL set to the callback URL provided by the <a>Consumer</a> when registering the observation
+                subscription</li>
               <li><code>Content-Type</code> header set to <code>application/json</code></li>
               <li>A <code>Link</code> header with the URL set to the URL of the corresponding
                 <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">PropertyAffordance</a>,
-                and <code>rel</code> set to <code>self</code></li>
-              <li>A <code>Date</code> header automatically set to the time of the property change by the 
-                user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a> 
+                and <code>rel</code> set to <code>self</code>
+              </li>
+              <li>A <code>Date</code> header automatically set to the time of the property change by the
+                user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a>
                 format from [[rfc9110]]
               </li>
-              <li>A body containing the new value of the <a>Property</a>, serialised in JSON and conforming to the data schema of 
-                the <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">PropertyAffordance</a></li>
+              <li>A body containing the new value of the <a>Property</a>, serialised in JSON and conforming to the data
+                schema of
+                the <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">PropertyAffordance</a>
+              </li>
             </ul>
           </div>
           <pre class="example" title="Property change notification request">
@@ -3083,7 +3107,7 @@
             HTTP/1.1 200 OK
           </pre>
         </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-unobserveallproperties">
           <h5><code>unobserveallproperties</code></h5>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveallproperties-1">
@@ -3093,7 +3117,7 @@
             </p>
             <ul>
               <li>Method set to <code>DELETE</code></li>
-              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response 
+              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response
                 during the <code>observeallproperties</code> operation</li>
             </ul>
           </div>
@@ -3104,7 +3128,7 @@
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unobserveallproperties-2">
             <p>
               If a <a>Web Thing</a> receives an HTTP request following the format
-              above, and a properties observation subscription exists with the provided URL, 
+              above, and a properties observation subscription exists with the provided URL,
               then upon successfully cancelling the observation subscription the <a>Web Thing</a>
               MUST send an HTTP response to the <a>Consumer</a> with:
             </p>
@@ -3204,32 +3228,33 @@
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-6">
             <p>
-              Whilst the event subscription is registered, whenever an instance of the monitored <a>Event</a> occurs, 
+              Whilst the event subscription is registered, whenever an instance of the monitored <a>Event</a> occurs,
               the <a>Web Thing</a> MUST send an HTTP request to the subscribed <a>Consumer</a> with:
             </p>
             <ul>
               <li>Method set to <code>POST</code></li>
               <li>URL set to the callback URL provided by the <a>Consumer</a> when subscribing to the <a>Event</a></li>
-              <li><code>Content-Type</code> header set to <code>application/json</code> 
+              <li><code>Content-Type</code> header set to <code>application/json</code>
                 (only if the event has a data payload)</li>
               <li>A <code>Link</code> header with the URL set to the URL of the corresponding event resource,
                 and <code>rel</code> set to <code>self</code></li>
-              <li>A <code>Date</code> header automatically set to the time the event occurred by the 
-                user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a> 
+              <li>A <code>Date</code> header automatically set to the time the event occurred by the
+                user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a>
                 format from [[rfc9110]]
               </li>
-              <li>A body containing the data payload of the event, if any, serialised in JSON and conforming to the 
-                data schema of the <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">EventAffordance</a>
+              <li>A body containing the data payload of the event, if any, serialised in JSON and conforming to the
+                data schema of the <a
+                  href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">EventAffordance</a>
               </li>
             </ul>
           </div>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-6.5">
-            If the event does not include a data payload then the <code>Content-type</code> header of 
-            the request SHOULD NOT be set, and the body should be empty.
-          </span></p>
+              If the event does not include a data payload then the <code>Content-Type</code> header of
+              the request SHOULD NOT be set, and the body should be empty.
+            </span></p>
           <p class="note">
-            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks 
-            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid 
+            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks
+            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid
             data payload and is not considered to be an "empty" body.
           </p>
           <pre class="example" title="Event notification request">
@@ -3253,15 +3278,15 @@
             HTTP/1.1 200 OK
           </pre>
         </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-unsubscribeevent">
           <h5><code>unsubscribeevent</code></h5>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unsubscribeevent-1">
-            <p>In order to cancel the subscription to an <a>Event</a>, a <a>Consumer</a> MUST send an 
-            HTTP request to the <a>Web Thing</a> with:</p>
+            <p>In order to cancel the subscription to an <a>Event</a>, a <a>Consumer</a> MUST send an
+              HTTP request to the <a>Web Thing</a> with:</p>
             <ul>
               <li>Method set to <code>DELETE</code></li>
-              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response 
+              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response
                 during the <code>subscribeevent</code> operation</li>
             </ul>
           </div>
@@ -3273,7 +3298,7 @@
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unsubscribeevent-2">
             <p>
               If a <a>Web Thing</a> receives an HTTP request following the format
-              above, and an event subscription exists with the provided URL, 
+              above, and an event subscription exists with the provided URL,
               then upon successfully cancelling the subscription the <a>Web Thing</a>
               MUST send an HTTP response to the <a>Consumer</a> with:
             </p>
@@ -3285,7 +3310,7 @@
             HTTP/1.1 204 No Content
           </pre>
         </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-events-subscribeallevents">
           <h5><code>subscribeallevents</code></h5>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-1">
@@ -3375,26 +3400,26 @@
             <ul>
               <li>Method set to <code>POST</code></li>
               <li>URL set to the callback URL provided by the <a>Consumer</a> when registering the subscription</li>
-              <li><code>Content-Type</code> header set to <code>application/json</code> 
+              <li><code>Content-Type</code> header set to <code>application/json</code>
                 (only if the event contains a data payload)</li>
               <li>A <code>Link</code> header with the URL set to the URL of the corresponding event resource,
                 and <code>rel</code> set to <code>self</code></li>
-              <li>A <code>Date</code> header automatically set to the time the event occurred by the 
-                user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a> 
+              <li>A <code>Date</code> header automatically set to the time the event occurred by the
+                user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a>
                 format from [[rfc9110]]
               </li>
-              <li>A body containing the event data payload, if any, serialised in JSON and conforming to the data schema 
+              <li>A body containing the event data payload, if any, serialised in JSON and conforming to the data schema
                 of the <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">EventAffordance</a>
               </li>
             </ul>
           </div>
           <p><span class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-5.5">
-            If the event does not include a data payload then the <code>Content-type</code> header of 
-            the request SHOULD NOT be set, and the body should be empty.
-          </span></p>
+              If the event does not include a data payload then the <code>Content-type</code> header of
+              the request SHOULD NOT be set, and the body should be empty.
+            </span></p>
           <p class="note">
-            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks 
-            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid 
+            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks
+            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid
             data payload and is not considered to be an "empty" body.
           </p>
           <pre class="example" title="Event notification request">
@@ -3418,7 +3443,7 @@
             HTTP/1.1 200 OK
           </pre>
         </section>
-  
+
         <section id="http-webhook-profile-protocol-binding-unsubscribeallevents">
           <h5><code>unsubscribeallevents</code></h5>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unsubscribeallevents-1">
@@ -3428,7 +3453,7 @@
             </p>
             <ul>
               <li>Method set to <code>DELETE</code></li>
-              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response 
+              <li>URL set to the subscription URL provided in the <code>Location</code> header of the HTTP response
                 during the <code>subscribeallevents</code> operation</li>
             </ul>
           </div>
@@ -3439,7 +3464,7 @@
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-unsubscribeallevents-2">
             <p>
               If a <a>Web Thing</a> receives an HTTP request following the format
-              above, and an events subscription exists with the provided URL, 
+              above, and an events subscription exists with the provided URL,
               then upon successfully cancelling the events subscription the <a>Web Thing</a>
               MUST send an HTTP response to the <a>Consumer</a> with:
             </p>
@@ -3460,9 +3485,9 @@
     <h2>Privacy Considerations</h2>
     <p>
       <span class="rfc2119-assertion" id="privacy-considerations-1">
-        The privacy considerations of the 
+        The privacy considerations of the
         <a href="https://www.w3.org/TR/wot-architecture/#sec-privacy-considerations">WoT Architecture</a>
-        [[wot-architecture11]] and 
+        [[wot-architecture11]] and
         <a href="https://www.w3.org/TR/wot-thing-description/#sec-privacy-consideration">WoT Thing Description</a>
         [[wot-thing-description11]] specifications SHOULD be taken into account.
       </span>
@@ -3477,9 +3502,9 @@
     <h2>Security Considerations</h2>
     <p>
       <span class="rfc2119-assertion" id="security-considerations-1">
-        The security considerations of the 
+        The security considerations of the
         <a href="https://www.w3.org/TR/wot-architecture/#sec-security-considerations">WoT Architecture</a>
-        [[wot-architecture11]] and 
+        [[wot-architecture11]] and
         <a href="https://www.w3.org/TR/wot-thing-description/#sec-security-consideration">WoT Thing Description</a>
         [[wot-thing-description11]] specifications SHOULD be taken into account.
       </span>
@@ -3554,5 +3579,6 @@
     </ul>
   </section>
 </body>
+
 </html>
 
