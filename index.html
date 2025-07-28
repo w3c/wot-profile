@@ -448,7 +448,7 @@
       <span class="rfc2119-assertion" id="profiling-mechanism-6">
         A <a>Profile</a> SHOULD NOT redefine defaults from protocol binding templates [[wot-binding-templates]].
       </span>
-      E.g. If a profile uses an HTTP protocol binding and the HTTP Binding Template specifies that in an 
+      E.g., if a profile uses an HTTP protocol binding and the HTTP Binding Template specifies that in an 
       HTTP protocol binding the default value of <code>htv:methodName</code> for a <code>readproperty</code>
       operation is <code>GET</code>, the profile should not redefine that value as <code>POST</code>.
     </p>
@@ -457,10 +457,10 @@
         A <a>Profile</a> SHOULD NOT require a <a>Thing</a> to respond in a way which would be unexpected by a 
         <a>Consumer</a> which does not implement the <a>Profile</a>.
       </span>
-      E.g. A <a>Profile</a> may define details of a protocol binding for a <code>queryaction</code> operation which would not
+      E.g., a <a>Profile</a> may define details of a protocol binding for a <code>queryaction</code> operation which would not
       currently be possible to fully describe using a protocol binding template in a <a>Thing Description</a> (due to
       current limitations of the WoT Thing Description 1.1 specification), and would be consumable by a conformant
-      <a>Consumer</a>, but any other action-related operations exposed by the <a>Thing Description</a> should still
+      <a>Consumer</a>, but any other action-related operations exposed by the <a>Thing Description</a> ought to still
       respond in the way that a Consumer which does not implement the <a>Profile</a> would expect.
     </p>
     <p class="note">
@@ -470,7 +470,7 @@
       the normative assertions of the <a>Profile</a>.
     </p>
     <p class="note">
-      Just because a <a>Thing Description</a> denotes that the Thing it describes conforms to a given <a>Profile</a>,
+      Just because a <a>Thing Description</a> claims that the Thing it describes conforms to a given <a>Profile</a>,
       a <a>Consumer</a> should not assume that it does in fact conform. E.g. a <a>Consumer</a> should be able 
       to recover gracefully if a <a>Thing</a> does not respond as specified to a given operation.
     </p>
