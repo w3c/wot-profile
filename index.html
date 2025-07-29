@@ -1394,26 +1394,33 @@
           <h6 id="sync-action-response">Synchronous Action Response</h6>
           <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-20">
             <p>
-              If providing a Synchronous Action Response, a Web Thing MUST send
-              an HTTP response with:
+              If providing a Synchronous Action Response for an action with an output,
+              a Web Thing MUST send an HTTP response with:
             </p>
             <ul>
               <li>Status code set to <code>200</code></li>
-              <li><code>Content-Type</code> header set to
-                <code>application/json</code> (only if the action has an output)
-              </li>
-              <li>A body containing the output of the action, if any, serialized
-                in JSON</li>
+              <li><code>Content-Type</code> header set to <code>application/json</code></li>
+              <li>A body containing the output of the action, serialized in JSON</li>
             </ul>
           </div>
-          <p>
-            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-20a">
-              If the action does not have an output then the <code>Content-type</code> header of 
-              the request SHOULD NOT be set, and the body should be empty.
-            </span>
-          </p>
-          <pre class="example">
+          <pre class="example" title="Synchronous action response with an output">
             HTTP/1.1 200 OK
+            Content-Type: application/json
+            20
+          </pre>
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-20a">
+            <p>
+              If providing a Synchronous Action Response for an action with no output,
+              a Web Thing MUST send an HTTP response with:
+            </p>
+            <ul>
+              <li>Status code set to <code>204</code></li>
+              <li><code>Content-Type</code> header not set</li>
+              <li>An empty body</li>
+            </ul>
+          </div>
+          <pre class="example" title="Synchronous action response without an output"> 
+            HTTP/1.1 204 No Content
           </pre>
           <p class="note">
             A valid JSON value &mdash; such as <code>null</code>, empty quotation marks 
