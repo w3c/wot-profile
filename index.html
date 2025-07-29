@@ -533,10 +533,7 @@
                 <code>BasicSecurityScheme</code>
             </li>
             <li>
-                <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow.
-            </li>
-            <li>
-                <code>ComboSecurityScheme</code>, only relevant if a Web Thing supports more than one of the three security schemes &mdash; <code>NoSecurityScheme</code>, <code>BasicSecurityScheme</code>, and/or <code>OAuth2SecurityScheme</code> &mdash; and they can be used in combination
+                <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow
             </li>
           </ul>
         </div>
@@ -552,18 +549,19 @@
                   <code>BasicSecurityScheme</code>
               </li>
               <li>
-                  <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow.
+                  <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow
               </li>
               <li>
-                <code>ComboSecurityScheme</code>
+                   <code>ComboSecurityScheme</code> with the <code>oneOf</code> member
               </li>
             </ul>
         </div>
         <p><span class="rfc2119-assertion" id="common-constraints-security-3">
             A Thing MAY implement multiple security schemes.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="common-constraints-security-4">
-            A Thing MUST support at least one of the above security schemes.</span>
+    	<p><span class="rfc2119-assertion" id="common-constraints-security-4">
+            If a Thing supports multiple security schemes it MUST use the <code>ComboSecurityScheme</code> to enumerate those schemes using 
+	    the <code>oneOf</code> member, so that only one security scheme is required to be used at a time.</span>
         </p>
         <p><span class="rfc2119-assertion" id="common-constraints-security-basic-in">
             For the <code>BasicSecurityScheme</code> the "in" field MUST be either omitted
