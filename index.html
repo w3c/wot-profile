@@ -377,9 +377,9 @@
     <h2>Profiling Mechanism</h2>
     <p>
       <span class="rfc2119-assertion" id="profiling-mechanism-1">
-        In order to conform with a profile, a
+        In order to conform with a <a>Profile</a>, a
         <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-        MUST conform with all the normative statements in the profile's
+        MUST conform with all the normative statements in the <a>Profile</a>'s
         specification.
       </span>
     </p>
@@ -387,14 +387,14 @@
       <span class="rfc2119-assertion" id="profiling-mechanism-2">
         In order to denote that a given
         <a href="https://www.w3.org/TR/wot-architecture/#dfn-thing">Web Thing</a>
-        conforms to one or more profiles, its Thing Description MUST include a
+        conforms to one or more <a>Profiles</a>, its Thing Description MUST include a
         <a href="https://w3c.github.io/wot-thing-description/#thing">
           <code>profile</code></a> member [[wot-thing-description11]].
       </span>
       <span class="rfc2119-assertion" id="profiling-mechanism-3">
         The value of the <code>profile</code> member MUST be set to either a
-        valid URI [[RFC3986]] identifying a single profile, or an array of valid
-        URIs identifying multiple profiles.
+        valid URI [[RFC3986]] identifying a single <a>Profile</a>, or an array of valid
+        URIs identifying multiple <a>Profiles</a>.
       </span>
     </p>
     <p>
@@ -404,11 +404,6 @@
         <code>https://www.w3.org/2022/wot/td/v1.1</code> in order to denote that
         the document is using version 1.1 of the Thing Description
         specification. [[wot-thing-description11]].
-      </span>
-      <span class="rfc2119-assertion" id="profiling-mechanism-5">
-        All Things and Consumers conforming to a profile MUST satisfy the assertions specified in the [[wot-thing-description11]],
-        except for the assertion <code>td-context-ns-td10-namespacev10</code> with text <code>TD 1.1 consumers MUST accept
-          TDs satisfying the W3C WoT Thing Description 1.0 [wot-thing-description] specification.</code>
       </span>
     </p>
     <pre class="example">
@@ -434,11 +429,43 @@
       ...
     }
     </pre>
+    <p>
+      <span class="rfc2119-assertion" id="profiling-mechanism-5">
+        All Things and Consumers conforming to a <a>Profile</a> MUST satisfy the assertions specified in the WoT Thing 
+        Description specification [[wot-thing-description11]],
+        except for the assertion with text &quot;TD 1.1 consumers MUST accept
+        TDs satisfying the W3C WoT Thing Description 1.0 [wot-thing-description] specification.&quot;
+      </span>
+    </p>
+    <p>
+      <span class="rfc2119-assertion" id="profiling-mechanism-6">
+        A <a>Profile</a> SHOULD NOT redefine defaults from protocol binding templates [[wot-binding-templates]].
+      </span>
+      E.g., if a profile uses an HTTP protocol binding and the HTTP Binding Template specifies that in an 
+      HTTP protocol binding the default value of <code>htv:methodName</code> for a <code>readproperty</code>
+      operation is <code>GET</code>, the profile should not redefine that value as <code>POST</code>.
+    </p>
+    <p>
+      <span class="rfc2119-assertion" id="profiling-mechanism-7">
+        A <a>Profile</a> SHOULD NOT require a <a>Thing</a> to respond in a way which would be unexpected by a 
+        <a>Consumer</a> which does not implement the <a>Profile</a>.
+      </span>
+      E.g., a <a>Profile</a> may define details of a protocol binding for a <code>queryaction</code> operation which would not
+      currently be possible to fully describe using a protocol binding template in a <a>Thing Description</a> (due to
+      current limitations of the WoT Thing Description 1.1 specification), and would be consumable by a conformant
+      <a>Consumer</a>, but any other action-related operations exposed by the <a>Thing Description</a> ought to still
+      respond in the way that a Consumer which does not implement the <a>Profile</a> would expect.
+    </p>
     <p class="note">
-      Conforming to a Profile does not prevent a Web Thing from describing
-      additional capabilities and protocol bindings in their Thing Description
-      beyond those described in the Profile, as long as they conform with all of
-      the normative assertions of the Profile.
+      Conforming to a <a>Profile</a> does not prevent a Web Thing from describing
+      additional capabilities and protocol bindings in their <a>Thing Description</a>
+      beyond those described in the <a>Profile</a>, as long as they conform with all of
+      the normative assertions of the <a>Profile</a>.
+    </p>
+    <p class="note">
+      Just because a <a>Thing Description</a> claims that the Thing it describes conforms to a given <a>Profile</a>,
+      a <a>Consumer</a> should not assume that it does in fact conform. E.g. a <a>Consumer</a> should be able 
+      to recover gracefully if a <a>Thing</a> does not respond as specified to a given operation.
     </p>
   </section>
 
