@@ -1225,7 +1225,7 @@
               <li><code>Accept</code> header set to <code>application/json
               </code></li>
               <li><code>Content-Type</code> header set to <code>application/json
-              </code></li>
+              </code> (only if the action has an input)</li>
               <li>A body with an input to the action, if any, serialized in
                 JSON</li>
             </ul>
@@ -1240,6 +1240,17 @@
             "duration": 5
           }
           </pre>
+          <p>
+            <span class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-5">
+              If the action does not have an input then the <code>Content-type</code> header of 
+              the request SHOULD NOT be set, and the body should be empty.
+            </span>
+          </p>
+          <p class="note">
+            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks 
+            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid 
+            action input and is not considered to be an "empty" body.
+          </p>
           <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-6">
             <p>
               If a Web Thing receives an HTTP request following the format
@@ -1417,23 +1428,39 @@
           <h6 id="sync-action-response">Synchronous Action Response</h6>
           <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-20">
             <p>
-              If providing a Synchronous Action Response, a Web Thing MUST send
-              an HTTP response with:
+              If providing a Synchronous Action Response for an action with an output,
+              a Web Thing MUST send an HTTP response with:
             </p>
             <ul>
               <li>Status code set to <code>200</code></li>
-              <li><code>Content-Type</code> header set to
-                <code>application/json</code>
-              </li>
-              <li>A body containing the output of the action, if any, serialized
-                in JSON</li>
+              <li><code>Content-Type</code> header set to <code>application/json</code></li>
+              <li>A body containing the output of the action, serialized in JSON</li>
             </ul>
           </div>
-          <pre class="example">
+          <pre class="example" title="Synchronous action response with an output">
             HTTP/1.1 200 OK
             Content-Type: application/json
+            20
           </pre>
-
+          <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-20a">
+            <p>
+              If providing a Synchronous Action Response for an action with no output,
+              a Web Thing MUST send an HTTP response with:
+            </p>
+            <ul>
+              <li>Status code set to <code>204</code></li>
+              <li><code>Content-Type</code> header not set</li>
+              <li>An empty body</li>
+            </ul>
+          </div>
+          <pre class="example" title="Synchronous action response without an output"> 
+            HTTP/1.1 204 No Content
+          </pre>
+          <p class="note">
+            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks 
+            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid 
+            action output and is not considered to be an "empty" body.
+          </p>
           <h6 id="async-action-response">Asynchronous Action Response</h6>
           <div class="rfc2119-assertion" id="http-basic-profile-protocol-binding-invokeaction-21">
             <p>
@@ -3249,7 +3276,8 @@
             <ul>
               <li>Method set to <code>POST</code></li>
               <li>URL set to the callback URL provided by the <a>Consumer</a> when subscribing to the event</li>
-              <li><code>Content-Type</code> header set to <code>application/json</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json</code> 
+                (only if the event has a data payload)</li>
               <li>A <code>Link</code> header with the URL set to the URL of the corresponding Event Affordance,
                 and <code>rel</code> set to <code>self</code></li>
               <li>A <code>Date</code> header automatically set to the time the event occurred by the 
@@ -3264,6 +3292,11 @@
             If the event does not include a data payload then the <code>Content-type</code> header of 
             the request SHOULD NOT be set, and the body should be empty.
           </span></p>
+          <p class="note">
+            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks 
+            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid 
+            data payload and is not considered to be an "empty" body.
+          </p>
           <pre class="example" title="Event notification request">
             POST /listeners/e79dd0a5-4537-4ded-a10f-bb4eb2aca28d HTTP/1.1
             Host: myconsumer.com
@@ -3407,7 +3440,8 @@
             <ul>
               <li>Method set to <code>POST</code></li>
               <li>URL set to the callback URL provided by the <a>Consumer</a> when registering the subscription</li>
-              <li><code>Content-Type</code> header set to <code>application/json</code></li>
+              <li><code>Content-Type</code> header set to <code>application/json</code> 
+                (only if the event contains a data payload)</li>
               <li>A <code>Link</code> header with the URL set to the URL of the corresponding Event Affordance,
                 and <code>rel</code> set to <code>self</code></li>
               <li>A <code>Date</code> header automatically set to the time the event occurred by the 
@@ -3423,6 +3457,11 @@
             If the event does not include a data payload then the <code>Content-type</code> header of 
             the request SHOULD NOT be set, and the body should be empty.
           </span></p>
+          <p class="note">
+            A valid JSON value &mdash; such as <code>null</code>, empty quotation marks 
+            (<code>""</code>), or empty braces (<code>{}</code>) &mdash; could be a valid 
+            data payload and is not considered to be an "empty" body.
+          </p>
           <pre class="example" title="Event notification request">
             POST /listeners/bdd2aa13-387b-4c97-9725-52294a9fa5a9 HTTP/1.1
             Host: myconsumer.com
