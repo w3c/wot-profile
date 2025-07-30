@@ -518,38 +518,45 @@
       <h2>Security</h2>
         <div class="rfc2119-assertion" id="common-constraints-security-1">
           <p>
-            Below is a list of <a
-              href="https://w3c.github.io/wot-thing-description/#sec-security-vocabulary-definition">
-              security schemes</a> [[wot-thing-description11]] which conformant Web
-            Things MAY use:
+            Conformant Web Things MUST use at least one of the following security schemes [[wot-thing-description11]]:
           </p>
           <ul>
             <li>
-              <a href="https://w3c.github.io/wot-thing-description/#nosecurityscheme">
                 <code>NoSecurityScheme</code>
-              </a>
             </li>
             <li>
-              <a href="https://w3c.github.io/wot-thing-description/#basicsecurityscheme">
                 <code>BasicSecurityScheme</code>
-              </a>
             </li>
             <li>
-              <a href="https://w3c.github.io/wot-thing-description/#oauth2securityscheme">
-                <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow.
-              </a>
+                <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow
             </li>
           </ul>
         </div>
-        <p><span class="rfc2119-assertion" id="common-constraints-security-2">
-            Conformant Consumers MUST support at least all of these security schemes.</span>
-        </p>
-
+        <div class="rfc2119-assertion" id="common-constraints-security-2">
+          <p>
+            Conformant Consumers MUST support all of the following security schemes [[wot-thing-description11]]:
+          </p>
+            <ul>
+              <li>
+                  <code>NoSecurityScheme</code>
+              </li>
+              <li>
+                  <code>BasicSecurityScheme</code>
+              </li>
+              <li>
+                  <code>OAuth2SecurityScheme</code> with the <code>code</code> or <code>client</code> flow
+              </li>
+              <li>
+                   <code>ComboSecurityScheme</code> with the <code>oneOf</code> member containing at least one of the schemes above
+              </li>
+            </ul>
+        </div>
         <p><span class="rfc2119-assertion" id="common-constraints-security-3">
             A Thing MAY implement multiple security schemes.</span>
         </p>
-        <p><span class="rfc2119-assertion" id="common-constraints-security-4">
-            A Thing MUST support at least one of the above security schemes.</span>
+    	<p><span class="rfc2119-assertion" id="common-constraints-security-4">
+            If a Thing supports multiple security schemes it MUST use the <code>ComboSecurityScheme</code> to enumerate those schemes using 
+	    the <code>oneOf</code> member, so that only one security scheme is required to be used at a time.</span>
         </p>
         <p><span class="rfc2119-assertion" id="common-constraints-security-basic-in">
             For the <code>BasicSecurityScheme</code> the "in" field MUST be either omitted
