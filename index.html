@@ -303,14 +303,14 @@
         Domain specific ontologies, e.g. semantic interop of automotive and medical devices exceed the scope of the
         this specification.
       </p>
-      <h3 id="out-of-the-box-interoperability-organisational-interop">Organisational Interoperability</h3>
+      <h3 id="out-of-the-box-interoperability-organisational-interop">Organizational Interoperability</h3>
       <p>
-        <em>Organisational Interoperability</em> in the profile context implies that any <a>Consumer</a>
+        <em>Organizational Interoperability</em> in the profile context implies that any <a>Consumer</a>
         which conforms with a given profile can interact with any Thing which conforms
         with the same <a>Profile</a>, without additional customization.
       </p>
       <p>
-        Organisational Interoperability also requires commonly agreed approaches to security,
+        Organizational Interoperability also requires commonly agreed approaches to security,
         trust and privacy, i.e. a <a>Consumer</a> is provided access to Things only when these
         common terms and conditions are applied.
       </p>
@@ -733,7 +733,7 @@
           (e.g. <code>418 I'm a teapot</code>).</span>
         <span class="rfc2119-assertion" id="common-constraints-errors-6">
           <a>Consumers</a> MAY interpret other valid HTTP error codes as a generic <code>4xx</code> or <code>5xx</code>
-          error with no special defined behaviour.</span>
+          error with no special defined behavior.</span>
       </p>
       <p>
         <span class="rfc2119-assertion" id="common-constraints-errors-7">
@@ -2064,8 +2064,8 @@
               the <a>Consumer</a> in a <code>Last-Event-ID</code> header.</span>
           </p>
           <p class="note" title="application/json wrapped in text/event-stream">
-            <a>Property</a> values are serialised in JSON and provided in the <code>data</code>
-            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The
+            <a>Property</a> values are serialized in JSON and provided in the <code>data</code>
+            field of a Server-Sent Event serialized in <code>text/event-stream</code> format. The
             <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the
             <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is
             indicated in <code>contentType</code> member of the Form (with defaults applied).
@@ -2236,8 +2236,8 @@
               the <a>Consumer</a> in a <code>Last-Event-ID</code> header.</span>
           </p>
           <p class="note" title="application/json wrapped in text/event-stream">
-            Property values are serialised in JSON and provided in the <code>data</code>
-            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The
+            Property values are serialized in JSON and provided in the <code>data</code>
+            field of a Server-Sent Event serialized in <code>text/event-stream</code> format. The
             <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the
             <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is
             indicated in <code>contentType</code> member of the Form (with defaults applied).
@@ -2422,8 +2422,8 @@
               <code>Last-Event-ID</code> header.</span>
           </p>
           <p class="note" title="application/json wrapped in text/event-stream">
-            Event payloads are serialised in JSON and provided in the <code>data</code>
-            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The
+            Event payloads are serialized in JSON and provided in the <code>data</code>
+            field of a Server-Sent Event serialized in <code>text/event-stream</code> format. The
             <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the
             <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is
             indicated in <code>contentType</code> member of the Form (with defaults applied).
@@ -2589,8 +2589,8 @@
               <code>Last-Event-ID</code> header.</span>
           </p>
           <p class="note" title="application/json wrapped in text/event-stream">
-            Event payloads are serialised in JSON and provided in the <code>data</code>
-            field of a Server-Sent Event serialised in <code>text/event-stream</code> format. The
+            Event payloads are serialized in JSON and provided in the <code>data</code>
+            field of a Server-Sent Event serialized in <code>text/event-stream</code> format. The
             <code>text/event-stream</code> content type used in HTTP headers is assumed to be implied by the
             <code>sse</code> subprotocol, and the embedded <code>application/json</code> content type is
             indicated in <code>contentType</code> member of the Form (with defaults applied).
@@ -2918,7 +2918,7 @@
                 user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a>
                 format from [[rfc9110]]
               </li>
-              <li>A body containing the new value of the <a>Property</a>, serialised in JSON and conforming to the data
+              <li>A body containing the new value of the <a>Property</a>, serialized in JSON and conforming to the data
                 schema of
                 the <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance"></a>Property Affordance
               </li>
@@ -3064,7 +3064,7 @@
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-5">
             <p>
               Whilst the properties observation subscription is registered, whenever a change in the value of any
-              observeable <a>Property</a> occurs, the <a>Web Thing</a> MUST send an HTTP request to the observing
+              observable <a>Property</a> occurs, the <a>Web Thing</a> MUST send an HTTP request to the observing
               <a>Consumer</a> with:
             </p>
             <ul>
@@ -3080,7 +3080,7 @@
                 user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a>
                 format from [[rfc9110]]
               </li>
-              <li>A body containing the new value of the <a>Property</a>, serialised in JSON and conforming to the data
+              <li>A body containing the new value of the <a>Property</a>, serialized in JSON and conforming to the data
                 schema of
                 the <a href="https://www.w3.org/TR/wot-thing-description/#propertyaffordance">PropertyAffordance</a>
               </li>
@@ -3242,7 +3242,7 @@
                 user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a>
                 format from [[rfc9110]]
               </li>
-              <li>A body containing the data payload of the event, if any, serialised in JSON and conforming to the
+              <li>A body containing the data payload of the event, if any, serialized in JSON and conforming to the
                 data schema of the <a
                   href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">EventAffordance</a>
               </li>
@@ -3408,7 +3408,7 @@
                 user agent, using the HTTP <a href="https://httpwg.org/specs/rfc9110.html#rfc.section.6.6.1">Date</a>
                 format from [[rfc9110]]
               </li>
-              <li>A body containing the event data payload, if any, serialised in JSON and conforming to the data schema
+              <li>A body containing the event data payload, if any, serialized in JSON and conforming to the data schema
                 of the <a href="https://www.w3.org/TR/wot-thing-description/#eventaffordance">EventAffordance</a>
               </li>
             </ul>
