@@ -24,7 +24,7 @@ development. It is expected that additional profiles for thing
 templates and other protocols will be defined in the near future.
 
 Devices that constrain their use of the Thing Description to a profile defined by the
-**WoT Profiles Specification** can **interoperate other out-of-the-box** with Consumer that conform to that profile.
+**WoT Profiles Specification** can **interoperate other out-of-the-box** with Consumers that conform to that profile.
 
 A rendered version of the WoT Profiles specification is available at: [WoT Profiles](http://w3c.github.io/wot-profile/)
 
