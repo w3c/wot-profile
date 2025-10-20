@@ -128,46 +128,48 @@
     <section id="profile-registry-entries-requirements">
       <h3>Profile Registry Entries</h3>
       <ol>
-        <li>Each Profile specification shall specify an identifier (a stable URI) which identifies the profile</li>
-        <li>Profiles may constrain a finite set of protocol bindings that a conformant Thing may use and that a
-          conformant Consumer can be expected to support
+        <li>Each Profile specification shall specify an identifier (a stable URI) which identifies the profile.</li>
+        <li>Profiles may specify a finite set of protocol bindings that a conformant Thing may use and that a
+          conformant Consumer can be expected to support.
           <ul>
             <li>
               Profiles may constrain conformant Things to always follow certain defaults defined in a protocol binding
-              document
+              document.
             </li>
           </ul>
         </li>
-        <li>Profiles may constrain a finite set of payload bindings that a conformant Thing may use and that a
-          conformant Consumer can be expected to support
+        <li>Profiles may specify a finite set of payload bindings that a conformant Thing may use and that a
+          conformant Consumer can be expected to support.
           <ul>
             <li>Profiles may constrain conformant Things to always follow certain default payload formats defined in a
-              payload binding document</li>
+              payload binding document.</li>
           </ul>
         </li>
-        <li>Profiles may constrain a finite set of security schemes that a conformant Thing may use and that a
-          conformant Consumer can be expected to support</li>
-        <li>Profiles may constrain a finite set of discovery mechanisms that a conformant Thing may use and that a
-          conformant Consumer can be expected to support</li>
-        <li>Profiles may constrain a finite set of link relation types that a conformant Thing is recommended to use,
-          and how they should be interpreted by a WoT Consumer</li>
-        <li>Profiles may constrain a finite set of semantic contexts that a conformant Thing is recommended to use and
-          that a conformant Consumer can be expected to support</li>
-        <li>Profiles shall not directly extend the WoT Thing Description information model, which should be defined
-          using TD context extensions</li>
-        <li>Profiles shall not define concrete protocol bindings, which should be defined as defaults in a protocol
-          binding document and referenced from a Profile instead</li>
-        <li>Profiles shall not define data payload formats, which should be specified in a payload binding document</li>
-        <li>Profiles shall not define new discovery mechanisms, which should be defined in the WoT Discovery
-          specification</li>
-        <li>Profiles shall not define new security schemes, which should be defined in a protocol binding document</li>
-        <li>Profiles shall not include any assertions which would require a Thing Description of a conformant Web Thing
-          to be non-conformant with the Thing Description 2.0 specification</li>
+        <li>Profiles may specify a finite set of security schemes that a conformant Thing may use and that a
+          conformant Consumer can be expected to support.</li>
+        <li>Profiles may specify a finite set of discovery mechanisms that a conformant Thing may use and that a
+          conformant Consumer can be expected to support.</li>
+        <li>Profiles may specify a finite set of link relation types that a conformant Thing is recommended to use,
+          and how they should be interpreted by a WoT Consumer.</li>
+        <li>Profiles may specify a finite set of semantic contexts that a conformant Thing is recommended to use and
+          that a conformant Consumer can be expected to support.</li>
+        <li>Profiles shall not directly extend the WoT Thing Description information model, which should instead be
+          defined using TD context extensions.</li>
+        <li>Profiles shall not define concrete protocol bindings, which should instead be defined as defaults in a
+          protocol binding document and referenced from a Profile.</li>
+        <li>Profiles shall not define data payload formats, which should instead be specified in a payload binding
+          document.</li>
+        <li>Profiles shall not define new discovery mechanisms, which should instead be defined in extensions to, or new
+          versions of, the WoT Discovery specification.</li>
+        <li>Profiles shall not define new security schemes, which should instead be defined in a protocol binding
+          document.</li>
+        <li>Profiles shall not include any assertions which would cause a Thing Description of a conformant Web Thing
+          to be non-conformant with the Thing Description 2.0 specification.</li>
         <li>Profiles shall not include any assertions which conflict with another Profile, so that a Thing may conform
-          with multiple Profiles</li>
-        <li>In order to maximise cross-domain interoperability, Profiles shall not be specific to a single application
-          domain</li>
-        <li>Profiles shall not describe an existing single-vendor IoT platform</li>
+          with multiple Profiles.</li>
+        <li>In order to maximize cross-domain interoperability, Profiles shall not be specific to a single application
+          domain.</li>
+        <li>Profiles shall not be used to describe an existing single-vendor IoT platform.</li>
       </ol>
     </section>
   </section>
