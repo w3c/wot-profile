@@ -36,6 +36,38 @@
 
   <section id="introduction">
     <h2>Introduction</h2>
+    <p>The <a href="https://www.w3.org/WoT/">Web of Things (WoT)</a> seeks to counter the fragmentation of the
+      <a href="https://en.wikipedia.org/wiki/Internet_of_things">Internet of Things (IoT)</a> by using and extending
+      existing, standardized web technologies.
+    </p>
+    <p>The <a href="https://www.w3.org/TR/wot-thing-description/">W3C Web of Things (WoT) Thing Description 1.1
+        specification</a> [[wot-thing-description11]] defines an information model and JSON-based representation format
+      for describing the capabilities of connected devices and the interfaces with which to communicate with them.
+      Thing Descriptions are designed to be protocol-agnostic and flexible enough to describe a wide range of existing
+      IoT devices.</p>
+    <p>In order to provide this level of flexibility the Thing Description specification includes a number of extension
+      points including protocol bindings, payload bindings, security mechanisms, link relations, and semantic contexts.
+      As long as all of the capabilities of a device can be described using a Thing Description and a
+      <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a> [[wot-architecture11]] implements
+      all of the extensions used, the Consumer should be able to interoperate with that device. However, the result of
+      this extensible architecture is that any given Consumer can only interoperate with a subset of possible
+      <a href="https://www.w3.org/TR/wot-architecture/#dfn-web-thing">Web Things</a>.
+    </p>
+    <p>"WoT Profiles" are a mechanism by which out-of-the-box interoperability between WoT Consumers and Things can be
+      guaranteed, by constraining a Thing to a finite list of options for each extension point, and requiring that it
+      conforms to certain defaults. As long as a Consumer implements all of the extensions and defaults prescribed by a
+      Profile, it should be guaranteed to be able to use all of the capabilities of a Thing which conform to that
+      Profile, without Thing-specific customisation.</p>
+    <p>Whilst the Web of Things provides the freedom to describe a wide range of existing IoT systems using Thing
+      Descriptions, Profiles provide an optional additional layer of common constraints to which new implementations can
+      conform in order to benefit from an increased level of interoperability.</p>
+    <p>Profiles are designed to constrain, not extend, the Web of Things. They should only be used to constrain the set
+      of options for existing extension points, never to extend the Web of Things directly.</p>
+    <p>Conforming to a Profile does not prevent a Web Thing from describing additional capabilities or protocol bindings
+      beyond those described in the Profile in their Thing Description, as long as they conform with all of the
+      normative assertions of the Profile. </p>
+    <p>Profiles are designed to promote cross-vendor and cross-domain interoperability, so a Profile should not be
+      restricted to a single application domain.</p>
   </section>
 
   <section id="use-cases">
