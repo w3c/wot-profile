@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>WoT Profiles 2.0 Use Cases & Requirements</title>
+  <script src='https://www.w3.org/Tools/respec/respec-w3c' class='remove' async></script>
+  <script class='remove'>
+    var respecConfig = {
+      specStatus: "DNOTE",
+      noRecTrack: true,
+      editors: [{
+        name: "Ben Francis",
+        company: "Invited Expert",
+        w3cid: "51527"
+      }],
+      github: "w3c/wot-profile",
+      shortName: "wot-profile-2.0-requirements",
+      copyrightStart: 2025,
+      group: "wg/wot",
+      xref: true,
+      wgPublicList: "public-wot-wg",
+      edDraftURI: "https://w3c.github.io/wot-profile/requirements"
+    };
+  </script>
+</head>
+
+<body>
+  <section id='abstract'>
+    This document outlines use cases and requirements for the proposed WoT Profiles 2.0 specification,
+    which is intended to eventually replace WoT Profiles 1.0 [[wot-profile]].
+  </section>
+
+  <section id='sotd'>
+  </section>
+
+  <section id="introduction">
+    <h2>Introduction</h2>
+    <p>The <a href="https://www.w3.org/WoT/">Web of Things (WoT)</a> seeks to counter the fragmentation of the
+      <a href="https://en.wikipedia.org/wiki/Internet_of_things">Internet of Things (IoT)</a> by using and extending
+      existing, standardized web technologies.
+    </p>
+    <p>The <a href="https://www.w3.org/TR/wot-thing-description/">W3C Web of Things (WoT) Thing Description 1.1
+        specification</a> [[wot-thing-description11]] defines an information model and JSON-based representation format
+      for describing the capabilities of connected devices and the interfaces with which to communicate with them.
+      Thing Descriptions are designed to be protocol-agnostic and flexible enough to describe a wide range of existing
+      IoT devices.</p>
+    <p>In order to provide this level of flexibility the Thing Description specification includes a number of extension
+      points including protocol bindings, payload bindings, security mechanisms, link relations, and semantic contexts.
+      As long as all of the capabilities of a device can be described using a Thing Description and a
+      <a href="https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a> [[wot-architecture11]] implements
+      all of the extensions used, the Consumer should be able to interoperate with that device. However, the result of
+      this extensible architecture is that any given Consumer can only interoperate with a subset of possible
+      <a href="https://www.w3.org/TR/wot-architecture/#dfn-web-thing">Web Things</a>.
+    </p>
+    <p>"WoT Profiles" are a mechanism by which out-of-the-box interoperability between WoT Consumers and Things can be
+      guaranteed, by constraining a Thing to a finite list of options for each extension point, and requiring that it
+      conforms to certain defaults. As long as a Consumer implements all of the extensions and defaults prescribed by a
+      Profile, it should be guaranteed to be able to use all of the capabilities of a Thing which conform to that
+      Profile, without Thing-specific customisation.</p>
+    <p>Whilst the Web of Things provides the freedom to describe a wide range of existing IoT systems using Thing
+      Descriptions, Profiles provide an optional additional layer of common constraints to which new implementations can
+      conform in order to benefit from an increased level of interoperability.</p>
+    <p>Profiles are designed to constrain, not extend, the Web of Things. They should only be used to constrain the set
+      of options for existing extension points, never to extend the Web of Things directly.</p>
+    <p>Conforming to a Profile does not prevent a Web Thing from describing additional capabilities or protocol bindings
+      beyond those described in the Profile in their Thing Description, as long as they conform with all of the
+      normative assertions of the Profile. </p>
+    <p>Profiles are designed to promote cross-vendor and cross-domain interoperability, so a Profile should not be
+      restricted to a single application domain.</p>
+  </section>
+
+  <section id="use-cases">
+    <h2>Use Cases</h2>
+    <section id="smart-home-use-cases">
+      <h3>Smart Home</h3>
+      <p>As a developer of DIY smart home hub software, I want to safely expose a standardized web-based API for
+        monitoring and controlling a range of smart home devices using different underlying protocols, so that cloud
+        services from multiple vendors can add value to a user's smart home without having to implement a
+        vendor-specific API.</p>
+      <p>As a developer of a smart home mobile app, I want to offer my users out-of-the-box interoperability with a
+        wide range of smart home devices so that I can maximise the audience for my app.</p>
+      <p>As a developer of a smart home device, I want my device to be controllable by any smart home hub software
+        and/or any smart home mobile app that conforms to a common standard.</p>
+    </section>
+
+    <section id="smart-building-use-cases">
+      <h3>Smart Buildings</h3>
+      <p>As a developer of a smart building hub, I want to consolidate multiple building management systems from
+        different vendors into a standardized web-based API, which cloud services can consume to safely monitor
+        and control commercial buildings over the web without needing to implement vendor-specific APIs.
+      </p>
+      <p>As a developer of a smart building cloud service, I want to be able to provide data analytics for smart
+        buildings using smart building hubs from different vendors whose APIs conform to a common standard, rather than
+        having to implement multiple vendor-specific APIs.
+      </p>
+    </section>
+  </section>
+
+  <section id="requirements">
+    <h2>Requirements</h2>
+    <section id="profiling-mechanism-requirements">
+      <h3>Profiling Mechanism</h3>
+      <ol>
+        <li>The specification shall define a mechanism by which the author of a WoT Thing Description can denote that
+          the Thing it describes conforms to a particular profile.</li>
+      </ol>
+    </section>
+
+    <section id="profile-registry-requirements">
+      <h3>Profile Registry</h3>
+      <ol>
+        <li>The specification shall define a <a href="https://www.w3.org/policies/process/#reg-def">registry</a>
+          [[w3c-process]] of Profiles to which WoT Things and WoT Consumers may conform, including:
+          <ol>
+            <li>A registry definition which defines the fields of the registry table, the policy for modifying entries,
+              the custodian of the registry, and what an individual Profile specification may and may not contain.</li>
+            <li>A registry table which enumerates the registered Profiles, including stable URIs that identify them.
+            </li>
+          </ol>
+        </li>
+        <li>To minimize fragmentation on the Web of Things (WoT), the registry definition shall guide the custodian
+          toward keeping the number of registered profiles as small as possible, by rejecting registration of
+          profiles that significantly overlap in technologies or use cases.</li>
+      </ol>
+    </section>
+
+    <section id="profile-registry-entries-requirements">
+      <h3>Profile Registry Entries</h3>
+      <ol>
+        <li>Each Profile specification shall specify an identifier (a stable URI) which identifies the profile.</li>
+        <li>Profiles may specify a finite set of protocol bindings that a conformant Thing may use and that a
+          conformant Consumer can be expected to support.
+          <ul>
+            <li>
+              Profiles may constrain conformant Things to always follow certain defaults defined in a protocol binding
+              document.
+            </li>
+          </ul>
+        </li>
+        <li>Profiles may specify a finite set of payload bindings that a conformant Thing may use and that a
+          conformant Consumer can be expected to support.
+          <ul>
+            <li>Profiles may constrain conformant Things to always follow certain default payload formats defined in a
+              payload binding document.</li>
+          </ul>
+        </li>
+        <li>Profiles may specify a finite set of security schemes that a conformant Thing may use and that a
+          conformant Consumer can be expected to support.</li>
+        <li>Profiles may specify a finite set of discovery mechanisms that a conformant Thing may use and that a
+          conformant Consumer can be expected to support.</li>
+        <li>Profiles may specify a finite set of link relation types that a conformant Thing is recommended to use,
+          and how they should be interpreted by a WoT Consumer.</li>
+        <li>Profiles may specify a finite set of semantic contexts that a conformant Thing is recommended to use and
+          that a conformant Consumer can be expected to support.</li>
+        <li>Profiles shall not directly extend the WoT Thing Description information model, which should instead be
+          defined using TD context extensions.</li>
+        <li>Profiles shall not define concrete protocol bindings, which should instead be defined as defaults in a
+          protocol binding document and referenced from a Profile.</li>
+        <li>Profiles shall not define data payload formats, which should instead be specified in a payload binding
+          document.</li>
+        <li>Profiles shall not define new discovery mechanisms, which should instead be defined in extensions to, or new
+          versions of, the WoT Discovery specification.</li>
+        <li>Profiles shall not define new security schemes, which should instead be defined in a protocol binding
+          document.</li>
+        <li>Profiles shall not include any assertions which would cause a Thing Description of a conformant Web Thing
+          to be non-conformant with the Thing Description 2.0 specification.</li>
+        <li>Profiles registered in the Profile Registry should avoid including assertions which conflict with 
+          assertions in other Profiles in the Profile Registry, so that Things may conform to multiple Profiles.</li>
+        <li>In order to maximize cross-domain interoperability, Profiles shall not be specific to a single application
+          domain.</li>
+        <li>Profiles shall not be used to describe an existing single-vendor IoT platform.</li>
+      </ol>
+    </section>
+  </section>
+
+</body>
+
+</html>

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta charset="utf-8">
+  <meta name="generator" content="ReSpec 35.6.0">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+  dfn{cursor:pointer}
+  .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+  .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+  .dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+  .dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+  .dfn-panel *{margin:0}
+  .dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+  .dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+  .dfn-panel>div{display:flex}
+  .dfn-panel a.self-link{font-weight:700;margin-right:auto}
+  .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+  .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+  .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+  .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+  .dfn-panel a[href]:hover{border-bottom-width:1px}
+  .dfn-panel ul{padding:0}
+  .dfn-panel li{margin-left:1em}
+  .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+  </style>
+  <title>WoT Profiles 2.0 Use Cases & Requirements</title>
+  <style id="respec-mainstyle">
+  @keyframes pop{
+  0%{transform:scale(1,1)}
+  25%{transform:scale(1.25,1.25);opacity:.75}
+  100%{transform:scale(1,1)}
+  }
+  a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+  a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+  a.bibref{text-decoration:none}
+  .respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+  .respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+  @supports not (text-decoration:red wavy underline){
+  .respec-offending-element:not(pre){display:inline-block}
+  .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+  }
+  #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+  cite .bibref{font-style:italic}
+  a[href].orcid{padding-left:4px;padding-right:4px}
+  a[href].orcid>svg{margin-bottom:-2px}
+  ol.tof,ul.tof{list-style:none outside none}
+  .caption{margin-top:.5em;font-style:italic}
+  #issue-summary>ul{column-count:2}
+  #issue-summary li{list-style:none;display:inline-block}
+  details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+  details.respec-tests-details>*{padding-right:2em}
+  details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+  details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+  details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+  details.respec-tests-details>li{padding-left:1em}
+  .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+  aside.example .marker>a.self-link{color:inherit}
+  .header-wrapper{display:flex;align-items:baseline}
+  :is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+  :is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+  :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+  :is(h2,h3)+a.self-link{top:-.2em}
+  :is(h4,h5,h6)+a.self-link::before{color:#000}
+  @media (max-width:767px){
+  dd{margin-left:0}
+  }
+  @media print{
+  .removeOnSave{display:none}
+  }
+  </style>
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href=
+  "https://www.w3.org/TR/wot-profile-2.0-requirements/">
+  <style>
+  var:hover{text-decoration:underline;cursor:pointer}
+  var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
+  @media (prefers-color-scheme:dark){
+  var.respec-hl{filter:saturate(.9) brightness(.9)}
+  }
+  var.respec-hl-c1{--bg-color:#f4d200}
+  var.respec-hl-c2{--bg-color:#ff87a2}
+  var.respec-hl-c3{--bg-color:#96e885}
+  var.respec-hl-c4{--bg-color:#3eeed2}
+  var.respec-hl-c5{--bg-color:#eacfb6}
+  var.respec-hl-c6{--bg-color:#82ddff}
+  var.respec-hl-c7{--bg-color:#ffbcf2}
+  @media print{
+  var.respec-hl{background:0 0;color:#000;box-shadow:unset}
+  }
+  </style>
+  <style>
+  var{position:relative;cursor:pointer}
+  var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+  var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
+  var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+  var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+  </style>
+  <script id="initialUserConfig" type="application/json">
+  {
+  "specStatus": "DNOTE",
+  "noRecTrack": true,
+  "editors": [
+    {
+      "name": "Ben Francis",
+      "company": "Invited Expert",
+      "w3cid": "51527"
+    }
+  ],
+  "github": "w3c/wot-profile",
+  "shortName": "wot-profile-2.0-requirements",
+  "copyrightStart": 2025,
+  "group": "wg/wot",
+  "xref": true,
+  "wgPublicList": "public-wot-wg",
+  "edDraftURI": "https://w3c.github.io/wot-profile/requirements",
+  "publishISODate": "2025-10-24T00:00:00.000Z",
+  "generatedSubtitle": "W3C Group Draft Note 24 October 2025"
+  }
+  </script>
+  <link rel="stylesheet" href=
+  "https://www.w3.org/StyleSheets/TR/2021/W3C-DNOTE">
+</head>
+<body class="h-entry informative">
+  <div class="head">
+    <p class="logos"><a class="logo" href=
+    "https://www.w3.org/"><img crossorigin="" alt="W3C" height="48"
+    src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
+    "72"></a></p>
+    <h1 id="title" class="title">WoT Profiles 2.0 Use Cases &
+    Requirements</h1>
+    <p id="w3c-state"><a href=
+    "https://www.w3.org/standards/types#DNOTE">W3C Group Draft
+    Note</a> <time class="dt-published" datetime="2025-10-24">24
+    October 2025</time></p>
+    <details open="">
+      <summary>
+        More details about this document
+      </summary>
+      <dl>
+        <dt>This version:</dt>
+        <dd>
+          <a class="u-url" href=
+          "https://www.w3.org/TR/2025/DNOTE-wot-profile-2.0-requirements-20251024/">
+          https://www.w3.org/TR/2025/DNOTE-wot-profile-2.0-requirements-20251024/</a>
+        </dd>
+        <dt>Latest published version:</dt>
+        <dd>
+          <a href=
+          "https://www.w3.org/TR/wot-profile-2.0-requirements/">https://www.w3.org/TR/wot-profile-2.0-requirements/</a>
+        </dd>
+        <dt>Latest editor's draft:</dt>
+        <dd>
+          <a href=
+          "https://w3c.github.io/wot-profile/requirements">https://w3c.github.io/wot-profile/requirements</a>
+        </dd>
+        <dt>History:</dt>
+        <dd>
+          <a href=
+          "https://www.w3.org/standards/history/wot-profile-2.0-requirements/">
+          https://www.w3.org/standards/history/wot-profile-2.0-requirements/</a>
+        </dd>
+        <dd>
+          <a href=
+          "https://github.com/w3c/wot-profile/commits/">Commit
+          history</a>
+        </dd>
+        <dt>Editor:</dt>
+        <dd class="editor p-author h-card vcard" data-editor-id=
+        "51527"><span class="p-name fn">Ben Francis</span>
+        (<span class="p-org org h-org">Invited Expert</span>)</dd>
+        <dt>Feedback:</dt>
+        <dd>
+          <a href="https://github.com/w3c/wot-profile/">GitHub
+          w3c/wot-profile</a> (<a href=
+          "https://github.com/w3c/wot-profile/pulls/">pull
+          requests</a>, <a href=
+          "https://github.com/w3c/wot-profile/issues/new/choose">new
+          issue</a>, <a href=
+          "https://github.com/w3c/wot-profile/issues/">open
+          issues</a>)
+        </dd>
+        <dd>
+          <a href=
+          "mailto:public-wot-wg@w3.org?subject=%5Bwot-profile-2.0-requirements%5D%20YOUR%20TOPIC%20HERE">
+          public-wot-wg@w3.org</a> with subject line
+          <kbd>[wot-profile-2.0-requirements] <em>… message topic
+          …</em></kbd> (<a rel="discussion" href=
+          "https://lists.w3.org/Archives/Public/public-wot-wg">archives</a>)
+        </dd>
+      </dl>
+    </details>
+    <p class="copyright"><a href=
+    "https://www.w3.org/policies/#copyright">Copyright</a> © 2025
+    <a href="https://www.w3.org/">World Wide Web Consortium</a>.
+    <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
+    <a href=
+    "https://www.w3.org/policies/#Legal_Disclaimer">liability</a>,
+    <a href=
+    "https://www.w3.org/policies/#W3C_Trademarks">trademark</a> and
+    <a rel="license" href=
+    "https://www.w3.org/copyright/software-license-2023/" title=
+    "W3C Software and Document Notice and License">permissive
+    document license</a> rules apply.</p>
+    <hr title="Separator for header">
+  </div>
+  <section id="abstract" class="introductory">
+    <h2>Abstract</h2>This document outlines use cases and
+    requirements for the proposed WoT Profiles 2.0 specification,
+    which is intended to eventually replace WoT Profiles 1.0
+    [<cite><a class="bibref" data-link-type="biblio" href=
+    "#bib-wot-profile" title=
+    "Web of Things (WoT) Profile">wot-profile</a></cite>].
+  </section>
+  <section id="sotd" class="introductory">
+    <h2>Status of This Document</h2>
+    <p><em>This section describes the status of this document at
+    the time of its publication. A list of current <abbr title=
+    "World Wide Web Consortium">W3C</abbr> publications and the
+    latest revision of this technical report can be found in the
+    <a href="https://www.w3.org/TR/"><abbr title=
+    "World Wide Web Consortium">W3C</abbr> standards and drafts
+    index</a>.</em></p>
+    <p>This document was published by the <a href=
+    "https://www.w3.org/groups/wg/wot">Web of Things Working
+    Group</a> as a Group Draft Note using the <a href=
+    "https://www.w3.org/policies/process/20250818/#recs-and-notes">Note
+    track</a>.</p>
+    <p>Group Draft Notes are not endorsed by <abbr title=
+    "World Wide Web Consortium">W3C</abbr> nor its Members.</p>
+    <p>This is a draft document and may be updated, replaced, or
+    obsoleted by other documents at any time. It is inappropriate
+    to cite this document as other than a work in progress.</p>
+    <p data-deliverer="95969">The <a href=
+    "https://www.w3.org/policies/patent-policy/"><abbr title=
+    "World Wide Web Consortium">W3C</abbr> Patent Policy</a> does
+    not carry any licensing requirements or commitments on this
+    document.</p>
+    <p>This document is governed by the <a id=
+    "w3c_process_revision" href=
+    "https://www.w3.org/policies/process/20250818/">18 August 2025
+    <abbr title="World Wide Web Consortium">W3C</abbr> Process
+    Document</a>.</p>
+  </section>
+  <nav id="toc">
+    <h2 class="introductory" id="table-of-contents">Table of
+    Contents</h2>
+    <ol class="toc">
+      <li class="tocline">
+        <a class="tocxref" href="#abstract">Abstract</a>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#sotd">Status of This Document</a>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#introduction"><bdi class=
+        "secno">1.</bdi> Introduction</a>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#use-cases"><bdi class=
+        "secno">2.</bdi> Use Cases</a>
+        <ol class="toc">
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#smart-home-use-cases"><bdi class="secno">2.1</bdi>
+            Smart Home</a>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#smart-building-use-cases"><bdi class=
+            "secno">2.2</bdi> Smart Buildings</a>
+          </li>
+        </ol>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#requirements"><bdi class=
+        "secno">3.</bdi> Requirements</a>
+        <ol class="toc">
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#profiling-mechanism-requirements"><bdi class=
+            "secno">3.1</bdi> Profiling Mechanism</a>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#profile-registry-requirements"><bdi class=
+            "secno">3.2</bdi> Profile Registry</a>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#profile-registry-entries-requirements"><bdi class=
+            "secno">3.3</bdi> Profile Registry Entries</a>
+          </li>
+        </ol>
+      </li>
+      <li class="tocline">
+        <a class="tocxref" href="#references"><bdi class=
+        "secno">A.</bdi> References</a>
+        <ol class="toc">
+          <li class="tocline">
+            <a class="tocxref" href=
+            "#informative-references"><bdi class="secno">A.1</bdi>
+            Informative references</a>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </nav>
+  <section id="introduction">
+    <div class="header-wrapper">
+      <h2 id="x1-introduction"><bdi class="secno">1.</bdi>
+      Introduction</h2><a class="self-link" href="#introduction"
+      aria-label="Permalink for Section 1."></a>
+    </div>
+    <p>The <a href="https://www.w3.org/WoT/">Web of Things
+    (WoT)</a> seeks to counter the fragmentation of the <a href=
+    "https://en.wikipedia.org/wiki/Internet_of_things">Internet of
+    Things (IoT)</a> by using and extending existing, standardized
+    web technologies.</p>
+    <p>The <a href=
+    "https://www.w3.org/TR/wot-thing-description/"><abbr title=
+    "World Wide Web Consortium">W3C</abbr> Web of Things (WoT)
+    Thing Description 1.1 specification</a> [<cite><a class=
+    "bibref" data-link-type="biblio" href=
+    "#bib-wot-thing-description11" title=
+    "Web of Things (WoT) Thing Description 1.1">wot-thing-description11</a></cite>]
+    defines an information model and JSON-based representation
+    format for describing the capabilities of connected devices and
+    the interfaces with which to communicate with them. Thing
+    Descriptions are designed to be protocol-agnostic and flexible
+    enough to describe a wide range of existing IoT devices.</p>
+    <p>In order to provide this level of flexibility the Thing
+    Description specification includes a number of extension points
+    including protocol bindings, payload bindings, security
+    mechanisms, link relations, and semantic contexts. As long as
+    all of the capabilities of a device can be described using a
+    Thing Description and a <a href=
+    "https://www.w3.org/TR/wot-architecture/#dfn-consumer">Consumer</a>
+    [<cite><a class="bibref" data-link-type="biblio" href=
+    "#bib-wot-architecture11" title=
+    "Web of Things (WoT) Architecture 1.1">wot-architecture11</a></cite>]
+    implements all of the extensions used, the Consumer should be
+    able to interoperate with that device. However, the result of
+    this extensible architecture is that any given Consumer can
+    only interoperate with a subset of possible <a href=
+    "https://www.w3.org/TR/wot-architecture/#dfn-web-thing">Web
+    Things</a>.</p>
+    <p>"WoT Profiles" are a mechanism by which out-of-the-box
+    interoperability between WoT Consumers and Things can be
+    guaranteed, by constraining a Thing to a finite list of options
+    for each extension point, and requiring that it conforms to
+    certain defaults. As long as a Consumer implements all of the
+    extensions and defaults prescribed by a Profile, it should be
+    guaranteed to be able to use all of the capabilities of a Thing
+    which conform to that Profile, without Thing-specific
+    customisation.</p>
+    <p>Whilst the Web of Things provides the freedom to describe a
+    wide range of existing IoT systems using Thing Descriptions,
+    Profiles provide an optional additional layer of common
+    constraints to which new implementations can conform in order
+    to benefit from an increased level of interoperability.</p>
+    <p>Profiles are designed to constrain, not extend, the Web of
+    Things. They should only be used to constrain the set of
+    options for existing extension points, never to extend the Web
+    of Things directly.</p>
+    <p>Conforming to a Profile does not prevent a Web Thing from
+    describing additional capabilities or protocol bindings beyond
+    those described in the Profile in their Thing Description, as
+    long as they conform with all of the normative assertions of
+    the Profile.</p>
+    <p>Profiles are designed to promote cross-vendor and
+    cross-domain interoperability, so a Profile should not be
+    restricted to a single application domain.</p>
+  </section>
+  <section id="use-cases">
+    <div class="header-wrapper">
+      <h2 id="x2-use-cases"><bdi class="secno">2.</bdi> Use
+      Cases</h2><a class="self-link" href="#use-cases" aria-label=
+      "Permalink for Section 2."></a>
+    </div>
+    <section id="smart-home-use-cases">
+      <div class="header-wrapper">
+        <h3 id="x2-1-smart-home"><bdi class="secno">2.1</bdi> Smart
+        Home</h3><a class="self-link" href="#smart-home-use-cases"
+        aria-label="Permalink for Section 2.1"></a>
+      </div>
+      <p>As a developer of DIY smart home hub software, I want to
+      safely expose a standardized web-based API for monitoring and
+      controlling a range of smart home devices using different
+      underlying protocols, so that cloud services from multiple
+      vendors can add value to a user's smart home without having
+      to implement a vendor-specific API.</p>
+      <p>As a developer of a smart home mobile app, I want to offer
+      my users out-of-the-box interoperability with a wide range of
+      smart home devices so that I can maximise the audience for my
+      app.</p>
+      <p>As a developer of a smart home device, I want my device to
+      be controllable by any smart home hub software and/or any
+      smart home mobile app that conforms to a common standard.</p>
+    </section>
+    <section id="smart-building-use-cases">
+      <div class="header-wrapper">
+        <h3 id="x2-2-smart-buildings"><bdi class="secno">2.2</bdi>
+        Smart Buildings</h3><a class="self-link" href=
+        "#smart-building-use-cases" aria-label=
+        "Permalink for Section 2.2"></a>
+      </div>
+      <p>As a developer of a smart building hub, I want to
+      consolidate multiple building management systems from
+      different vendors into a standardized web-based API, which
+      cloud services can consume to safely monitor and control
+      commercial buildings over the web without needing to
+      implement vendor-specific APIs.</p>
+      <p>As a developer of a smart building cloud service, I want
+      to be able to provide data analytics for smart buildings
+      using smart building hubs from different vendors whose APIs
+      conform to a common standard, rather than having to implement
+      multiple vendor-specific APIs.</p>
+    </section>
+  </section>
+  <section id="requirements">
+    <div class="header-wrapper">
+      <h2 id="x3-requirements"><bdi class="secno">3.</bdi>
+      Requirements</h2><a class="self-link" href="#requirements"
+      aria-label="Permalink for Section 3."></a>
+    </div>
+    <section id="profiling-mechanism-requirements">
+      <div class="header-wrapper">
+        <h3 id="x3-1-profiling-mechanism"><bdi class=
+        "secno">3.1</bdi> Profiling Mechanism</h3><a class=
+        "self-link" href="#profiling-mechanism-requirements"
+        aria-label="Permalink for Section 3.1"></a>
+      </div>
+      <ol>
+        <li>The specification shall define a mechanism by which the
+        author of a WoT Thing Description can denote that the Thing
+        it describes conforms to a particular profile.</li>
+      </ol>
+    </section>
+    <section id="profile-registry-requirements">
+      <div class="header-wrapper">
+        <h3 id="x3-2-profile-registry"><bdi class="secno">3.2</bdi>
+        Profile Registry</h3><a class="self-link" href=
+        "#profile-registry-requirements" aria-label=
+        "Permalink for Section 3.2"></a>
+      </div>
+      <ol>
+        <li>The specification shall define a <a href=
+        "https://www.w3.org/policies/process/#reg-def">registry</a>
+        [<cite><a class="bibref" data-link-type="biblio" href=
+        "#bib-w3c-process" title=
+        "W3C Process Document">w3c-process</a></cite>] of Profiles
+        to which WoT Things and WoT Consumers may conform,
+        including:
+          <ol>
+            <li>A registry definition which defines the fields of
+            the registry table, the policy for modifying entries,
+            the custodian of the registry, and what an individual
+            Profile specification may and may not contain.</li>
+            <li>A registry table which enumerates the registered
+            Profiles, including stable URIs that identify
+            them.</li>
+          </ol>
+        </li>
+        <li>To minimize fragmentation on the Web of Things (WoT),
+        the registry definition shall guide the custodian toward
+        keeping the number of registered profiles as small as
+        possible, by rejecting registration of profiles that
+        significantly overlap in technologies or use cases.</li>
+      </ol>
+    </section>
+    <section id="profile-registry-entries-requirements">
+      <div class="header-wrapper">
+        <h3 id="x3-3-profile-registry-entries"><bdi class=
+        "secno">3.3</bdi> Profile Registry Entries</h3><a class=
+        "self-link" href="#profile-registry-entries-requirements"
+        aria-label="Permalink for Section 3.3"></a>
+      </div>
+      <ol>
+        <li>Each Profile specification shall specify an identifier
+        (a stable URI) which identifies the profile.</li>
+        <li>Profiles may specify a finite set of protocol bindings
+        that a conformant Thing may use and that a conformant
+        Consumer can be expected to support.
+          <ul>
+            <li>Profiles may constrain conformant Things to always
+            follow certain defaults defined in a protocol binding
+            document.</li>
+          </ul>
+        </li>
+        <li>Profiles may specify a finite set of payload bindings
+        that a conformant Thing may use and that a conformant
+        Consumer can be expected to support.
+          <ul>
+            <li>Profiles may constrain conformant Things to always
+            follow certain default payload formats defined in a
+            payload binding document.</li>
+          </ul>
+        </li>
+        <li>Profiles may specify a finite set of security schemes
+        that a conformant Thing may use and that a conformant
+        Consumer can be expected to support.</li>
+        <li>Profiles may specify a finite set of discovery
+        mechanisms that a conformant Thing may use and that a
+        conformant Consumer can be expected to support.</li>
+        <li>Profiles may specify a finite set of link relation
+        types that a conformant Thing is recommended to use, and
+        how they should be interpreted by a WoT Consumer.</li>
+        <li>Profiles may specify a finite set of semantic contexts
+        that a conformant Thing is recommended to use and that a
+        conformant Consumer can be expected to support.</li>
+        <li>Profiles shall not directly extend the WoT Thing
+        Description information model, which should instead be
+        defined using TD context extensions.</li>
+        <li>Profiles shall not define concrete protocol bindings,
+        which should instead be defined as defaults in a protocol
+        binding document and referenced from a Profile.</li>
+        <li>Profiles shall not define data payload formats, which
+        should instead be specified in a payload binding
+        document.</li>
+        <li>Profiles shall not define new discovery mechanisms,
+        which should instead be defined in extensions to, or new
+        versions of, the WoT Discovery specification.</li>
+        <li>Profiles shall not define new security schemes, which
+        should instead be defined in a protocol binding
+        document.</li>
+        <li>Profiles shall not include any assertions which would
+        cause a Thing Description of a conformant Web Thing to be
+        non-conformant with the Thing Description 2.0
+        specification.</li>
+        <li>Profiles registered in the Profile Registry should
+        avoid including assertions which conflict with assertions
+        in other Profiles in the Profile Registry, so that Things
+        may conform to multiple Profiles.</li>
+        <li>In order to maximize cross-domain interoperability,
+        Profiles shall not be specific to a single application
+        domain.</li>
+        <li>Profiles shall not be used to describe an existing
+        single-vendor IoT platform.</li>
+      </ol>
+    </section>
+  </section>
+  <section id="references" class="appendix">
+    <div class="header-wrapper">
+      <h2 id="a-references"><bdi class="secno">A.</bdi>
+      References</h2><a class="self-link" href="#references"
+      aria-label="Permalink for Appendix A."></a>
+    </div>
+    <section id="informative-references">
+      <div class="header-wrapper">
+        <h3 id="a-1-informative-references"><bdi class=
+        "secno">A.1</bdi> Informative references</h3><a class=
+        "self-link" href="#informative-references" aria-label=
+        "Permalink for Appendix A.1"></a>
+      </div>
+      <dl class="bibliography">
+        <dt id="bib-w3c-process">[w3c-process]</dt>
+        <dd>
+          <a href="https://www.w3.org/policies/process/"><cite>W3C
+          Process Document</cite></a>. Elika J. Etemad (fantasai);
+          Florian Rivoal. W3C. 18 August 2025. URL: <a href=
+          "https://www.w3.org/policies/process/">https://www.w3.org/policies/process/</a>
+        </dd>
+        <dt id="bib-wot-architecture11">[wot-architecture11]</dt>
+        <dd>
+          <a href=
+          "https://www.w3.org/TR/wot-architecture11/"><cite>Web of
+          Things (WoT) Architecture 1.1</cite></a>. Michael
+          Lagally; Ryuichi Matsukura; Kunihiko Toumura; Michael
+          McCool. W3C. 5 December 2023. W3C Recommendation. URL:
+          <a href=
+          "https://www.w3.org/TR/wot-architecture11/">https://www.w3.org/TR/wot-architecture11/</a>
+        </dd>
+        <dt id="bib-wot-profile">[wot-profile]</dt>
+        <dd>
+          <a href="https://www.w3.org/TR/wot-profile/"><cite>Web of
+          Things (WoT) Profile</cite></a>. Michael Lagally; Ben
+          Francis; Michael McCool; Ryuichi Matsukura; Sebastian
+          Käbisch; Tomoaki Mizushima. W3C. 18 January 2023. W3C
+          Working Draft. URL: <a href=
+          "https://www.w3.org/TR/wot-profile/">https://www.w3.org/TR/wot-profile/</a>
+        </dd>
+        <dt id="bib-wot-thing-description11">
+        [wot-thing-description11]</dt>
+        <dd>
+          <a href=
+          "https://www.w3.org/TR/wot-thing-description11/"><cite>Web
+          of Things (WoT) Thing Description 1.1</cite></a>.
+          Sebastian Käbisch; Michael McCool; Ege Korkan. W3C. 5
+          December 2023. W3C Recommendation. URL: <a href=
+          "https://www.w3.org/TR/wot-thing-description11/">https://www.w3.org/TR/wot-thing-description11/</a>
+        </dd>
+      </dl>
+    </section>
+  </section>
+  <p role="navigation" id="back-to-top"><a href=
+  "#title"><abbr title="Back to Top">↑</abbr></a></p>
+  <script id="respec-highlight-vars">
+  (() => {
+  // @ts-check
+
+  if (document.respec) {
+  document.respec.ready.then(setupVarHighlighter);
+  } else {
+  setupVarHighlighter();
+  }
+
+  function setupVarHighlighter() {
+  document
+    .querySelectorAll("var")
+    .forEach(varElem => varElem.addEventListener("click", highlightListener));
+  }
+
+  function highlightListener(ev) {
+  ev.stopPropagation();
+  const { target: varElem } = ev;
+  const hightligtedElems = highlightVars(varElem);
+  const resetListener = () => {
+    const hlColor = getHighlightColor(varElem);
+    hightligtedElems.forEach(el => removeHighlight(el, hlColor));
+    [...HL_COLORS.keys()].forEach(key => HL_COLORS.set(key, true));
+  };
+  if (hightligtedElems.length) {
+    document.body.addEventListener("click", resetListener, { once: true });
+  }
+  }
+
+  // availability of highlight colors. colors from var.css
+  const HL_COLORS = new Map([
+  ["respec-hl-c1", true],
+  ["respec-hl-c2", true],
+  ["respec-hl-c3", true],
+  ["respec-hl-c4", true],
+  ["respec-hl-c5", true],
+  ["respec-hl-c6", true],
+  ["respec-hl-c7", true],
+  ]);
+
+  function getHighlightColor(target) {
+  // return current colors if applicable
+  const { value } = target.classList;
+  const re = /respec-hl-\w+/;
+  const activeClass = re.test(value) && value.match(re);
+  if (activeClass) return activeClass[0];
+
+  // first color preference
+  if (HL_COLORS.get("respec-hl-c1") === true) return "respec-hl-c1";
+
+  // otherwise get some other available color
+  return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
+  }
+
+  function highlightVars(varElem) {
+  const textContent = norm(varElem.textContent);
+  const parent = varElem.closest(".algorithm, section");
+  const highlightColor = getHighlightColor(varElem);
+
+  const varsToHighlight = [...parent.querySelectorAll("var")].filter(
+    el =>
+      norm(el.textContent) === textContent &&
+      el.closest(".algorithm, section") === parent
+  );
+
+  // update availability of highlight color
+  const colorStatus = varsToHighlight[0].classList.contains("respec-hl");
+  HL_COLORS.set(highlightColor, colorStatus);
+
+  // highlight vars
+  if (colorStatus) {
+    varsToHighlight.forEach(el => removeHighlight(el, highlightColor));
+    return [];
+  } else {
+    varsToHighlight.forEach(el => addHighlight(el, highlightColor));
+  }
+  return varsToHighlight;
+  }
+
+  function removeHighlight(el, highlightColor) {
+  el.classList.remove("respec-hl", highlightColor);
+  // clean up empty class attributes so they don't come in export
+  if (!el.classList.length) el.removeAttribute("class");
+  }
+
+  function addHighlight(elem, highlightColor) {
+  elem.classList.add("respec-hl", highlightColor);
+  }
+
+  /**
+  * Same as `norm` from src/core/utils, but our build process doesn't allow
+  * imports in runtime scripts, so duplicated here.
+  * @param {string} str
+  */
+  function norm(str) {
+  return str.trim().replace(/\s+/g, " ");
+  }
+  })()
+  </script>
+  <script id="respec-dfn-panel">
+  (() => {
+  // @ts-check
+  if (document.respec) {
+  document.respec.ready.then(setupPanel);
+  } else {
+  setupPanel();
+  }
+
+  function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+  }
+
+  function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+  }
+
+  /**
+  * @param {MouseEvent|KeyboardEvent} event
+  */
+  function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+  }
+
+  /**
+  * @param {Event} event
+  */
+  function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+  }
+
+  /**
+  * @param {HTMLElement} dfn
+  * @param {HTMLElement} panel
+  * @param {{ x: number, y: number }} clickPosition
+  */
+  function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+  }
+
+  /**
+  * @param {HTMLElement} panel
+  * @param {HTMLElement} dfn
+  * @returns
+  */
+  function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+  }
+
+  /**
+  *
+  * @param {NodeListOf<HTMLAnchorElement>} anchors
+  * @param {HTMLElement} panel
+  * @param {HTMLElement} dfn
+  * @returns
+  */
+  function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+  }
+
+  /** @param {HTMLElement} panel */
+  function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+  }
+  })()
+  </script>
+  <script src=
+  "https://www.w3.org/scripts/TR/2021/fixup.js"></script>
+</body>
+</html>
