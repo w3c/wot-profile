@@ -104,6 +104,9 @@
       <ol>
         <li>The specification shall define a mechanism by which the author of a WoT Thing Description can denote that
           the Thing it describes conforms to a particular profile.</li>
+        <li>The profiling mechanism shall use the <code>profile</code> member of a Thing Description
+          [[thing-description-2.0]] to enumerate the URIs identifying the Profiles to which the Thing it describes
+          conforms.</li>
       </ol>
     </section>
 
@@ -165,7 +168,7 @@
           document.</li>
         <li>Profiles shall not include any assertions which would cause a Thing Description of a conformant Web Thing
           to be non-conformant with the Thing Description 2.0 specification.</li>
-        <li>Profiles registered in the Profile Registry should avoid including assertions which conflict with 
+        <li>Profiles registered in the Profile Registry should avoid including assertions which conflict with
           assertions in other Profiles in the Profile Registry, so that Things may conform to multiple Profiles.</li>
         <li>In order to maximize cross-domain interoperability, Profiles shall not be specific to a single application
           domain.</li>
