@@ -40,8 +40,9 @@
       <a href="https://en.wikipedia.org/wiki/Internet_of_things">Internet of Things (IoT)</a> by using and extending
       existing, standardized web technologies.
     </p>
-    <p>The <a href="https://www.w3.org/TR/wot-thing-description/">W3C Web of Things (WoT) Thing Description 1.1
-        specification</a> [[wot-thing-description11]] defines an information model and JSON-based representation format
+    <p>The <a href="https://www.w3.org/TR/wot-thing-description-2.0/">W3C Web of Things (WoT) Thing Description 2.0
+        specification</a> [[wot-thing-description-2.0]] defines an information model and JSON-based representation
+      format
       for describing the capabilities of connected devices and the interfaces with which to communicate with them.
       Thing Descriptions are designed to be protocol-agnostic and flexible enough to describe a wide range of existing
       IoT devices.</p>
@@ -68,6 +69,17 @@
       normative assertions of the Profile. </p>
     <p>Profiles are designed to promote cross-vendor and cross-domain interoperability, so a Profile should not be
       restricted to a single application domain.</p>
+    <p>The Web of Things (WoT) Profiles 2.0 specification will differ from the
+      <a href="https://www.w3.org/TR/wot-profile/">Web of Things (WoT) Profiles 1.0</a> [[wot-profile]] specification in
+      that it will define a registry of Profile documents rather than a fixed set of pre-defined Profiles, and those
+      Profile documents will constrain a fixed set of extension points rather than containing an open-ended set of
+      assertions. The Web of Things (WoT) Profiles 2.0 specification will also be designed to work with the 2.x family
+      of WoT specifications (such as <a href="https://www.w3.org/TR/wot-thing-description-2.0/">Web of Things (WoT)
+        Thing Description 2.0</a> [[wot-thing-description-2.0]] and its new
+      <a href="https://www.w3.org/TR/wot-binding-registry/">Binding Registry</a> [[wot-binding-registry]]), as opposed
+      to the 1.x family of WoT specifications (including <a href="https://www.w3.org/TR/wot-thing-description11/">Web of
+        Things (WoT) Thing Description 1.1</a> [[wot-thing-description11]]).
+    </p>
   </section>
 
   <section id="use-cases">
@@ -165,7 +177,7 @@
           document.</li>
         <li>Profiles shall not include any assertions which would cause a Thing Description of a conformant Web Thing
           to be non-conformant with the Thing Description 2.0 specification.</li>
-        <li>Profiles registered in the Profile Registry should avoid including assertions which conflict with 
+        <li>Profiles registered in the Profile Registry should avoid including assertions which conflict with
           assertions in other Profiles in the Profile Registry, so that Things may conform to multiple Profiles.</li>
         <li>In order to maximize cross-domain interoperability, Profiles shall not be specific to a single application
           domain.</li>
