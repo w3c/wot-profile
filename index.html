@@ -2694,7 +2694,7 @@
           "@context": "https://www.w3.org/2022/wot/td/v1.1",
           "id": "https://mywebthingserver.com/things/lamp",
           "profile": [
-            "https://www.w3.org/2022/wot/profile/http-webhook/v1",
+            "https://www.w3.org/2022/wot/profile/http-webhook/v1"
           ],
           "base": "https://mywebthingserver.com/things/lamp/",
           "title": "My Lamp",
@@ -2751,7 +2751,7 @@
                   "htv:methodName": "DELETE"
                 }
               ]
-            },
+            }
           },
           "events": {
             "overheated": {
@@ -2770,7 +2770,7 @@
                     "description": "Callback URL provided by subscriber for Webhook notifications."
                   }
                 }
-              }
+              },
               "forms": [
                 {
                   "op": "subscribeevent",
@@ -2880,7 +2880,7 @@
             Host: mythingserver.com
             Content-Type: application/json
             {
-              callbackURL: "https://myconsumer.com/listeners/d629c54e-a919-463b-8680-602a21f91fe9"
+              "callbackURL": "https://myconsumer.com/listeners/d629c54e-a919-463b-8680-602a21f91fe9"
             }
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeproperty-5">
@@ -3039,7 +3039,7 @@
             Host: mythingserver.com
             Content-Type: application/json
             {
-              callbackURL: "https://myconsumer.com/listeners/aa2d8e1f-dc6a-4fe0-a5c0-a42d9f532699"
+              "callbackURL": "https://myconsumer.com/listeners/aa2d8e1f-dc6a-4fe0-a5c0-a42d9f532699"
             }
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-observeallproperties-4">
@@ -3205,7 +3205,7 @@
             Host: mythingserver.com
             Content-Type: application/json
             {
-              callbackURL: "https://myconsumer.com/listeners/e79dd0a5-4537-4ded-a10f-bb4eb2aca28d"
+              "callbackURL": "https://myconsumer.com/listeners/e79dd0a5-4537-4ded-a10f-bb4eb2aca28d"
             }
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeevent-5">
@@ -3371,7 +3371,7 @@
             Host: mythingserver.com
             Content-Type: application/json
             {
-              callbackURL: "https://myconsumer.com/listeners/bdd2aa13-387b-4c97-9725-52294a9fa5a9"
+              "callbackURL": "https://myconsumer.com/listeners/bdd2aa13-387b-4c97-9725-52294a9fa5a9"
             }
           </pre>
           <div class="rfc2119-assertion" id="http-webhook-profile-protocol-binding-subscribeallevents-4">
